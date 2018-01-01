@@ -24,11 +24,11 @@ public struct LoggingAnalyticEngine: AnalyticEngine {
         let queueName = DispatchQueue.getLabel()
         
         loggingQueue.async {
-            var message = "ANALYTIC EVENT \(event.name)"
+            var message = "EVENT \(event.name)"
             if event.metadata.isEmpty == false {
                 let keys = event.metadata.keys.sorted()
                 let lines = keys.map { "\t\($0): \(event.metadata[$0]!)" }.joined(separator: "\n")
-                message.append(lines)
+                message.append("\n" + lines)
             }
             
             Log.log(severity: LogSeverity.debug, file: event.file, line: event.line, queueName: queueName, date: now, message: message, arguments: [])

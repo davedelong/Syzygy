@@ -49,6 +49,10 @@ public extension FileManager {
         return exists && !isFolder.boolValue
     }
     
+    public func copyItem(at path: AbsolutePath, to newPath: AbsolutePath) throws {
+        try copyItem(at: path.fileURL, to: newPath.fileURL)
+    }
+    
     @discardableResult
     public func createFile(atPath path: AbsolutePath, contents: Data? = nil, attributes: Dictionary<FileAttributeKey, Any>? = nil) -> Bool {
         #if os(macOS)

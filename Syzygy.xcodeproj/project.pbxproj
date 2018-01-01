@@ -114,6 +114,8 @@
 		55FB07461FF9D2CF0001D42E /* BasicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB07451FF9D2CF0001D42E /* BasicEvent.swift */; };
 		55FB07481FF9D2F10001D42E /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB07471FF9D2F10001D42E /* AnalyticEvent.swift */; };
 		55FB074A1FF9D32A0001D42E /* AnalyticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB07491FF9D32A0001D42E /* AnalyticEngine.swift */; };
+		55FB07601FFAC7690001D42E /* SyzygyCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB075F1FFAC7690001D42E /* SyzygyCore.swift */; };
+		55FB07621FFAC7D50001D42E /* SyzygyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB07611FFAC7D50001D42E /* SyzygyKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -230,6 +232,8 @@
 		55FB07451FF9D2CF0001D42E /* BasicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEvent.swift; sourceTree = "<group>"; };
 		55FB07471FF9D2F10001D42E /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		55FB07491FF9D32A0001D42E /* AnalyticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEngine.swift; sourceTree = "<group>"; };
+		55FB075F1FFAC7690001D42E /* SyzygyCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyCore.swift; sourceTree = "<group>"; };
+		55FB07611FFAC7D50001D42E /* SyzygyKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				55FB06511FF9B5BB0001D42E /* SyzygyCore.h */,
+				55FB075F1FFAC7690001D42E /* SyzygyCore.swift */,
 				55FB066F1FF9BBFB0001D42E /* Atomic.swift */,
 				55FB06B21FF9BC010001D42E /* Bag.swift */,
 				55FB067D1FF9BBFD0001D42E /* Bookmark.swift */,
@@ -329,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				55FB06601FF9B5D30001D42E /* SyzygyKit.h */,
+				55FB07611FFAC7D50001D42E /* SyzygyKit.swift */,
 				55FB06611FF9B5D30001D42E /* Info.plist */,
 			);
 			path = SyzygyKit;
@@ -557,6 +563,7 @@
 					};
 					55FB065D1FF9B5D30001D42E = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -612,6 +619,7 @@
 				55FB07171FF9BC070001D42E /* Bag.swift in Sources */,
 				55FB06EC1FF9BC070001D42E /* Plist+Serialization.swift in Sources */,
 				55FB06DC1FF9BC070001D42E /* JSON.swift in Sources */,
+				55FB07601FFAC7690001D42E /* SyzygyCore.swift in Sources */,
 				55FB06E51FF9BC070001D42E /* String.swift in Sources */,
 				55FB06DD1FF9BC070001D42E /* LocalizedString.swift in Sources */,
 				55FB072D1FF9BC070001D42E /* IndexPath.swift in Sources */,
@@ -711,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55FB07621FFAC7D50001D42E /* SyzygyKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,22 +774,31 @@
 		55FB06641FF9B5D30001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = SyzygyKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		55FB06651FF9B5D30001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = SyzygyKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
