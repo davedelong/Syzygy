@@ -32,7 +32,7 @@ public extension MutableProperty where T == Array<UTI> {
     public convenience init(userDefaults: UserDefaults, key: String, defaultValue: T) {
         self.init(userDefaults: userDefaults, key: key, read: { value in
             guard let array = value as? Array<String> else { return defaultValue }
-            return array.map { UTI($0) }
+            return array.map { UTI(rawValue: $0) }
         }, write: { newValue -> Any? in
             return newValue.map { $0.rawValue }
         })

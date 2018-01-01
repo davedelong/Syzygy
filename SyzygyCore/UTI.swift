@@ -8,15 +8,16 @@
 
 import Foundation
 
-#if os(iOS)
-import MobileCoreServices
+#if os(macOS)
+    import CoreServices
 #else
-import CoreServices
+    import MobileCoreServices
 #endif
 
-public final class UTI: Hashable, CustomStringConvertible, CustomDebugStringConvertible {
+public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
     
     public static func ==(lhs: UTI, rhs: UTI) -> Bool {
+        if lhs === rhs { return true }
         return UTTypeEqual(lhs.rawCFValue, rhs.rawCFValue)
     }
     
@@ -27,7 +28,7 @@ public final class UTI: Hashable, CustomStringConvertible, CustomDebugStringConv
     public static func UTIs(for tagClass: String, tag: String, conformingTo: UTI?) -> Array<UTI> {
         guard let raw = UTTypeCreateAllIdentifiersForTag(tagClass as CFString, tag as CFString, conformingTo?.rawCFValue) else { return [] }
         let rawUTIs = raw.takeRetainedValue() as? Array<String> ?? []
-        return rawUTIs.map { UTI($0) }
+        return rawUTIs.map { UTI(rawValue: $0) }
     }
     
     public static func UTIs(fromFileExtension filenameExtension: String, conformingTo: UTI? = nil) -> Array<UTI> {
@@ -92,7 +93,7 @@ public final class UTI: Hashable, CustomStringConvertible, CustomDebugStringConv
         return AbsolutePath(absolute)
     }()
     
-    public init(_ rawValue: String) {
+    public init(rawValue: String) {
         self.rawCFValue = rawValue as CFString
     }
     
@@ -198,9 +199,9 @@ public final class UTI: Hashable, CustomStringConvertible, CustomDebugStringConv
         public var conformsTo: Array<UTI> {
             switch raw[kUTTypeConformsToKey as String] {
                 case let array as Array<String>:
-                    return array.map { UTI($0) }
+                    return array.map { UTI(rawValue: $0) }
                 case let string as String:
-                    return [UTI(string)]
+                    return [UTI(rawValue: string)]
                 default:
                     return []
             }

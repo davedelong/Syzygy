@@ -18,7 +18,7 @@ public extension String {
         return ns as String
     }
     
-    mutating func removeLastCharacter() {
+    mutating func removingLastCharacter() {
         let last = endIndex
         let penultimate = self.index(before: last)
         self.removeSubrange(penultimate ..< last)

@@ -36,22 +36,22 @@ public extension UTI {
     
     public static let app = UTI(kUTTypeApplication)
     public static let appBundle = UTI(kUTTypeApplicationBundle)
-    public static let ipa = UTI("com.apple.itunes.ipa")
+    public static let ipa = UTI(rawValue: "com.apple.itunes.ipa")
     
-    public static let publicDevice = UTI("public.device")
+    public static let publicDevice = UTI(rawValue: "public.device")
     
-    public static let mac = UTI("com.apple.mac")
-    public static let macLaptop = UTI("com.apple.mac.laptop")
+    public static let mac = UTI(rawValue: "com.apple.mac")
+    public static let macLaptop = UTI(rawValue: "com.apple.mac.laptop")
     
-    public static let iOS = UTI("com.apple.ios-device")
-    public static let iPad = UTI("com.apple.ipad")
-    public static let iPhone = UTI("com.apple.iphone")
-    public static let watch = UTI("com.apple.watch")
-    public static let tv = UTI("com.apple.apple-tv")
+    public static let iOS = UTI(rawValue: "com.apple.ios-device")
+    public static let iPad = UTI(rawValue: "com.apple.ipad")
+    public static let iPhone = UTI(rawValue: "com.apple.iphone")
+    public static let watch = UTI(rawValue: "com.apple.watch")
+    public static let tv = UTI(rawValue: "com.apple.apple-tv")
     
-    public static let xcodeproj = UTI("com.apple.xcode.project")
-    public static let xcworkspace = UTI("com.apple.dt.document.workspace")
-    public static let playground = UTI("com.apple.dt.playground")
+    public static let xcodeproj = UTI(rawValue: "com.apple.xcode.project")
+    public static let xcworkspace = UTI(rawValue: "com.apple.dt.document.workspace")
+    public static let playground = UTI(rawValue: "com.apple.dt.playground")
     
     public convenience init?(deviceType: String, color: String? = nil, enclosureColor: String? = nil) {
         _ = UTI.registeredDeviceTypes
@@ -73,7 +73,7 @@ public extension UTI {
         let matches = [UTIChecker(deviceType, enclosureColor), UTIChecker(deviceType, color), UTIChecker(deviceType, nil)].flatMap { $0 }
         
         guard let match = matches.first else { return nil }
-        self.init(match.rawValue)
+        self.init(rawValue: match.rawValue)
     }
 
     

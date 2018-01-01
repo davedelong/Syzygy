@@ -16,7 +16,7 @@ public protocol Newtype {
 }
 
 extension Newtype where Self: Equatable, RawValue: Equatable {
-    public static func == (left: Self, right: Self) -> Bool {
+    public static func ==(left: Self, right: Self) -> Bool {
         return left.rawValue == right.rawValue
     }
 }
