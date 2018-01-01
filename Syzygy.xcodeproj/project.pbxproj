@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06511FF9B5BB0001D42E /* SyzygyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55FB06621FF9B5D30001D42E /* SyzygyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06601FF9B5D30001D42E /* SyzygyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55FB06671FF9B6100001D42E /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB06511FF9B5BB0001D42E /* SyzygyCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyCore.h; sourceTree = "<group>"; };
 		55FB06521FF9B5BB0001D42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FB06601FF9B5D30001D42E /* SyzygyKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyKit.h; sourceTree = "<group>"; };
+		55FB06611FF9B5D30001D42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +29,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55FB065A1FF9B5D30001D42E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55FB06671FF9B6100001D42E /* SyzygyCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -31,7 +44,9 @@
 			isa = PBXGroup;
 			children = (
 				55FB06501FF9B5BB0001D42E /* SyzygyCore */,
+				55FB065F1FF9B5D30001D42E /* SyzygyKit */,
 				55FB064F1FF9B5BB0001D42E /* Products */,
+				55FB06661FF9B6100001D42E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -39,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */,
+				55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,6 +68,22 @@
 			path = SyzygyCore;
 			sourceTree = "<group>";
 		};
+		55FB065F1FF9B5D30001D42E /* SyzygyKit */ = {
+			isa = PBXGroup;
+			children = (
+				55FB06601FF9B5D30001D42E /* SyzygyKit.h */,
+				55FB06611FF9B5D30001D42E /* Info.plist */,
+			);
+			path = SyzygyKit;
+			sourceTree = "<group>";
+		};
+		55FB06661FF9B6100001D42E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -60,6 +92,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55FB065B1FF9B5D30001D42E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55FB06621FF9B5D30001D42E /* SyzygyKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +124,24 @@
 			productReference = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		55FB065D1FF9B5D30001D42E /* SyzygyKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55FB06631FF9B5D30001D42E /* Build configuration list for PBXNativeTarget "SyzygyKit" */;
+			buildPhases = (
+				55FB06591FF9B5D30001D42E /* Sources */,
+				55FB065A1FF9B5D30001D42E /* Frameworks */,
+				55FB065B1FF9B5D30001D42E /* Headers */,
+				55FB065C1FF9B5D30001D42E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SyzygyKit;
+			productName = SyzygyKit;
+			productReference = 55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -94,6 +152,10 @@
 				ORGANIZATIONNAME = Syzygy;
 				TargetAttributes = {
 					55FB064D1FF9B5BB0001D42E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					55FB065D1FF9B5D30001D42E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -112,6 +174,7 @@
 			projectRoot = "";
 			targets = (
 				55FB064D1FF9B5BB0001D42E /* SyzygyCore */,
+				55FB065D1FF9B5D30001D42E /* SyzygyKit */,
 			);
 		};
 /* End PBXProject section */
@@ -124,10 +187,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55FB065C1FF9B5D30001D42E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		55FB06491FF9B5BB0001D42E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55FB06591FF9B5D30001D42E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,6 +369,48 @@
 			};
 			name = Release;
 		};
+		55FB06641FF9B5D30001D42E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 654LUM7646;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SyzygyKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		55FB06651FF9B5D30001D42E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 654LUM7646;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SyzygyKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -309,6 +428,15 @@
 			buildConfigurations = (
 				55FB06571FF9B5BB0001D42E /* Debug */,
 				55FB06581FF9B5BB0001D42E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55FB06631FF9B5D30001D42E /* Build configuration list for PBXNativeTarget "SyzygyKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55FB06641FF9B5D30001D42E /* Debug */,
+				55FB06651FF9B5D30001D42E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
