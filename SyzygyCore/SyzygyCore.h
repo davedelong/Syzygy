@@ -6,7 +6,9 @@
 //  Copyright © 2017 Syzygy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <SyzygyCore/Objective-C.h>
 
 //! Project version number for SyzygyCore.
 FOUNDATION_EXPORT double SyzygyCoreVersionNumber;

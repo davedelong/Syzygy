@@ -1,0 +1,17 @@
+//
+//  Syzygy-Release.xcconfig
+//  Syzygy
+//
+//  Created by Dave DeLong on 12/31/17.
+//  Copyright © 2017 Syzygy. All rights reserved.
+//
+
+#include "Syzygy-Base.xcconfig"
+
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+
+VALIDATE_PRODUCT = YES
+ENABLE_NS_ASSERTIONS = NO
+MTL_ENABLE_DEBUG_INFO = NO
+SWIFT_OPTIMIZATION_LEVEL = -Owholemodule
+
