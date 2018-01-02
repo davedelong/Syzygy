@@ -55,21 +55,11 @@ public extension FileManager {
     
     @discardableResult
     public func createFile(atPath path: AbsolutePath, contents: Data? = nil, attributes: Dictionary<FileAttributeKey, Any>? = nil) -> Bool {
-        #if os(macOS)
-            return createFile(atPath: path.fileSystemPath, contents: contents, attributes: attributes)
-        #else
-            let attrs = attributes?.map { ($0.key.rawValue, $0.value) }
-            return createFile(atPath: path.fileSystemPath, contents: contents, attributes: attrs)
-        #endif
+        return createFile(atPath: path.fileSystemPath, contents: contents, attributes: attributes)
     }
     
     public func createDirectory(at path: AbsolutePath, withIntermediateDirectories: Bool = true, attributes: Dictionary<FileAttributeKey, Any>? = nil) throws {
-        #if os(macOS)
-            try createDirectory(at: path.fileURL, withIntermediateDirectories: withIntermediateDirectories, attributes: attributes)
-        #else
-            let attrs = attributes?.map { ($0.key.rawValue, $0.value) }
-            try createDirectory(at: path.fileURL, withIntermediateDirectories: withIntermediateDirectories, attributes: attrs)
-        #endif
+        try createDirectory(at: path.fileURL, withIntermediateDirectories: withIntermediateDirectories, attributes: attributes)
     }
     
     public func relativeContentsOfDirectory(at path: RelativePath, relativeTo: AbsolutePath) -> Array<RelativePath> {

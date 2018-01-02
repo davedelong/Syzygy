@@ -23,7 +23,7 @@ public class Timer {
         let leeway = intervalInNSec / 10
         
         let repeating: DispatchTimeInterval = repeats ? .nanoseconds(intervalInNSec) : .never
-        source.scheduleRepeating(deadline: startTime, interval: repeating, leeway: .nanoseconds(leeway))
+        source.schedule(deadline: startTime, repeating: repeating, leeway: .nanoseconds(leeway))
         source.setEventHandler(handler: { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.handler(strongSelf)

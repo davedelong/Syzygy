@@ -19,7 +19,7 @@ public extension Property {
         let m = MutableProperty(first)
         
         let timer = DispatchSource.makeTimerSource()
-        timer.scheduleRepeating(deadline: .now() + interval, interval: interval)
+        timer.schedule(deadline: .now() + interval, repeating: interval)
         
         let stopTimer = ActionDisposable {
             timer.cancel()

@@ -31,7 +31,7 @@ public struct LoggingAnalyticEngine: AnalyticEngine {
                 message.append("\n" + lines)
             }
             
-            Log.log(severity: LogSeverity.debug, file: event.file, line: event.line, queueName: queueName, date: now, message: message, arguments: [])
+            Log.log(severity: LogSeverity.debug, file: event.file, line: event.line, queueName: queueName, date: now, message: "%@", arguments: [message])
         }
     }
     

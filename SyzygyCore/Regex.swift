@@ -60,7 +60,7 @@ public struct RegexMatch {
         
         var matches = Array<String?>()
         for i in 0 ..< result.numberOfRanges {
-            let r = result.rangeAt(i)
+            let r = result.range(at: i)
             if r.location == NSNotFound {
                 matches.append(nil)
             } else {
@@ -84,4 +84,26 @@ public func ~= (left: Regex, right: String) -> Bool {
 
 public func ~= (left: Regex, right: String) -> RegexMatch? {
     return left.match(right)
+}
+
+public extension String {
+    
+    public func matches(regex: String) -> Bool {
+        let r = Regex(pattern: regex)
+        return r.matches(self)
+    }
+    
+    public func matches(regex: Regex) -> Bool {
+        return regex.matches(self)
+    }
+    
+    public func match(regex: String) -> RegexMatch? {
+        let r = Regex(pattern: regex)
+        return r.match(self)
+    }
+    
+    public func match(regex: Regex) -> RegexMatch? {
+        return regex.match(self)
+    }
+    
 }
