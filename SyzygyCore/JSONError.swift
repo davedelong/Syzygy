@@ -45,30 +45,3 @@ public struct JSONError: Error {
     }
     
 }
-
-public enum JSONError_old: Error {
-    case unknownJSON
-    case invalidReceiver(String)
-    case missingValue(String)
-    case invalidValue(String)
-    
-    public init(invalid: JSON, key: String) {
-        self = .invalidReceiver("Invalid receiver \(invalid) attempting to access key \(key)")
-    }
-    
-    public init(_ path: String? = nil, missing: String) {
-        var m = "Missing value for key "
-        if let path = path {
-            m += path + "[" + missing + "]"
-        } else {
-            m += missing
-        }
-        self = .missingValue(m)
-    }
-    
-    public init(path: String, value: JSON) {
-        let m = "Invalid value for key \(path): \(value)"
-        self = .invalidValue(m)
-    }
-    
-}

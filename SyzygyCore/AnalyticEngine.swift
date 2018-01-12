@@ -20,7 +20,6 @@ public struct LoggingAnalyticEngine: AnalyticEngine {
     
     public func record(event: AnalyticEvent) {
         
-        let now = Date()
         let queueName = DispatchQueue.getLabel()
         
         loggingQueue.async {
@@ -31,7 +30,7 @@ public struct LoggingAnalyticEngine: AnalyticEngine {
                 message.append("\n" + lines)
             }
             
-            Log.log(severity: LogSeverity.debug, file: event.file, line: event.line, queueName: queueName, date: now, message: "%@", arguments: [message])
+            Log.log(severity: LogSeverity.debug, file: event.file, line: event.line, queueName: queueName, date: event.time, message: "%@", arguments: [message])
         }
     }
     

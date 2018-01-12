@@ -14,6 +14,7 @@ public protocol AnalyticEvent {
     
     var file: StaticString { get }
     var line: UInt { get }
+    var time: Date { get }
 }
 
 public extension AnalyticEvent {

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <SyzygyCore/Objective-C.h>
+#import <SyzygyCore/Entitlements.h>
 
 //! Project version number for SyzygyCore.
 FOUNDATION_EXPORT double SyzygyCoreVersionNumber;

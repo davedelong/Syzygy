@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
+@_exported import Foundation
 
-public let SyzygyCore = Bundle(for: ObjectiveC.self)
+public let SyzygyCore = Bundle(for: SyzygyCoreMarker.self)
+
+internal class SyzygyCoreMarker { }

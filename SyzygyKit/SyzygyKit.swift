@@ -6,7 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
+@_exported import Foundation
+@_exported import SyzygyCore
 
 public let SyzygyKit = Bundle(for: SyzygyKitMarker.self)
 

@@ -39,6 +39,26 @@ public extension Property {
         return m
     }
     
+    public func withPrevious(_ initial: T) -> Property<(T, T)> {
+        let m = MutableProperty((initial, value))
+        observeNext { new in
+            m.potentiallyModifyValue {
+                return ($0.1, new)
+            }
+        }
+        return m
+    }
+    
+    public func withPrevious() -> Property<(T?, T)> {
+        let m = MutableProperty((Optional<T>.none, value))
+        observeNext { new in
+            m.potentiallyModifyValue {
+                return ($0.1, new)
+            }
+        }
+        return m
+    }
+    
 }
 
 private final class ZipState<T, U> {

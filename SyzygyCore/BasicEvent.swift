@@ -14,11 +14,13 @@ public struct BasicEvent: AnalyticEvent {
     
     public let file: StaticString
     public let line: UInt
+    public let time: Date
     
-    public init(name: String, metadata: Dictionary<String, String> = [:], file: StaticString = #file, line: UInt = #line) {
+    public init(name: String, metadata: Dictionary<String, String> = [:], file: StaticString = #file, line: UInt = #line, time: Date = Date()) {
         self.name = name
         self.metadata = metadata
         self.file = file
         self.line = line
+        self.time = time
     }
 }

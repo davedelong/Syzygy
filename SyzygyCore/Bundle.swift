@@ -10,12 +10,26 @@ import Foundation
 
 public extension Bundle {
     
+    convenience init?(path: AbsolutePath) {
+        self.init(url: path.fileURL)
+    }
+    
+    var identifier: Identifier<Bundle>? {
+        guard let id = bundleIdentifier else { return nil }
+        return Identifier(rawValue: id)
+    }
+    
     var path: AbsolutePath { return AbsolutePath(bundleURL) }
     
     var infoPlist: Plist {
         let infoPlistPath = path/"Contents"/"Info.plist"
-//        guard let infoPlistPath = absolutePath(forResource:"Info", withExtension: "plist") else { return .unknown }
         return (try? Plist(contentsOf: infoPlistPath)) ?? .unknown
+    }
+    
+    var entitlementsPlist: Plist {
+        guard self === Bundle.main else { return .unknown }
+        guard let data = EntitlementsData() else { return .unknown }
+        return (try? Plist(data: data)) ?? .unknown
     }
     
     var bundleVersion: String {
@@ -32,12 +46,29 @@ public extension Bundle {
         "SyzygyCore"
     }
     
-    #if os(macOS)
-    func pathForNestedBundle(with identifier: String) -> AbsolutePath? {
-        let bundlePath = AbsolutePath(bundleURL)
-        let matches = LSDatabase.shared.paths(for: identifier, containedWithin: bundlePath)
-        return matches.first
+    func nestedBundle(with identifier: Identifier<Bundle>) -> Bundle? {
+        #if os(macOS)
+            let bundlePath = AbsolutePath(bundleURL)
+            let matches = LSDatabase.shared.paths(for: identifier.rawValue, containedWithin: bundlePath)
+            if let path = matches.first, let bundle = Bundle(path: path) {
+                return bundle
+            }
+        #endif
+        
+        let enumerator = FileManager.default.enumerator(at: bundleURL, includingPropertiesForKeys: [.isDirectoryKey])
+        guard let iterator = enumerator else { return nil }
+        
+        while let next = iterator.nextObject() as? URL {
+            let resourceValues = try? next.resourceValues(forKeys: [.isDirectoryKey])
+            let isDirectory = resourceValues?.isDirectory ?? false
+            guard isDirectory else { continue }
+            
+            guard let bundle = Bundle(url: next) else { continue }
+            guard bundle.identifier == identifier else { continue }
+            return bundle
+        }
+        
+        return nil
     }
-    #endif
     
 }

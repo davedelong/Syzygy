@@ -10,6 +10,31 @@ import Foundation
 
 public extension Collection {
     
+    func every(_ predicate: (Element) -> Bool) -> Bool {
+        return all(predicate)
+    }
+    
+    func all(_ predicate: (Element) -> Bool) -> Bool {
+        for item in self {
+            if predicate(item) == false { return false }
+        }
+        return true
+    }
+    
+    func any(_ predicate: (Element) -> Bool) -> Bool {
+        for item in self {
+            if predicate(item) == true { return true }
+        }
+        return false
+    }
+    
+    func none(_ predicate: (Element) -> Bool) -> Bool {
+        for item in self {
+            if predicate(item) == true { return false }
+        }
+        return true
+    }
+    
     func keyedBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T, Element> {
         var d = Dictionary<T, Element>()
         for item in self {

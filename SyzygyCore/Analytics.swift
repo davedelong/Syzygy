@@ -29,8 +29,8 @@ public final class Analytics {
     }
     
     public static func record(event: AnalyticEvent) { engine.record(event: event) }
-    public static func record(name: String, metadata: Dictionary<String, String> = [:], file: StaticString = #file, line: UInt = #line) {
-        let event = BasicEvent(name: name, metadata: metadata, file: file, line: line)
+    public static func record(name: String, metadata: Dictionary<String, String> = [:], file: StaticString = #file, line: UInt = #line, time: Date = Date()) {
+        let event = BasicEvent(name: name, metadata: metadata, file: file, line: line, time: time)
         engine.record(event: event)
     }
     

@@ -7,23 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
 public class Sandbox {
-    
-    private static func group(identifier: String) -> Sandbox {
-        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: identifier) !! "Cannot get container for \(identifier)"
-        let docs = container.appendingPathComponent("Documents", isDirectory: true)
-        let cache = container.appendingPathComponent("Caches", isDirectory: true)
-        let supp = container.appendingPathComponent("Application Support", isDirectory: true)
-        
-        try? FileManager.default.createDirectory(at: docs, withIntermediateDirectories: true, attributes: nil)
-        try? FileManager.default.createDirectory(at: cache, withIntermediateDirectories: true, attributes: nil)
-        try? FileManager.default.createDirectory(at: supp, withIntermediateDirectories: true, attributes: nil)
-        
-        let defaults = UserDefaults(suiteName: identifier) !! "Cannot get defaults for \(identifier)"
-        
-        return Sandbox(documents: AbsolutePath(docs), caches: AbsolutePath(cache), support: AbsolutePath(supp), defaults: defaults)
-    }
     
     public static let currentProcess: Sandbox = {
         let docs = try! FileManager.default.path(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -32,8 +18,6 @@ public class Sandbox {
         return Sandbox(documents: docs, caches: cache, support: support, defaults: UserDefaults.standard)
     }()
     
-    public static let sharedGroup = group(identifier: "group.pass-archive")
-    
     public let documents: AbsolutePath
     public let caches: AbsolutePath
     public let support: AbsolutePath
@@ -41,7 +25,32 @@ public class Sandbox {
     
     public let defaults: UserDefaults
     
+    public convenience init?(groupIdentifier: String) {
+        let fm = FileManager.default
+        
+        guard let container = fm.containerURL(forSecurityApplicationGroupIdentifier: groupIdentifier) else { return nil }
+        let docs = container.appendingPathComponent("Documents", isDirectory: true)
+        let cache = container.appendingPathComponent("Caches", isDirectory: true)
+        let supp = container.appendingPathComponent("Application Support", isDirectory: true)
+        
+        try? fm.createDirectory(at: docs, withIntermediateDirectories: true, attributes: nil)
+        try? fm.createDirectory(at: cache, withIntermediateDirectories: true, attributes: nil)
+        try? fm.createDirectory(at: supp, withIntermediateDirectories: true, attributes: nil)
+        
+        let defaults = UserDefaults(suiteName: groupIdentifier) !! "Cannot get defaults for \(groupIdentifier)"
+        
+        self.init(documents: AbsolutePath(docs),
+                  caches: AbsolutePath(cache),
+                  support: AbsolutePath(supp),
+                  defaults: defaults)
+    }
+    
     public init(documents: AbsolutePath, caches: AbsolutePath, support: AbsolutePath, defaults: UserDefaults) {
+        
+        var info = Dl_info()
+        var t = type(of: UIApplication.shared.delegate!)
+        dladdr(&t, &info)
+        
         self.documents = documents
         self.caches = caches
         self.support = support

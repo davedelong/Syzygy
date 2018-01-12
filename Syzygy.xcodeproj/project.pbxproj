@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */; };
+		5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */; };
+		551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */ = {isa = PBXBuildFile; fileRef = 551D47C02006F9E100AF7CF8 /* Entitlements.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		551D47C32006F9E100AF7CF8 /* Entitlements.m in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C12006F9E100AF7CF8 /* Entitlements.m */; };
+		551D47C72007309B00AF7CF8 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C62007309B00AF7CF8 /* Entitlements.swift */; };
+		551D47CF2007FC4F00AF7CF8 /* Plist+Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47CE2007FC4F00AF7CF8 /* Plist+Convertible.swift */; };
+		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
+		55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */; };
+		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
 		55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06511FF9B5BB0001D42E /* SyzygyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55FB06621FF9B5D30001D42E /* SyzygyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06601FF9B5D30001D42E /* SyzygyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55FB06671FF9B6100001D42E /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
@@ -119,6 +128,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Diffs.swift"; sourceTree = "<group>"; };
+		5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
+		551D47C02006F9E100AF7CF8 /* Entitlements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entitlements.h; sourceTree = "<group>"; };
+		551D47C12006F9E100AF7CF8 /* Entitlements.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Entitlements.m; sourceTree = "<group>"; };
+		551D47C62007309B00AF7CF8 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
+		551D47CE2007FC4F00AF7CF8 /* Plist+Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plist+Convertible.swift"; sourceTree = "<group>"; };
+		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
+		55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		55F0AFB11FFD9EAF003DCBB6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB06511FF9B5BB0001D42E /* SyzygyCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyCore.h; sourceTree = "<group>"; };
 		55FB06521FF9B5BB0001D42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -255,6 +273,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		551244991FFC05FF003DECFE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */,
+				5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		552A40A02005273E009B8C6B /* Standard Library-ish Things */ = {
+			isa = PBXGroup;
+			children = (
+				55FB06831FF9BBFE0001D42E /* Newtype.swift */,
+				55FB066F1FF9BBFB0001D42E /* Atomic.swift */,
+				55FB066D1FF9BBFA0001D42E /* Identifier.swift */,
+				55FB06C21FF9BC040001D42E /* Markers.swift */,
+				55FB066C1FF9BBFA0001D42E /* Boolean.swift */,
+				55FB06811FF9BBFD0001D42E /* Optional.swift */,
+			);
+			name = "Standard Library-ish Things";
+			sourceTree = "<group>";
+		};
+		555C1904200536EB0017F253 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				55FB06B21FF9BC010001D42E /* Bag.swift */,
+				555C1905200536F80017F253 /* CountedSet.swift */,
+			);
+			name = "Data Structures";
+			sourceTree = "<group>";
+		};
 		55FB06441FF9B5BB0001D42E = {
 			isa = PBXGroup;
 			children = (
@@ -282,11 +331,10 @@
 			children = (
 				55FB06511FF9B5BB0001D42E /* SyzygyCore.h */,
 				55FB075F1FFAC7690001D42E /* SyzygyCore.swift */,
-				55FB066F1FF9BBFB0001D42E /* Atomic.swift */,
-				55FB06B21FF9BC010001D42E /* Bag.swift */,
+				552A40A02005273E009B8C6B /* Standard Library-ish Things */,
+				555C1904200536EB0017F253 /* Data Structures */,
 				55FB067D1FF9BBFD0001D42E /* Bookmark.swift */,
 				55FB06731FF9BBFB0001D42E /* BookmarkMetadata.swift */,
-				55FB066C1FF9BBFA0001D42E /* Boolean.swift */,
 				55FB06821FF9BBFD0001D42E /* Bundle.swift */,
 				55FB067E1FF9BBFD0001D42E /* Collection.swift */,
 				55FB06C91FF9BC060001D42E /* Comparable.swift */,
@@ -295,17 +343,14 @@
 				55FB06701FF9BBFB0001D42E /* Dispatch.swift */,
 				55FB06B11FF9BC010001D42E /* Disposable.swift */,
 				55FB06AA1FF9BC000001D42E /* Either.swift */,
+				551D47C62007309B00AF7CF8 /* Entitlements.swift */,
 				55FB066E1FF9BBFA0001D42E /* Exceptions.swift */,
 				55FB06CD1FF9BC060001D42E /* FileMonitor.swift */,
 				55FB06BD1FF9BC030001D42E /* Geometry.swift */,
-				55FB066D1FF9BBFA0001D42E /* Identifier.swift */,
 				55FB06C81FF9BC060001D42E /* IndexPath.swift */,
 				55FB06771FF9BBFC0001D42E /* LocalizedString.swift */,
 				55FB06BB1FF9BC030001D42E /* Log.swift */,
-				55FB06C21FF9BC040001D42E /* Markers.swift */,
-				55FB06831FF9BBFE0001D42E /* Newtype.swift */,
 				55FB06A91FF9BC000001D42E /* NSObject.swift */,
-				55FB06811FF9BBFD0001D42E /* Optional.swift */,
 				55FB06CE1FF9BC070001D42E /* Reachability.swift */,
 				55FB06CB1FF9BC060001D42E /* Regex.swift */,
 				55FB06AC1FF9BC000001D42E /* Result.swift */,
@@ -335,6 +380,9 @@
 			children = (
 				55FB06601FF9B5D30001D42E /* SyzygyKit.h */,
 				55FB07611FFAC7D50001D42E /* SyzygyKit.swift */,
+				55F0AFB11FFD9EAF003DCBB6 /* Color.swift */,
+				55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */,
+				551244991FFC05FF003DECFE /* iOS */,
 				55FB06611FF9B5D30001D42E /* Info.plist */,
 			);
 			path = SyzygyKit;
@@ -420,6 +468,7 @@
 			children = (
 				55FB06781FF9BBFC0001D42E /* Plist.swift */,
 				55FB06791FF9BBFC0001D42E /* Plist+Convenience.swift */,
+				551D47CE2007FC4F00AF7CF8 /* Plist+Convertible.swift */,
 				55FB067A1FF9BBFC0001D42E /* Plist+Equatable.swift */,
 				55FB06711FF9BBFB0001D42E /* Plist+Initializers.swift */,
 				55FB067B1FF9BBFC0001D42E /* Plist+Literals.swift */,
@@ -473,6 +522,8 @@
 			children = (
 				55FB06841FF9BBFE0001D42E /* Objective-C.h */,
 				55FB06C31FF9BC050001D42E /* Objective-C.m */,
+				551D47C02006F9E100AF7CF8 /* Entitlements.h */,
+				551D47C12006F9E100AF7CF8 /* Entitlements.m */,
 			);
 			name = "Objective-C";
 			sourceTree = "<group>";
@@ -496,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */,
+				551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */,
 				55FB06EA1FF9BC070001D42E /* Objective-C.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,9 +702,12 @@
 				55FB06E41FF9BC070001D42E /* Collection.swift in Sources */,
 				55FB07431FF9D2740001D42E /* Analytics.swift in Sources */,
 				55FB07241FF9BC070001D42E /* Dictionary.swift in Sources */,
+				551D47C72007309B00AF7CF8 /* Entitlements.swift in Sources */,
 				55FB06E11FF9BC070001D42E /* Plist+Literals.swift in Sources */,
 				55FB06DF1FF9BC070001D42E /* Plist+Convenience.swift in Sources */,
 				55FB071A1FF9BC070001D42E /* WeakBox.swift in Sources */,
+				551D47CF2007FC4F00AF7CF8 /* Plist+Convertible.swift in Sources */,
+				551D47C32006F9E100AF7CF8 /* Entitlements.m in Sources */,
 				55FB06F31FF9BC070001D42E /* Property.swift in Sources */,
 				55FB072F1FF9BC070001D42E /* JSON+Initializers.swift in Sources */,
 				55FB07181FF9BC070001D42E /* JSON+Equatable.swift in Sources */,
@@ -666,6 +721,7 @@
 				55FB07351FF9BC070001D42E /* FileManager+Path.swift in Sources */,
 				55FB07461FF9D2CF0001D42E /* BasicEvent.swift in Sources */,
 				55FB072B1FF9BC070001D42E /* URL.swift in Sources */,
+				555C1906200536F80017F253 /* CountedSet.swift in Sources */,
 				55FB07121FF9BC070001D42E /* UTI+Defaults.swift in Sources */,
 				55FB06D31FF9BC070001D42E /* Identifier.swift in Sources */,
 				55FB06EE1FF9BC070001D42E /* KVOProperty.swift in Sources */,
@@ -719,6 +775,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */,
+				55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */,
+				5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */,
+				55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */,
 				55FB07621FFAC7D50001D42E /* SyzygyKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
