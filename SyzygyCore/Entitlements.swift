@@ -15,24 +15,6 @@ public struct Entitlements {
         case production
     }
     
-    public enum SandboxAccess {
-        case none
-        case readOnly
-        case readWrite
-        
-        fileprivate init(plist: Plist, _ base: String) {
-            let read = base + ".read-only"
-            let write = base + ".read-write"
-            if let canRead: Bool = plist.value(for: read), canRead == true {
-                self = .readOnly
-            } else if let canWrite: Bool = plist.value(for: write), canWrite == true {
-                self = .readWrite
-            } else {
-                self = .none
-            }
-        }
-    }
-    
     public static let current = Entitlements()
     
     public let raw: Plist

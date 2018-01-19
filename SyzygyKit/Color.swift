@@ -17,18 +17,12 @@ public struct Color {
     #if os(macOS)
     
     public var color: NSColor { return NSColor(cgColor: rawColor) !! "Unable to create color from \(rawColor)" }
-    
-    public init(color: NSColor) {
-        self.rawColor = color.cgColor
-    }
+    public init(color: NSColor) { self.rawColor = color.cgColor }
     
     #else
     
     public var color: UIColor { return UIColor(cgColor: rawColor) }
-    
-    public init(color: UIColor) {
-        self.rawColor = color.cgColor
-    }
+    public init(color: UIColor) { self.rawColor = color.cgColor }
     
     #endif
     

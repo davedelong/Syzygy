@@ -18,13 +18,3 @@
 #import <AppKit/AppKit.h>
 
 #endif
-
-//! Project version number for SyzygyKit.
-FOUNDATION_EXPORT double SyzygyKitVersionNumber;
-
-//! Project version string for SyzygyKit.
-FOUNDATION_EXPORT const unsigned char SyzygyKitVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <SyzygyKit/PublicHeader.h>
-
-

@@ -10,13 +10,3 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <SyzygyCore/Objective-C.h>
 #import <SyzygyCore/Entitlements.h>
-
-//! Project version number for SyzygyCore.
-FOUNDATION_EXPORT double SyzygyCoreVersionNumber;
-
-//! Project version string for SyzygyCore.
-FOUNDATION_EXPORT const unsigned char SyzygyCoreVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <SyzygyCore/PublicHeader.h>
-
-

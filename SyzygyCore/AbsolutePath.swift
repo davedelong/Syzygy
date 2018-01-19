@@ -99,25 +99,20 @@ public struct AbsolutePath: Path {
         }
     }
     
-    /*public func relative(to: AbsolutePath) -> RelativePath {
-     var components = Array<PathComponent>()
-     
-     var thisStack = components
-     var targetStack = to.components
-     
-     while thisStack.isEmpty == false || targetStack.isEmpty == false {
-     let thisItem = thisStack.first
-     let targetItem = targetStack.first
-     
-     switch (thisItem, targetItem) {
-     case (.none, .none): break
-     case (.none, .some(_)): components.append(.up)
-     case (.some(let i), .none): components.append(i)
-     }
-     
-     _ = thisStack.removeFirst()
-     _ = targetStack.removeFirst()
-     }
-     
-     }*/
+    public func relativeTo(_ start: AbsolutePath) -> RelativePath {
+        var startComponents = start.components
+        var destComponents = self.components
+        
+        while let s = startComponents.first, let d = destComponents.first, s == d {
+            startComponents.removeFirst()
+            destComponents.removeFirst()
+        }
+        
+        let ups = Array(repeating: PathComponent.up, count: startComponents.count)
+        var final = ups + destComponents
+        
+        if final.isEmpty { final = [.this] }
+        
+        return RelativePath(final, shouldReduce: false)
+    }
 }

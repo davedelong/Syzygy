@@ -40,7 +40,7 @@ public extension String {
         return String.longestCommonPrefix([self, with])
     }
     
-    func splitting(by characterSet: CharacterSet) -> Array<String> {
+    func split(by characterSet: CharacterSet) -> Array<String> {
         let scalars = self.unicodeScalars
         var final = Array<String>()
         
