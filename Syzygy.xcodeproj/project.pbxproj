@@ -33,6 +33,7 @@
 		551D481A2011707500AF7CF8 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D48192011707500AF7CF8 /* ShapeView.swift */; };
 		551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481B20117A9700AF7CF8 /* AffineTransform.swift */; };
 		551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481D20118D7A00AF7CF8 /* TargetAction.swift */; };
+		551D4820201197BD00AF7CF8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551D480720114DA300AF7CF8 /* Empty.xib */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
 		55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */; };
 		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
@@ -655,6 +656,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55FB06631FF9B5D30001D42E /* Build configuration list for PBXNativeTarget "SyzygyKit" */;
 			buildPhases = (
+				551D481F201193C700AF7CF8 /* ShellScript */,
 				55FB06591FF9B5D30001D42E /* Sources */,
 				55FB065A1FF9B5D30001D42E /* Frameworks */,
 				55FB065B1FF9B5D30001D42E /* Headers */,
@@ -720,10 +722,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551D4820201197BD00AF7CF8 /* Empty.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		551D481F201193C700AF7CF8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		55FB06491FF9B5BB0001D42E /* Sources */ = {
