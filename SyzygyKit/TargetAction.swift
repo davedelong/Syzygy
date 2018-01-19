@@ -55,7 +55,9 @@ internal class ActionTarget: NSObject {
         actionBlock(sender)
     }
     
+    #if os(macOS)
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         return menuItem.isEnabled
     }
+    #endif
 }

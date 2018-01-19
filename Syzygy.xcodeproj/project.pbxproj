@@ -22,7 +22,6 @@
 		551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47FD20114AF700AF7CF8 /* AutosizingTextField.swift */; };
 		551D480020114B5100AF7CF8 /* SyzygyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47FF20114B5100AF7CF8 /* SyzygyView.swift */; };
 		551D480220114BA600AF7CF8 /* SyzygyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480120114BA600AF7CF8 /* SyzygyViewController.swift */; };
-		551D480820114DA300AF7CF8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551D480720114DA300AF7CF8 /* Empty.xib */; };
 		551D480A20114F5600AF7CF8 /* NSBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480920114F5600AF7CF8 /* NSBox.swift */; };
 		551D480C20114F7100AF7CF8 /* NSCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480B20114F7100AF7CF8 /* NSCollectionView.swift */; };
 		551D480E20114F9500AF7CF8 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480D20114F9500AF7CF8 /* NSEvent.swift */; };
@@ -721,7 +720,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				551D480820114DA300AF7CF8 /* Empty.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

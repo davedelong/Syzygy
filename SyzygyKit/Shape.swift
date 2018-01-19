@@ -45,7 +45,11 @@ public extension Shape {
     }
     
     static func roundedRect(_ radius: CGFloat) -> Shape { return Shape { rect in
+        #if os(macOS)
             return BezierPath(roundedRect: rect, xRadius: radius, yRadius: radius)
+        #else
+            return BezierPath(roundedRect: rect, cornerRadius: radius)
+        #endif
         }
     }
     

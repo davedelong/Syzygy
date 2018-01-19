@@ -10,6 +10,8 @@ import Foundation
 
 public class ShapeView: PlatformView {
     
+    private var maybeLayer: CALayer? { return self.layer }
+    
     private lazy var shapeLayer: CAShapeLayer = {
         let l = CAShapeLayer()
         #if os(macOS)
@@ -17,7 +19,7 @@ public class ShapeView: PlatformView {
             canDrawSubviewsIntoLayer = false
         #endif
         
-        let layer = self.layer !! "ShapeView is missing its layer"
+        let layer = self.maybeLayer !! "ShapeView is missing its layer"
         l.frame = layer.bounds
         layer.addSublayer(l)
         return l
@@ -52,7 +54,7 @@ public class ShapeView: PlatformView {
     }
     
     private func updateShape() {
-        guard let layer = self.layer else { return }
+        guard let layer = self.maybeLayer else { return }
         
         guard let shape = shape else {
             shapeLayer.path = nil
