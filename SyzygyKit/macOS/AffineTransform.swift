@@ -6,10 +6,6 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
-
-#if os(macOS)
-
 public extension AffineTransform {
     
     public init(_ cg: CGAffineTransform) {
@@ -33,5 +29,3 @@ public extension AffineTransform {
     }
     
 }
-    
-#endif
