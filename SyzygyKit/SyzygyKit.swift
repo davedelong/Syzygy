@@ -9,6 +9,12 @@
 @_exported import Foundation
 @_exported import SyzygyCore
 
+#if os(macOS)
+@_exported import AppKit
+#else
+@_exported import UIKit
+#endif
+
 public let SyzygyKit = Bundle(for: SyzygyKitMarker.self)
 
 internal class SyzygyKitMarker { }

@@ -11,14 +11,38 @@ import Foundation
 #if os(macOS)
 import AppKit
 public typealias CGEdgeInsets = NSEdgeInsets
+    
+public extension CGEdgeInsets {
+    public static let zero = NSEdgeInsetsZero
+}
+    
 #else
 import UIKit
 public typealias CGEdgeInsets = UIEdgeInsets
 #endif
 
+public extension CGEdgeInsets {
+    
+    public init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
+        self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
+    }
+    
+}
+
 public extension CGRect {
     
-    public func applying(insets: CGEdgeInsets) -> CGRect {
+    public var center: CGPoint {
+        get { return CGPoint(x: midX, y: midY) }
+        set {
+            let size = self.size
+            self = CGRect(x: newValue.x - (size.width / 2.0),
+                          y: newValue.y - (size.height / 2.0),
+                          width: size.width,
+                          height: size.height)
+        }
+    }
+    
+    public func applying(_ insets: CGEdgeInsets) -> CGRect {
         var f = self
         f.origin.x += insets.left
         f.size.width -= (insets.left + insets.right)
@@ -26,6 +50,16 @@ public extension CGRect {
         f.origin.y += insets.top
         f.size.height -= (insets.top + insets.bottom)
         return f
+    }
+    
+}
+
+
+public extension CGPoint {
+    
+    public init(polarAngle: CGFloat, length: CGFloat) {
+        self.x = cos(polarAngle) * (length)
+        self.y = sin(polarAngle) * -(length)
     }
     
 }

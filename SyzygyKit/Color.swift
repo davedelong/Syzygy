@@ -12,7 +12,7 @@ public struct Color {
     
     private static let sRGBColorSpace = CGColorSpace(name: CGColorSpace.sRGB) !! "Unable to create sRGB color space"
     
-    private let rawColor: CGColor
+    public let rawColor: CGColor
     
     #if os(macOS)
     
@@ -60,3 +60,23 @@ public struct Color {
     }
     
 }
+
+#if os(macOS)
+
+public extension Color {
+    public static let black = Color(color: .black)
+    public static let darkGray = Color(color: .darkGray)
+    public static let gray = Color(color: .gray)
+    public static let lightGray = Color(color: .lightGray)
+    public static let white = Color(color: .white)
+    public static let clear = Color(color: .clear)
+    
+    public static let red = Color(color: .red)
+    public static let orange = Color(color: .orange)
+    public static let yellow = Color(color: .yellow)
+    public static let green = Color(color: .green)
+    public static let blue = Color(color: .blue)
+    public static let purple = Color(color: .purple)
+}
+    
+#endif

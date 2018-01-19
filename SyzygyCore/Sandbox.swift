@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 public class Sandbox {
     
@@ -46,11 +45,6 @@ public class Sandbox {
     }
     
     public init(documents: AbsolutePath, caches: AbsolutePath, support: AbsolutePath, defaults: UserDefaults) {
-        
-        var info = Dl_info()
-        var t = type(of: UIApplication.shared.delegate!)
-        dladdr(&t, &info)
-        
         self.documents = documents
         self.caches = caches
         self.support = support
