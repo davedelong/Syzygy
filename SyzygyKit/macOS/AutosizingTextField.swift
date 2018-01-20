@@ -6,10 +6,6 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
-
-#if os(macOS)
-
 public class AutosizingTextField: NSTextField {
     private var isEditing = false
     
@@ -38,5 +34,3 @@ public class AutosizingTextField: NSTextField {
         return cell?.cellSize ?? .zero
     }
 }
-    
-#endif

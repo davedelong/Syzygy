@@ -21,6 +21,7 @@ public class Sandbox {
     public let caches: AbsolutePath
     public let support: AbsolutePath
     public let temporary: AbsolutePath
+    public let logs: AbsolutePath
     
     public let defaults: UserDefaults
     
@@ -44,11 +45,14 @@ public class Sandbox {
                   defaults: defaults)
     }
     
-    public init(documents: AbsolutePath, caches: AbsolutePath, support: AbsolutePath, defaults: UserDefaults) {
+    public init(documents: AbsolutePath, caches: AbsolutePath, support: AbsolutePath, logs: AbsolutePath? = nil, defaults: UserDefaults) {
         self.documents = documents
         self.caches = caches
         self.support = support
         self.defaults = defaults
+        
+        self.logs = logs ?? support.appending(component: "Logs")
+        try? FileManager.default.createDirectory(at: self.logs)
         
         self.temporary = AbsolutePath(fileSystemPath: NSTemporaryDirectory())
     }

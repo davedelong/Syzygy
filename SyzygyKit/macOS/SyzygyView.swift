@@ -6,10 +6,6 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
-
-#if os(macOS)
-
 open class SyzygyView: NSView {
     
     public override init(frame frameRect: NSRect) {
@@ -60,5 +56,3 @@ open class SyzygyView: NSView {
     }
     
 }
-
-#endif

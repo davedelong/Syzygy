@@ -9,7 +9,7 @@
 import Foundation
 import os.log
 
-public var Log: LogType = DefaultLog.shared
+public var Log: LoggingService = DefaultLog.shared
 
 public enum LogSeverity: String {
     case `default`
@@ -19,14 +19,14 @@ public enum LogSeverity: String {
     case fault
 }
 
-public protocol LogType {
+public protocol LoggingService {
     
     func log(severity: LogSeverity, file: StaticString, line: UInt, queueName: String, date: Date, message: String, arguments: Array<CVarArg>)
     func retrieveLogPath(_ completion: @escaping (AbsolutePath) -> Void)
     
 }
 
-public extension LogType {
+public extension LoggingService {
     
     func message(file: StaticString = #file, line: UInt = #line, _ message: String, _ args: CVarArg...) {
         log(severity: .default, file: file, line: line, queueName: DispatchQueue.getLabel(), date: Date(), message: message, arguments: args)
@@ -50,7 +50,7 @@ public extension LogType {
     
 }
 
-public final class DefaultLog: LogType {
+public final class DefaultLog: LoggingService {
     public static let shared = DefaultLog()
     
     private let q = DispatchQueue(specificLabel: "Log")
@@ -63,7 +63,7 @@ public final class DefaultLog: LogType {
         if let location = location {
             logFile = location
         } else {
-            let folder = Sandbox.currentProcess.support
+            let folder = Sandbox.currentProcess.logs
             let name = "\(Bundle.main.name).log"
             logFile = folder.appending(component: name)
         }

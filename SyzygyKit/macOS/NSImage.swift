@@ -5,10 +5,6 @@
 //  Created by Dave DeLong on 1/18/18.
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
-
-import Foundation
-
-#if os(macOS)
     
 public extension NSImage {
     
@@ -20,5 +16,3 @@ public extension NSImage {
     }
         
 }
-
-#endif

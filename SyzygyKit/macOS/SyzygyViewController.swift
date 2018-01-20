@@ -6,10 +6,6 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
-
-#if os(macOS)
-
 open class SyzygyViewController: NSViewController {
     
     // Selection
@@ -217,5 +213,3 @@ open class SyzygyViewController: NSViewController {
     open func viewDidMoveToWindow(_ window: NSWindow?) { }
     
 }
-
-#endif

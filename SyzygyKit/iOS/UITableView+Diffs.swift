@@ -6,10 +6,6 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
-
-#if os(iOS)
-
 public extension UITableView {
     
     public func performDiffs<T>(_ diffs: Array<Diff<T>>) {
@@ -38,5 +34,3 @@ public extension UITableView {
     }
     
 }
-
-#endif

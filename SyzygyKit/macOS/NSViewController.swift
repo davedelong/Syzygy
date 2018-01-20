@@ -6,10 +6,6 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
-
-#if os(macOS)
-
 public extension NSViewController {
     
     public var viewIfLoaded: NSView? {
@@ -80,5 +76,3 @@ public extension NSViewController {
     }
     
 }
-
-#endif

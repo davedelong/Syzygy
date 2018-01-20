@@ -6,10 +6,6 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
-
-#if os(macOS)
-
 public extension NSStackView {
     
     private var gravitys: Array<NSStackView.Gravity> {
@@ -87,5 +83,3 @@ public extension NSStackView {
     }
     
 }
-
-#endif

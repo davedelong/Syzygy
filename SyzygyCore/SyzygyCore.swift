@@ -8,6 +8,12 @@
 
 @_exported import Foundation
 
+#if os(macOS)
+@_exported import CoreServices
+#else
+@_exported import MobileCoreServices
+#endif
+
 public let SyzygyCore = Bundle(for: SyzygyCoreMarker.self)
 
 internal class SyzygyCoreMarker { }

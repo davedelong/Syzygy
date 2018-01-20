@@ -28,9 +28,7 @@ public extension Shape {
         return BezierPath(ovalIn: square)
     }
     
-    static let oval = Shape { rect in
-        return BezierPath(ovalIn: rect)
-    }
+    static let oval = Shape { BezierPath(ovalIn: $0) }
     
     static let square = Shape { rect in
         let shortestSide = min(rect.width, rect.height)
@@ -40,9 +38,7 @@ public extension Shape {
         return BezierPath(rect: square)
     }
     
-    static let rectangle = Shape { rect in
-        return BezierPath(rect: rect)
-    }
+    static let rectangle = Shape { BezierPath(rect: $0) }
     
     static func roundedRect(_ radius: CGFloat) -> Shape { return Shape { rect in
         #if os(macOS)
@@ -53,7 +49,5 @@ public extension Shape {
         }
     }
     
-    static let star = Shape { rect in
-        return BezierPath(starShapeIn: rect)
-    }
+    static let star = Shape { BezierPath(starShapeIn: $0) }
 }

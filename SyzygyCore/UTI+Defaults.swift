@@ -8,12 +8,6 @@
 
 import Foundation
 
-#if os(macOS)
-import CoreServices
-#else
-import MobileCoreServices
-#endif
-
 public extension UTI {
     private static let registeredDeviceTypes: Bool = {
         #if os(macOS)

@@ -25,4 +25,10 @@ public extension PlatformView {
         return false
     }
     
+    public func firstCommonSuperview(with otherView: PlatformView) -> PlatformView? {
+        let mySuperviews = sequence(first: self, next: { $0.superview })
+        let theirSuperviews = Set(sequence(first: otherView, next: { $0.superview }))
+        return mySuperviews.first(where: theirSuperviews.contains)
+    }
+    
 }

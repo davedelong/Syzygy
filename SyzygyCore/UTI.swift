@@ -6,14 +6,6 @@
 //  Copyright © 2017 Dave DeLong. All rights reserved.
 //
 
-import Foundation
-
-#if os(macOS)
-    import CoreServices
-#else
-    import MobileCoreServices
-#endif
-
 public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
     
     public static func ==(lhs: UTI, rhs: UTI) -> Bool {
