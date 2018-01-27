@@ -28,6 +28,8 @@ public extension UTI {
         #endif
     }()
     
+    public static let data = UTI(kUTTypeData)
+    
     public static let app = UTI(kUTTypeApplication)
     public static let appBundle = UTI(kUTTypeApplicationBundle)
     public static let ipa = UTI(rawValue: "com.apple.itunes.ipa")

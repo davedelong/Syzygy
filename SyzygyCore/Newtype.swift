@@ -20,3 +20,9 @@ extension Newtype where Self: Equatable, RawValue: Equatable {
         return left.rawValue == right.rawValue
     }
 }
+
+extension Newtype where Self: Comparable, RawValue: Comparable {
+    public static func <(left: Self, right: Self) -> Bool {
+        return left.rawValue < right.rawValue
+    }
+}
