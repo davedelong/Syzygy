@@ -10,7 +10,8 @@ import Foundation
 
 public struct Color {
     
-    private static let sRGBColorSpace = CGColorSpace(name: CGColorSpace.sRGB) !! "Unable to create sRGB color space"
+    private static let sRGB = CGColorSpace(name: CGColorSpace.sRGB) !! "Unable to create sRGB color space"
+    private static let displayP3 = CGColorSpace(name: CGColorSpace.displayP3) !! "Unable to create dP3 color space"
     
     public let rawColor: CGColor
     
@@ -50,12 +51,10 @@ public struct Color {
         }
         let components = [red, green, blue, alpha].map(scan)
         
-        rawColor = CGColor(colorSpace: Color.sRGBColorSpace, components: components) !! "Could not create sRGBA CGColor"
+        rawColor = CGColor(colorSpace: Color.sRGB, components: components) !! "Could not create sRGBA CGColor"
     }
     
 }
-
-#if os(macOS)
 
 public extension Color {
     public static let black = Color(color: .black)
@@ -72,5 +71,3 @@ public extension Color {
     public static let blue = Color(color: .blue)
     public static let purple = Color(color: .purple)
 }
-    
-#endif
