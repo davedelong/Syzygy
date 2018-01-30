@@ -22,8 +22,6 @@ extension Optional: OptionalType {
     }
 }
 
-
-
 infix operator !!: NilCoalescingPrecedence
 
 @_transparent

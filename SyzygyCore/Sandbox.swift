@@ -10,6 +10,12 @@ import Foundation
 
 public class Sandbox {
     
+    public static let `default`: Sandbox = {
+        guard let group = Entitlements.current?.sharedGroupContainers.first else { return currentProcess }
+        guard let box = Sandbox(groupIdentifier: group) else { return currentProcess }
+        return box
+    }()
+    
     public static let currentProcess: Sandbox = {
         let docs = try! FileManager.default.path(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let cache = try! FileManager.default.path(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
