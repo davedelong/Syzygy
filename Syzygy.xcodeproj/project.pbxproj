@@ -35,6 +35,8 @@
 		551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481D20118D7A00AF7CF8 /* TargetAction.swift */; };
 		551D4820201197BD00AF7CF8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551D480720114DA300AF7CF8 /* Empty.xib */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
+		55EB0378202125E0007B5433 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB0377202125E0007B5433 /* Keychain.swift */; };
+		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
 		55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */; };
 		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
 		55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06511FF9B5BB0001D42E /* SyzygyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -177,6 +179,8 @@
 		551D481B20117A9700AF7CF8 /* AffineTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffineTransform.swift; sourceTree = "<group>"; };
 		551D481D20118D7A00AF7CF8 /* TargetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAction.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
+		55EB0377202125E0007B5433 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		55EB037920212D74007B5433 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		55F0AFB11FFD9EAF003DCBB6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -412,6 +416,7 @@
 				55FB06CD1FF9BC060001D42E /* FileMonitor.swift */,
 				55FB06BD1FF9BC030001D42E /* Geometry.swift */,
 				55FB06C81FF9BC060001D42E /* IndexPath.swift */,
+				55EB0377202125E0007B5433 /* Keychain.swift */,
 				55FB06771FF9BBFC0001D42E /* LocalizedString.swift */,
 				55FB06BB1FF9BC030001D42E /* Log.swift */,
 				55FB06A91FF9BC000001D42E /* NSObject.swift */,
@@ -423,6 +428,7 @@
 				55FB067F1FF9BBFD0001D42E /* String.swift */,
 				55FB06CF1FF9BC070001D42E /* Timer.swift */,
 				55FB06C61FF9BC050001D42E /* URL.swift */,
+				55EB037920212D74007B5433 /* UserDefaults.swift */,
 				55FB06B51FF9BC020001D42E /* WeakBox.swift */,
 				55FB07441FF9D2770001D42E /* Analytics */,
 				55FB07361FF9C8690001D42E /* Paths */,
@@ -758,6 +764,7 @@
 				55FB070F1FF9BC070001D42E /* Either.swift in Sources */,
 				55FB072C1FF9BC070001D42E /* Data+JSON.swift in Sources */,
 				55FB07171FF9BC070001D42E /* Bag.swift in Sources */,
+				55EB0378202125E0007B5433 /* Keychain.swift in Sources */,
 				55FB06EC1FF9BC070001D42E /* Plist+Serialization.swift in Sources */,
 				55FB06DC1FF9BC070001D42E /* JSON.swift in Sources */,
 				55FB07601FFAC7690001D42E /* SyzygyCore.swift in Sources */,
@@ -784,6 +791,7 @@
 				55FB07071FF9BC070001D42E /* Property+BookmarkMetadata.swift in Sources */,
 				55FB06DB1FF9BC070001D42E /* JSON+Convenience.swift in Sources */,
 				55FB06F41FF9BC070001D42E /* Property+Combine.swift in Sources */,
+				55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */,
 				55FB071D1FF9BC070001D42E /* NSMetadataQuery.swift in Sources */,
 				55FB06FB1FF9BC070001D42E /* Property+Throttle.swift in Sources */,
 				55FB071E1FF9BC070001D42E /* JSON+JSONInitializable.swift in Sources */,
