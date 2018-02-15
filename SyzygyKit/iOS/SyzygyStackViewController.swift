@@ -45,22 +45,28 @@ public class SyzygyStackViewController: UIViewController {
         set { scroller.showsVerticalScrollIndicator = newValue }
     }
     
+    private let scrollsContent: Bool
     private let disposable = CompositeDisposable()
     private let children: Property<Array<UIViewController>>
     
-    public init(children: Property<Array<UIViewController>>) {
+    public init(children: Property<Array<UIViewController>>, scrollContents: Bool = true) {
         self.children = children
+        self.scrollsContent = scrollContents
         super.init(nibName: nil, bundle: nil)
     }
     
     required public init?(coder aDecoder: NSCoder) { Die.notImplemented() }
     
     override public func loadView() {
-        view = scroller
-        scroller.addSubview(stack)
-        scroller.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[stack]|", options: [], metrics: nil, views: ["stack": stack]))
-        scroller.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[stack]|", options: [], metrics: nil, views: ["stack": stack]))
-        scroller.addConstraint(scroller.widthAnchor.constraint(equalTo: stack.widthAnchor))
+        if scrollsContent == true {
+            view = scroller
+            scroller.addSubview(stack)
+            scroller.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[stack]|", options: [], metrics: nil, views: ["stack": stack]))
+            scroller.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[stack]|", options: [], metrics: nil, views: ["stack": stack]))
+            scroller.addConstraint(scroller.widthAnchor.constraint(equalTo: stack.widthAnchor))
+        } else {
+            view = stack
+        }
         
         stack.addArrangedSubview(topSpacer)
         disposable += children.observe { [weak self] kids in

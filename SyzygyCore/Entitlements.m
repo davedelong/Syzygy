@@ -35,10 +35,12 @@ NSData *ReadEntitlementsFromTEXT(const struct mach_header *executable) {
     BOOL is64bit = executable->magic == MH_MAGIC_64 || executable->magic == MH_CIGAM_64;
     if (is64bit) {
         const struct section_64 *section = getsectbynamefromheader_64((const struct mach_header_64 *)executable, "__TEXT", "__entitlements");
+        if (section == NULL) { return nil; }
         dataOffset = section->offset;
         dataLength = section->size;
     } else {
         const struct section *section = getsectbynamefromheader(executable, "__TEXT", "__entitlements");
+        if (section == NULL) { return nil; }
         dataOffset = section->offset;
         dataLength = (uint64_t)section->size;
     }

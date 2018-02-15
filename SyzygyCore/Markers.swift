@@ -21,6 +21,11 @@ public struct Die {
     public static func notImplemented(_ why: String? = nil, file: StaticString = #file, line: UInt = #line) -> Never {
         die(reason: "Not Implemented", extra: why, file: file, line: line)
     }
+    
+    @available(*, unavailable, renamed: "notImplemented")
+    public static func unimplemented(_ why: String? = nil, file: StaticString = #file, line: UInt = #line) -> Never {
+        notImplemented(why, file: file, line: line)
+    }
 
     public static func require(_ why: String? = nil, file: StaticString = #file, line: UInt = #line) -> Never {
         die(reason: "Assertion failed", extra: why, file: file, line: line)

@@ -31,43 +31,51 @@ open class QueryController<T: Equatable> {
     }
     
     public var numberOfSections: Int {
-        performQueryIfNecessary()
+        performQueryImmediatelyIfNecessary()
         return _sectionCount
     }
     public private(set) var totalNumberOfObjects: Int = 0
     public private(set) var isPerformingBatchConfiguration: Bool = false
     
     private var _sectionCount = 0
-    private var _hasQueried = false
+    private var _needsQuery = true
+    
+    private let _queryTickle = MutableProperty(())
+    private let _coalescedTickle: Property<Void>
     private let _contents = MutableProperty<Array<Section>>([])
     public var contents: Property<Array<Section>> { return _contents }
     
-    public init() { }
+    public init() {
+        _coalescedTickle = _queryTickle.coalesce(after: 0.3)
+        _coalescedTickle.observeNext { [weak self] in
+            self?.performQueryImmediatelyIfNecessary()
+        }
+    }
+    
+    public func setNeedsPerformQuery() {
+        _needsQuery = true
+        _queryTickle.tickle()
+    }
     
     public func performBatchConfiguration(_ configure: () -> Void) {
         isPerformingBatchConfiguration = true
         configure()
+        setNeedsPerformQuery()
         isPerformingBatchConfiguration = false
-        performQuery()
     }
     
-    open func performQuery() { return }
+    open func performQuery() -> Array<Section>? { return nil }
     
-    private func performQueryIfNecessary() {
-        guard _hasQueried == false else { return }
+    private func performQueryImmediatelyIfNecessary() {
+        guard _needsQuery == true else { return }
         guard isPerformingBatchConfiguration == false else { return }
-        performQuery()
-    }
-    
-    public func transition(to newContent: Array<Section>) {
+        let queryResults = performQuery()
+        _needsQuery = false
+        guard let sections = queryResults else { return }
         
-        guard isPerformingBatchConfiguration == false else {
-            fatalError("Attempt to transition to content before finishing a batch configuration")
-        }
-        totalNumberOfObjects = newContent.sum { $0.numberOfObjects }
-        _sectionCount = newContent.count
-        _contents.value = newContent
-        _hasQueried = true
+        totalNumberOfObjects = sections.sum { $0.numberOfObjects }
+        _sectionCount = sections.count
+        _contents.value = sections
     }
     
     public func numberOfObjects(in section: Int) -> Int {
@@ -79,7 +87,7 @@ open class QueryController<T: Equatable> {
     }
     
     public func object(at indexPath: IndexPath) -> T? {
-        performQueryIfNecessary()
+        performQueryImmediatelyIfNecessary()
         guard indexPath.section >= 0 else { return nil }
         let contents = _contents.value
         guard indexPath.section < contents.count else { return nil }
@@ -91,7 +99,7 @@ open class QueryController<T: Equatable> {
     }
     
     public func indexPath(of object: T) -> IndexPath? {
-        performQueryIfNecessary()
+        performQueryImmediatelyIfNecessary()
         let contents = _contents.value
         for (sectionIndex, section) in contents.enumerated() {
             if let rowIndex = section.objects.index(of: object) {

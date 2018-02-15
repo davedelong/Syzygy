@@ -28,4 +28,10 @@ public final class MutableProperty<T>: Property<T> {
     public func modify( _ modify: (T) -> T) {
         potentiallyModifyValue(modify)
     }
+    
+
+    /// Cause the property to fire all of its observers with the current value
+    public func tickle() {
+        potentiallyModifyValue { $0 }
+    }
 }

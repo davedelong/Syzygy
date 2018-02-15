@@ -64,10 +64,16 @@ public extension CGPoint {
     
 }
 
+public extension CGFloat {
+    
+    public static let tau: CGFloat = 2 * CGFloat.pi
+    
+}
+
 public func dtor(_ degrees: CGFloat) -> CGFloat {
-    return (degrees / 180.0 * CGFloat.pi)
+    return (degrees / 360.0 * CGFloat.tau)
 }
 
 public func rtod(_ radians: CGFloat) -> CGFloat {
-    return (radians / CGFloat.pi * 180.0)
+    return (radians / CGFloat.tau * 360.0)
 }

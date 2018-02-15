@@ -10,7 +10,7 @@ import Foundation
 
 public extension UIViewController {
     
-    public func embed(_ child: UIViewController, in aView: UIView?) {
+    public func embedViewController(_ child: UIViewController, in aView: UIView? = nil) {
         let container: UIView
         if let v = aView, v.isEmbeddedIn(self.view) {
             container = v
@@ -18,21 +18,30 @@ public extension UIViewController {
             container = self.view
         }
         
-        addChildViewController(child)
-        child.didMove(toParentViewController: self)
+        if child.parent != self {
+            if child.parent != nil {
+                child.viewIfLoaded?.removeFromSuperview()
+                child.willMove(toParentViewController: nil)
+                child.removeFromParentViewController()
+            }
+            
+            addChildViewController(child)
+            child.didMove(toParentViewController: self)
+        }
         
         let childView = child.view !! "Unable to load child view"
-        childView.frame = container.bounds
-        childView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        childView.translatesAutoresizingMaskIntoConstraints = true
-        
-        container.addSubview(childView)
+        container.embedSubview(childView)
     }
     
     public func transition(to child: UIViewController, completion: ((Bool) -> Void)? = nil) {
         let duration = 0.3
         
         let current = childViewControllers.last
+        guard current != child else {
+            completion?(true)
+            return
+        }
+        
         addChildViewController(child)
         
         let newView = child.view!
@@ -41,6 +50,7 @@ public extension UIViewController {
         newView.frame = view.bounds
         
         if let existing = current {
+            
             existing.willMove(toParentViewController: nil)
             
             transition(from: existing, to: child, duration: duration, options: [.transitionCrossDissolve], animations: { }, completion: { done in
