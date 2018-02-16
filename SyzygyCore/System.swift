@@ -9,6 +9,8 @@
 import Foundation
 
 #if os(macOS)
+    
+import IOKit
 
 public let System = SystemType()
 
@@ -33,6 +35,10 @@ public final class SystemType {
         return self["hw.model"] ?? "Mac??,?"
     }()
     
+    public lazy var modelUTI: UTI? = {
+        return UTI(deviceType: self.model)
+    }()
+    
     public lazy var buildVersion: String = {
         return self["kern.osversion"] ?? "0A00"
     }()
@@ -40,6 +46,13 @@ public final class SystemType {
     public lazy var releaseVersion: String = {
         let osInfo = ProcessInfo.processInfo.operatingSystemVersion
         return "\(osInfo.majorVersion).\(osInfo.minorVersion).\(osInfo.patchVersion)"
+    }()
+    
+    public lazy var serialNumber: String = {
+        let expert = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
+        let number = IORegistryEntryCreateCFProperty(expert, kIOPlatformSerialNumberKey as CFString, kCFAllocatorDefault, 0)
+        IOObjectRelease(expert)
+        return (number?.takeUnretainedValue() as? String) ?? ""
     }()
 }
 

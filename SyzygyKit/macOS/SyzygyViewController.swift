@@ -76,7 +76,7 @@ open class SyzygyViewController: NSViewController {
         super.init(nibName: nib, bundle: bundle)
     }
     
-    required public init?(coder: NSCoder) { Die.notImplemented() }
+    required public init?(coder: NSCoder) { Die.shutUpXcode() }
     
     open override func insertChildViewController(_ childViewController: NSViewController, at index: Int) {
         super.insertChildViewController(childViewController, at: index)

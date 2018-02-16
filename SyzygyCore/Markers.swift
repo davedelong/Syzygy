@@ -9,6 +9,10 @@
 import Foundation
 
 public struct Die {
+    
+    public static func shutUpXcode(function: StaticString = #function, file: StaticString = #file, line: UInt = #line) -> Never {
+        die(reason: "Xcode makes me put in \(#function)", extra: nil, file: file, line: line)
+    }
 
     public static func mustOverride(function: StaticString = #function, file: StaticString = #file, line: UInt = #line) -> Never {
         die(reason: "Must be overridden", extra: String(describing: function), file: file, line: line)
