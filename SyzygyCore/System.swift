@@ -60,6 +60,9 @@ public final class SystemType {
         return h.localizedName ?? h.name ?? modelUTI.description
     }()
     
+
+    /// Get the user-displayable product name ("MacBook Pro (15-inch, 2017)")
+    /// This hits the network. You probably shouldn't invoke this on the main thread.
     public lazy var productName: String = {
         let defaultName = modelUTI.description
         
@@ -67,8 +70,7 @@ public final class SystemType {
         guard let url = URL(string: "https://support-sp.apple.com/sp/product?cc=\(serial)") else { return defaultName }
         guard let data = try? Data(contentsOf: url) else { return defaultName }
         guard let string = String(data: data, encoding: .utf8) else { return defaultName }
-        let regex = Regex(pattern: "<configCode>(.+?)</configCode>")
-        guard let match = regex.match(string) else { return defaultName }
+        guard let match = string.match(regex: "<configCode>(.+?)</configCode>") else { return defaultName }
         return match[1] ?? defaultName
     }()
 }
