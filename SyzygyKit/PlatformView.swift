@@ -34,7 +34,11 @@ public extension PlatformView {
     public func embedSubview(_ subview: PlatformView) {
         subview.removeFromSuperview()
         subview.frame = self.bounds
-        subview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        #if os(macOS)
+            subview.autoresizingMask = [.width, .height]
+        #else
+            subview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        #endif
         subview.translatesAutoresizingMaskIntoConstraints = true
         addSubview(subview)
     }

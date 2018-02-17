@@ -41,4 +41,17 @@ public extension IndexPath {
         }
     }
     
+    #if os(macOS)
+    
+    public var row: Int {
+        get { return self.item }
+        set { self.item = newValue }
+    }
+    
+    public init(row: Int, section: Int) {
+        self.init(item: row, section: section)
+    }
+    
+    #endif
+    
 }

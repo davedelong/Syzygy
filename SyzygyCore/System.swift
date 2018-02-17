@@ -35,8 +35,8 @@ public final class SystemType {
         return self["hw.model"] ?? "Mac??,?"
     }()
     
-    public lazy var modelUTI: UTI? = {
-        return UTI(deviceType: self.model)
+    public lazy var modelUTI: UTI = {
+        return UTI(deviceType: self.model) ?? .mac
     }()
     
     public lazy var buildVersion: String = {
@@ -53,6 +53,23 @@ public final class SystemType {
         let number = IORegistryEntryCreateCFProperty(expert, kIOPlatformSerialNumberKey as CFString, kCFAllocatorDefault, 0)
         IOObjectRelease(expert)
         return (number?.takeUnretainedValue() as? String) ?? ""
+    }()
+    
+    public lazy var computerName: String = {
+        let h = Host.current()
+        return h.localizedName ?? h.name ?? modelUTI.description
+    }()
+    
+    public lazy var productName: String = {
+        let defaultName = modelUTI.description
+        
+        let serial = String(self.serialNumber.suffix(4))
+        guard let url = URL(string: "https://support-sp.apple.com/sp/product?cc=\(serial)") else { return defaultName }
+        guard let data = try? Data(contentsOf: url) else { return defaultName }
+        guard let string = String(data: data, encoding: .utf8) else { return defaultName }
+        let regex = Regex(pattern: "<configCode>(.+?)</configCode>")
+        guard let match = regex.match(string) else { return defaultName }
+        return match[1] ?? defaultName
     }()
 }
 
