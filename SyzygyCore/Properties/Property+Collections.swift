@@ -14,8 +14,8 @@ public extension Property where T: Collection {
         return map { $0.map(mapper) }
     }
     
-    public func flatMapItems<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
-        return map { $0.flatMap(mapper) }
+    public func compactMapItems<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
+        return map { $0.compactMap(mapper) }
     }
     
     public func flatMapItems<U>(_ mapper: @escaping (T.Element) -> Array<U>) -> Property<Array<U>> {

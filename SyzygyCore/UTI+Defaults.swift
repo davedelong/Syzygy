@@ -66,7 +66,7 @@ public extension UTI {
             return matches.first
         }
         
-        let matches = [UTIChecker(deviceType, enclosureColor), UTIChecker(deviceType, color), UTIChecker(deviceType, nil)].flatMap { $0 }
+        let matches = [UTIChecker(deviceType, enclosureColor), UTIChecker(deviceType, color), UTIChecker(deviceType, nil)].compactMap { $0 }
         
         guard let match = matches.first else { return nil }
         self.init(rawValue: match.rawValue)

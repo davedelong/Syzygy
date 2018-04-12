@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-#if os(macOS)
     
 import IOKit
 
@@ -74,5 +72,3 @@ public final class SystemType {
         return match[1] ?? defaultName
     }()
 }
-
-#endif

@@ -9,23 +9,11 @@
 public extension AffineTransform {
     
     public init(_ cg: CGAffineTransform) {
-        m11 = cg.a
-        m12 = cg.b
-        m21 = cg.c
-        m22 = cg.d
-        tX = cg.tx
-        tY = cg.ty
+        self.init(m11: cg.a, m12: cg.b, m21: cg.c, m22: cg.d, tX: cg.tx, tY: cg.ty)
     }
     
     public var cgAffineTransform: CGAffineTransform {
-        var cg = CGAffineTransform()
-        cg.a = m11
-        cg.b = m12
-        cg.c = m21
-        cg.d = m22
-        cg.tx = tX
-        cg.ty = tY
-        return cg
+        return CGAffineTransform(a: m11, b: m12, c: m21, d: m22, tx: tX, ty: tY)
     }
     
 }

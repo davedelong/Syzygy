@@ -41,7 +41,7 @@ public final class Bookmark: Hashable {
     
     public init(path: AbsolutePath) {
         self.raw = FileManager.default.resolved(path: path)
-        self.path = raw.skipRepeats()
+        self.path = raw.skipRepeats(==)
     }
     
     public convenience init?(bookmarkData: Data) {

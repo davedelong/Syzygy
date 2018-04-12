@@ -57,7 +57,7 @@ open class SyzygyViewController: NSViewController {
             let color = sel ?? def
             return isSelected ? color : def
         }
-        currentBackgroundColor = bgColor.skipRepeats()
+        currentBackgroundColor = bgColor.skipRepeats(==)
         
         let nib: NSNib.Name?
         let bundle: Bundle?

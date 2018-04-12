@@ -58,8 +58,8 @@ public extension CGRect {
 public extension CGPoint {
     
     public init(polarAngle: CGFloat, length: CGFloat) {
-        self.x = cos(polarAngle) * (length)
-        self.y = sin(polarAngle) * -(length)
+        self.init(x: cos(polarAngle) * length,
+                  y: sin(polarAngle) * -length)
     }
     
 }

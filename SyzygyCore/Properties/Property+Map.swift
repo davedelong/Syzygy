@@ -129,7 +129,7 @@ public extension Property where T: Collection, T.Element: Hashable {
     public func flatMapReusingValues<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
         var producedValues = Dictionary<T.Element, U>()
         let collectionMapper: (T) -> Array<U> = { c in
-            return c.flatMap { producedValues.value(for: $0, builder: mapper) }
+            return c.compactMap { producedValues.value(for: $0, builder: mapper) }
         }
         
         let p = MutableProperty(collectionMapper(value))

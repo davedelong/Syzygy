@@ -8,8 +8,6 @@
 
 import Foundation
 
-#if os(macOS)
-
 public extension Process {
     
     public struct ProcessError: Error {
@@ -82,5 +80,3 @@ public extension Process {
         }
     }
 }
-
-#endif

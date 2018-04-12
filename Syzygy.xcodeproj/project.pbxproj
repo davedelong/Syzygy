@@ -460,7 +460,7 @@
 				55FB07381FF9C89B0001D42E /* Plist */,
 				55FB07391FF9CB500001D42E /* Diffing */,
 				55FB06881FF9BBFF0001D42E /* Properties */,
-				55FB073A1FF9CB970001D42E /* Mac Only */,
+				55F7248D20388E8A0093473F /* macOS */,
 				55FB073D1FF9D0940001D42E /* Objective-C */,
 				55FB073C1FF9D04C0001D42E /* URL Routing */,
 				55FB073B1FF9D0430001D42E /* UTI */,
@@ -587,17 +587,6 @@
 				55FB06871FF9BBFE0001D42E /* ProgressiveDiff.swift */,
 			);
 			name = Diffing;
-			sourceTree = "<group>";
-		};
-		55FB073A1FF9CB970001D42E /* Mac Only */ = {
-			isa = PBXGroup;
-			children = (
-				55FB06C01FF9BC040001D42E /* LaunchServices.swift */,
-				55FB06B81FF9BC020001D42E /* NSMetadataQuery.swift */,
-				55FB06C51FF9BC050001D42E /* Process.swift */,
-				55FB06A51FF9BBFF0001D42E /* System.swift */,
-			);
-			name = "Mac Only";
 			sourceTree = "<group>";
 		};
 		55FB073B1FF9D0430001D42E /* UTI */ = {
@@ -952,11 +941,7 @@
 		55FB06571FF9B5BB0001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CUSTOM = Blob;
-				"CUSTOM[sdk=iphoneos*]" = Blob;
-				"CUSTOM[sdk=macosx*]" = Blah;
 				INFOPLIST_FILE = SyzygyCore/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -966,9 +951,7 @@
 		55FB06581FF9B5BB0001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CUSTOM = "";
 				INFOPLIST_FILE = SyzygyCore/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -978,7 +961,6 @@
 		55FB06641FF9B5D30001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SyzygyKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
@@ -989,7 +971,6 @@
 		55FB06651FF9B5D30001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SyzygyKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;

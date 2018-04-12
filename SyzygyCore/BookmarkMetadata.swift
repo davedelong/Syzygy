@@ -24,7 +24,7 @@ internal class BookmarkMetadataStore {
         }
         
         let contents = FileManager.default.contentsOfDirectory(at: self.storageFolder, options: [.skipsSubdirectoryDescendants])
-        metadatas = contents.flatMap { BookmarkMetadata(storagePath: $0) }
+        metadatas = contents.compactMap { BookmarkMetadata(storagePath: $0) }
     }
     
     internal func metadata(for path: AbsolutePath?, createIfNeeded: Bool = true) -> BookmarkMetadata? {

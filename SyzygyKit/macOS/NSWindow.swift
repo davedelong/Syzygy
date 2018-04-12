@@ -38,7 +38,7 @@ public extension NSWindow {
         }
         
         let viewFrame = view.convert(view.bounds, to: nil)
-        return recognizersAndWindowRects.flatMap { (gr, f) -> NSGestureRecognizer? in
+        return recognizersAndWindowRects.compactMap { (gr, f) -> NSGestureRecognizer? in
             return f.intersects(viewFrame) ? gr : nil
         }
     }
@@ -66,7 +66,7 @@ extension NSGestureRecognizer {
     
     public func endVisualizing() {
         guard let view = self.view else { return }
-        let visualizedViews = view.subviews.flatMap { $0 as? VisualizedGRView }
+        let visualizedViews = view.subviews.compactMap { $0 as? VisualizedGRView }
         visualizedViews.forEach { $0.removeFromSuperview() }
     }
     
