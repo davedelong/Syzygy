@@ -21,7 +21,17 @@ public class Keychain {
     /// Get and set values into the Keychain.
     public subscript<T: NSSecureCoding>(key: String) -> T? {
         get { return fetch(key) }
-        set(newValue) { save(newValue, forKey: key) }
+        set { save(newValue, forKey: key) }
+    }
+    
+    public subscript<T: ReferenceConvertible>(key: String) -> T? where T.ReferenceType: NSSecureCoding {
+        get {
+            let referenceValue: T.ReferenceType? = fetch(key)
+            return referenceValue as? T
+        }
+        set {
+            save(newValue as? T.ReferenceType, forKey: key)
+        }
     }
     
     /// Retrieve all the keys used to store data in the Keychain.

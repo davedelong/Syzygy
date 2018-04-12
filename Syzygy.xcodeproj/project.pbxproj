@@ -34,6 +34,12 @@
 		551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481B20117A9700AF7CF8 /* AffineTransform.swift */; };
 		551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481D20118D7A00AF7CF8 /* TargetAction.swift */; };
 		551D4820201197BD00AF7CF8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551D480720114DA300AF7CF8 /* Empty.xib */; };
+		552B49372012D4610054997E /* SyzygyHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 552B49352012D4610054997E /* SyzygyHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		552B493C2012D5090054997E /* SyzygyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493B2012D5090054997E /* SyzygyHTTP.swift */; };
+		552B493E2012D5590054997E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493D2012D5590054997E /* Request.swift */; };
+		552B49402012D55F0054997E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493F2012D55F0054997E /* Response.swift */; };
+		552B494620141CD30054997E /* HTTPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B494520141CD30054997E /* HTTPSession.swift */; };
+		552B494820141FD20054997E /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B494720141FD20054997E /* Status.swift */; };
 		554F9547201D2876007864A7 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9546201D2876007864A7 /* UIViewController.swift */; };
 		554F954D201D2BD8007864A7 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F954C201D2BD8007864A7 /* UITableViewCell.swift */; };
 		554F9556201D2F2B007864A7 /* SyzygyStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */; };
@@ -47,6 +53,8 @@
 		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
 		55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */; };
 		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
+		55F7248F2038922B0093473F /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7248E2038922B0093473F /* Header.swift */; };
+		55F72491203892380093473F /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F72490203892380093473F /* Method.swift */; };
 		55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06511FF9B5BB0001D42E /* SyzygyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55FB06621FF9B5D30001D42E /* SyzygyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06601FF9B5D30001D42E /* SyzygyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55FB06671FF9B6100001D42E /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
@@ -186,6 +194,14 @@
 		551D48192011707500AF7CF8 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		551D481B20117A9700AF7CF8 /* AffineTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffineTransform.swift; sourceTree = "<group>"; };
 		551D481D20118D7A00AF7CF8 /* TargetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAction.swift; sourceTree = "<group>"; };
+		552B49332012D4600054997E /* SyzygyHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		552B49352012D4610054997E /* SyzygyHTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyHTTP.h; sourceTree = "<group>"; };
+		552B49362012D4610054997E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		552B493B2012D5090054997E /* SyzygyHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyHTTP.swift; sourceTree = "<group>"; };
+		552B493D2012D5590054997E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		552B493F2012D55F0054997E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		552B494520141CD30054997E /* HTTPSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPSession.swift; sourceTree = "<group>"; };
+		552B494720141FD20054997E /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		554F9546201D2876007864A7 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		554F954C201D2BD8007864A7 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyStackViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +215,8 @@
 		55EB037920212D74007B5433 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		55F0AFB11FFD9EAF003DCBB6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		55F7248E2038922B0093473F /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		55F72490203892380093473F /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB06511FF9B5BB0001D42E /* SyzygyCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyCore.h; sourceTree = "<group>"; };
 		55FB06521FF9B5BB0001D42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -317,6 +335,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		552B492F2012D4600054997E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55FB064A1FF9B5BB0001D42E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,6 +410,22 @@
 			name = "Standard Library-ish Things";
 			sourceTree = "<group>";
 		};
+		552B49342012D4610054997E /* SyzygyHTTP */ = {
+			isa = PBXGroup;
+			children = (
+				552B49352012D4610054997E /* SyzygyHTTP.h */,
+				552B493B2012D5090054997E /* SyzygyHTTP.swift */,
+				552B494520141CD30054997E /* HTTPSession.swift */,
+				552B493D2012D5590054997E /* Request.swift */,
+				55F72490203892380093473F /* Method.swift */,
+				55F7248E2038922B0093473F /* Header.swift */,
+				552B493F2012D55F0054997E /* Response.swift */,
+				552B494720141FD20054997E /* Status.swift */,
+				552B49362012D4610054997E /* Info.plist */,
+			);
+			path = SyzygyHTTP;
+			sourceTree = "<group>";
+		};
 		555C1904200536EB0017F253 /* Data Structures */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +435,17 @@
 			name = "Data Structures";
 			sourceTree = "<group>";
 		};
+		55F7248D20388E8A0093473F /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				55FB06C01FF9BC040001D42E /* LaunchServices.swift */,
+				55FB06B81FF9BC020001D42E /* NSMetadataQuery.swift */,
+				55FB06C51FF9BC050001D42E /* Process.swift */,
+				55FB06A51FF9BBFF0001D42E /* System.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
 		55FB06441FF9B5BB0001D42E = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +453,7 @@
 				55FB066A1FF9B84F0001D42E /* Syzygy-Debug.xcconfig */,
 				55FB06691FF9B7C30001D42E /* Syzygy-Release.xcconfig */,
 				55FB06501FF9B5BB0001D42E /* SyzygyCore */,
+				552B49342012D4610054997E /* SyzygyHTTP */,
 				55FB065F1FF9B5D30001D42E /* SyzygyKit */,
 				55FB064F1FF9B5BB0001D42E /* Products */,
 				55FB06661FF9B6100001D42E /* Frameworks */,
@@ -412,6 +465,7 @@
 			children = (
 				55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */,
 				55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */,
+				552B49332012D4600054997E /* SyzygyHTTP.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -632,6 +686,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		552B49302012D4600054997E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				552B49372012D4610054997E /* SyzygyHTTP.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55FB064B1FF9B5BB0001D42E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -653,13 +715,31 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		552B49322012D4600054997E /* SyzygyHTTP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 552B49382012D4610054997E /* Build configuration list for PBXNativeTarget "SyzygyHTTP" */;
+			buildPhases = (
+				552B49302012D4600054997E /* Headers */,
+				552B492E2012D4600054997E /* Sources */,
+				552B492F2012D4600054997E /* Frameworks */,
+				552B49312012D4600054997E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SyzygyHTTP;
+			productName = SyzygyHTTP;
+			productReference = 552B49332012D4600054997E /* SyzygyHTTP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		55FB064D1FF9B5BB0001D42E /* SyzygyCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55FB06561FF9B5BB0001D42E /* Build configuration list for PBXNativeTarget "SyzygyCore" */;
 			buildPhases = (
+				55FB064B1FF9B5BB0001D42E /* Headers */,
 				55FB06491FF9B5BB0001D42E /* Sources */,
 				55FB064A1FF9B5BB0001D42E /* Frameworks */,
-				55FB064B1FF9B5BB0001D42E /* Headers */,
 				55FB064C1FF9B5BB0001D42E /* Resources */,
 			);
 			buildRules = (
@@ -675,10 +755,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55FB06631FF9B5D30001D42E /* Build configuration list for PBXNativeTarget "SyzygyKit" */;
 			buildPhases = (
-				551D481F201193C700AF7CF8 /* ShellScript */,
+				55FB065B1FF9B5D30001D42E /* Headers */,
 				55FB06591FF9B5D30001D42E /* Sources */,
 				55FB065A1FF9B5D30001D42E /* Frameworks */,
-				55FB065B1FF9B5D30001D42E /* Headers */,
 				55FB065C1FF9B5D30001D42E /* Resources */,
 			);
 			buildRules = (
@@ -699,6 +778,11 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Syzygy;
 				TargetAttributes = {
+					552B49322012D4600054997E = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
 					55FB064D1FF9B5BB0001D42E = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -725,11 +809,19 @@
 			targets = (
 				55FB064D1FF9B5BB0001D42E /* SyzygyCore */,
 				55FB065D1FF9B5D30001D42E /* SyzygyKit */,
+				552B49322012D4600054997E /* SyzygyHTTP */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		552B49312012D4600054997E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55FB064C1FF9B5BB0001D42E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -747,23 +839,21 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		551D481F201193C700AF7CF8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+/* Begin PBXSourcesBuildPhase section */
+		552B492E2012D4600054997E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
+				552B494620141CD30054997E /* HTTPSession.swift in Sources */,
+				552B494820141FD20054997E /* Status.swift in Sources */,
+				552B493C2012D5090054997E /* SyzygyHTTP.swift in Sources */,
+				552B49402012D55F0054997E /* Response.swift in Sources */,
+				55F7248F2038922B0093473F /* Header.swift in Sources */,
+				55F72491203892380093473F /* Method.swift in Sources */,
+				552B493E2012D5590054997E /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "";
 		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
 		55FB06491FF9B5BB0001D42E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -924,6 +1014,35 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		552B49392012D4610054997E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = SyzygyHTTP/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyHTTP;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		552B493A2012D4610054997E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = SyzygyHTTP/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyHTTP;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		55FB06541FF9B5BB0001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55FB066A1FF9B84F0001D42E /* Syzygy-Debug.xcconfig */;
@@ -981,6 +1100,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		552B49382012D4610054997E /* Build configuration list for PBXNativeTarget "SyzygyHTTP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				552B49392012D4610054997E /* Debug */,
+				552B493A2012D4610054997E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		55FB06481FF9B5BB0001D42E /* Build configuration list for PBXProject "Syzygy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

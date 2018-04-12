@@ -8,6 +8,10 @@
 
 import Foundation
 
+extension String: ReferenceConvertible {
+    public typealias ReferenceType = NSString
+}
+
 public extension String {
     
     func append(pathComponents components: String ...) -> String {
