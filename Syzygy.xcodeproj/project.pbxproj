@@ -775,7 +775,7 @@
 		55FB06451FF9B5BB0001D42E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Syzygy;
 				TargetAttributes = {
 					552B49322012D4600054997E = {
@@ -1017,29 +1017,18 @@
 		552B49392012D4610054997E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = SyzygyHTTP/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyHTTP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		552B493A2012D4610054997E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = SyzygyHTTP/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyHTTP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1047,6 +1036,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55FB066A1FF9B84F0001D42E /* Syzygy-Debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 			};
 			name = Debug;
 		};
@@ -1054,13 +1045,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55FB06691FF9B7C30001D42E /* Syzygy-Release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
 		55FB06571FF9B5BB0001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SyzygyCore/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1070,7 +1063,6 @@
 		55FB06581FF9B5BB0001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SyzygyCore/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1080,7 +1072,6 @@
 		55FB06641FF9B5D30001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SyzygyKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1090,7 +1081,6 @@
 		55FB06651FF9B5D30001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SyzygyKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
