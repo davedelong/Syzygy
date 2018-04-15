@@ -75,15 +75,35 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
     }()
     
     public lazy var iconPath: AbsolutePath? = { [unowned self] in
-        guard let iconName = self.declaration.iconFile else { return nil }
         guard let bundle = self.declaringBundle else { return nil }
         
-        let url = bundle.url(forResource: iconName, withExtension: nil) ??
-            bundle.url(forResource: iconName, withExtension: "icns")
-        
-        guard let absolute = url else { return nil }
-        return AbsolutePath(absolute)
+        if let iconName = self.declaration.iconFile {
+            let url = bundle.url(forResource: iconName, withExtension: nil) ??
+                bundle.url(forResource: iconName, withExtension: "icns")
+            return url.map { AbsolutePath($0) }
+        } else if let iconPath = self.declaration.iconPath {
+            let path = bundle.bundlePath + "/" + iconPath
+            return AbsolutePath(fileSystemPath: path)
+        }
+        return nil
     }()
+    
+    public func anyIconPath() -> AbsolutePath? {
+        var utisToCheck = [self]
+        var checked = Set<UTI>()
+        
+        while utisToCheck.isEmpty == false {
+            let first = utisToCheck.removeFirst()
+            guard checked.contains(first) == false else { continue }
+            checked.insert(first)
+            
+            if let path = first.iconPath { return path }
+            utisToCheck.append(contentsOf: first.declaration.conformsTo)
+            utisToCheck = utisToCheck.filter { checked.contains($0) == false }
+        }
+        
+        return nil
+    }
     
     public init(rawValue: String) {
         self.rawCFValue = rawValue as CFString
@@ -120,7 +140,6 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
         guard let raw = UTTypeCopyAllTagsWithClass(rawCFValue, tagClass) else { return [] }
         return raw.takeRetainedValue() as? Array<String> ?? []
     }
-    
     
     
     #if os(macOS)
@@ -160,7 +179,7 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
     
     
     public struct Declaration {
-        private let raw: Dictionary<String, AnyObject>
+        private let raw: Dictionary<String, Any>
         
         public subscript<T>(key: String) -> T? {
             return raw[key] as? T
@@ -172,21 +191,22 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
         
         public var identifier: String? { return self[kUTTypeIdentifierKey] }
         public var iconFile: String? { return self[kUTTypeIconFileKey] }
+        public var iconPath: String? { return self["_LSIconPath"] }
         public var version: String? { return self[kUTTypeVersionKey] }
         public var description: String { return raw.description }
         public var debugDescription: String { return raw.debugDescription }
         
         public var exportedTypeDeclarations: Array<Declaration> {
-            let rawDeclarations: Array<Dictionary<String, AnyObject>> = self[kUTExportedTypeDeclarationsKey] ?? []
+            let rawDeclarations: Array<Dictionary<String, Any>> = self[kUTExportedTypeDeclarationsKey] ?? []
             return rawDeclarations.map { Declaration($0) }
         }
         
         public var importedTypeDeclarations: Array<Declaration> {
-            let rawDeclarations: Array<Dictionary<String, AnyObject>> = self[kUTImportedTypeDeclarationsKey] ?? []
+            let rawDeclarations: Array<Dictionary<String, Any>> = self[kUTImportedTypeDeclarationsKey] ?? []
             return rawDeclarations.map { Declaration($0) }
         }
         
-        public var tagSpecification: Dictionary<String, AnyObject> { return self[kUTTypeTagSpecificationKey] ?? [:] }
+        public var tagSpecification: Dictionary<String, Any> { return self[kUTTypeTagSpecificationKey] ?? [:] }
         
         public var conformsTo: Array<UTI> {
             switch raw[kUTTypeConformsToKey as String] {
@@ -207,11 +227,28 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
         
         public init(uti: CFString) {
             let rawDeclaration = UTTypeCopyDeclaration(uti)?.takeRetainedValue()
-            self.raw = rawDeclaration.flatMap { $0 as? Dictionary<String, AnyObject> } ?? [:]
+            self.raw = rawDeclaration.flatMap { $0 as? Dictionary<String, Any> } ?? [:]
         }
         
-        public init(_ declaration: Dictionary<String, AnyObject>) {
+        public init(_ declaration: Dictionary<String, Any>) {
             self.raw = declaration
+        }
+        
+        internal func allStringValues() -> Array<String> {
+            var found = Array<String>()
+            var waiting = Array(self.raw.values)
+            while let next = waiting.popLast() {
+                if let s = next as? String {
+                    found.append(s)
+                } else if let d = next as? Dictionary<String, Any> {
+                    waiting.append(contentsOf: Array(d.values))
+                } else if let a = next as? Array<String> {
+                    found.append(contentsOf: a)
+                } else if let a = next as? Array<Any> {
+                    waiting.append(contentsOf: a)
+                }
+            }
+            return found
         }
         
     }

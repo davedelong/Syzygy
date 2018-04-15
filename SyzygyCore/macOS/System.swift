@@ -34,7 +34,9 @@ public final class SystemType {
     }()
     
     public lazy var modelUTI: UTI = {
-        return UTI(deviceType: self.model) ?? .mac
+        var r: UInt8  = 0, g: UInt8 = 0, b: UInt8 = 0
+        _ = GetDeviceColor(&r, &g, &b)
+        return UTI(deviceType: self.model, color: .rgb(r, g, b)) ?? .mac
     }()
     
     public lazy var buildVersion: String = {

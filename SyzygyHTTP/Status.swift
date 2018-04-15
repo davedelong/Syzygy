@@ -49,7 +49,7 @@ public struct Status: Newtype, ExpressibleByIntegerLiteral, Equatable {
             default: kind = .unknown
         }
     }
-    public init(integerLiteral value: Int) { self.init(rawValue: value) }
+    public init(integerLiteral value: UInt16) { self.init(rawValue: Int(value)) }
     
     public var isInformational: Bool { return kind == .informational }
     public var isSuccess: Bool { return kind == .success }

@@ -49,26 +49,46 @@ public extension UTI {
     public static let xcworkspace = UTI(rawValue: "com.apple.dt.document.workspace")
     public static let playground = UTI(rawValue: "com.apple.dt.playground")
     
-    public convenience init?(deviceType: String, color: String? = nil, enclosureColor: String? = nil) {
+    public enum DeviceColor {
+        case rgb(UInt8, UInt8, UInt8)
+        case hex(String)
+        case named(String)
+    }
+    
+    /// Create a UTI to represent a physical device
+    ///
+    /// - Parameters:
+    ///   - deviceType: A string identifying a device type. Ex: "iPhone5,3", "D10AP", "MacBook5,1", etc
+    ///   - color: A string representing the color of the device hardware. This can be a 6-digit hex string ("e5bdb5"), a color ("yellow"), or an rgb tuple ("157,157,160")
+    public convenience init?(deviceType: String, color: DeviceColor? = nil) {
         _ = UTI.registeredDeviceTypes
         
-        let UTIChecker = { (type: String, modifier: String?) -> UTI? in
-            let utis = UTI.UTIs(for: "com.apple.device-model-code", tag: type, conformingTo: UTI.publicDevice)
-            
-            let declared = utis.filter { $0.isDeclared }
-            
-            var matches = declared
-            if let modifier = modifier {
-                let color = modifier.trimmingCharacters(in: CharacterSet(charactersIn: "#"))
-                matches = matches.filter { $0.rawValue.hasSuffix(color) }
-            }
-            
-            return matches.first
+        var matches = UTI.UTIs(for: "com.apple.device-model-code", tag: deviceType, conformingTo: .publicDevice)
+        
+        let colorMatch: String
+        switch color {
+            case .rgb(let r, let g, let b)?:
+                colorMatch = "@ECOLOR=\(r),\(g),\(b)"
+                let colorMatches = UTI.UTIs(for: "com.apple.device-model-code", tag: deviceType+colorMatch, conformingTo: .publicDevice)
+                matches.insert(contentsOf: colorMatches, at: 0)
+            case .hex(let s)?:
+                colorMatch = s
+            case .named(let s)?:
+                colorMatch = s
+            default:
+                colorMatch = deviceType
         }
         
-        let matches = [UTIChecker(deviceType, enclosureColor), UTIChecker(deviceType, color), UTIChecker(deviceType, nil)].compactMap { $0 }
+        let declared = matches.filter { $0.isDeclared }
         
-        guard let match = matches.first else { return nil }
+        let exactMatches = declared.filter { uti in
+            let strings = uti.declaration.allStringValues()
+            let anyMatch = strings.filter { $0.hasSuffix(colorMatch) }
+            return anyMatch.isEmpty == false
+        }
+        
+        let best = exactMatches.first ?? declared.first ?? matches.first
+        guard let match = best else { return nil }
         self.init(rawValue: match.rawValue)
     }
 

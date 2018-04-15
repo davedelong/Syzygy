@@ -8,5 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+
 #import <SyzygyCore/Objective-C.h>
 #import <SyzygyCore/Entitlements.h>
+
+#if TARGET_OS_MAC
+#import <SyzygyCore/IOKit.h>
+#endif

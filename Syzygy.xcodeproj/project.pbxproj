@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */; };
 		5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */; };
+		5516CC662083F7D5008BB174 /* IOKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5516CC642083F7D5008BB174 /* IOKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5516CC672083F7D5008BB174 /* IOKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5516CC652083F7D5008BB174 /* IOKit.m */; };
 		551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */ = {isa = PBXBuildFile; fileRef = 551D47C02006F9E100AF7CF8 /* Entitlements.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		551D47C32006F9E100AF7CF8 /* Entitlements.m in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C12006F9E100AF7CF8 /* Entitlements.m */; };
 		551D47C72007309B00AF7CF8 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C62007309B00AF7CF8 /* Entitlements.swift */; };
@@ -169,6 +171,8 @@
 /* Begin PBXFileReference section */
 		5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Diffs.swift"; sourceTree = "<group>"; };
 		5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
+		5516CC642083F7D5008BB174 /* IOKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOKit.h; sourceTree = "<group>"; };
+		5516CC652083F7D5008BB174 /* IOKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOKit.m; sourceTree = "<group>"; };
 		551D47C02006F9E100AF7CF8 /* Entitlements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entitlements.h; sourceTree = "<group>"; };
 		551D47C12006F9E100AF7CF8 /* Entitlements.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Entitlements.m; sourceTree = "<group>"; };
 		551D47C62007309B00AF7CF8 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
@@ -442,6 +446,8 @@
 				55FB06B81FF9BC020001D42E /* NSMetadataQuery.swift */,
 				55FB06C51FF9BC050001D42E /* Process.swift */,
 				55FB06A51FF9BBFF0001D42E /* System.swift */,
+				5516CC642083F7D5008BB174 /* IOKit.h */,
+				5516CC652083F7D5008BB174 /* IOKit.m */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -699,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */,
+				5516CC662083F7D5008BB174 /* IOKit.h in Headers */,
 				551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */,
 				55FB06EA1FF9BC070001D42E /* Objective-C.h in Headers */,
 			);
@@ -934,6 +941,7 @@
 				55FB07031FF9BC070001D42E /* NotificationCenter+Property.swift in Sources */,
 				55FB071C1FF9BC070001D42E /* JSON+Literals.swift in Sources */,
 				55FB070C1FF9BC070001D42E /* SetAlgebra.swift in Sources */,
+				5516CC672083F7D5008BB174 /* IOKit.m in Sources */,
 				55FB06D61FF9BC070001D42E /* Dispatch.swift in Sources */,
 				55FB07331FF9BC070001D42E /* Reachability.swift in Sources */,
 				55FB06E91FF9BC070001D42E /* Newtype.swift in Sources */,
