@@ -82,8 +82,7 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
                 bundle.url(forResource: iconName, withExtension: "icns")
             return url.map { AbsolutePath($0) }
         } else if let iconPath = self.declaration.iconPath {
-            let path = bundle.bundlePath + "/" + iconPath
-            return AbsolutePath(fileSystemPath: path)
+            return bundle.path.appending(path: RelativePath(path: iconPath))
         }
         return nil
     }()
