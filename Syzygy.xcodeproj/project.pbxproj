@@ -51,6 +51,9 @@
 		554F9571201D75A2007864A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9570201D75A2007864A7 /* UIView.swift */; };
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
+		55BF8CED2098DE1300341FD9 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */; };
+		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
+		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
 		55EB0378202125E0007B5433 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB0377202125E0007B5433 /* Keychain.swift */; };
 		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
 		55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */; };
@@ -215,6 +218,9 @@
 		554F9570201D75A2007864A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
+		55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
+		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55EB0377202125E0007B5433 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		55EB037920212D74007B5433 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -369,6 +375,7 @@
 			children = (
 				551D47FF20114B5100AF7CF8 /* SyzygyView.swift */,
 				551D480120114BA600AF7CF8 /* SyzygyViewController.swift */,
+				55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */,
 				551D480720114DA300AF7CF8 /* Empty.xib */,
 				551D47F5201112F400AF7CF8 /* NSWorkspace+Properties.swift */,
 				551D47F820111ADF00AF7CF8 /* NSRunningApplication.swift */,
@@ -395,6 +402,7 @@
 				554F9570201D75A2007864A7 /* UIView.swift */,
 				554F9546201D2876007864A7 /* UIViewController.swift */,
 				554F954C201D2BD8007864A7 /* UITableViewCell.swift */,
+				55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */,
 				554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */,
 				5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */,
 			);
@@ -542,6 +550,7 @@
 				551D47F12011118C00AF7CF8 /* NSAttributedString.swift */,
 				551D48192011707500AF7CF8 /* ShapeView.swift */,
 				551D481D20118D7A00AF7CF8 /* TargetAction.swift */,
+				55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */,
 				551D47F4201112EC00AF7CF8 /* macOS */,
 				551D47FC2011437A00AF7CF8 /* iOS */,
 				55FB06611FF9B5D30001D42E /* Info.plist */,
@@ -996,7 +1005,9 @@
 				551D480020114B5100AF7CF8 /* SyzygyView.swift in Sources */,
 				551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */,
 				551D480220114BA600AF7CF8 /* SyzygyViewController.swift in Sources */,
+				55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */,
 				554F9571201D75A2007864A7 /* UIView.swift in Sources */,
+				55BF8CED2098DE1300341FD9 /* FlowCoordinator.swift in Sources */,
 				554F954D201D2BD8007864A7 /* UITableViewCell.swift in Sources */,
 				551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */,
 				55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */,
@@ -1006,6 +1017,7 @@
 				551D47F7201114D800AF7CF8 /* NSWorkspace+Properties.swift in Sources */,
 				551D480C20114F7100AF7CF8 /* NSCollectionView.swift in Sources */,
 				551D4818201151B300AF7CF8 /* NSViewController.swift in Sources */,
+				55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */,
 				5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */,
 				551D480A20114F5600AF7CF8 /* NSBox.swift in Sources */,
 				55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */,
