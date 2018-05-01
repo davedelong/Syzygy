@@ -74,20 +74,7 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
         return self.tags(for: kUTTagClassFilenameExtension)
     }()
     
-    public lazy var iconPath: AbsolutePath? = { [unowned self] in
-        guard let bundle = self.declaringBundle else { return nil }
-        
-        if let iconName = self.declaration.iconFile {
-            let url = bundle.url(forResource: iconName, withExtension: nil) ??
-                bundle.url(forResource: iconName, withExtension: "icns")
-            return url.map { AbsolutePath($0) }
-        } else if let iconPath = self.declaration.iconPath {
-            return bundle.path.appending(path: RelativePath(path: iconPath))
-        }
-        return nil
-    }()
-    
-    public func anyIconPath() -> AbsolutePath? {
+    public lazy var iconPath: AbsolutePath? = {
         var utisToCheck = [self]
         var checked = Set<UTI>()
         
@@ -96,13 +83,21 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
             guard checked.contains(first) == false else { continue }
             checked.insert(first)
             
-            if let path = first.iconPath { return path }
+            guard let thisBundle = first.declaringBundle else { continue }
+            
+            if let iconName = first.declaration.iconFile {
+                let url = thisBundle.url(forResource: iconName, withExtension: nil) ??
+                    thisBundle.url(forResource: iconName, withExtension: "icns")
+                return url.map { AbsolutePath($0) }
+            } else if let iconPath = first.declaration.iconPath {
+                return thisBundle.path.appending(path: RelativePath(path: iconPath))
+            }
+            
             utisToCheck.append(contentsOf: first.declaration.conformsTo)
-            utisToCheck = utisToCheck.filter { checked.contains($0) == false }
         }
         
         return nil
-    }
+    }()
     
     public init(rawValue: String) {
         self.rawCFValue = rawValue as CFString
