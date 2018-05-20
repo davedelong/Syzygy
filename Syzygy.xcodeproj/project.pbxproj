@@ -51,6 +51,7 @@
 		554F9571201D75A2007864A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9570201D75A2007864A7 /* UIView.swift */; };
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
+		559079C220B2359D005AECE7 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079C120B2359D005AECE7 /* DateFormatter.swift */; };
 		55BF8CED2098DE1300341FD9 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */; };
 		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
@@ -218,6 +219,7 @@
 		554F9570201D75A2007864A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
+		559079C120B2359D005AECE7 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 				55FB067E1FF9BBFD0001D42E /* Collection.swift */,
 				55FB06C91FF9BC060001D42E /* Comparable.swift */,
 				55FB06BE1FF9BC040001D42E /* Concatenation.swift */,
+				559079C120B2359D005AECE7 /* DateFormatter.swift */,
 				55FB06BF1FF9BC040001D42E /* Dictionary.swift */,
 				55FB06701FF9BBFB0001D42E /* Dispatch.swift */,
 				55FB06B11FF9BC010001D42E /* Disposable.swift */,
@@ -898,6 +901,7 @@
 				55FB07021FF9BC070001D42E /* MutableProperty.swift in Sources */,
 				55FB07291FF9BC070001D42E /* Plist+Subscript.swift in Sources */,
 				55FB06EB1FF9BC070001D42E /* JSON+Serialization.swift in Sources */,
+				559079C220B2359D005AECE7 /* DateFormatter.swift in Sources */,
 				55FB074A1FF9D32A0001D42E /* AnalyticEngine.swift in Sources */,
 				55FB070B1FF9BC070001D42E /* TemporaryPath.swift in Sources */,
 				55FB07041FF9BC070001D42E /* Property+Map.swift in Sources */,
