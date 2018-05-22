@@ -82,7 +82,7 @@ fileprivate let FormatMappings: Dictionary<Character, DateComponentKind> = [
 
 fileprivate let LiteralCharacter: Character = "'"
 
-private func enumerateFormatPieces(dateFormat: String, enumerator: (String, DateComponentKind?, UnsafeMutablePointer<Bool>) -> Void) {
+private func enumerateFormatPieces(dateFormat: String, enumerator: (String, DateComponentKind?, inout Bool) -> Void) {
     
     var currentPiece: String?
     var currentCharacter: Character?
@@ -139,7 +139,7 @@ public extension DateFormatter {
             
             let rangeOfThisPiece = formatted.range(of: thisPiece, options: [], range: remainingRange)
             if rangeOfThisPiece.location == NSNotFound {
-                stop.pointee = true
+                stop = true
                 return
             }
             
