@@ -55,6 +55,7 @@
 		559079C820B76F07005AECE7 /* NSWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079C720B76F07005AECE7 /* NSWindowController.swift */; };
 		559079CA20B76F97005AECE7 /* RandomAccessCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079C920B76F97005AECE7 /* RandomAccessCollection.swift */; };
 		559079CC20B76FC1005AECE7 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079CB20B76FC1005AECE7 /* NSView.swift */; };
+		559079CE20B770C7005AECE7 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079CD20B770C7005AECE7 /* Process.swift */; };
 		55BF8CED2098DE1300341FD9 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */; };
 		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
@@ -226,6 +227,7 @@
 		559079C720B76F07005AECE7 /* NSWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowController.swift; sourceTree = "<group>"; };
 		559079C920B76F97005AECE7 /* RandomAccessCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollection.swift; sourceTree = "<group>"; };
 		559079CB20B76FC1005AECE7 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
+		559079CD20B770C7005AECE7 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				551D4817201151B300AF7CF8 /* NSViewController.swift */,
 				551D480F20114FC900AF7CF8 /* NSWindow.swift */,
 				559079C720B76F07005AECE7 /* NSWindowController.swift */,
+				559079CD20B770C7005AECE7 /* Process.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 				559079CC20B76FC1005AECE7 /* NSView.swift in Sources */,
 				5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */,
 				554F9556201D2F2B007864A7 /* SyzygyStackViewController.swift in Sources */,
+				559079CE20B770C7005AECE7 /* Process.swift in Sources */,
 				551D480020114B5100AF7CF8 /* SyzygyView.swift in Sources */,
 				551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */,
 				551D480220114BA600AF7CF8 /* SyzygyViewController.swift in Sources */,
