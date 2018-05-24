@@ -118,6 +118,14 @@ public extension Collection {
     
 }
 
+public extension Collection where Element: OptionalType {
+    
+    func compacted() -> Array<Element.ValueType> {
+        return self.compactMap { $0.optionalValue }
+    }
+    
+}
+
 public extension Collection where Element: Hashable {
     
     func unique() -> Array<Element> {
