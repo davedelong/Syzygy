@@ -1,5 +1,5 @@
 //
-//  Process.swift
+//  ProcessInfo.swift
 //  SyzygyKit
 //
 //  Created by Dave DeLong on 5/24/18.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-public extension Process {
+public extension ProcessInfo {
     
     public enum Type {
         /// Foreground applications have a menu bar and appear in the Dock
