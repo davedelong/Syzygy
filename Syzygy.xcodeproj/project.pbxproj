@@ -52,6 +52,7 @@
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
 		559079C220B2359D005AECE7 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079C120B2359D005AECE7 /* DateFormatter.swift */; };
+		559079C820B76F07005AECE7 /* NSWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079C720B76F07005AECE7 /* NSWindowController.swift */; };
 		55BF8CED2098DE1300341FD9 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */; };
 		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
@@ -220,6 +221,7 @@
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
 		559079C120B2359D005AECE7 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		559079C720B76F07005AECE7 /* NSWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowController.swift; sourceTree = "<group>"; };
 		55BF8CEC2098DE1300341FD9 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				551D48152011519900AF7CF8 /* NSTextField.swift */,
 				551D4817201151B300AF7CF8 /* NSViewController.swift */,
 				551D480F20114FC900AF7CF8 /* NSWindow.swift */,
+				559079C720B76F07005AECE7 /* NSWindowController.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1004,6 +1007,7 @@
 				5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */,
 				551D48162011519900AF7CF8 /* NSTextField.swift in Sources */,
 				551D47EC2010108E00AF7CF8 /* Shape.swift in Sources */,
+				559079C820B76F07005AECE7 /* NSWindowController.swift in Sources */,
 				5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */,
 				554F9556201D2F2B007864A7 /* SyzygyStackViewController.swift in Sources */,
 				551D480020114B5100AF7CF8 /* SyzygyView.swift in Sources */,
