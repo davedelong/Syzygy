@@ -9,6 +9,7 @@
 import Foundation
     
 import IOKit
+import Collaboration
 
 public let System = SystemType()
 
@@ -58,6 +59,20 @@ public final class SystemType {
     public lazy var computerName: String = {
         let h = Host.current()
         return h.localizedName ?? h.name ?? modelUTI.description
+    }()
+    
+    public lazy var currentUser: CBIdentity? = {
+        let q = CSIdentityQueryCreateForCurrentUser(kCFAllocatorDefault)?.takeRetainedValue()
+        let flag = CSIdentityQueryFlags(kCSIdentityQueryGenerateUpdateEvents)
+        guard CSIdentityQueryExecute(q, flag, nil) else { return nil }
+        
+        let results = CSIdentityQueryCopyResults(q)?.takeRetainedValue() as NSArray?
+        guard let rawIdentities = results as? Array<CSIdentity> else { return nil }
+        guard let rawIdentity = rawIdentities.first else { return nil }
+        guard let rawPOSIXName = CSIdentityGetPosixName(rawIdentity)?.takeRetainedValue() else { return nil }
+        
+        let name = (rawPOSIXName as NSString) as String
+        return CBIdentity(name: name, authority: .local())
     }()
     
 
