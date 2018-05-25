@@ -10,7 +10,7 @@ import Cocoa
 
 public extension ProcessInfo {
     
-    public enum Type {
+    public enum Kind {
         /// Foreground applications have a menu bar and appear in the Dock
         case foreground
         
@@ -29,17 +29,18 @@ public extension ProcessInfo {
     /// - Parameter processType: The `Type` of the process. This should usually be either `.foreground` or `.UIElement`.
     /// - Returns: `true` if the transformation was successful, and `false` otherwise.
     @discardableResult
-    public func transform(to processType: Type) -> Bool {
-        let state: ProcessApplicationTransformState
+    public func transform(to processType: Kind) -> Bool {
+        let stateValue: Int
         switch processType {
-            case .foreground: state = kProcessTransformToForegroundApplication
-            case .background: state = kProcessTransformToBackgroundApplication
-            case .UIElement: state = kProcessTransformToUIElementApplication
+            case .foreground: stateValue = kProcessTransformToForegroundApplication
+            case .background: stateValue = kProcessTransformToBackgroundApplication
+            case .UIElement: stateValue = kProcessTransformToUIElementApplication
         }
         
+        let state = ProcessApplicationTransformState(stateValue)
         var psn = ProcessSerialNumber(highLongOfPSN: 0, lowLongOfPSN: UInt32(kCurrentProcess))
         let status = TransformProcessType(&psn, state)
-        return state == noErr
+        return status == noErr
     }
     
 }
