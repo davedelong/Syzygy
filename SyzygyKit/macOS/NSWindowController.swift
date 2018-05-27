@@ -11,8 +11,8 @@ import Cocoa
 public extension NSWindowController {
     
     public convenience init(contentViewController: NSViewController) {
-        let window = NSWindow(contentViewController: contentViewController)
-        self.init(window: window)
+        self.init(window: nil)
+        self.contentViewController = contentViewController
     }
     
 }

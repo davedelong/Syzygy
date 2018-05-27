@@ -116,12 +116,8 @@ public extension Collection {
         return s
     }
     
-}
-
-public extension Collection where Element: OptionalType {
-    
-    func compacted() -> Array<Element.ValueType> {
-        return self.compactMap { $0.optionalValue }
+    public func compacted<T>() -> Array<T> where Element == Optional<T> {
+        return compactMap { $0 }
     }
     
 }
