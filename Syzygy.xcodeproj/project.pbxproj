@@ -63,6 +63,8 @@
 		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
 		55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */; };
 		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
+		55F3755A20BC6A7E00E7D742 /* SyzygySidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */; };
+		55F3755B20BC6A7E00E7D742 /* SyzygySidebarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */; };
 		55F7248F2038922B0093473F /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7248E2038922B0093473F /* Header.swift */; };
 		55F72491203892380093473F /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F72490203892380093473F /* Method.swift */; };
 		55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06511FF9B5BB0001D42E /* SyzygyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -235,6 +237,8 @@
 		55EB037920212D74007B5433 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		55F0AFB11FFD9EAF003DCBB6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySidebarViewController.swift; sourceTree = "<group>"; };
+		55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyzygySidebarViewController.xib; sourceTree = "<group>"; };
 		55F7248E2038922B0093473F /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55F72490203892380093473F /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,6 +390,8 @@
 				551D47FF20114B5100AF7CF8 /* SyzygyView.swift */,
 				551D480120114BA600AF7CF8 /* SyzygyViewController.swift */,
 				55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */,
+				55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */,
+				55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */,
 				551D480720114DA300AF7CF8 /* Empty.xib */,
 				551D47F5201112F400AF7CF8 /* NSWorkspace+Properties.swift */,
 				551D47F820111ADF00AF7CF8 /* NSRunningApplication.swift */,
@@ -864,6 +870,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55F3755B20BC6A7E00E7D742 /* SyzygySidebarViewController.xib in Resources */,
 				551D4820201197BD00AF7CF8 /* Empty.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1039,6 +1046,7 @@
 				551D4818201151B300AF7CF8 /* NSViewController.swift in Sources */,
 				55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */,
 				5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */,
+				55F3755A20BC6A7E00E7D742 /* SyzygySidebarViewController.swift in Sources */,
 				551D480A20114F5600AF7CF8 /* NSBox.swift in Sources */,
 				55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */,
 				551D47F920111ADF00AF7CF8 /* NSRunningApplication.swift in Sources */,

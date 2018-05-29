@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14112" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14112"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SyzygySidebarViewController" customModule="SyzygyKit" customModuleProvider="target">
+            <connections>
+                <outlet property="contentArea" destination="aqY-FO-2T0" id="TQe-9L-PMM"/>
+                <outlet property="contentContainer" destination="d1C-rG-wEG" id="JYL-WN-aSx"/>
+                <outlet property="contentLeadingOffset" destination="hsC-7x-vlY" id="UKC-aZ-hdY"/>
+                <outlet property="separator" destination="ZgT-kC-BfG" id="ec3-uX-ePT"/>
+                <outlet property="separatorWidth" destination="chP-0R-wmZ" id="Ugv-Q9-xw5"/>
+                <outlet property="sidebarContainer" destination="mYa-CA-vrf" id="7SU-Pd-V4n"/>
+                <outlet property="sidebarWidth" destination="Ddn-Cv-Pqm" id="low-Nk-X0q"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" customClass="SyzygyView" customModule="SyzygyKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="mYa-CA-vrf">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="272"/>
+                    <constraints>
+                        <constraint firstAttribute="width" priority="750" constant="200" id="Ddn-Cv-Pqm"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="aqY-FO-2T0">
+                    <rect key="frame" x="200" y="0.0" width="280" height="272"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZgT-kC-BfG" customClass="SyzygyView" customModule="SyzygyKit" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="2" height="272"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="2" id="chP-0R-wmZ"/>
+                            </constraints>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="d1C-rG-wEG">
+                            <rect key="frame" x="2" y="0.0" width="278" height="272"/>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="d1C-rG-wEG" firstAttribute="top" secondItem="aqY-FO-2T0" secondAttribute="top" id="8D9-Ux-A0b"/>
+                        <constraint firstItem="ZgT-kC-BfG" firstAttribute="leading" secondItem="aqY-FO-2T0" secondAttribute="leading" id="Kok-UL-BGM"/>
+                        <constraint firstAttribute="trailing" secondItem="d1C-rG-wEG" secondAttribute="trailing" id="npl-OI-Lzt"/>
+                        <constraint firstItem="ZgT-kC-BfG" firstAttribute="top" secondItem="aqY-FO-2T0" secondAttribute="top" id="qH6-G9-yvp"/>
+                        <constraint firstAttribute="bottom" secondItem="d1C-rG-wEG" secondAttribute="bottom" id="x58-Py-ysZ"/>
+                        <constraint firstAttribute="bottom" secondItem="ZgT-kC-BfG" secondAttribute="bottom" id="zYH-8l-Cgt"/>
+                        <constraint firstItem="d1C-rG-wEG" firstAttribute="leading" secondItem="ZgT-kC-BfG" secondAttribute="trailing" id="zsg-OM-g7V"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="mYa-CA-vrf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Inh-8a-YO6"/>
+                <constraint firstAttribute="bottom" secondItem="mYa-CA-vrf" secondAttribute="bottom" id="ZzL-AH-Bxe"/>
+                <constraint firstAttribute="bottom" secondItem="aqY-FO-2T0" secondAttribute="bottom" id="amf-HG-IJX"/>
+                <constraint firstItem="mYa-CA-vrf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="bye-Fr-eEL"/>
+                <constraint firstItem="aqY-FO-2T0" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" priority="750" constant="200" id="hsC-7x-vlY"/>
+                <constraint firstAttribute="trailing" secondItem="aqY-FO-2T0" secondAttribute="trailing" id="i9k-GZ-19L"/>
+                <constraint firstItem="aqY-FO-2T0" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="uNT-CI-xR5"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>
