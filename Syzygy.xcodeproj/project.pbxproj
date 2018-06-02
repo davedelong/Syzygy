@@ -36,6 +36,7 @@
 		551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481B20117A9700AF7CF8 /* AffineTransform.swift */; };
 		551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481D20118D7A00AF7CF8 /* TargetAction.swift */; };
 		551D4820201197BD00AF7CF8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551D480720114DA300AF7CF8 /* Empty.xib */; };
+		5523B0F220C19D3200A0B5CF /* RangeReplaceableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */; };
 		552B49372012D4610054997E /* SyzygyHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 552B49352012D4610054997E /* SyzygyHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		552B493C2012D5090054997E /* SyzygyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493B2012D5090054997E /* SyzygyHTTP.swift */; };
 		552B493E2012D5590054997E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493D2012D5590054997E /* Request.swift */; };
@@ -208,6 +209,7 @@
 		551D48192011707500AF7CF8 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		551D481B20117A9700AF7CF8 /* AffineTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffineTransform.swift; sourceTree = "<group>"; };
 		551D481D20118D7A00AF7CF8 /* TargetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAction.swift; sourceTree = "<group>"; };
+		5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollection.swift; sourceTree = "<group>"; };
 		552B49332012D4600054997E /* SyzygyHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552B49352012D4610054997E /* SyzygyHTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyHTTP.h; sourceTree = "<group>"; };
 		552B49362012D4610054997E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 				55FB06BB1FF9BC030001D42E /* Log.swift */,
 				55FB06A91FF9BC000001D42E /* NSObject.swift */,
 				559079C920B76F97005AECE7 /* RandomAccessCollection.swift */,
+				5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */,
 				55FB06CE1FF9BC070001D42E /* Reachability.swift */,
 				55FB06CB1FF9BC060001D42E /* Regex.swift */,
 				55FB06AC1FF9BC000001D42E /* Result.swift */,
@@ -964,6 +967,7 @@
 				555C1906200536F80017F253 /* CountedSet.swift in Sources */,
 				55FB07121FF9BC070001D42E /* UTI+Defaults.swift in Sources */,
 				55FB06D31FF9BC070001D42E /* Identifier.swift in Sources */,
+				5523B0F220C19D3200A0B5CF /* RangeReplaceableCollection.swift in Sources */,
 				554F9561201D38E3007864A7 /* CLLocation.swift in Sources */,
 				55FB06EE1FF9BC070001D42E /* KVOProperty.swift in Sources */,
 				55FB07151FF9BC070001D42E /* Diff.swift in Sources */,

@@ -34,13 +34,13 @@
                     <rect key="frame" x="200" y="0.0" width="280" height="272"/>
                     <subviews>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZgT-kC-BfG" customClass="SyzygyView" customModule="SyzygyKit" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="2" height="272"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1" height="272"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="2" id="chP-0R-wmZ"/>
+                                <constraint firstAttribute="width" constant="1" id="chP-0R-wmZ"/>
                             </constraints>
                         </customView>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="d1C-rG-wEG">
-                            <rect key="frame" x="2" y="0.0" width="278" height="272"/>
+                            <rect key="frame" x="1" y="0.0" width="279" height="272"/>
                         </customView>
                     </subviews>
                     <constraints>
