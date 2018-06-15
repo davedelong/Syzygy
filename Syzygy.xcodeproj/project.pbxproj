@@ -62,6 +62,7 @@
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
 		55EB0378202125E0007B5433 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB0377202125E0007B5433 /* Keychain.swift */; };
 		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
+		55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFBBDD20D423C6002C48FA /* NSPredicate.swift */; };
 		55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */; };
 		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
 		55F3755A20BC6A7E00E7D742 /* SyzygySidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */; };
@@ -237,6 +238,7 @@
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55EB0377202125E0007B5433 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		55EB037920212D74007B5433 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		55EFBBDD20D423C6002C48FA /* NSPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicate.swift; sourceTree = "<group>"; };
 		55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		55F0AFB11FFD9EAF003DCBB6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySidebarViewController.swift; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 				55FB06771FF9BBFC0001D42E /* LocalizedString.swift */,
 				55FB06BB1FF9BC030001D42E /* Log.swift */,
 				55FB06A91FF9BC000001D42E /* NSObject.swift */,
+				55EFBBDD20D423C6002C48FA /* NSPredicate.swift */,
 				559079C920B76F97005AECE7 /* RandomAccessCollection.swift */,
 				5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */,
 				55FB06CE1FF9BC070001D42E /* Reachability.swift */,
@@ -965,6 +968,7 @@
 				55FB07461FF9D2CF0001D42E /* BasicEvent.swift in Sources */,
 				55FB072B1FF9BC070001D42E /* URL.swift in Sources */,
 				555C1906200536F80017F253 /* CountedSet.swift in Sources */,
+				55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */,
 				55FB07121FF9BC070001D42E /* UTI+Defaults.swift in Sources */,
 				55FB06D31FF9BC070001D42E /* Identifier.swift in Sources */,
 				5523B0F220C19D3200A0B5CF /* RangeReplaceableCollection.swift in Sources */,
@@ -1106,18 +1110,26 @@
 		55FB06571FF9B5BB0001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 654LUM7646;
 				INFOPLIST_FILE = SyzygyCore/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		55FB06581FF9B5BB0001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 654LUM7646;
 				INFOPLIST_FILE = SyzygyCore/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

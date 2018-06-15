@@ -77,16 +77,16 @@ public extension BezierPath {
             let e = self.element(at: i, associatedPoints: &points)
             
             switch e {
-            case .moveToBezierPathElement:
+            case .moveTo:
                 p.move(to: points[0])
                 
-            case .lineToBezierPathElement:
+            case .lineTo:
                 p.addLine(to: points[0])
                 didClose = false
-            case .curveToBezierPathElement:
+            case .curveTo:
                 p.addCurve(to: points[2], control1: points[0], control2: points[1])
                 didClose = false
-            case .closePathBezierPathElement:
+            case .closePath:
                 p.closeSubpath()
                 didClose = true
             }

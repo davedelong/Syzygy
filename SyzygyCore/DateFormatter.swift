@@ -8,12 +8,12 @@
 
 import Foundation
 
-public extension NSAttributedStringKey {
+public extension NSAttributedString.Key {
     
     /// Strings created by `DateFormatter.annotatedString(from:)` use this
     /// key to indicate which subranges of the string correspond to particular
     /// date component kinds.
-    static let dateComponentKind = NSAttributedStringKey(rawValue: "DateComponentKind")
+    static let dateComponentKind = NSAttributedString.Key(rawValue: "DateComponentKind")
 }
 
 /// The kind of units that a formatted date may contain.

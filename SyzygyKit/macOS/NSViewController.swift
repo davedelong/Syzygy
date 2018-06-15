@@ -31,8 +31,8 @@ public extension NSViewController {
         
         if source.parent != self {
             sourceView.removeFromSuperview()
-            source.removeFromParentViewController()
-            addChildViewController(source)
+            source.removeFromParent()
+            addChild(source)
         }
         
         if sourceView.superview != targetContainer {
@@ -46,8 +46,8 @@ public extension NSViewController {
         
         if dest.parent != self {
             destView.removeFromSuperview()
-            dest.removeFromParentViewController()
-            addChildViewController(dest)
+            dest.removeFromParent()
+            addChild(dest)
         }
         
         if destView.superview != targetContainer {
@@ -62,12 +62,12 @@ public extension NSViewController {
         self.transition(from: source, to: dest, options: options) {
             if needsSourceRemoval {
                 sourceView.removeFromSuperview()
-                source.removeFromParentViewController()
+                source.removeFromParent()
             }
             
             if needsDestRemoval {
                 destView.removeFromSuperview()
-                dest.removeFromParentViewController()
+                dest.removeFromParent()
             }
             
             completion?(true)

@@ -32,11 +32,11 @@ open class SyzygyViewController: NSViewController {
     internal var modalHandler: ((NSApplication.ModalResponse) -> Void)?
     
     // Overrides
-    open override var childViewControllers: Array<NSViewController> {
-        get { return super.childViewControllers }
+    open override var children: Array<NSViewController> {
+        get { return super.children }
         set {
             isBulkModifyingChildren = true
-            super.childViewControllers = newValue
+            super.children = newValue
             isBulkModifyingChildren = false
         }
     }
@@ -64,10 +64,10 @@ open class SyzygyViewController: NSViewController {
         
         switch ui {
             case .empty:
-                nib = NSNib.Name(rawValue: "Empty")
+                nib = NSNib.Name("Empty")
                 bundle = Bundle(for: SyzygyViewController.self)
             case .default:
-                nib = NSNib.Name(rawValue: "\(type(of: self))")
+                nib = NSNib.Name("\(type(of: self))")
                 bundle = Bundle(for: type(of: self))
             case .explicit(let n, let b):
                 nib = n
@@ -78,8 +78,8 @@ open class SyzygyViewController: NSViewController {
     
     required public init?(coder: NSCoder) { Die.shutUpXcode() }
     
-    open override func insertChildViewController(_ childViewController: NSViewController, at index: Int) {
-        super.insertChildViewController(childViewController, at: index)
+    open override func insertChild(_ childViewController: NSViewController, at index: Int) {
+        super.insertChild(childViewController, at: index)
         
         if let child = childViewController as? SyzygyViewController {
             if childViewController.parent == self {
@@ -88,9 +88,9 @@ open class SyzygyViewController: NSViewController {
         }
     }
     
-    open override func removeChildViewController(at index: Int) {
-        let child = childViewControllers[index]
-        super.removeChildViewController(at: index)
+    open override func removeChild(at index: Int) {
+        let child = children[index]
+        super.removeChild(at: index)
         
         if let child = child as? SyzygyViewController {
             child.parentWantsSelection.takeValue(from: Property.false)
@@ -101,9 +101,9 @@ open class SyzygyViewController: NSViewController {
         let container = (aView?.isEmbeddedIn(view) == true ? aView : view) ?? view
         
         viewController.view.removeFromSuperview()
-        viewController.removeFromParentViewController()
+        viewController.removeFromParent()
         
-        addChildViewController(viewController)
+        addChild(viewController)
         viewController.view.frame = container.bounds
         viewController.view.autoresizingMask = [.width, .height]
         viewController.view.translatesAutoresizingMaskIntoConstraints = true
@@ -120,11 +120,11 @@ open class SyzygyViewController: NSViewController {
         
         if transitionOptions.isEmpty {
             child.view.removeFromSuperview()
-            child.removeFromParentViewController()
+            child.removeFromParent()
         } else {
             transition(from: child, to: newChild, options: transitionOptions, completionHandler: {
                 child.view.removeFromSuperview()
-                child.removeFromParentViewController()
+                child.removeFromParent()
             })
         }
     }
