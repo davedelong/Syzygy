@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550435CA2084D56D009DF2E2 /* SyzygyConditionals.h in Headers */ = {isa = PBXBuildFile; fileRef = 550435C92084D555009DF2E2 /* SyzygyConditionals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */; };
 		5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */; };
 		5516CC662083F7D5008BB174 /* IOKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5516CC642083F7D5008BB174 /* IOKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -181,6 +182,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		550435C92084D555009DF2E2 /* SyzygyConditionals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyConditionals.h; sourceTree = "<group>"; };
 		5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Diffs.swift"; sourceTree = "<group>"; };
 		5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
 		5516CC642083F7D5008BB174 /* IOKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOKit.h; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 			children = (
 				55FB06511FF9B5BB0001D42E /* SyzygyCore.h */,
 				55FB075F1FFAC7690001D42E /* SyzygyCore.swift */,
+				550435C92084D555009DF2E2 /* SyzygyConditionals.h */,
 				552A40A02005273E009B8C6B /* Standard Library-ish Things */,
 				555C1904200536EB0017F253 /* Data Structures */,
 				55FB067D1FF9BBFD0001D42E /* Bookmark.swift */,
@@ -742,6 +745,7 @@
 			files = (
 				55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */,
 				5516CC662083F7D5008BB174 /* IOKit.h in Headers */,
+				550435CA2084D56D009DF2E2 /* SyzygyConditionals.h in Headers */,
 				551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */,
 				55FB06EA1FF9BC070001D42E /* Objective-C.h in Headers */,
 			);

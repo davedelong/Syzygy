@@ -28,7 +28,7 @@ open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelega
         super.init(nibName: nil, bundle: nil)
     }
     
-    required public init?(coder aDecoder: NSCoder) { Die.notImplemented() }
+    required public init?(coder aDecoder: NSCoder) { Abort.because(.notYetImplemented) }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelega
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = _extractor(_contents[indexPath.row])
-        guard let rowView = row.view else { Die.require("Row VCs must have a view") }
+        guard let rowView = row.view else { Abort.because("Row VCs must have a view") }
         
         if let cellView = rowView as? UITableViewCell { return cellView }
         

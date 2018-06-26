@@ -76,7 +76,7 @@ open class SyzygyViewController: NSViewController {
         super.init(nibName: nib, bundle: bundle)
     }
     
-    required public init?(coder: NSCoder) { Die.shutUpXcode() }
+    required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
     
     open override func insertChild(_ childViewController: NSViewController, at index: Int) {
         super.insertChild(childViewController, at: index)
@@ -111,10 +111,10 @@ open class SyzygyViewController: NSViewController {
     }
     
     public func replaceChildViewController(_ child: NSViewController, with newChild: NSViewController, transitionOptions: NSViewController.TransitionOptions = [], in container: NSView? = nil) {
-        guard child.parent == self else { Die.require("The child \(child) is not a direct child of \(self)") }
+        guard child.parent == self else { Abort.because("The child \(child) is not a direct child of \(self)") }
         let potentialContainer = container ?? child.view.superview
-        guard let viewContainer = potentialContainer else { Die.require("The child's view is not in the UI") }
-        guard viewContainer.isEmbeddedIn(view) else { Die.require("The container view is not in \(self)'s view hierarchy") }
+        guard let viewContainer = potentialContainer else { Abort.because("The child's view is not in the UI") }
+        guard viewContainer.isEmbeddedIn(view) else { Abort.because("The container view is not in \(self)'s view hierarchy") }
         
         embedChildViewController(newChild, in: viewContainer)
         

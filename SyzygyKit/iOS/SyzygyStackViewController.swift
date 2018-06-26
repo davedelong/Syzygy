@@ -55,7 +55,7 @@ public class SyzygyStackViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required public init?(coder aDecoder: NSCoder) { Die.notImplemented() }
+    required public init?(coder aDecoder: NSCoder) { Abort.because(.notYetImplemented) }
     
     override public func loadView() {
         if scrollsContent == true {

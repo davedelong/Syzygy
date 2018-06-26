@@ -8,43 +8,27 @@
 
 import Foundation
 
-public struct Die {
+public enum Abort {
     
-    public static func shutUpXcode(function: StaticString = #function, file: StaticString = #file, line: UInt = #line) -> Never {
-        die(reason: "Xcode makes me put in \(#function)", extra: nil, file: file, line: line)
-    }
-
-    public static func mustOverride(function: StaticString = #function, file: StaticString = #file, line: UInt = #line) -> Never {
-        die(reason: "Must be overridden", extra: String(describing: function), file: file, line: line)
-    }
-
-    public static func unreachable(_ why: String, file: StaticString = #file, line: UInt = #line) -> Never {
-        die(reason: "Unreachable", extra: why, file: file, line: line)
-    }
-
-    public static func notImplemented(_ why: String? = nil, file: StaticString = #file, line: UInt = #line) -> Never {
-        die(reason: "Not Implemented", extra: why, file: file, line: line)
-    }
-    
-    @available(*, unavailable, renamed: "notImplemented")
-    public static func unimplemented(_ why: String? = nil, file: StaticString = #file, line: UInt = #line) -> Never {
-        notImplemented(why, file: file, line: line)
-    }
-
-    public static func require(_ why: String? = nil, file: StaticString = #file, line: UInt = #line) -> Never {
-        die(reason: "Assertion failed", extra: why, file: file, line: line)
-    }
-
-    public static func TODO(_ reason: String? = nil, file: StaticString = #file, line: UInt = #line) -> Never {
-        die(reason: "Not yet implemented", extra: reason, file: file, line: line)
-    }
-
-    private static func die(reason: String, extra: String?, file: StaticString, line: UInt) -> Never {
-        var message = reason
-        if let extra = extra {
-            message += ": \(extra)"
+    public struct Reason: CustomDebugStringConvertible {
+        public static let shutUpXcode = Reason("Xcode requires this dead code")
+        public static let mustBeOverridden = Reason("This method must be overridden")
+        public static let unreachable = Reason("This code should be unreachable")
+        public static let notYetImplemented = Reason("This code has not been implemented yet")
+        
+        public let debugDescription: String
+        public init(_ why: String) {
+            self.debugDescription = why
         }
+    }
+    
+    public static func because(_ reason: Reason, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) -> Never {
+        because(reason.debugDescription, file: file, line: line, function: function)
+    }
+    
+    public static func because(_ reason: String, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) -> Never {
+        let message = "Failed assertion in \(function) - \(reason)"
         fatalError(message, file: file, line: line)
     }
-
+    
 }

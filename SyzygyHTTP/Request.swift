@@ -26,11 +26,11 @@ public struct Request {
         }
         
         public init(form: Never) {
-            Die.TODO()
+            Abort.because(.notYetImplemented)
         }
         
         public init(parameters: Never) {
-            Die.TODO()
+            Abort.because(.notYetImplemented)
         }
     }
     

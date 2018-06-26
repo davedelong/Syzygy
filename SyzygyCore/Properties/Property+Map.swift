@@ -20,6 +20,20 @@ public extension Property {
         return p
     }
     
+//    public func compactMap<U>(initialValue: U, _ mapper: @escaping (T) -> U?) -> Property<U> {
+//        let initial = mapper(value) ?? initialValue
+//        let p = MutableProperty(initial)
+//        observeNext { new in p.potentiallyModifyValue(mapper(new)) }
+//        return p
+//    }
+//    
+//    public func compactMap<U>(_ mapper: @escaping (T) -> U?) throws -> Property<U> {
+//        guard let initial = mapper(value) else { throw PropertyError.missingInitialValue }
+//        let p = MutableProperty(initial)
+//        observeNext { new in p.potentiallyModifyValue(mapper(new)) }
+//        return p
+//    }
+    
     /// Transform a `Property`'s value into a new `Property`, from which new values will be taken
     ///
     /// - Parameter mapper: The block to transform a passed value into a new property.
@@ -108,7 +122,7 @@ public extension Property where T: Collection, T.Element: Hashable {
     ///
     /// - Parameter mapper: The block to transform a passed value into a new type
     /// - Returns: A new `Property` that reflects the transformed values
-    public func mapReusingValues<U>(_ mapper: @escaping (T.Element) -> U) -> Property<Array<U>> {
+    public func mapItemsReusingValues<U>(_ mapper: @escaping (T.Element) -> U) -> Property<Array<U>> {
         var producedValues = Dictionary<T.Element, U>()
         let collectionMapper: (T) -> Array<U> = { c in
             return c.map { producedValues.value(for: $0, builder: mapper) }
@@ -126,7 +140,7 @@ public extension Property where T: Collection, T.Element: Hashable {
     ///
     /// - Parameter mapper: The block to transform a passed value into a new type
     /// - Returns: A new `Property` that reflects the transformed values
-    public func flatMapReusingValues<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
+    public func flatMapItemsReusingValues<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
         var producedValues = Dictionary<T.Element, U>()
         let collectionMapper: (T) -> Array<U> = { c in
             return c.compactMap { producedValues.value(for: $0, builder: mapper) }
