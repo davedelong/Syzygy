@@ -126,11 +126,11 @@ open class Coordinator: PlatformResponder {
     /// If you override this method, you *must* call `super`
     ///
     /// - Parameter child: The `Coordinator` to add as a child
-    open func addChildCoordinator(_ child: Coordinator) {
+    open func addChild(_ child: Coordinator) {
         Abort.if(child.parent == self, because: .recursiveChild)
         
         if let existingParent = child.parent {
-            existingParent.removeChildCoordinator(child)
+            existingParent.removeChild(child)
         }
         children.append(child)
         child.parent = self
@@ -149,7 +149,7 @@ open class Coordinator: PlatformResponder {
     /// If you override this method, you *must* call `super`
     ///
     /// - Parameter child: The `Coordinator` to remove
-    open func removeChildCoordinator(_ child: Coordinator) {
+    open func removeChild(_ child: Coordinator) {
         guard child.parent === self else { return }
         guard let index = children.index(where: { $0 === child }) else { return }
         child.stop()

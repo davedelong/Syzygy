@@ -9,6 +9,8 @@
 #import "IOKit.h"
 #import <IOKit/IOKitLib.h>
 
+// see https://github.com/practicalswift/osx/blob/master/src/iokituser/platform.subproj/IOPlatformSupport.c#L314
+
 typedef union __attribute__((packed)) {
     uint32_t rgb;
     struct {
@@ -54,11 +56,18 @@ BOOL GetDeviceColor(uint8_t *red, uint8_t *green, uint8_t *blue) {
         CFDataRef data = property;
         const _Syzygy_IOPlatformDeviceColors *colors = (_Syzygy_IOPlatformDeviceColors *)CFDataGetBytePtr(data);
         
-        if (CFDataGetLength(data) == sizeof(_Syzygy_IOPlatformDeviceColors) && colors != NULL && colors->major_version == 2) {
-            if (red != NULL) { *red = colors->device_enclosure.component_v2.red; }
-            if (green != NULL) { *green = colors->device_enclosure.component_v2.green; }
-            if (blue != NULL) { *blue = colors->device_enclosure.component_v2.blue; }
-            succeeded = YES;
+        if (CFDataGetLength(data) == sizeof(_Syzygy_IOPlatformDeviceColors) && colors != NULL {
+            if (colors->major_version == 1) {
+                if (red != NULL) { *red = colors->device_enclosure.component_v1.red; }
+                if (green != NULL) { *green = colors->device_enclosure.component_v1.green; }
+                if (blue != NULL) { *blue = colors->device_enclosure.component_v1.blue; }
+                succeeded = YES;
+            } else if (colors->major_version == 2) {
+                if (red != NULL) { *red = colors->device_enclosure.component_v2.red; }
+                if (green != NULL) { *green = colors->device_enclosure.component_v2.green; }
+                if (blue != NULL) { *blue = colors->device_enclosure.component_v2.blue; }
+                succeeded = YES;
+            }
         }
     }
     CFRelease(property);
