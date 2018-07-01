@@ -41,7 +41,7 @@ public extension IndexPath {
         }
     }
     
-    #if os(macOS)
+    #if BUILDING_FOR_DESKTOP
     
     public var row: Int {
         get { return self.item }

@@ -9,12 +9,16 @@
 import Foundation
 
 public class SyzygyContainerViewController: SyzygyViewController {
-    private let contentProvider: Property<SyzygyViewController>
-    private var content: SyzygyViewController?
+    private let contentProvider: Property<PlatformViewController>
+    private var content: PlatformViewController?
     
-    public init(content: Property<SyzygyViewController>) {
+    public init(content: Property<PlatformViewController>) {
         contentProvider = content
         super.init(ui: .empty)
+    }
+    
+    public convenience init(content: PlatformViewController) {
+        self.init(content: Property(content))
     }
     
     required public init?(coder: NSCoder) { Die.shutUpXcode() }

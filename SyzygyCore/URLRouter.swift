@@ -12,7 +12,7 @@ public final class URLRouter {
     
     public static let shared = URLRouter()
     
-    #if os(macOS)
+    #if BUILDING_FOR_DESKTOP
     private let receiver = URLReceiver()
     #endif
     
@@ -64,7 +64,7 @@ public final class URLRouter {
     
 }
 
-#if os(macOS)
+#if BUILDING_FOR_DESKTOP
 private class URLReceiver: NSObject {
     
     override init() {

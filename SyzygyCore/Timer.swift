@@ -12,14 +12,19 @@ public class Timer {
     private var source: DispatchSourceTimer?
     private let handler: (Timer) -> Void
     
-    public init(interval: TimeInterval, repeats: Bool = true, queue: DispatchQueue = .main, handler: @escaping (Timer) -> Void) {
+    public init(interval: TimeInterval, repeats: Bool = true, fireImmediately: Bool = true, queue: DispatchQueue = .main, handler: @escaping (Timer) -> Void) {
         let source = DispatchSource.makeTimerSource(flags: [], queue: queue)
         
         self.handler = handler
         self.source = source
         
         let intervalInNSec = Int(interval * Double(NSEC_PER_SEC))
-        let startTime = DispatchTime.now() + interval
+        let startTime: DispatchTime
+        if fireImmediately {
+            startTime = .now()
+        } else {
+            startTime = .now() + interval
+        }
         let leeway = intervalInNSec / 10
         
         let repeating: DispatchTimeInterval = repeats ? .nanoseconds(intervalInNSec) : .never

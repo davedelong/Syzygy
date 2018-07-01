@@ -8,7 +8,7 @@
 
 import Foundation
 
-#if os(macOS)
+#if BUILDING_FOR_DESKTOP
 public typealias BezierPath = NSBezierPath
 #else
 public typealias BezierPath = UIBezierPath
@@ -16,7 +16,7 @@ public typealias BezierPath = UIBezierPath
 
 public extension BezierPath {
     
-    public convenience init (starShapeIn rect: CGRect, insets: CGEdgeInsets = CGEdgeInsets.zero) {
+    public convenience init (starShapeIn rect: CGRect, insets: PlatformEdgeInsets = PlatformEdgeInsets()) {
         let starFrame = rect.applying(insets)
         let center = starFrame.center
         let smallestDimension = min(starFrame.width, starFrame.height)
@@ -65,7 +65,7 @@ public extension BezierPath {
         self.apply(recenter)
     }
     
-    #if os(macOS)
+    #if BUILDING_FOR_DESKTOP
     var CGPath: CGPath {
         let p = CGMutablePath()
         

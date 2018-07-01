@@ -14,6 +14,6 @@
 #import <SyzygyCore/Objective-C.h>
 #import <SyzygyCore/Entitlements.h>
 
-#if BUILDING_FOR_MAC
+#if BUILDING_FOR_DESKTOP
 #import <SyzygyCore/IOKit.h>
 #endif

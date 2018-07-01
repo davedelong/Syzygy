@@ -6,7 +6,7 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-open class SyzygyViewController: NSViewController {
+open class SyzygyViewController: PlatformViewController {
     
     // Selection
     private let parentWantsSelection = MirroredProperty(false)
@@ -15,13 +15,15 @@ open class SyzygyViewController: NSViewController {
     public let selected: Property<Bool>
     
     // Background Color
-    public let defaultBackgroundColor = MutableProperty<NSColor?>(nil)
-    public let selectedBackgroundColor = MutableProperty<NSColor?>(NSColor.selectedMenuItemColor)
-    public let currentBackgroundColor: Property<NSColor?>
+    public let defaultBackgroundColor = MutableProperty<PlatformColor?>(nil)
+    public let selectedBackgroundColor = MutableProperty<PlatformColor?>(.defaultSelectionColor)
+    public let currentBackgroundColor: Property<PlatformColor?>
     
+    #if BUILDING_FOR_DESKTOP
     // Gestures
     private var rightClickRecognizer: NSClickGestureRecognizer?
     private var doubleClickRecognizer: NSClickGestureRecognizer?
+    #endif
     
     public let disposable = CompositeDisposable()
     
@@ -29,22 +31,28 @@ open class SyzygyViewController: NSViewController {
     
     // State Management
     private var isBulkModifyingChildren = false
-    internal var modalHandler: ((NSApplication.ModalResponse) -> Void)?
     
-    // Overrides
-    open override var children: Array<NSViewController> {
-        get { return super.children }
-        set {
-            isBulkModifyingChildren = true
-            super.children = newValue
-            isBulkModifyingChildren = false
+    public func updateChildren(_ newChildren: Array<PlatformViewController>) {
+        isBulkModifyingChildren = true
+        
+        #if BUILDING_FOR_DESKTOP
+        super.children = newChildren
+        #else
+        let kids = children
+        kids.forEach { $0.removeFromParent() }
+        newChildren.forEach {
+            addChild($0)
+            $0.didMove(toParent: self)
         }
+        #endif
+        
+        isBulkModifyingChildren = false
     }
     
     public enum UI {
         case empty
         case `default`
-        case explicit(NSNib.Name, Bundle)
+        case explicit(PlatformNib.Name, Bundle)
     }
     
     public init(ui: UI = .default) {
@@ -53,21 +61,21 @@ open class SyzygyViewController: NSViewController {
         }
         selected = actuallySelected.skipRepeats()
         
-        let bgColor = selected.combine(defaultBackgroundColor, selectedBackgroundColor).map { (isSelected, def, sel) -> NSColor? in
+        let bgColor = selected.combine(defaultBackgroundColor, selectedBackgroundColor).map { (isSelected, def, sel) -> PlatformColor? in
             let color = sel ?? def
             return isSelected ? color : def
         }
         currentBackgroundColor = bgColor.skipRepeats(==)
         
-        let nib: NSNib.Name?
+        let nib: PlatformNib.Name?
         let bundle: Bundle?
         
         switch ui {
             case .empty:
-                nib = NSNib.Name("Empty")
+                nib = PlatformNib.Name("Empty")
                 bundle = Bundle(for: SyzygyViewController.self)
             case .default:
-                nib = NSNib.Name("\(type(of: self))")
+                nib = PlatformNib.Name("\(type(of: self))")
                 bundle = Bundle(for: type(of: self))
             case .explicit(let n, let b):
                 nib = n
@@ -78,7 +86,9 @@ open class SyzygyViewController: NSViewController {
     
     required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
     
-    open override func insertChild(_ childViewController: NSViewController, at index: Int) {
+    #if BUILDING_FOR_DESKTOP
+    
+    open override func insertChild(_ childViewController: PlatformViewController, at index: Int) {
         super.insertChild(childViewController, at: index)
         
         if let child = childViewController as? SyzygyViewController {
@@ -93,12 +103,30 @@ open class SyzygyViewController: NSViewController {
         super.removeChild(at: index)
         
         if let child = child as? SyzygyViewController {
-            child.parentWantsSelection.takeValue(from: Property.false)
+            child.parentWantsSelection.takeValue(from: .false)
         }
     }
     
-    public func embedChildViewController(_ viewController: NSViewController, in aView: NSView? = nil) {
-        let container = (aView?.isEmbeddedIn(view) == true ? aView : view) ?? view
+    #else
+    
+    open override func addChild(_ childController: UIViewController) {
+        super.addChild(childController)
+        if let child = childController as? SyzygyViewController {
+            if childController.parent == self {
+                child.parentWantsSelection.takeValue(from: wantsSelection)
+            }
+        }
+    }
+    
+    open override func removeFromParent() {
+        super.removeFromParent()
+        parentWantsSelection.takeValue(from: .false)
+    }
+    
+    #endif
+    
+    public func embedChild(_ viewController: PlatformViewController, in aView: PlatformView? = nil) {
+        let container = (aView?.isEmbeddedIn(view) == true ? aView : view!) ?? view!
         
         viewController.view.removeFromSuperview()
         viewController.removeFromParent()
@@ -110,13 +138,15 @@ open class SyzygyViewController: NSViewController {
         container.addSubview(viewController.view)
     }
     
-    public func replaceChildViewController(_ child: NSViewController, with newChild: NSViewController, transitionOptions: NSViewController.TransitionOptions = [], in container: NSView? = nil) {
+    #if BUILDING_FOR_DESKTOP
+    
+    public func replaceChild(_ child: PlatformViewController, with newChild: PlatformViewController, transitionOptions: NSViewController.TransitionOptions = [], in container: PlatformView? = nil) {
         guard child.parent == self else { Abort.because("The child \(child) is not a direct child of \(self)") }
         let potentialContainer = container ?? child.view.superview
         guard let viewContainer = potentialContainer else { Abort.because("The child's view is not in the UI") }
         guard viewContainer.isEmbeddedIn(view) else { Abort.because("The container view is not in \(self)'s view hierarchy") }
         
-        embedChildViewController(newChild, in: viewContainer)
+        embedChild(newChild, in: viewContainer)
         
         if transitionOptions.isEmpty {
             child.view.removeFromSuperview()
@@ -129,21 +159,42 @@ open class SyzygyViewController: NSViewController {
         }
     }
     
-    open func endModalSession(code: NSApplication.ModalResponse) {
-        guard let handler = modalHandler else {
-            if let p = parent as? SyzygyViewController {
-                p.endModalSession(code: code)
-            }
-            return
+    #else
+    
+    public func replaceChild(_ child: PlatformViewController, with newChild: PlatformViewController, transitionOptions: UIView.AnimationOptions = [], in container: PlatformView? = nil) {
+        guard child.parent == self else { Abort.because("The child \(child) is not a direct child of \(self)") }
+        let potentialContainer = container ?? child.view.superview
+        guard let viewContainer = potentialContainer else { Abort.because("The child's view is not in the UI") }
+        guard viewContainer.isEmbeddedIn(view) else { Abort.because("The container view is not in \(self)'s view hierarchy") }
+        
+        embedChild(newChild, in: viewContainer)
+        
+        if transitionOptions.isEmpty {
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+        } else {
+            newChild.view.alpha = 0.0
+            UIView.animate(withDuration: 0.3, delay: 0.0,
+                           options: transitionOptions,
+                           animations: {
+                            child.view.alpha = 0.0
+                            newChild.view.alpha = 1.0
+            },
+                           completion: { _ in
+                            child.view.removeFromSuperview()
+                            child.removeFromParent()
+                            child.view.alpha = 1.0
+            })
         }
-        modalHandler = nil
-        handler(code)
+        
     }
+    
+    #endif
     
     open override func loadView() {
         super.loadView()
         
-        let loadedView = view
+        let loadedView = view!
         let ddv: SyzygyView
         
         if let v = loadedView as? SyzygyView {
@@ -161,9 +212,11 @@ open class SyzygyViewController: NSViewController {
             
             ddv = newView
         }
+        #if BUILDING_FOR_DESKTOP
         if ddv.identifier == nil {
             ddv.identifier = NSUserInterfaceItemIdentifier(rawValue: "\(type(of: self)).SyzygyView.\(ddv)")
         }
+        #endif
         ddv.controller = self
         
     }
@@ -175,6 +228,7 @@ open class SyzygyViewController: NSViewController {
             self?.syzygyView.backgroundColor = color
         }
         
+        #if BUILDING_FOR_DESKTOP
         if overrides(#selector(rightClickAction(_:)), upTo: SyzygyViewController.self) {
             let r = NSClickGestureRecognizer(target: self, action: #selector(SyzygyViewController.rightClickAction(_:)))
             r.numberOfClicksRequired = 1
@@ -192,6 +246,7 @@ open class SyzygyViewController: NSViewController {
             view.addGestureRecognizer(d)
             doubleClickRecognizer = d
         }
+        #endif
         
     }
     
@@ -208,8 +263,8 @@ open class SyzygyViewController: NSViewController {
     @objc open func rightClickAction(_ sender: Any) { }
     @objc open func doubleClickAction(_ sender: Any) { }
     
-    open func viewDidMoveToSuperview(_ superview: NSView?) { }
+    open func viewDidMoveToSuperview(_ superview: PlatformView?) { }
     
-    open func viewDidMoveToWindow(_ window: NSWindow?) { }
+    open func viewDidMoveToWindow(_ window: PlatformWindow?) { }
     
 }

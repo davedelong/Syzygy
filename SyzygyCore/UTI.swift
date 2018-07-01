@@ -136,7 +136,7 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
     }
     
     
-    #if os(macOS)
+    #if BUILDING_FOR_DESKTOP
     public static func UTIs(fromPasteBoardType pasteBoardType: String, conformingTo: UTI? = nil) -> Array<UTI> {
         return UTIs(for: kUTTagClassNSPboardType as String, tag: pasteBoardType, conformingTo: conformingTo)
     }

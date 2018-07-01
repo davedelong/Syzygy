@@ -35,7 +35,7 @@ public extension TargetActionProtocol {
     
 }
 
-#if os(macOS)
+#if BUILDING_FOR_DESKTOP
     
 extension NSControl: TargetActionProtocol { }
 extension NSMenuItem: TargetActionProtocol { }
@@ -55,7 +55,7 @@ internal class ActionTarget: NSObject {
         actionBlock(sender)
     }
     
-    #if os(macOS)
+    #if BUILDING_FOR_DESKTOP
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         return menuItem.isEnabled
     }

@@ -9,6 +9,6 @@
 @_exported import Foundation
 @_exported import SyzygyCore
 
-public let SyzygyHTTP = Bundle(for: SyzygyHTTPMarker.self)
+internal let SyzygyHTTP = Bundle(for: SyzygyHTTPMarker.self)
 
 private class SyzygyHTTPMarker { }

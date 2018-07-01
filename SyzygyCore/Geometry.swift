@@ -8,20 +8,20 @@
 
 import Foundation
 
-#if os(macOS)
+#if BUILDING_FOR_DESKTOP
 import AppKit
-public typealias CGEdgeInsets = NSEdgeInsets
+public typealias PlatformEdgeInsets = NSEdgeInsets
     
-public extension CGEdgeInsets {
+public extension PlatformEdgeInsets {
     public static let zero = NSEdgeInsetsZero
 }
     
 #else
 import UIKit
-public typealias CGEdgeInsets = UIEdgeInsets
+public typealias PlatformEdgeInsets = UIEdgeInsets
 #endif
 
-public extension CGEdgeInsets {
+public extension PlatformEdgeInsets {
     
     public init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
         self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
@@ -42,7 +42,7 @@ public extension CGRect {
         }
     }
     
-    public func applying(_ insets: CGEdgeInsets) -> CGRect {
+    public func applying(_ insets: PlatformEdgeInsets) -> CGRect {
         var f = self
         f.origin.x += insets.left
         f.size.width -= (insets.left + insets.right)

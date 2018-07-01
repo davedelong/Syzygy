@@ -50,7 +50,7 @@ public struct Entitlements {
         iCloudDocumentContainers = raw.value(for: "com.apple.developer.ubiquity-container-identifiers") ?? []
         iCloudKeyValueStoreIdentifiers = raw.value(for: "com.apple.developer.ubiquity-kvstore-identifier") ?? []
         
-        #if os(macOS)
+        #if BUILDING_FOR_DESKTOP
         let apsKey = "com.apple.developer.aps-environment"
         #else
         let apsKey = "aps-environment"

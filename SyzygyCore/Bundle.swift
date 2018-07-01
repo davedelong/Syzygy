@@ -47,7 +47,7 @@ public extension Bundle {
     }
     
     func nestedBundle(with identifier: Identifier<Bundle>) -> Bundle? {
-        #if os(macOS)
+        #if BUILDING_FOR_DESKTOP
             let bundlePath = AbsolutePath(bundleURL)
             let matches = LSDatabase.shared.paths(for: identifier.rawValue, containedWithin: bundlePath)
             if let path = matches.first, let bundle = Bundle(path: path) {

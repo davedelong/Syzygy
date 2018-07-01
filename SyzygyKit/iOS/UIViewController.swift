@@ -21,12 +21,12 @@ public extension UIViewController {
         if child.parent != self {
             if child.parent != nil {
                 child.viewIfLoaded?.removeFromSuperview()
-                child.willMove(toParentViewController: nil)
-                child.removeFromParentViewController()
+                child.willMove(toParent: nil)
+                child.removeFromParent()
             }
             
-            addChildViewController(child)
-            child.didMove(toParentViewController: self)
+            addChild(child)
+            child.didMove(toParent: self)
         }
         
         let childView = child.view !! "Unable to load child view"
@@ -36,13 +36,13 @@ public extension UIViewController {
     public func transition(to child: UIViewController, completion: ((Bool) -> Void)? = nil) {
         let duration = 0.3
         
-        let current = childViewControllers.last
+        let current = children.last
         guard current != child else {
             completion?(true)
             return
         }
         
-        addChildViewController(child)
+        addChild(child)
         
         let newView = child.view!
         newView.translatesAutoresizingMaskIntoConstraints = true
@@ -51,11 +51,11 @@ public extension UIViewController {
         
         if let existing = current {
             
-            existing.willMove(toParentViewController: nil)
+            existing.willMove(toParent: nil)
             
             transition(from: existing, to: child, duration: duration, options: [.transitionCrossDissolve], animations: { }, completion: { done in
-                existing.removeFromParentViewController()
-                child.didMove(toParentViewController: self)
+                existing.removeFromParent()
+                child.didMove(toParent: self)
                 completion?(done)
             })
             
@@ -63,7 +63,7 @@ public extension UIViewController {
             view.addSubview(newView)
             
             UIView.animate(withDuration: duration, delay: 0, options: [.transitionCrossDissolve], animations: { }, completion: { done in
-                child.didMove(toParentViewController: self)
+                child.didMove(toParent: self)
                 completion?(done)
             })
         }

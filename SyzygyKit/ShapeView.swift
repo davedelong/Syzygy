@@ -14,7 +14,7 @@ public class ShapeView: PlatformView {
     
     private lazy var shapeLayer: CAShapeLayer = {
         let l = CAShapeLayer()
-        #if os(macOS)
+        #if BUILDING_FOR_DESKTOP
             layerContentsRedrawPolicy = .onSetNeedsDisplay
             canDrawSubviewsIntoLayer = false
         #endif
@@ -26,7 +26,7 @@ public class ShapeView: PlatformView {
     }()
     
     private func shapeNeedsUpdate() {
-        #if os(macOS)
+        #if BUILDING_FOR_DESKTOP
         needsDisplay = true
         #else
         setNeedsUpdateConstraints()
@@ -41,7 +41,7 @@ public class ShapeView: PlatformView {
         didSet { shapeNeedsUpdate() }
     }
     
-    public var shapeInsets: CGEdgeInsets = .zero {
+    public var shapeInsets: PlatformEdgeInsets = PlatformEdgeInsets() {
         didSet { shapeNeedsUpdate() }
     }
     
@@ -71,7 +71,7 @@ public class ShapeView: PlatformView {
         shapeLayer.lineWidth = lineWidth
     }
     
-    #if os(macOS)
+    #if BUILDING_FOR_DESKTOP
     public override func updateLayer() {
         super.updateLayer()
         updateShape()

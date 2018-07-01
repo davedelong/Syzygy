@@ -15,6 +15,7 @@ public enum Abort {
         public static let mustBeOverridden = Reason("This method must be overridden")
         public static let unreachable = Reason("This code should be unreachable")
         public static let notYetImplemented = Reason("This code has not been implemented yet")
+        public static let invalidLogic = Reason("Invalid logic resulted in a failed condition")
         
         public let debugDescription: String
         public init(_ why: String) {
@@ -29,6 +30,28 @@ public enum Abort {
     public static func because(_ reason: String, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) -> Never {
         let message = "Failed assertion in \(function) - \(reason)"
         fatalError(message, file: file, line: line)
+    }
+    
+    public static func `if`(_ condition: @autoclosure () -> Bool, because: Reason, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
+        if condition() == true {
+            Abort.because(because, file: file, line: line, function: function)
+        }
+    }
+    
+}
+
+public struct Assert {
+    
+    public static func isMainThread(_ file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
+        guard Thread.isMainThread else {
+            Abort.because("This may only be executed on the main thread", file: file, line: line, function: function)
+        }
+    }
+    
+    public static func that(_ condition: @autoclosure () -> Bool, otherwise: Abort.Reason, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
+        guard condition() == true else {
+            Abort.because(otherwise, file: file, line: line, function: function)
+        }
     }
     
 }

@@ -10,7 +10,7 @@ import Foundation
 
 public extension UTI {
     private static let registeredDeviceTypes: Bool = {
-        #if os(macOS)
+        #if BUILDING_FOR_DESKTOP
         let fm = FileManager.default
         let coreTypes = AbsolutePath(fileSystemPath: "/System/Library/CoreServices/CoreTypes.bundle")
         let embeddedBundles = fm.contentsOfDirectory(at: coreTypes/"Contents"/"Library").filter { $0.extension == "bundle" }

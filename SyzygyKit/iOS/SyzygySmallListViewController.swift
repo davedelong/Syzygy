@@ -46,13 +46,13 @@ open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelega
             let vc = _extractor($0)
             if vc.parent != nil && vc.parent != table {
                 vc.viewIfLoaded?.removeFromSuperview()
-                vc.willMove(toParentViewController: nil)
-                vc.removeFromParentViewController()
+                vc.willMove(toParent: nil)
+                vc.removeFromParent()
             }
             
             if vc.parent != table {
-                table.addChildViewController(vc)
-                vc.didMove(toParentViewController: table)
+                table.addChild(vc)
+                vc.didMove(toParent: table)
             }
         }
         table.tableView.reloadData()

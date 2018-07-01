@@ -6,8 +6,11 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-open class SyzygyView: NSView {
+open class SyzygyView: PlatformView {
     
+    public internal(set) weak var controller: SyzygyViewController?
+    
+    #if BUILDING_FOR_DESKTOP
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         layerContentsRedrawPolicy = .onSetNeedsDisplay
@@ -18,7 +21,6 @@ open class SyzygyView: NSView {
         layerContentsRedrawPolicy = .onSetNeedsDisplay
     }
     
-    public internal(set) weak var controller: SyzygyViewController?
     open override var wantsLayer: Bool {
         get { return true }
         set { super.wantsLayer = true }
@@ -54,5 +56,18 @@ open class SyzygyView: NSView {
         super.viewDidMoveToWindow()
         controller?.viewDidMoveToWindow(self.window)
     }
+    #else
+    
+    open override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        controller?.viewDidMoveToSuperview(self.superview)
+    }
+    
+    open override func didMoveToWindow() {
+        super.didMoveToWindow()
+        controller?.viewDidMoveToWindow(self.window)
+    }
+    
+    #endif
     
 }

@@ -15,7 +15,7 @@ public struct Color {
     
     public let rawColor: CGColor
     
-    #if os(macOS)
+    #if BUILDING_FOR_DESKTOP
     
     public var color: NSColor { return NSColor(cgColor: rawColor) !! "Unable to create color from \(rawColor)" }
     public init(color: NSColor) { self.rawColor = color.cgColor }

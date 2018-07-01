@@ -47,10 +47,10 @@ public class SyzygyStackViewController: UIViewController {
     
     private let scrollsContent: Bool
     private let disposable = CompositeDisposable()
-    private let children: Property<Array<UIViewController>>
+    private let observedChildren: Property<Array<UIViewController>>
     
     public init(children: Property<Array<UIViewController>>, scrollContents: Bool = true) {
-        self.children = children
+        self.observedChildren = children
         self.scrollsContent = scrollContents
         super.init(nibName: nil, bundle: nil)
     }
@@ -69,15 +69,15 @@ public class SyzygyStackViewController: UIViewController {
         }
         
         stack.addArrangedSubview(topSpacer)
-        disposable += children.observe { [weak self] kids in
+        disposable += observedChildren.observe { [weak self] kids in
             for kid in kids {
                 if kid.parent != self {
-                    kid.willMove(toParentViewController: nil)
-                    kid.removeFromParentViewController()
+                    kid.willMove(toParent: nil)
+                    kid.removeFromParent()
                 }
                 
-                self?.addChildViewController(kid)
-                kid.willMove(toParentViewController: self)
+                self?.addChild(kid)
+                kid.willMove(toParent: self)
                 
                 self?.stack.addArrangedSubview(kid.view)
             }
