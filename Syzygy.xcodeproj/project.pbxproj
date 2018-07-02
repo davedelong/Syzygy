@@ -58,6 +58,11 @@
 		559079CA20B76F97005AECE7 /* RandomAccessCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079C920B76F97005AECE7 /* RandomAccessCollection.swift */; };
 		559079CC20B76FC1005AECE7 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079CB20B76FC1005AECE7 /* NSView.swift */; };
 		559079CE20B770C7005AECE7 /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079CD20B770C7005AECE7 /* ProcessInfo.swift */; };
+		559B337520E973F300034E51 /* SyzygyLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 559B337320E973F300034E51 /* SyzygyLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		559B337A20E9749B00034E51 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B337920E9749B00034E51 /* LocationProvider.swift */; };
+		559B337C20E974AA00034E51 /* SyzygyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B337B20E974AA00034E51 /* SyzygyLocation.swift */; };
+		559B337E20E976FE00034E51 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B337D20E976FE00034E51 /* LocationDelegate.swift */; };
+		559B337F20E9785C00034E51 /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
 		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
 		55CF07AD20E2F93A00266DCA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07AC20E2F93A00266DCA /* Coordinator.swift */; };
@@ -238,6 +243,12 @@
 		559079C920B76F97005AECE7 /* RandomAccessCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollection.swift; sourceTree = "<group>"; };
 		559079CB20B76FC1005AECE7 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		559079CD20B770C7005AECE7 /* ProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfo.swift; sourceTree = "<group>"; };
+		559B337120E973F300034E51 /* SyzygyLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		559B337320E973F300034E51 /* SyzygyLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyLocation.h; sourceTree = "<group>"; };
+		559B337420E973F300034E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		559B337920E9749B00034E51 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		559B337B20E974AA00034E51 /* SyzygyLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyLocation.swift; sourceTree = "<group>"; };
+		559B337D20E976FE00034E51 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 		55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55CF07AC20E2F93A00266DCA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -378,6 +389,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		559B336E20E973F300034E51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559B337F20E9785C00034E51 /* SyzygyCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55FB064A1FF9B5BB0001D42E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -476,6 +495,18 @@
 			name = "Data Structures";
 			sourceTree = "<group>";
 		};
+		559B337220E973F300034E51 /* SyzygyLocation */ = {
+			isa = PBXGroup;
+			children = (
+				559B337320E973F300034E51 /* SyzygyLocation.h */,
+				559B337B20E974AA00034E51 /* SyzygyLocation.swift */,
+				559B337920E9749B00034E51 /* LocationProvider.swift */,
+				559B337D20E976FE00034E51 /* LocationDelegate.swift */,
+				559B337420E973F300034E51 /* Info.plist */,
+			);
+			path = SyzygyLocation;
+			sourceTree = "<group>";
+		};
 		55CF07B220E2FBFE00266DCA /* Platform Unification */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +540,7 @@
 				55FB06501FF9B5BB0001D42E /* SyzygyCore */,
 				552B49342012D4610054997E /* SyzygyHTTP */,
 				55FB065F1FF9B5D30001D42E /* SyzygyKit */,
+				559B337220E973F300034E51 /* SyzygyLocation */,
 				55FB064F1FF9B5BB0001D42E /* Products */,
 				55FB06661FF9B6100001D42E /* Frameworks */,
 			);
@@ -520,6 +552,7 @@
 				55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */,
 				55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */,
 				552B49332012D4600054997E /* SyzygyHTTP.framework */,
+				559B337120E973F300034E51 /* SyzygyLocation.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -756,6 +789,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		559B336C20E973F300034E51 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559B337520E973F300034E51 /* SyzygyLocation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55FB064B1FF9B5BB0001D42E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -795,6 +836,24 @@
 			name = SyzygyHTTP;
 			productName = SyzygyHTTP;
 			productReference = 552B49332012D4600054997E /* SyzygyHTTP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		559B337020E973F300034E51 /* SyzygyLocation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 559B337820E973F300034E51 /* Build configuration list for PBXNativeTarget "SyzygyLocation" */;
+			buildPhases = (
+				559B336C20E973F300034E51 /* Headers */,
+				559B336D20E973F300034E51 /* Sources */,
+				559B336E20E973F300034E51 /* Frameworks */,
+				559B336F20E973F300034E51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SyzygyLocation;
+			productName = SyzygyLocation;
+			productReference = 559B337120E973F300034E51 /* SyzygyLocation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		55FB064D1FF9B5BB0001D42E /* SyzygyCore */ = {
@@ -847,6 +906,11 @@
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
+					559B337020E973F300034E51 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
 					55FB064D1FF9B5BB0001D42E = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -874,12 +938,20 @@
 				55FB064D1FF9B5BB0001D42E /* SyzygyCore */,
 				55FB065D1FF9B5D30001D42E /* SyzygyKit */,
 				552B49322012D4600054997E /* SyzygyHTTP */,
+				559B337020E973F300034E51 /* SyzygyLocation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		552B49312012D4600054997E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559B336F20E973F300034E51 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -916,6 +988,16 @@
 				55F7248F2038922B0093473F /* Header.swift in Sources */,
 				55F72491203892380093473F /* Method.swift in Sources */,
 				552B493E2012D5590054997E /* Request.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559B336D20E973F300034E51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559B337A20E9749B00034E51 /* LocationProvider.swift in Sources */,
+				559B337E20E976FE00034E51 /* LocationDelegate.swift in Sources */,
+				559B337C20E974AA00034E51 /* SyzygyLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,6 +1194,24 @@
 			};
 			name = Release;
 		};
+		559B337620E973F300034E51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SyzygyLocation/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyLocation;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+			};
+			name = Debug;
+		};
+		559B337720E973F300034E51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SyzygyLocation/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyLocation;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+			};
+			name = Release;
+		};
 		55FB06541FF9B5BB0001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55FB066A1FF9B84F0001D42E /* Syzygy-Debug.xcconfig */;
@@ -1134,22 +1234,18 @@
 		55FB06571FF9B5BB0001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SyzygyCore/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		55FB06581FF9B5BB0001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SyzygyCore/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -1179,6 +1275,15 @@
 			buildConfigurations = (
 				552B49392012D4610054997E /* Debug */,
 				552B493A2012D4610054997E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		559B337820E973F300034E51 /* Build configuration list for PBXNativeTarget "SyzygyLocation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				559B337620E973F300034E51 /* Debug */,
+				559B337720E973F300034E51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
