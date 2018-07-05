@@ -1,26 +1,29 @@
 //
-//  ProcessInfo.swift
+//  NSApplication.swift
 //  SyzygyKit
 //
-//  Created by Dave DeLong on 5/24/18.
+//  Created by Dave DeLong on 6/22/18.
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
 import Cocoa
 
-public extension ProcessInfo {
+public extension NSApplication {
     
-    public enum Kind {
+    public struct ProcessType {
+        
         /// Foreground applications have a menu bar and appear in the Dock
-        case foreground
+        public static let foreground = ProcessType(rawValue: kProcessTransformToForegroundApplication)
         
         /// Background applications do not have a menu bar nor appear in the Dock.
         /// These kinds of applications should not have windows or other UI elements.
-        case background
+        public static let background = ProcessType(rawValue: kProcessTransformToBackgroundApplication)
         
         /// UIElement applications do not have a menu bar, nor appear in the Dock.
         /// These kinds of applications may present windows and other UI.
-        case UIElement
+        public static let UIElement = ProcessType(rawValue: kProcessTransformToUIElementApplication)
+        
+        fileprivate let rawValue: Int
     }
     
     
@@ -29,15 +32,8 @@ public extension ProcessInfo {
     /// - Parameter processType: The `Type` of the process. This should usually be either `.foreground` or `.UIElement`.
     /// - Returns: `true` if the transformation was successful, and `false` otherwise.
     @discardableResult
-    public func transform(to processType: Kind) -> Bool {
-        let stateValue: Int
-        switch processType {
-            case .foreground: stateValue = kProcessTransformToForegroundApplication
-            case .background: stateValue = kProcessTransformToBackgroundApplication
-            case .UIElement: stateValue = kProcessTransformToUIElementApplication
-        }
-        
-        let state = ProcessApplicationTransformState(stateValue)
+    public func transform(to processType: ProcessType) -> Bool {
+        let state = ProcessApplicationTransformState(processType.rawValue)
         var psn = ProcessSerialNumber(highLongOfPSN: 0, lowLongOfPSN: UInt32(kCurrentProcess))
         let status = TransformProcessType(&psn, state)
         return status == noErr

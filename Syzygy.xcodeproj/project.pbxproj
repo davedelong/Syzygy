@@ -69,6 +69,7 @@
 		55CF07AF20E2F95200266DCA /* PlatformResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07AE20E2F95200266DCA /* PlatformResponder.swift */; };
 		55CF07B120E2FBD700266DCA /* PlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07B020E2FBD700266DCA /* PlatformViewController.swift */; };
 		55CF07B420E3029900266DCA /* PlatformColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07B320E3029900266DCA /* PlatformColor.swift */; };
+		55CF07A920DD4D1800266DCA /* NSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07A820DD4D1800266DCA /* NSApplication.swift */; };
 		55EB0378202125E0007B5433 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB0377202125E0007B5433 /* Keychain.swift */; };
 		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
 		55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFBBDD20D423C6002C48FA /* NSPredicate.swift */; };
@@ -255,6 +256,7 @@
 		55CF07AE20E2F95200266DCA /* PlatformResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformResponder.swift; sourceTree = "<group>"; };
 		55CF07B020E2FBD700266DCA /* PlatformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformViewController.swift; sourceTree = "<group>"; };
 		55CF07B320E3029900266DCA /* PlatformColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformColor.swift; sourceTree = "<group>"; };
+		55CF07A820DD4D1800266DCA /* NSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication.swift; sourceTree = "<group>"; };
 		55EB0377202125E0007B5433 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		55EB037920212D74007B5433 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		55EFBBDD20D423C6002C48FA /* NSPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicate.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */,
 				55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */,
 				551D480720114DA300AF7CF8 /* Empty.xib */,
+				55CF07A820DD4D1800266DCA /* NSApplication.swift */,
 				551D47F5201112F400AF7CF8 /* NSWorkspace+Properties.swift */,
 				551D47F820111ADF00AF7CF8 /* NSRunningApplication.swift */,
 				551D47FD20114AF700AF7CF8 /* AutosizingTextField.swift */,
@@ -436,7 +439,6 @@
 				551D4817201151B300AF7CF8 /* NSViewController.swift */,
 				551D480F20114FC900AF7CF8 /* NSWindow.swift */,
 				559079C720B76F07005AECE7 /* NSWindowController.swift */,
-				559079CD20B770C7005AECE7 /* ProcessInfo.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1143,7 +1145,6 @@
 				559079CC20B76FC1005AECE7 /* NSView.swift in Sources */,
 				5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */,
 				554F9556201D2F2B007864A7 /* SyzygyStackViewController.swift in Sources */,
-				559079CE20B770C7005AECE7 /* ProcessInfo.swift in Sources */,
 				551D480020114B5100AF7CF8 /* SyzygyView.swift in Sources */,
 				55814DC420E340410027DA84 /* Shape.swift in Sources */,
 				551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */,
@@ -1151,6 +1152,7 @@
 				55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */,
 				554F9571201D75A2007864A7 /* UIView.swift in Sources */,
 				554F954D201D2BD8007864A7 /* UITableViewCell.swift in Sources */,
+				55CF07A920DD4D1800266DCA /* NSApplication.swift in Sources */,
 				551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */,
 				55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */,
 				554F9565201D3F51007864A7 /* UIGestureRecognizer+Blocks.swift in Sources */,
