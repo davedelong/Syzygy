@@ -8,11 +8,11 @@
 
 import Foundation
 
-public extension SyzygyViewController {
+open class SyzygyViewController: _SyzygyViewControllerBase {
     
     public typealias TransitionOptions = UIView.AnimationOptions
     
-    internal func _setChildren(_ newChildren: Array<PlatformViewController>) {
+    public func updateChildren(_ newChildren: Array<PlatformViewController>) {
         let kids = children
         kids.forEach { $0.removeFromParent() }
         newChildren.forEach {
@@ -21,8 +21,18 @@ public extension SyzygyViewController {
         }
     }
     
-    internal func _platformViewDidLoad() {
-        
+    open override func addChild(_ childController: PlatformViewController) {
+        super.addChild(childController)
+        if let child = childController as? SyzygyViewController {
+            if childController.parent == self {
+                child.parentWantsSelection.takeValue(from: wantsSelection)
+            }
+        }
+    }
+    
+    open override func removeFromParent() {
+        super.removeFromParent()
+        parentWantsSelection.takeValue(from: .false)
     }
     
 }

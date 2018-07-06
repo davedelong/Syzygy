@@ -35,6 +35,7 @@
 		551C00A920EFCCD3006CE550 /* Shape~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00A820EFCCD3006CE550 /* Shape~macos.swift */; };
 		551C00AB20EFCD74006CE550 /* ShapeView~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00AA20EFCD74006CE550 /* ShapeView~ios.swift */; };
 		551C00AD20EFCD7A006CE550 /* ShapeView~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00AC20EFCD7A006CE550 /* ShapeView~macos.swift */; };
+		551C00B320F02B7C006CE550 /* SyzygyCore~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */; };
 		551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */ = {isa = PBXBuildFile; fileRef = 551D47C02006F9E100AF7CF8 /* Entitlements.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		551D47C32006F9E100AF7CF8 /* Entitlements.m in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C12006F9E100AF7CF8 /* Entitlements.m */; };
 		551D47C72007309B00AF7CF8 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C62007309B00AF7CF8 /* Entitlements.swift */; };
@@ -44,7 +45,7 @@
 		551D47F920111ADF00AF7CF8 /* NSRunningApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47F820111ADF00AF7CF8 /* NSRunningApplication.swift */; };
 		551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47FD20114AF700AF7CF8 /* AutosizingTextField.swift */; };
 		551D480020114B5100AF7CF8 /* SyzygyView~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47FF20114B5100AF7CF8 /* SyzygyView~macos.swift */; };
-		551D480220114BA600AF7CF8 /* SyzygyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480120114BA600AF7CF8 /* SyzygyViewController.swift */; };
+		551D480220114BA600AF7CF8 /* SyzygyViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480120114BA600AF7CF8 /* SyzygyViewControllerBase.swift */; };
 		551D480A20114F5600AF7CF8 /* NSBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480920114F5600AF7CF8 /* NSBox.swift */; };
 		551D480C20114F7100AF7CF8 /* NSCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480B20114F7100AF7CF8 /* NSCollectionView.swift */; };
 		551D480E20114F9500AF7CF8 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D480D20114F9500AF7CF8 /* NSEvent.swift */; };
@@ -237,6 +238,7 @@
 		551C00A820EFCCD3006CE550 /* Shape~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape~macos.swift"; sourceTree = "<group>"; };
 		551C00AA20EFCD74006CE550 /* ShapeView~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeView~ios.swift"; sourceTree = "<group>"; };
 		551C00AC20EFCD7A006CE550 /* ShapeView~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeView~macos.swift"; sourceTree = "<group>"; };
+		551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyCore~ios.swift"; sourceTree = "<group>"; };
 		551D47C02006F9E100AF7CF8 /* Entitlements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entitlements.h; sourceTree = "<group>"; };
 		551D47C12006F9E100AF7CF8 /* Entitlements.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Entitlements.m; sourceTree = "<group>"; };
 		551D47C62007309B00AF7CF8 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
@@ -248,7 +250,7 @@
 		551D47F820111ADF00AF7CF8 /* NSRunningApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRunningApplication.swift; sourceTree = "<group>"; };
 		551D47FD20114AF700AF7CF8 /* AutosizingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosizingTextField.swift; sourceTree = "<group>"; };
 		551D47FF20114B5100AF7CF8 /* SyzygyView~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyView~macos.swift"; sourceTree = "<group>"; };
-		551D480120114BA600AF7CF8 /* SyzygyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyViewController.swift; sourceTree = "<group>"; };
+		551D480120114BA600AF7CF8 /* SyzygyViewControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyViewControllerBase.swift; sourceTree = "<group>"; };
 		551D480720114DA300AF7CF8 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		551D480920114F5600AF7CF8 /* NSBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSBox.swift; sourceTree = "<group>"; };
 		551D480B20114F7100AF7CF8 /* NSCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCollectionView.swift; sourceTree = "<group>"; };
@@ -657,6 +659,7 @@
 			children = (
 				55FB06511FF9B5BB0001D42E /* SyzygyCore.h */,
 				55FB075F1FFAC7690001D42E /* SyzygyCore.swift */,
+				551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */,
 				550435C92084D555009DF2E2 /* SyzygyConditionals.h */,
 				552A40A02005273E009B8C6B /* Standard Library-ish Things */,
 				555C1904200536EB0017F253 /* Data Structures */,
@@ -740,7 +743,7 @@
 				55CF07AC20E2F93A00266DCA /* Coordinator.swift */,
 				551C009720EFBBA1006CE550 /* SyzygyView~ios.swift */,
 				551D47FF20114B5100AF7CF8 /* SyzygyView~macos.swift */,
-				551D480120114BA600AF7CF8 /* SyzygyViewController.swift */,
+				551D480120114BA600AF7CF8 /* SyzygyViewControllerBase.swift */,
 				551C009920EFBD15006CE550 /* SyzygyViewController~ios.swift */,
 				551C009B20EFBD47006CE550 /* SyzygyViewController~macos.swift */,
 				551C008D20EFBAFA006CE550 /* Responder~ios.swift */,
@@ -1149,6 +1152,7 @@
 				554F9561201D38E3007864A7 /* CLLocation.swift in Sources */,
 				55FB06EE1FF9BC070001D42E /* KVOProperty.swift in Sources */,
 				55FB07151FF9BC070001D42E /* Diff.swift in Sources */,
+				551C00B320F02B7C006CE550 /* SyzygyCore~ios.swift in Sources */,
 				55FB073F1FF9D0EE0001D42E /* Sandbox.swift in Sources */,
 				55FB07191FF9BC070001D42E /* URLRouting.swift in Sources */,
 				55FB07301FF9BC070001D42E /* Regex.swift in Sources */,
@@ -1224,7 +1228,7 @@
 				55814DC420E340410027DA84 /* Shape.swift in Sources */,
 				551C008220EFB93F006CE550 /* SyzygyKit~ios.swift in Sources */,
 				551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */,
-				551D480220114BA600AF7CF8 /* SyzygyViewController.swift in Sources */,
+				551D480220114BA600AF7CF8 /* SyzygyViewControllerBase.swift in Sources */,
 				55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */,
 				554F9571201D75A2007864A7 /* UIView.swift in Sources */,
 				554F954D201D2BD8007864A7 /* UITableViewCell.swift in Sources */,

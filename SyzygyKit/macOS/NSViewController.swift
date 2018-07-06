@@ -8,6 +8,8 @@
 
 public extension NSViewController {
     
+    internal var _actualView: NSView { return view }
+    
     public var viewIfLoaded: NSView? {
         guard isViewLoaded else { return nil }
         return view

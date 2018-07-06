@@ -10,7 +10,7 @@ import Foundation
 
 public class SyzygyView: PlatformView {
     
-    public internal(set) weak var controller: SyzygyViewController?
+    public internal(set) weak var controller: _SyzygyViewControllerBase?
     
     open override func didMoveToSuperview() {
         super.didMoveToSuperview()

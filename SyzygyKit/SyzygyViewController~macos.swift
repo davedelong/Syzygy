@@ -8,15 +8,21 @@
 
 import Foundation
 
-public extension SyzygyViewController {
+open class SyzygyViewController: _SyzygyViewControllerBase {
     
     public typealias TransitionOptions = NSViewController.TransitionOptions
     
-    internal func _setChildren(_ newChildren: Array<PlatformViewController>) {
+    // Gestures
+    internal var rightClickRecognizer: PlatformClickGestureRecognizer?
+    internal var doubleClickRecognizer: PlatformClickGestureRecognizer?
+    
+    public func updateChildren(_ newChildren: Array<PlatformViewController>) {
         super.children = newChildren
     }
     
-    internal func _platformViewDidLoad() {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        
         if view.identifier == nil {
             view.identifier = NSUserInterfaceItemIdentifier(rawValue: "\(type(of: self)).SyzygyView.\(view)")
         }
@@ -39,5 +45,27 @@ public extension SyzygyViewController {
             doubleClickRecognizer = d
         }
     }
+    
+    open override func insertChild(_ childViewController: PlatformViewController, at index: Int) {
+        super.insertChild(childViewController, at: index)
+        
+        if let child = childViewController as? SyzygyViewController {
+            if childViewController.parent == self {
+                child.parentWantsSelection.takeValue(from: wantsSelection)
+            }
+        }
+    }
+    
+    open override func removeChild(at index: Int) {
+        let child = children[index]
+        super.removeChild(at: index)
+        
+        if let child = child as? SyzygyViewController {
+            child.parentWantsSelection.takeValue(from: .false)
+        }
+    }
+    
+    @objc open func rightClickAction(_ sender: Any) { }
+    @objc open func doubleClickAction(_ sender: Any) { }
     
 }

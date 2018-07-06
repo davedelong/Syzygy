@@ -10,11 +10,25 @@ public extension Abort.Reason {
     public static let notADirectChildViewController = Abort.Reason("View controller is not a direct child")
 }
 
-open class SyzygyViewController: PlatformViewController {
+
+/// _SyzygyViewControllerBase exists because of weirdness in creating cross-platform view controllers
+/// and inconsistent view controller API between the two
+///
+/// On macOS, the "child view controller" primitives are -insertChild:atIndex: and -removeChildAtIndex:
+/// On iOS, the primitives are -addChildViewController: and -removeFromParentViewController
+///
+/// There is no sane way to create a class that only overrides one set on one platform and another set on
+/// another platform, all within the same class (at least, not without getting in to runtime shenanigans).
+/// Thus, the common logic of both kinds of view controllers is extracted in to this "Base" class,
+/// and then the actual "public" classes are platform-specific versions in the ~ios/~macos files,
+/// which declare the actual "SyzygyViewController" class.
+///
+/// DO NOT subclass _SyzygyViewControllerBase yourself.
+open class _SyzygyViewControllerBase: PlatformViewController {
     
     // Selection
-    private let parentWantsSelection = MirroredProperty(false)
-    private let wantsSelection = MutableProperty(false)
+    internal let parentWantsSelection = MirroredProperty(false)
+    internal let wantsSelection = MutableProperty(false)
     public let selectable = MutableProperty(false)
     public let selected: Property<Bool>
     
@@ -23,22 +37,9 @@ open class SyzygyViewController: PlatformViewController {
     public let selectedBackgroundColor = MutableProperty<PlatformColor?>(.defaultSelectionColor)
     public let currentBackgroundColor: Property<PlatformColor?>
     
-    // Gestures
-    internal var rightClickRecognizer: PlatformClickGestureRecognizer?
-    internal var doubleClickRecognizer: PlatformClickGestureRecognizer?
-    
     public let disposable = CompositeDisposable()
     
     public var syzygyView: SyzygyView { return view as! SyzygyView }
-    
-    // State Management
-    private var isBulkModifyingChildren = false
-    
-    public func updateChildren(_ newChildren: Array<PlatformViewController>) {
-        isBulkModifyingChildren = true
-        _setChildren(newChildren)
-        isBulkModifyingChildren = false
-    }
     
     public enum UI {
         case empty
@@ -77,45 +78,8 @@ open class SyzygyViewController: PlatformViewController {
     
     required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
     
-    // overriding this means that the parentWantsSelection logic happens TWICE
-    // when adding a child via addChild(_:)
-    open override func insertChild(_ childViewController: PlatformViewController, at index: Int) {
-        super.insertChild(childViewController, at: index)
-        
-        if let child = childViewController as? SyzygyViewController {
-            if childViewController.parent == self {
-                child.parentWantsSelection.takeValue(from: wantsSelection)
-            }
-        }
-    }
-    
-    // overriding this means that the parentWantsSelection logic happens TWICE
-    // when removing a child via removeFromParent()
-    open override func removeChild(at index: Int) {
-        let child = children[index]
-        super.removeChild(at: index)
-        
-        if let child = child as? SyzygyViewController {
-            child.parentWantsSelection.takeValue(from: .false)
-        }
-    }
-    
-    open override func addChild(_ childController: PlatformViewController) {
-        super.addChild(childController)
-        if let child = childController as? SyzygyViewController {
-            if childController.parent == self {
-                child.parentWantsSelection.takeValue(from: wantsSelection)
-            }
-        }
-    }
-    
-    open override func removeFromParent() {
-        super.removeFromParent()
-        parentWantsSelection.takeValue(from: .false)
-    }
-    
     public func embedChild(_ viewController: PlatformViewController, in aView: PlatformView? = nil) {
-        let container = (aView?.isEmbeddedIn(view) == true ? aView : view) ?? view
+        let container = (aView?.isEmbeddedIn(syzygyView) == true ? aView : syzygyView) ?? syzygyView
         
         viewController.view.removeFromSuperview()
         viewController.removeFromParent()
@@ -156,11 +120,11 @@ open class SyzygyViewController: PlatformViewController {
         if let v = loadedView as? SyzygyView {
             ddv = v
         } else {
-            let newView = SyzygyView(frame: loadedView.frame)
-            loadedView.frame = newView.bounds
-            loadedView.autoresizingMask = [.width, .height]
-            loadedView.translatesAutoresizingMaskIntoConstraints = true
-            newView.addSubview(loadedView)
+            let newView = SyzygyView(frame: _actualView.frame)
+            _actualView.frame = newView.bounds
+            _actualView.autoresizingMask = [.width, .height]
+            _actualView.translatesAutoresizingMaskIntoConstraints = true
+            newView.addSubview(_actualView)
             
             newView.autoresizingMask = [.width, .height]
             newView.translatesAutoresizingMaskIntoConstraints = true
@@ -178,22 +142,14 @@ open class SyzygyViewController: PlatformViewController {
         disposable += currentBackgroundColor.observe { [weak self] color in
             self?.syzygyView.backgroundColor = color
         }
-        
-        _platformViewDidLoad()
     }
     
     open func select() { wantsSelection.value = true }
     open func deselect() { wantsSelection.value = false }
     public func toggleSelection() {
-        //        wantsSelection.modify { s in
-        //            print("selected? \(s)")
-        //            return !s
-        //        }
-        wantsSelection.value = !wantsSelection.value
+        // this negates the selection value, because ! is a (Bool) -> Bool function
+        wantsSelection.modify(!)
     }
-    
-    @objc open func rightClickAction(_ sender: Any) { }
-    @objc open func doubleClickAction(_ sender: Any) { }
     
     open func viewDidMoveToSuperview(_ superview: PlatformView?) { }
     

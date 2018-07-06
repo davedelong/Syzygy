@@ -10,6 +10,8 @@ import Foundation
 
 public extension UIViewController {
     
+    internal var _actualView: UIView { return view! }
+    
     public func embedViewController(_ child: UIViewController, in aView: UIView? = nil) {
         let container: UIView
         if let v = aView, v.isEmbeddedIn(self.view) {
@@ -35,8 +37,12 @@ public extension UIViewController {
     
     public func transition(from fromViewController: PlatformViewController, to toViewController: PlatformViewController, options: SyzygyViewController.TransitionOptions = [], completionHandler completion: (() -> Void)? = nil) {
         
-        self.transition(from: fromViewController to: toViewController, duration: 0.3, options: options, completion: completion)
+        transition(from: fromViewController, to: toViewController, duration: 0.3, options: options, completion: completion)
         
+    }
+    
+    public func transition(from fromViewController: PlatformViewController, to toViewController: PlatformViewController, duration: TimeInterval, options: SyzygyViewController.TransitionOptions = [], completion: (() -> Void)? = nil) {
+        self.transition(from: fromViewController, to: toViewController, duration: duration, options: options, animations: nil, completion: { _ in completion?() })
     }
     
     public func transition(to child: UIViewController, completion: ((Bool) -> Void)? = nil) {
