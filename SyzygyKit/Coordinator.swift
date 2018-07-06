@@ -49,6 +49,8 @@ open class Coordinator: PlatformResponder {
         }
     }
     
+    required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
+    
     deinit {
         Abort.if(started == true, because: .unstopped)
         

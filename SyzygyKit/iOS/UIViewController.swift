@@ -33,6 +33,12 @@ public extension UIViewController {
         container.embedSubview(childView)
     }
     
+    public func transition(from fromViewController: PlatformViewController, to toViewController: PlatformViewController, options: SyzygyViewController.TransitionOptions = [], completionHandler completion: (() -> Void)? = nil) {
+        
+        self.transition(from: fromViewController to: toViewController, duration: 0.3, options: options, completion: completion)
+        
+    }
+    
     public func transition(to child: UIViewController, completion: ((Bool) -> Void)? = nil) {
         let duration = 0.3
         

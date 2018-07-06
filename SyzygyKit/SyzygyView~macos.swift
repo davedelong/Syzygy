@@ -10,7 +10,6 @@ open class SyzygyView: PlatformView {
     
     public internal(set) weak var controller: SyzygyViewController?
     
-    #if BUILDING_FOR_DESKTOP
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         layerContentsRedrawPolicy = .onSetNeedsDisplay
@@ -56,18 +55,5 @@ open class SyzygyView: PlatformView {
         super.viewDidMoveToWindow()
         controller?.viewDidMoveToWindow(self.window)
     }
-    #else
-    
-    open override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        controller?.viewDidMoveToSuperview(self.superview)
-    }
-    
-    open override func didMoveToWindow() {
-        super.didMoveToWindow()
-        controller?.viewDidMoveToWindow(self.window)
-    }
-    
-    #endif
     
 }

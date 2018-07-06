@@ -40,14 +40,5 @@ public extension Shape {
     
     static let rectangle = Shape { BezierPath(rect: $0) }
     
-    static func roundedRect(_ radius: CGFloat) -> Shape { return Shape { rect in
-        #if BUILDING_FOR_DESKTOP
-            return BezierPath(roundedRect: rect, xRadius: radius, yRadius: radius)
-        #else
-            return BezierPath(roundedRect: rect, cornerRadius: radius)
-        #endif
-        }
-    }
-    
 //    static let star = Shape { BezierPath(starShapeIn: $0) }
 }

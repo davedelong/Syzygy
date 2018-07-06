@@ -8,6 +8,9 @@
 
 // from http://sealiesoftware.com/blog/archive/2010/8/16/TargetConditionalsh.html
 
+#import <Foundation/Foundation.h>
+#import <TargetConditionals.h>
+
 // Desktop vs Mobile
 #define BUILDING_FOR_DESKTOP (TARGET_OS_OSX)
 #define BUILDING_FOR_MOBILE (TARGET_OS_IPHONE)

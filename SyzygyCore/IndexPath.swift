@@ -41,17 +41,4 @@ public extension IndexPath {
         }
     }
     
-    #if BUILDING_FOR_DESKTOP
-    
-    public var row: Int {
-        get { return self.item }
-        set { self.item = newValue }
-    }
-    
-    public init(row: Int, section: Int) {
-        self.init(item: row, section: section)
-    }
-    
-    #endif
-    
 }

@@ -21,7 +21,7 @@ public class SyzygyContainerViewController: SyzygyViewController {
         self.init(content: Property(content))
     }
     
-    required public init?(coder: NSCoder) { Die.shutUpXcode() }
+    required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
     
     public override func viewDidLoad() {
         super.viewDidLoad()

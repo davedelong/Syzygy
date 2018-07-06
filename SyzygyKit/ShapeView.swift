@@ -14,10 +14,7 @@ public class ShapeView: PlatformView {
     
     private lazy var shapeLayer: CAShapeLayer = {
         let l = CAShapeLayer()
-        #if BUILDING_FOR_DESKTOP
-            layerContentsRedrawPolicy = .onSetNeedsDisplay
-            canDrawSubviewsIntoLayer = false
-        #endif
+        _configureLayer()
         
         let layer = self.maybeLayer !! "ShapeView is missing its layer"
         l.frame = layer.bounds
@@ -25,32 +22,24 @@ public class ShapeView: PlatformView {
         return l
     }()
     
-    private func shapeNeedsUpdate() {
-        #if BUILDING_FOR_DESKTOP
-        needsDisplay = true
-        #else
-        setNeedsUpdateConstraints()
-        #endif
-    }
-    
     public var lineWidth: CGFloat = 1 {
-        didSet { shapeNeedsUpdate() }
+        didSet { _shapeNeedsUpdate() }
     }
     
     public var lineColor: Color? {
-        didSet { shapeNeedsUpdate() }
+        didSet { _shapeNeedsUpdate() }
     }
     
     public var shapeInsets: PlatformEdgeInsets = PlatformEdgeInsets() {
-        didSet { shapeNeedsUpdate() }
+        didSet { _shapeNeedsUpdate() }
     }
     
     public var shapeColor: Color? {
-        didSet { shapeNeedsUpdate() }
+        didSet { _shapeNeedsUpdate() }
     }
     
     public var shape: Shape? {
-        didSet { shapeNeedsUpdate() }
+        didSet { _shapeNeedsUpdate() }
     }
     
     private func updateShape() {
@@ -71,16 +60,14 @@ public class ShapeView: PlatformView {
         shapeLayer.lineWidth = lineWidth
     }
     
-    #if BUILDING_FOR_DESKTOP
     public override func updateLayer() {
         super.updateLayer()
         updateShape()
     }
-    #else
+    
     public override func updateConstraints() {
         super.updateConstraints()
         updateShape()
     }
-    #endif
     
 }

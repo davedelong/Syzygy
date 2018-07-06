@@ -9,12 +9,6 @@
 @_exported import Foundation
 @_exported import SyzygyCore
 
-#if BUILDING_FOR_DESKTOP
-@_exported import AppKit
-#else
-@_exported import UIKit
-#endif
-
 internal let SyzygyKit = Bundle(for: SyzygyKitMarker.self)
 
 internal class SyzygyKitMarker { }

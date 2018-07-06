@@ -8,12 +8,6 @@
 
 import Foundation
 
-#if BUILDING_FOR_DESKTOP
-public typealias BezierPath = NSBezierPath
-#else
-public typealias BezierPath = UIBezierPath
-#endif
-
 public extension BezierPath {
     
     public convenience init (starShapeIn rect: CGRect, insets: PlatformEdgeInsets = PlatformEdgeInsets()) {
@@ -65,48 +59,4 @@ public extension BezierPath {
         self.apply(recenter)
     }
     
-    #if BUILDING_FOR_DESKTOP
-    var CGPath: CGPath {
-        let p = CGMutablePath()
-        
-        let count = self.elementCount
-        var didClose = false
-        for i in 0 ..< count {
-            
-            var points = Array<NSPoint>(repeating: .zero, count: 3)
-            let e = self.element(at: i, associatedPoints: &points)
-            
-            switch e {
-            case .moveTo:
-                p.move(to: points[0])
-                
-            case .lineTo:
-                p.addLine(to: points[0])
-                didClose = false
-            case .curveTo:
-                p.addCurve(to: points[2], control1: points[0], control2: points[1])
-                didClose = false
-            case .closePath:
-                p.closeSubpath()
-                didClose = true
-            }
-        }
-        
-        if didClose == false {
-            p.closeSubpath()
-        }
-        
-        return p
-    }
-    
-    public func apply(_ transform: CGAffineTransform) {
-        self.transform(using: AffineTransform(transform))
-    }
-    
-    #else
-    
-    public func line(to point: CGPoint) { self.addLine(to: point) }
-    
-    public var CGPath: CGPath { return cgPath }
-    #endif
 }

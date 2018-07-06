@@ -7,12 +7,7 @@
 //
 
 @_exported import Foundation
-
-#if BUILDING_FOR_DESKTOP
 @_exported import CoreServices
-#else
-@_exported import MobileCoreServices
-#endif
 
 internal let SyzygyCore = Bundle(for: SyzygyCoreMarker.self)
 

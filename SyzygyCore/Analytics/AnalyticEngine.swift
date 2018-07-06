@@ -35,3 +35,17 @@ public struct LoggingAnalyticEngine: AnalyticEngine {
     }
     
 }
+
+public class CompositeEngine: AnalyticEngine {
+    
+    private let engines: Array<AnalyticEngine>
+    
+    public init(engines: AnalyticEngine...) {
+        self.engines = engines
+    }
+    
+    public func record(event: AnalyticEvent) {
+        engines.forEach { $0.record(event: event) }
+    }
+    
+}

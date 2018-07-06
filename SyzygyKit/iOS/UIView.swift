@@ -18,4 +18,8 @@ public extension UIView {
         addGestureRecognizer(tap)
     }
     
+    // this is to allow a shared macOS views to override -updateLayer
+    // For example, see ShapeView.swift
+    @objc func updateLayer() { }
+    
 }

@@ -15,18 +15,6 @@ public struct Color {
     
     public let rawColor: CGColor
     
-    #if BUILDING_FOR_DESKTOP
-    
-    public var color: NSColor { return NSColor(cgColor: rawColor) !! "Unable to create color from \(rawColor)" }
-    public init(color: NSColor) { self.rawColor = color.cgColor }
-    
-    #else
-    
-    public var color: UIColor { return UIColor(cgColor: rawColor) }
-    public init(color: UIColor) { self.rawColor = color.cgColor }
-    
-    #endif
-    
     public init?(hexString: String) {
         let notHex = CharacterSet(charactersIn: "0123456789abcdefABCDEF").inverted
         var hex = hexString.components(separatedBy: notHex).joined(separator: "")

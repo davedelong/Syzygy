@@ -56,18 +56,26 @@ BOOL GetDeviceColor(uint8_t *red, uint8_t *green, uint8_t *blue) {
         CFDataRef data = property;
         const _Syzygy_IOPlatformDeviceColors *colors = (_Syzygy_IOPlatformDeviceColors *)CFDataGetBytePtr(data);
         
-        if (CFDataGetLength(data) == sizeof(_Syzygy_IOPlatformDeviceColors) && colors != NULL {
+        uint8_t r = 0, g = 0, b = 0;
+        if (CFDataGetLength(data) == sizeof(_Syzygy_IOPlatformDeviceColors) && colors != NULL) {
+            succeeded = YES;
             if (colors->major_version == 1) {
-                if (red != NULL) { *red = colors->device_enclosure.component_v1.red; }
-                if (green != NULL) { *green = colors->device_enclosure.component_v1.green; }
-                if (blue != NULL) { *blue = colors->device_enclosure.component_v1.blue; }
-                succeeded = YES;
+                r = colors->device_enclosure.component_v1.red;
+                g = colors->device_enclosure.component_v1.green;
+                b = colors->device_enclosure.component_v1.blue;
             } else if (colors->major_version == 2) {
-                if (red != NULL) { *red = colors->device_enclosure.component_v2.red; }
-                if (green != NULL) { *green = colors->device_enclosure.component_v2.green; }
-                if (blue != NULL) { *blue = colors->device_enclosure.component_v2.blue; }
-                succeeded = YES;
+                r = colors->device_enclosure.component_v2.red;
+                g = colors->device_enclosure.component_v2.green;
+                b = colors->device_enclosure.component_v2.blue;
+            } else {
+                succeeded = NO;
             }
+        }
+        
+        if (succeeded == YES) {
+            if (red != NULL) { *red = r; }
+            if (green != NULL) { *green = g; }
+            if (blue != NULL) { *blue = b; }
         }
     }
     CFRelease(property);

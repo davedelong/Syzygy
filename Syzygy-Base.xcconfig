@@ -89,10 +89,10 @@ IOS_FILES = */iOS/* *~ios.*
 TVOS_FILES = */tvOS/* *~tvos.*
 WATCHOS_FILES = */watchOS/* *~watchos.*
 
-// First things get excluded
+// First things get excluded. For good measure, exclude ALL platform files
 EXCLUDED_SOURCE_FILE_NAMES = $(MACOS_FILES) $(IOS_FILES) $(TVOS_FILES) $(WATCHOS_FILES)
 
-// Then things get re-included
+// Then re-include the platform-specific files
 INCLUDED_SOURCE_FILE_NAMES =
 INCLUDED_SOURCE_FILE_NAMES[sdk=mac*] = $(MACOS_FILES)
 INCLUDED_SOURCE_FILE_NAMES[sdk=iphone*] = $(IOS_FILES)

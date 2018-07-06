@@ -2,31 +2,11 @@
 //  View.swift
 //  SyzygyKit
 //
-//  Created by Dave DeLong on 1/18/18.
+//  Created by Dave DeLong on 7/6/18.
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
 import Foundation
-
-#if BUILDING_FOR_DESKTOP
-public typealias PlatformView = NSView
-public typealias PlatformNib = NSNib
-public typealias PlatformWindow = NSWindow
-#else
-public typealias PlatformView = UIView
-public typealias PlatformNib = UINib
-public typealias PlatformWindow = UIWindow
-
-public extension UINib {
-    typealias Name = String
-}
-
-public extension UIView.AutoresizingMask {
-    public static let width = UIView.AutoresizingMask.flexibleWidth
-    public static let height = UIView.AutoresizingMask.flexibleHeight
-}
-
-#endif
 
 public extension PlatformView {
     
@@ -48,11 +28,7 @@ public extension PlatformView {
     public func embedSubview(_ subview: PlatformView) {
         subview.removeFromSuperview()
         subview.frame = self.bounds
-        #if BUILDING_FOR_DESKTOP
-            subview.autoresizingMask = [.width, .height]
-        #else
-            subview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        #endif
+        subview.autoresizingMask = [.width, .height]
         subview.translatesAutoresizingMaskIntoConstraints = true
         addSubview(subview)
     }

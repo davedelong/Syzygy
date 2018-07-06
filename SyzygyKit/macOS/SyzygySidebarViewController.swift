@@ -17,13 +17,13 @@ public class SyzygySidebarViewController: SyzygyViewController {
         set {
             if let existing = _sidebar {
                 existing.viewIfLoaded?.removeFromSuperview()
-                existing.removeFromParentViewController()
+                existing.removeFromParent()
             }
             _sidebar = newValue
             if let new = _sidebar {
                 _ = view
                 _minimumSidebarWidth = new.view.fittingSize.width
-                embedChildViewController(new, in: sidebarContainer)
+                embedChild(new, in: sidebarContainer)
             } else {
                 _minimumSidebarWidth = 0
             }
@@ -37,13 +37,13 @@ public class SyzygySidebarViewController: SyzygyViewController {
         set {
             if let existing = _content {
                 existing.viewIfLoaded?.removeFromSuperview()
-                existing.removeFromParentViewController()
+                existing.removeFromParent()
             }
             _content = newValue
             if let new = _content {
                 _ = view
                 _minimumContentWidth = new.view.fittingSize.width
-                embedChildViewController(new, in: contentContainer)
+                embedChild(new, in: contentContainer)
             } else {
                 _minimumContentWidth = 0
             }
@@ -67,7 +67,7 @@ public class SyzygySidebarViewController: SyzygyViewController {
         super.init(ui: .default)
     }
     
-    required public init?(coder: NSCoder) { Die.shutUpXcode() }
+    required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
     
     override public func viewDidLoad() {
         super.viewDidLoad()

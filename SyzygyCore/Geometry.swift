@@ -8,19 +8,6 @@
 
 import Foundation
 
-#if BUILDING_FOR_DESKTOP
-import AppKit
-public typealias PlatformEdgeInsets = NSEdgeInsets
-    
-public extension PlatformEdgeInsets {
-    public static let zero = NSEdgeInsetsZero
-}
-    
-#else
-import UIKit
-public typealias PlatformEdgeInsets = UIEdgeInsets
-#endif
-
 public extension PlatformEdgeInsets {
     
     public init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
