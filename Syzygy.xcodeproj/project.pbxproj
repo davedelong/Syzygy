@@ -453,13 +453,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		551C007A20EFB74A006CE550 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
 		551C00A120EFC8FF006CE550 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,7 +482,7 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		551C00A320EFC9AB006CE550 /* Paths2 */ = {
+		551C00A320EFC9AB006CE550 /* Paths */ = {
 			isa = PBXGroup;
 			children = (
 				55FB06BA1FF9BC030001D42E /* Path.swift */,
@@ -501,7 +494,7 @@
 				55FB06D01FF9BC070001D42E /* FileManager+Path.swift */,
 				55FB066B1FF9BBFA0001D42E /* URL+Path.swift */,
 			);
-			path = Paths2;
+			path = Paths;
 			sourceTree = "<group>";
 		};
 		551C00A420EFC9BC006CE550 /* Plist */ = {
@@ -706,12 +699,11 @@
 				55FB06B51FF9BC020001D42E /* WeakBox.swift */,
 				554F9568201D5D3F007864A7 /* QueryController.swift */,
 				551C00A120EFC8FF006CE550 /* Analytics */,
-				551C00A320EFC9AB006CE550 /* Paths2 */,
+				551C00A320EFC9AB006CE550 /* Paths */,
 				551C00A220EFC99A006CE550 /* JSON */,
 				551C00A420EFC9BC006CE550 /* Plist */,
 				55FB07391FF9CB500001D42E /* Diffing */,
 				55FB06881FF9BBFF0001D42E /* Properties */,
-				551C007A20EFB74A006CE550 /* iOS */,
 				55F7248D20388E8A0093473F /* macOS */,
 				55FB073D1FF9D0940001D42E /* Objective-C */,
 				55FB073C1FF9D04C0001D42E /* URL Routing */,
