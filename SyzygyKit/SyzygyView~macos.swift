@@ -8,7 +8,7 @@
 
 open class SyzygyView: PlatformView {
     
-    public internal(set) weak var controller: SyzygyViewController?
+    public internal(set) weak var controller: _SyzygyViewControllerBase?
     
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
