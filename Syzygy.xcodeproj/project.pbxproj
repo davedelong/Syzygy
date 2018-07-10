@@ -36,6 +36,8 @@
 		551C00AB20EFCD74006CE550 /* ShapeView~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00AA20EFCD74006CE550 /* ShapeView~ios.swift */; };
 		551C00AD20EFCD7A006CE550 /* ShapeView~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00AC20EFCD7A006CE550 /* ShapeView~macos.swift */; };
 		551C00B320F02B7C006CE550 /* SyzygyCore~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */; };
+		551C00AF20EFCFB5006CE550 /* Entitlements~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00AE20EFCFB5006CE550 /* Entitlements~ios.swift */; };
+		551C00B120EFCFBB006CE550 /* Entitlements~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00B020EFCFBB006CE550 /* Entitlements~macos.swift */; };
 		551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */ = {isa = PBXBuildFile; fileRef = 551D47C02006F9E100AF7CF8 /* Entitlements.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		551D47C32006F9E100AF7CF8 /* Entitlements.m in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C12006F9E100AF7CF8 /* Entitlements.m */; };
 		551D47C72007309B00AF7CF8 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C62007309B00AF7CF8 /* Entitlements.swift */; };
@@ -239,6 +241,8 @@
 		551C00AA20EFCD74006CE550 /* ShapeView~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeView~ios.swift"; sourceTree = "<group>"; };
 		551C00AC20EFCD7A006CE550 /* ShapeView~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeView~macos.swift"; sourceTree = "<group>"; };
 		551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyCore~ios.swift"; sourceTree = "<group>"; };
+		551C00AE20EFCFB5006CE550 /* Entitlements~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entitlements~ios.swift"; sourceTree = "<group>"; };
+		551C00B020EFCFBB006CE550 /* Entitlements~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entitlements~macos.swift"; sourceTree = "<group>"; };
 		551D47C02006F9E100AF7CF8 /* Entitlements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entitlements.h; sourceTree = "<group>"; };
 		551D47C12006F9E100AF7CF8 /* Entitlements.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Entitlements.m; sourceTree = "<group>"; };
 		551D47C62007309B00AF7CF8 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
@@ -676,6 +680,8 @@
 				55FB06B11FF9BC010001D42E /* Disposable.swift */,
 				55FB06AA1FF9BC000001D42E /* Either.swift */,
 				551D47C62007309B00AF7CF8 /* Entitlements.swift */,
+				551C00AE20EFCFB5006CE550 /* Entitlements~ios.swift */,
+				551C00B020EFCFBB006CE550 /* Entitlements~macos.swift */,
 				55FB066E1FF9BBFA0001D42E /* Exceptions.swift */,
 				55FB06CD1FF9BC060001D42E /* FileMonitor.swift */,
 				55FB06BD1FF9BC030001D42E /* Geometry.swift */,
@@ -1146,6 +1152,7 @@
 				55FB072B1FF9BC070001D42E /* URL.swift in Sources */,
 				555C1906200536F80017F253 /* CountedSet.swift in Sources */,
 				55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */,
+				551C00AF20EFCFB5006CE550 /* Entitlements~ios.swift in Sources */,
 				55FB07121FF9BC070001D42E /* UTI+Defaults.swift in Sources */,
 				55FB06D31FF9BC070001D42E /* Identifier.swift in Sources */,
 				5523B0F220C19D3200A0B5CF /* RangeReplaceableCollection.swift in Sources */,
@@ -1188,6 +1195,7 @@
 				55FB072A1FF9BC070001D42E /* Process.swift in Sources */,
 				55FB06EF1FF9BC070001D42E /* Property+Optional.swift in Sources */,
 				55FB071B1FF9BC070001D42E /* Bundle+Path.swift in Sources */,
+				551C00B120EFCFBB006CE550 /* Entitlements~macos.swift in Sources */,
 				55FB07281FF9BC070001D42E /* Objective-C.m in Sources */,
 				55FB06FE1FF9BC070001D42E /* Property+Result.swift in Sources */,
 				55FB07111FF9BC070001D42E /* Result.swift in Sources */,

@@ -53,6 +53,27 @@ public extension Property where T: Collection {
         return map { $0.filter(f) }
     }
     
+    public func partition(by goesInFirst: @escaping (T.Element) -> Bool) -> (Property<Array<T.Element>>, Property<Array<T.Element>>) {
+        let m1 = MutableProperty<Array<T.Element>>([])
+        let m2 = MutableProperty<Array<T.Element>>([])
+        
+        observe { items in
+            var a1 = Array<T.Element>()
+            var a2 = Array<T.Element>()
+            for i in items {
+                if goesInFirst(i) {
+                    a1.append(i)
+                } else {
+                    a2.append(i)
+                }
+            }
+            m1.value = a1
+            m2.value = a2
+        }
+        
+        return (m1, m2)
+    }
+    
 }
 
 public extension Property where T: Collection, T.Element: Comparable {
