@@ -29,6 +29,8 @@ open class SyzygyWindowCoordinator: Coordinator {
         self.init(content: Property(content))
     }
     
+    required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
+    
     open override func start() {
         super.start()
         window.isHidden = false

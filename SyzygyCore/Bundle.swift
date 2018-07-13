@@ -22,7 +22,8 @@ public extension Bundle {
     var path: AbsolutePath { return AbsolutePath(bundleURL) }
     
     var infoPlist: Plist {
-        let infoPlistPath = path/"Contents"/"Info.plist"
+        // TODO: this differents w/ macOS and iOS bundles
+        let infoPlistPath = path/"Info.plist"
         return (try? Plist(contentsOf: infoPlistPath)) ?? .unknown
     }
     

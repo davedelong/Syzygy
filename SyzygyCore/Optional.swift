@@ -25,9 +25,15 @@ extension Optional: OptionalType {
 infix operator !!: NilCoalescingPrecedence
 
 @_transparent
-public func !!<T: OptionalType>(value: T, error: @autoclosure () -> String) -> T.ValueType {
-    if let value = value.optionalValue { return value }
+public func !!<T>(value: T?, error: @autoclosure () -> String) -> T {
+    if let value = value { return value }
     fatalError(error())
+}
+
+@_transparent
+public func !!<T>(value: T?, error: @autoclosure () -> Abort.Reason) -> T {
+    if let value = value { return value }
+    Abort.because(error())
 }
 
 infix operator ?!: NilCoalescingPrecedence

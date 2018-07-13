@@ -38,6 +38,10 @@
 		551C00B320F02B7C006CE550 /* SyzygyCore~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */; };
 		551C00AF20EFCFB5006CE550 /* Entitlements~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00AE20EFCFB5006CE550 /* Entitlements~ios.swift */; };
 		551C00B120EFCFBB006CE550 /* Entitlements~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00B020EFCFBB006CE550 /* Entitlements~macos.swift */; };
+		551C00B520F07E1E006CE550 /* SyzygyCore~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00B420F07E1E006CE550 /* SyzygyCore~macos.swift */; };
+		551C00B820F08D8F006CE550 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551C00B620F08D8F006CE550 /* Empty.xib */; };
+		551C00B920F08D8F006CE550 /* SyzygyWindowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00B720F08D8F006CE550 /* SyzygyWindowCoordinator.swift */; };
+		551C00CE20F17831006CE550 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C00CD20F17831006CE550 /* CLLocationCoordinate2D.swift */; };
 		551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */ = {isa = PBXBuildFile; fileRef = 551D47C02006F9E100AF7CF8 /* Entitlements.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		551D47C32006F9E100AF7CF8 /* Entitlements.m in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C12006F9E100AF7CF8 /* Entitlements.m */; };
 		551D47C72007309B00AF7CF8 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47C62007309B00AF7CF8 /* Entitlements.swift */; };
@@ -67,6 +71,17 @@
 		552B49402012D55F0054997E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493F2012D55F0054997E /* Response.swift */; };
 		552B494620141CD30054997E /* HTTPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B494520141CD30054997E /* HTTPSession.swift */; };
 		552B494820141FD20054997E /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B494720141FD20054997E /* Status.swift */; };
+		552E24ED20F6D25900C1A4EF /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E24EC20F6D25900C1A4EF /* Method.swift */; };
+		552E24EF20F6D39700C1A4EF /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E24EE20F6D39700C1A4EF /* Type.swift */; };
+		552E24F220F6D5C500C1A4EF /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24F020F6D5C500C1A4EF /* type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		552E24F320F6D5C500C1A4EF /* type.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24F120F6D5C500C1A4EF /* type.m */; };
+		552E24F420F6E50200C1A4EF /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
+		552E24F720F7AA5400C1A4EF /* instance.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24F520F7AA5400C1A4EF /* instance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		552E24F820F7AA5400C1A4EF /* instance.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24F620F7AA5400C1A4EF /* instance.m */; };
+		552E24FB20F7AB2800C1A4EF /* class.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24F920F7AB2800C1A4EF /* class.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		552E24FC20F7AB2800C1A4EF /* class.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24FA20F7AB2800C1A4EF /* class.m */; };
+		552E24FF20F7ABE700C1A4EF /* property.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24FD20F7ABE700C1A4EF /* property.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		552E250020F7ABE700C1A4EF /* property.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24FE20F7ABE700C1A4EF /* property.m */; };
 		554F9547201D2876007864A7 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9546201D2876007864A7 /* UIViewController.swift */; };
 		554F954D201D2BD8007864A7 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F954C201D2BD8007864A7 /* UITableViewCell.swift */; };
 		554F9556201D2F2B007864A7 /* SyzygyStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */; };
@@ -76,6 +91,19 @@
 		554F9571201D75A2007864A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9570201D75A2007864A7 /* UIView.swift */; };
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
+		557850E020F6821F00BE7706 /* SyzygyRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 557850DE20F6821F00BE7706 /* SyzygyRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		557850E720F682F600BE7706 /* objc.h in Headers */ = {isa = PBXBuildFile; fileRef = 557850E520F682F600BE7706 /* objc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		557850E820F682F600BE7706 /* objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 557850E620F682F600BE7706 /* objc.m */; };
+		557850EA20F6846500BE7706 /* SyzygyRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557850E920F6846500BE7706 /* SyzygyRuntime.swift */; };
+		557850EC20F6856B00BE7706 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557850EB20F6856B00BE7706 /* Runtime.swift */; };
+		557850EE20F6859400BE7706 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557850ED20F6859400BE7706 /* Image.swift */; };
+		557850F020F685A700BE7706 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557850EF20F685A700BE7706 /* Class.swift */; };
+		557850F220F6867F00BE7706 /* Selector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557850F120F6867F00BE7706 /* Selector.swift */; };
+		557850F520F6868F00BE7706 /* sel.h in Headers */ = {isa = PBXBuildFile; fileRef = 557850F320F6868F00BE7706 /* sel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		557850F620F6868F00BE7706 /* sel.m in Sources */ = {isa = PBXBuildFile; fileRef = 557850F420F6868F00BE7706 /* sel.m */; };
+		557850F820F691C600BE7706 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557850F720F691C600BE7706 /* Protocol.swift */; };
+		557850FB20F698D800BE7706 /* protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 557850F920F698D800BE7706 /* protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		557850FC20F698D800BE7706 /* protocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 557850FA20F698D800BE7706 /* protocol.m */; };
 		55814DC420E340410027DA84 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47EB2010108E00AF7CF8 /* Shape.swift */; };
 		55814DC520E340430027DA84 /* BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D47ED2010133000AF7CF8 /* BezierPath.swift */; };
 		559079C220B2359D005AECE7 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559079C120B2359D005AECE7 /* DateFormatter.swift */; };
@@ -243,6 +271,10 @@
 		551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyCore~ios.swift"; sourceTree = "<group>"; };
 		551C00AE20EFCFB5006CE550 /* Entitlements~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entitlements~ios.swift"; sourceTree = "<group>"; };
 		551C00B020EFCFBB006CE550 /* Entitlements~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entitlements~macos.swift"; sourceTree = "<group>"; };
+		551C00B420F07E1E006CE550 /* SyzygyCore~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyCore~macos.swift"; sourceTree = "<group>"; };
+		551C00B620F08D8F006CE550 /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
+		551C00B720F08D8F006CE550 /* SyzygyWindowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyzygyWindowCoordinator.swift; sourceTree = "<group>"; };
+		551C00CD20F17831006CE550 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		551D47C02006F9E100AF7CF8 /* Entitlements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entitlements.h; sourceTree = "<group>"; };
 		551D47C12006F9E100AF7CF8 /* Entitlements.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Entitlements.m; sourceTree = "<group>"; };
 		551D47C62007309B00AF7CF8 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
@@ -276,6 +308,16 @@
 		552B493F2012D55F0054997E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		552B494520141CD30054997E /* HTTPSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPSession.swift; sourceTree = "<group>"; };
 		552B494720141FD20054997E /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		552E24EC20F6D25900C1A4EF /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		552E24EE20F6D39700C1A4EF /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		552E24F020F6D5C500C1A4EF /* type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = type.h; sourceTree = "<group>"; };
+		552E24F120F6D5C500C1A4EF /* type.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = type.m; sourceTree = "<group>"; };
+		552E24F520F7AA5400C1A4EF /* instance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = instance.h; sourceTree = "<group>"; };
+		552E24F620F7AA5400C1A4EF /* instance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = instance.m; sourceTree = "<group>"; };
+		552E24F920F7AB2800C1A4EF /* class.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = class.h; sourceTree = "<group>"; };
+		552E24FA20F7AB2800C1A4EF /* class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = class.m; sourceTree = "<group>"; };
+		552E24FD20F7ABE700C1A4EF /* property.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = property.h; sourceTree = "<group>"; };
+		552E24FE20F7ABE700C1A4EF /* property.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = property.m; sourceTree = "<group>"; };
 		554F9546201D2876007864A7 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		554F954C201D2BD8007864A7 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyStackViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +327,21 @@
 		554F9570201D75A2007864A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
+		557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		557850DE20F6821F00BE7706 /* SyzygyRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyRuntime.h; sourceTree = "<group>"; };
+		557850DF20F6821F00BE7706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		557850E520F682F600BE7706 /* objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = objc.h; sourceTree = "<group>"; };
+		557850E620F682F600BE7706 /* objc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc.m; sourceTree = "<group>"; };
+		557850E920F6846500BE7706 /* SyzygyRuntime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyRuntime.swift; sourceTree = "<group>"; };
+		557850EB20F6856B00BE7706 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
+		557850ED20F6859400BE7706 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		557850EF20F685A700BE7706 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		557850F120F6867F00BE7706 /* Selector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selector.swift; sourceTree = "<group>"; };
+		557850F320F6868F00BE7706 /* sel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sel.h; sourceTree = "<group>"; };
+		557850F420F6868F00BE7706 /* sel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sel.m; sourceTree = "<group>"; };
+		557850F720F691C600BE7706 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		557850F920F698D800BE7706 /* protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = protocol.h; sourceTree = "<group>"; };
+		557850FA20F698D800BE7706 /* protocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = protocol.m; sourceTree = "<group>"; };
 		559079C120B2359D005AECE7 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		559079C720B76F07005AECE7 /* NSWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowController.swift; sourceTree = "<group>"; };
 		559079C920B76F97005AECE7 /* RandomAccessCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollection.swift; sourceTree = "<group>"; };
@@ -433,6 +490,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		557850D920F6821E00BE7706 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				552E24F420F6E50200C1A4EF /* SyzygyCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		559B336E20E973F300034E51 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -565,6 +630,8 @@
 				55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */,
 				554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */,
 				5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */,
+				551C00B620F08D8F006CE550 /* Empty.xib */,
+				551C00B720F08D8F006CE550 /* SyzygyWindowCoordinator.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -607,6 +674,45 @@
 			name = "Data Structures";
 			sourceTree = "<group>";
 		};
+		557850DD20F6821F00BE7706 /* SyzygyRuntime */ = {
+			isa = PBXGroup;
+			children = (
+				557850DE20F6821F00BE7706 /* SyzygyRuntime.h */,
+				557850E920F6846500BE7706 /* SyzygyRuntime.swift */,
+				557850EB20F6856B00BE7706 /* Runtime.swift */,
+				557850ED20F6859400BE7706 /* Image.swift */,
+				557850EF20F685A700BE7706 /* Class.swift */,
+				557850F120F6867F00BE7706 /* Selector.swift */,
+				557850F720F691C600BE7706 /* Protocol.swift */,
+				552E24EC20F6D25900C1A4EF /* Method.swift */,
+				552E24EE20F6D39700C1A4EF /* Type.swift */,
+				557850E420F682B900BE7706 /* Objective-C */,
+				557850DF20F6821F00BE7706 /* Info.plist */,
+			);
+			path = SyzygyRuntime;
+			sourceTree = "<group>";
+		};
+		557850E420F682B900BE7706 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				557850E520F682F600BE7706 /* objc.h */,
+				557850E620F682F600BE7706 /* objc.m */,
+				557850F320F6868F00BE7706 /* sel.h */,
+				557850F420F6868F00BE7706 /* sel.m */,
+				557850F920F698D800BE7706 /* protocol.h */,
+				557850FA20F698D800BE7706 /* protocol.m */,
+				552E24F020F6D5C500C1A4EF /* type.h */,
+				552E24F120F6D5C500C1A4EF /* type.m */,
+				552E24F520F7AA5400C1A4EF /* instance.h */,
+				552E24F620F7AA5400C1A4EF /* instance.m */,
+				552E24F920F7AB2800C1A4EF /* class.h */,
+				552E24FA20F7AB2800C1A4EF /* class.m */,
+				552E24FD20F7ABE700C1A4EF /* property.h */,
+				552E24FE20F7ABE700C1A4EF /* property.m */,
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
 		559B337220E973F300034E51 /* SyzygyLocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +720,7 @@
 				559B337B20E974AA00034E51 /* SyzygyLocation.swift */,
 				559B337920E9749B00034E51 /* LocationProvider.swift */,
 				559B337D20E976FE00034E51 /* LocationDelegate.swift */,
+				551C00CD20F17831006CE550 /* CLLocationCoordinate2D.swift */,
 				559B337420E973F300034E51 /* Info.plist */,
 			);
 			path = SyzygyLocation;
@@ -642,6 +749,7 @@
 				552B49342012D4610054997E /* SyzygyHTTP */,
 				55FB065F1FF9B5D30001D42E /* SyzygyKit */,
 				559B337220E973F300034E51 /* SyzygyLocation */,
+				557850DD20F6821F00BE7706 /* SyzygyRuntime */,
 				55FB064F1FF9B5BB0001D42E /* Products */,
 				55FB06661FF9B6100001D42E /* Frameworks */,
 			);
@@ -654,6 +762,7 @@
 				55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */,
 				552B49332012D4600054997E /* SyzygyHTTP.framework */,
 				559B337120E973F300034E51 /* SyzygyLocation.framework */,
+				557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -664,6 +773,7 @@
 				55FB06511FF9B5BB0001D42E /* SyzygyCore.h */,
 				55FB075F1FFAC7690001D42E /* SyzygyCore.swift */,
 				551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */,
+				551C00B420F07E1E006CE550 /* SyzygyCore~macos.swift */,
 				550435C92084D555009DF2E2 /* SyzygyConditionals.h */,
 				552A40A02005273E009B8C6B /* Standard Library-ish Things */,
 				555C1904200536EB0017F253 /* Data Structures */,
@@ -847,6 +957,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		557850D720F6821E00BE7706 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				552E24F220F6D5C500C1A4EF /* type.h in Headers */,
+				552E24F720F7AA5400C1A4EF /* instance.h in Headers */,
+				557850F520F6868F00BE7706 /* sel.h in Headers */,
+				552E24FB20F7AB2800C1A4EF /* class.h in Headers */,
+				557850E720F682F600BE7706 /* objc.h in Headers */,
+				552E24FF20F7ABE700C1A4EF /* property.h in Headers */,
+				557850FB20F698D800BE7706 /* protocol.h in Headers */,
+				557850E020F6821F00BE7706 /* SyzygyRuntime.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		559B336C20E973F300034E51 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -894,6 +1019,24 @@
 			name = SyzygyHTTP;
 			productName = SyzygyHTTP;
 			productReference = 552B49332012D4600054997E /* SyzygyHTTP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		557850DB20F6821E00BE7706 /* SyzygyRuntime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 557850E320F6821F00BE7706 /* Build configuration list for PBXNativeTarget "SyzygyRuntime" */;
+			buildPhases = (
+				557850D720F6821E00BE7706 /* Headers */,
+				557850D820F6821E00BE7706 /* Sources */,
+				557850D920F6821E00BE7706 /* Frameworks */,
+				557850DA20F6821E00BE7706 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SyzygyRuntime;
+			productName = SyzygyRuntime;
+			productReference = 557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		559B337020E973F300034E51 /* SyzygyLocation */ = {
@@ -965,6 +1108,11 @@
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
+					557850DB20F6821E00BE7706 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
 					559B337020E973F300034E51 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
@@ -998,12 +1146,20 @@
 				55FB065D1FF9B5D30001D42E /* SyzygyKit */,
 				552B49322012D4600054997E /* SyzygyHTTP */,
 				559B337020E973F300034E51 /* SyzygyLocation */,
+				557850DB20F6821E00BE7706 /* SyzygyRuntime */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		552B49312012D4600054997E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		557850DA20F6821E00BE7706 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1028,6 +1184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551C00B820F08D8F006CE550 /* Empty.xib in Resources */,
 				55F3755B20BC6A7E00E7D742 /* SyzygySidebarViewController.xib in Resources */,
 				551D4820201197BD00AF7CF8 /* Empty.xib in Resources */,
 			);
@@ -1070,11 +1227,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		557850D820F6821E00BE7706 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				552E24ED20F6D25900C1A4EF /* Method.swift in Sources */,
+				557850E820F682F600BE7706 /* objc.m in Sources */,
+				552E250020F7ABE700C1A4EF /* property.m in Sources */,
+				552E24F820F7AA5400C1A4EF /* instance.m in Sources */,
+				557850F620F6868F00BE7706 /* sel.m in Sources */,
+				552E24FC20F7AB2800C1A4EF /* class.m in Sources */,
+				552E24F320F6D5C500C1A4EF /* type.m in Sources */,
+				557850EE20F6859400BE7706 /* Image.swift in Sources */,
+				557850F820F691C600BE7706 /* Protocol.swift in Sources */,
+				552E24EF20F6D39700C1A4EF /* Type.swift in Sources */,
+				557850F220F6867F00BE7706 /* Selector.swift in Sources */,
+				557850EC20F6856B00BE7706 /* Runtime.swift in Sources */,
+				557850F020F685A700BE7706 /* Class.swift in Sources */,
+				557850EA20F6846500BE7706 /* SyzygyRuntime.swift in Sources */,
+				557850FC20F698D800BE7706 /* protocol.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		559B336D20E973F300034E51 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				559B337A20E9749B00034E51 /* LocationProvider.swift in Sources */,
+				551C00CE20F17831006CE550 /* CLLocationCoordinate2D.swift in Sources */,
 				559B337E20E976FE00034E51 /* LocationDelegate.swift in Sources */,
 				559B337C20E974AA00034E51 /* SyzygyLocation.swift in Sources */,
 			);
@@ -1181,6 +1361,7 @@
 				55FB072E1FF9BC070001D42E /* Comparable.swift in Sources */,
 				55FB06D51FF9BC070001D42E /* Atomic.swift in Sources */,
 				551C008020EFB90A006CE550 /* IndexPath~macos.swift in Sources */,
+				551C00B520F07E1E006CE550 /* SyzygyCore~macos.swift in Sources */,
 				55FB07001FF9BC070001D42E /* Property+Timer.swift in Sources */,
 				55FB06FD1FF9BC070001D42E /* MirroredProperty.swift in Sources */,
 				55FB07201FF9BC070001D42E /* Log.swift in Sources */,
@@ -1267,6 +1448,7 @@
 				551D4812201150CB00AF7CF8 /* NSImage.swift in Sources */,
 				551C008420EFB950006CE550 /* SyzygyKit~macos.swift in Sources */,
 				551C00A920EFCCD3006CE550 /* Shape~macos.swift in Sources */,
+				551C00B920F08D8F006CE550 /* SyzygyWindowCoordinator.swift in Sources */,
 				551C00A720EFCCCD006CE550 /* Shape~ios.swift in Sources */,
 				551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */,
 				551C008620EFB973006CE550 /* Color~ios.swift in Sources */,
@@ -1291,6 +1473,24 @@
 			buildSettings = {
 				INFOPLIST_FILE = SyzygyHTTP/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyHTTP;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+			};
+			name = Release;
+		};
+		557850E120F6821F00BE7706 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SyzygyRuntime/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyRuntime;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+			};
+			name = Debug;
+		};
+		557850E220F6821F00BE7706 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SyzygyRuntime/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyRuntime;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Release;
@@ -1376,6 +1576,15 @@
 			buildConfigurations = (
 				552B49392012D4610054997E /* Debug */,
 				552B493A2012D4610054997E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		557850E320F6821F00BE7706 /* Build configuration list for PBXNativeTarget "SyzygyRuntime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				557850E120F6821F00BE7706 /* Debug */,
+				557850E220F6821F00BE7706 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,7 +7,6 @@
 //
 
 @_exported import Foundation
-@_exported import CoreServices
 
 internal let SyzygyCore = Bundle(for: SyzygyCoreMarker.self)
 

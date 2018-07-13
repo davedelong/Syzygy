@@ -16,6 +16,10 @@ public struct Identifier<T>: Newtype, Equatable, Hashable {
         self.rawValue = rawValue
     }
     
+    public init(_ rawValue: String) {
+        self.rawValue = rawValue
+    }
+    
 }
 
 extension Identifier: ExpressibleByStringLiteral {

@@ -16,8 +16,8 @@ public extension JSON {
     init(_ value: Array<JSON>) { self = .array(value) }
     init(_ value: Bool) { self = .boolean(value) }
     
-    init<T: OptionalType>(_ value: T) {
-        if let o = value.optionalValue {
+    init<T>(_ value: T?) {
+        if let o = value {
             self.init(o)
         } else {
             self.init(nilLiteral: ())

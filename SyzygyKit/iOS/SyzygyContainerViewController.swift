@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SyzygyContainerViewController: SyzygyViewController {
+open class SyzygyContainerViewController: SyzygyViewController {
     private let contentProvider: Property<PlatformViewController>
     private var content: PlatformViewController?
     
@@ -23,11 +23,11 @@ public class SyzygyContainerViewController: SyzygyViewController {
     
     required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         disposable += contentProvider.observe { [weak self] content in
-            self?.transition(to: content)
             self?.content = content
+            self?.transition(to: content)
         }
     }
     

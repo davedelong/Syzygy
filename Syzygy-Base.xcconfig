@@ -7,7 +7,10 @@
 //
 
 SUPPORTED_PLATFORMS = iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator macosx
-VALID_ARCHS = arm64 armv7 armv7s x86_64
+
+//VALID_ARCHS = arm64 armv7 armv7s
+//VALID_ARCHS[sdk=mac*] = x86_64 i386
+//ARCHS = $(VALID_ARCHS)
 
 MACOSX_DEPLOYMENT_TARGET = 10.12
 IPHONEOS_DEPLOYMENT_TARGET = 11.2

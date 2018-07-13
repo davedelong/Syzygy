@@ -94,6 +94,9 @@ public class LocationProvider {
         locationDelegate = LocationDelegate(status: _authorizationStatus, location: _latestLocation)
         locationMananger = CLLocationManager()
         locationMananger.delegate = self.locationDelegate
+        
+        // TODO: take this out
+        _latestLocation.value = CLLocation(latitude: 40.4055, longitude: -111.9342)
     }
     
     deinit {

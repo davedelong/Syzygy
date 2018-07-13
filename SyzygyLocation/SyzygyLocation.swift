@@ -8,6 +8,7 @@
 
 @_exported import Foundation
 @_exported import SyzygyCore
+@_exported import CoreLocation
 
 internal let SyzygyLocation = Bundle(for: SyzygyLocationMarker.self)
 

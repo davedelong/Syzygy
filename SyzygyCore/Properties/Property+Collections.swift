@@ -76,6 +76,18 @@ public extension Property where T: Collection {
     
 }
 
+public extension Property where T: RandomAccessCollection {
+    
+    public func item(at index: Property<T.Index>) -> Property<T.Element> {
+        let m = MutableProperty<T.Element>(self.value[index.value])
+        combine(index).observeNext { coll, ind in
+            m.value = coll[ind]
+        }
+        return m
+    }
+    
+}
+
 public extension Property where T: Collection, T.Element: Comparable {
     
     public func sorted() -> Property<Array<T.Element>> { return sorted(<) }
