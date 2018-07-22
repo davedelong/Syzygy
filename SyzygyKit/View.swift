@@ -8,6 +8,24 @@
 
 import Foundation
 
+public extension NSCoding where Self: PlatformView {
+    
+    public static func make() -> Self {
+        let bundle = Bundle(for: self)
+        let nib = PlatformNib(nibName: "\(self)", bundle: bundle)
+        
+        let objects = nib.instantiate(withOwner: nil, options: nil)
+        let matches = objects.compactMap { $0 as? Self }
+        
+        if let firstMatch = matches.first {
+            return firstMatch
+        } else {
+            return Self.init()
+        }
+    }
+    
+}
+
 public extension PlatformView {
     
     public func isEmbeddedIn(_ other: PlatformView) -> Bool {

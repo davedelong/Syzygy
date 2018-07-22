@@ -36,6 +36,7 @@ open class QueryController<T: Equatable> {
     }
     public private(set) var totalNumberOfObjects: Int = 0
     public private(set) var isPerformingBatchConfiguration: Bool = false
+    public let disposable = CompositeDisposable()
     
     private var _sectionCount = 0
     private var _needsQuery = true
@@ -47,7 +48,7 @@ open class QueryController<T: Equatable> {
     
     public init() {
         _coalescedTickle = _queryTickle.coalesce(after: 0.3)
-        _coalescedTickle.observeNext { [weak self] in
+        disposable += _coalescedTickle.observeNext { [weak self] in
             self?.performQueryImmediatelyIfNecessary()
         }
     }

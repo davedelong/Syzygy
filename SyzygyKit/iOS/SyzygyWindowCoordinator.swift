@@ -10,8 +10,6 @@ import SyzygyCore
 
 open class SyzygyWindowCoordinator: Coordinator {
     
-    private var disposable = CompositeDisposable()
-    
     private lazy var window: UIWindow = {
         let w = UIWindow(frame: UIScreen.main.bounds)
         w.rootViewController = container

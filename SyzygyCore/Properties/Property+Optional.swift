@@ -10,6 +10,8 @@ import Foundation
 
 public extension Property where T: OptionalType {
     
+    public static var empty: Property<T> { return Property<T>(T.init(nil)) }
+    
     public func ignoreNil() throws -> Property<T.ValueType> {
         let initial = try value.optionalValue ?! PropertyError.missingInitialValue
         let m = MutableProperty(initial)

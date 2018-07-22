@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		550435CA2084D56D009DF2E2 /* SyzygyConditionals.h in Headers */ = {isa = PBXBuildFile; fileRef = 550435C92084D555009DF2E2 /* SyzygyConditionals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		550E746B2103F50700170790 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E746A2103F50700170790 /* Tree.swift */; };
 		5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */; };
 		5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */; };
 		5516CC662083F7D5008BB174 /* IOKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5516CC642083F7D5008BB174 /* IOKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -82,6 +83,9 @@
 		552E24FC20F7AB2800C1A4EF /* class.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24FA20F7AB2800C1A4EF /* class.m */; };
 		552E24FF20F7ABE700C1A4EF /* property.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24FD20F7ABE700C1A4EF /* property.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		552E250020F7ABE700C1A4EF /* property.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24FE20F7ABE700C1A4EF /* property.m */; };
+		553912D920FAF847002CCFA2 /* SyzygyLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912D820FAF847002CCFA2 /* SyzygyLineViewController.swift */; };
+		553912DB20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912DA20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift */; };
+		553912DD20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912DC20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift */; };
 		554F9547201D2876007864A7 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9546201D2876007864A7 /* UIViewController.swift */; };
 		554F954D201D2BD8007864A7 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F954C201D2BD8007864A7 /* UITableViewCell.swift */; };
 		554F9556201D2F2B007864A7 /* SyzygyStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */; };
@@ -119,6 +123,9 @@
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
 		55CF07A920DD4D1800266DCA /* NSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07A820DD4D1800266DCA /* NSApplication.swift */; };
 		55CF07AD20E2F93A00266DCA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07AC20E2F93A00266DCA /* Coordinator.swift */; };
+		55DD8FC820FA4D2F0028B6A1 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD8FC720FA4D2F0028B6A1 /* Calendar.swift */; };
+		55DD8FCA20FA4F560028B6A1 /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD8FC920FA4F560028B6A1 /* DateInterval.swift */; };
+		55DD8FCC20FA584D0028B6A1 /* Cloning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD8FCB20FA584D0028B6A1 /* Cloning.swift */; };
 		55EB0378202125E0007B5433 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB0377202125E0007B5433 /* Keychain.swift */; };
 		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
 		55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFBBDD20D423C6002C48FA /* NSPredicate.swift */; };
@@ -241,6 +248,7 @@
 
 /* Begin PBXFileReference section */
 		550435C92084D555009DF2E2 /* SyzygyConditionals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyConditionals.h; sourceTree = "<group>"; };
+		550E746A2103F50700170790 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Diffs.swift"; sourceTree = "<group>"; };
 		5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
 		5516CC642083F7D5008BB174 /* IOKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOKit.h; sourceTree = "<group>"; };
@@ -318,6 +326,9 @@
 		552E24FA20F7AB2800C1A4EF /* class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = class.m; sourceTree = "<group>"; };
 		552E24FD20F7ABE700C1A4EF /* property.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = property.h; sourceTree = "<group>"; };
 		552E24FE20F7ABE700C1A4EF /* property.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = property.m; sourceTree = "<group>"; };
+		553912D820FAF847002CCFA2 /* SyzygyLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyLineViewController.swift; sourceTree = "<group>"; };
+		553912DA20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyLineViewController~macos.swift"; sourceTree = "<group>"; };
+		553912DC20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyLineViewController~ios.swift"; sourceTree = "<group>"; };
 		554F9546201D2876007864A7 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		554F954C201D2BD8007864A7 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyStackViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +367,9 @@
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55CF07A820DD4D1800266DCA /* NSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication.swift; sourceTree = "<group>"; };
 		55CF07AC20E2F93A00266DCA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		55DD8FC720FA4D2F0028B6A1 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		55DD8FC920FA4F560028B6A1 /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
+		55DD8FCB20FA584D0028B6A1 /* Cloning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloning.swift; sourceTree = "<group>"; };
 		55EB0377202125E0007B5433 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		55EB037920212D74007B5433 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		55EFBBDD20D423C6002C48FA /* NSPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicate.swift; sourceTree = "<group>"; };
@@ -780,11 +794,14 @@
 				55FB067D1FF9BBFD0001D42E /* Bookmark.swift */,
 				55FB06731FF9BBFB0001D42E /* BookmarkMetadata.swift */,
 				55FB06821FF9BBFD0001D42E /* Bundle.swift */,
+				55DD8FC720FA4D2F0028B6A1 /* Calendar.swift */,
+				55DD8FCB20FA584D0028B6A1 /* Cloning.swift */,
 				554F9560201D38E3007864A7 /* CLLocation.swift */,
 				55FB067E1FF9BBFD0001D42E /* Collection.swift */,
 				55FB06C91FF9BC060001D42E /* Comparable.swift */,
 				55FB06BE1FF9BC040001D42E /* Concatenation.swift */,
 				559079C120B2359D005AECE7 /* DateFormatter.swift */,
+				55DD8FC920FA4F560028B6A1 /* DateInterval.swift */,
 				55FB06BF1FF9BC040001D42E /* Dictionary.swift */,
 				55FB06701FF9BBFB0001D42E /* Dispatch.swift */,
 				55FB06B11FF9BC010001D42E /* Disposable.swift */,
@@ -813,6 +830,7 @@
 				55FB06A71FF9BBFF0001D42E /* SetAlgebra.swift */,
 				55FB067F1FF9BBFD0001D42E /* String.swift */,
 				55FB06CF1FF9BC070001D42E /* Timer.swift */,
+				550E746A2103F50700170790 /* Tree.swift */,
 				55FB06C61FF9BC050001D42E /* URL.swift */,
 				55EB037920212D74007B5433 /* UserDefaults.swift */,
 				55FB06B51FF9BC020001D42E /* WeakBox.swift */,
@@ -862,6 +880,9 @@
 				551D480120114BA600AF7CF8 /* SyzygyViewControllerBase.swift */,
 				551C009920EFBD15006CE550 /* SyzygyViewController~ios.swift */,
 				551C009B20EFBD47006CE550 /* SyzygyViewController~macos.swift */,
+				553912D820FAF847002CCFA2 /* SyzygyLineViewController.swift */,
+				553912DC20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift */,
+				553912DA20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift */,
 				551C008D20EFBAFA006CE550 /* Responder~ios.swift */,
 				551C008F20EFBB09006CE550 /* Responder~macos.swift */,
 				551C009120EFBB22006CE550 /* View.swift */,
@@ -1198,11 +1219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -1280,10 +1297,12 @@
 				55FB06E51FF9BC070001D42E /* String.swift in Sources */,
 				55FB06DD1FF9BC070001D42E /* LocalizedString.swift in Sources */,
 				551C007C20EFB75E006CE550 /* Geometry~ios.swift in Sources */,
+				55DD8FC820FA4D2F0028B6A1 /* Calendar.swift in Sources */,
 				55FB072D1FF9BC070001D42E /* IndexPath.swift in Sources */,
 				55FB06D21FF9BC070001D42E /* Boolean.swift in Sources */,
 				55FB06F71FF9BC070001D42E /* FileManager+Property.swift in Sources */,
 				55FB070A1FF9BC070001D42E /* System.swift in Sources */,
+				550E746B2103F50700170790 /* Tree.swift in Sources */,
 				55FB071F1FF9BC070001D42E /* Path.swift in Sources */,
 				55FB06E21FF9BC070001D42E /* JSONError.swift in Sources */,
 				55FB07021FF9BC070001D42E /* MutableProperty.swift in Sources */,
@@ -1352,6 +1371,7 @@
 				55FB07331FF9BC070001D42E /* Reachability.swift in Sources */,
 				55FB06E91FF9BC070001D42E /* Newtype.swift in Sources */,
 				551C007E20EFB77D006CE550 /* Geometry~macos.swift in Sources */,
+				55DD8FCA20FA4F560028B6A1 /* DateInterval.swift in Sources */,
 				55FB07231FF9BC070001D42E /* Concatenation.swift in Sources */,
 				55FB06D11FF9BC070001D42E /* URL+Path.swift in Sources */,
 				55FB07141FF9BC070001D42E /* AbsolutePath.swift in Sources */,
@@ -1367,6 +1387,7 @@
 				55FB07201FF9BC070001D42E /* Log.swift in Sources */,
 				55FB06F51FF9BC070001D42E /* Property+Filter.swift in Sources */,
 				55FB06ED1FF9BC070001D42E /* ProgressiveDiff.swift in Sources */,
+				55DD8FCC20FA584D0028B6A1 /* Cloning.swift in Sources */,
 				55FB07051FF9BC070001D42E /* Property+Zip.swift in Sources */,
 				55FB070E1FF9BC070001D42E /* NSObject.swift in Sources */,
 				55FB06E71FF9BC070001D42E /* Optional.swift in Sources */,
@@ -1414,6 +1435,7 @@
 				554F9556201D2F2B007864A7 /* SyzygyStackViewController.swift in Sources */,
 				551D480020114B5100AF7CF8 /* SyzygyView~macos.swift in Sources */,
 				551C008E20EFBAFA006CE550 /* Responder~ios.swift in Sources */,
+				553912D920FAF847002CCFA2 /* SyzygyLineViewController.swift in Sources */,
 				55814DC420E340410027DA84 /* Shape.swift in Sources */,
 				551C008220EFB93F006CE550 /* SyzygyKit~ios.swift in Sources */,
 				551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */,
@@ -1450,8 +1472,10 @@
 				551C00A920EFCCD3006CE550 /* Shape~macos.swift in Sources */,
 				551C00B920F08D8F006CE550 /* SyzygyWindowCoordinator.swift in Sources */,
 				551C00A720EFCCCD006CE550 /* Shape~ios.swift in Sources */,
+				553912DD20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift in Sources */,
 				551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */,
 				551C008620EFB973006CE550 /* Color~ios.swift in Sources */,
+				553912DB20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift in Sources */,
 				551D48142011517F00AF7CF8 /* NSStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

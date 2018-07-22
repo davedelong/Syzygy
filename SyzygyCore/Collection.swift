@@ -68,6 +68,17 @@ public extension Collection {
         return d
     }
     
+    public func groupedWithNilsBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T?, Array<Element>> {
+        var d = Dictionary<T?, Array<Element>>()
+        for item in self {
+            let key = keyer(item)
+            var items = d.removeValue(forKey: key) ?? []
+            items.append(item)
+            d[key] = items
+        }
+        return d
+    }
+    
     public func groupedBy<T: Hashable>(_ keyer: (Element) -> Array<T>) -> Dictionary<T, Array<Element>> {
         var d = Dictionary<T, Array<Element>>()
         for item in self {

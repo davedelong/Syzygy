@@ -28,6 +28,8 @@ open class Coordinator: PlatformResponder {
     public private(set) weak var parent: Coordinator?
     public private(set) var children = Array<Coordinator>()
     
+    public let disposable = CompositeDisposable()
+    
     private weak var _nextResponder: PlatformResponder?
     
     private let _startCount = Atomic<Int>(0)

@@ -10,3 +10,16 @@ public typealias PlatformView = NSView
 public typealias PlatformNib = NSNib
 public typealias PlatformWindow = NSWindow
 public typealias PlatformViewController = NSViewController
+
+public extension PlatformNib {
+    
+    public func instantiate(withOwner ownerOrNil: Any?, options optionsOrNil: [AnyHashable : Any]? = nil) -> [Any] {
+        var topLevelObjects: NSArray?
+        let ok = self.instantiate(withOwner: ownerOrNil, topLevelObjects: &topLevelObjects)
+        
+        guard ok == true else { return [] }
+        let typedObjects = topLevelObjects as? Array<Any>
+        return typedObjects ?? []
+    }
+    
+}
