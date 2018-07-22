@@ -15,14 +15,13 @@ public protocol TreeNode {
     
 }
 
-public enum TreeTraversalDisposition {
-    case abort
-    case `continue`
-    case skipChildren
+public protocol TreeTraversingDisposition {
+    var isAbort: Bool { get }
 }
 
 public protocol TreeTraversing {
-    func traverse<T: TreeNode>(node: T, visitor: (T) throws -> TreeTraversalDisposition) rethrows -> TreeTraversalDisposition
+    associatedtype Disposition: TreeTraversingDisposition
+    func traverse<T: TreeNode>(node: T, visitor: (T) throws -> Disposition) rethrows -> Disposition
 }
 
 public extension TreeNode {
@@ -30,66 +29,86 @@ public extension TreeNode {
     var isLeaf: Bool { return children.isEmpty }
     
     @discardableResult
-    public func traverse(in order: TreeTraversing = DepthFirstTreeTraversal(order: .preOrder), visitor: (Self) throws -> TreeTraversalDisposition) rethrows -> TreeTraversalDisposition {
+    public func traverse<T: TreeTraversing>(in order: T, visitor: (Self) throws -> T.Disposition) rethrows -> T.Disposition {
         return try order.traverse(node: self, visitor: visitor)
+    }
+    
+    @discardableResult
+    public func traverse(visitor: (Self) throws -> PreOrderTraversal.Disposition) rethrows -> PreOrderTraversal.Disposition {
+        return try traverse(in: PreOrderTraversal(), visitor: visitor)
     }
     
 }
 
 public extension Collection where Element: TreeNode {
     
-    public func traverseElements(in order: TreeTraversing = DepthFirstTreeTraversal(order: .preOrder), visitor: (Element) throws -> TreeTraversalDisposition) rethrows {
+    public func traverseElements<T: TreeTraversing>(in order: T, visitor: (Element) throws -> T.Disposition) rethrows {
         for item in self {
             let d = try item.traverse(in: order, visitor: visitor)
-            if d == .abort { return }
+            if d.isAbort { return }
         }
+    }
+    
+    public func traverseElements(visitor: (Element) throws -> PreOrderTraversal.Disposition) rethrows {
+        return try traverseElements(in: PreOrderTraversal(), visitor: visitor)
     }
     
 }
 
-public struct DepthFirstTreeTraversal: TreeTraversing {
-    public enum Order {
-        case preOrder
-        case postOrder
+public struct PreOrderTraversal: TreeTraversing {
+    
+    public enum Disposition: TreeTraversingDisposition {
+        case abort
+        case `continue`
+        case skipChildren
+        public var isAbort: Bool { return self == .abort }
     }
     
-    public let order: Order
+    public init() { }
     
-    public init(order: Order = .preOrder) {
-        self.order = order
-    }
-    
-    public func traverse<T>(node: T, visitor: (T) throws -> TreeTraversalDisposition) rethrows -> TreeTraversalDisposition where T : TreeNode {
-        let children = node.children
+    public func traverse<T>(node: T, visitor: (T) throws -> PreOrderTraversal.Disposition) rethrows -> PreOrderTraversal.Disposition where T : TreeNode {
+        let d = try visitor(node)
+        if d.isAbort { return d }
         
-        var childrenToTraverse = Array<T>()
-        
-        if order == .preOrder {
-            let nodeDisposition = try visitor(node)
-            if nodeDisposition == .abort { return .abort }
-            if nodeDisposition != .skipChildren {
-                childrenToTraverse.append(contentsOf: children)
+        if d != .skipChildren {
+            for child in node.children {
+                let nodeD = try traverse(node: child, visitor: visitor)
+                if nodeD.isAbort { return nodeD }
             }
         }
-        
-        for child in childrenToTraverse {
-            let d = try traverse(node: child, visitor: visitor)
-            if d == .abort { return .abort }
-        }
-        
-        if order == .postOrder {
-            let nodeDisposition = try visitor(node)
-            if nodeDisposition == .abort { return .abort }
-        }
-        
         return .continue
     }
     
 }
 
-public struct BreadthFirstTreeTraversal: TreeTraversing {
+public struct PostOrderTraversal: TreeTraversing {
+    public enum Disposition: TreeTraversingDisposition {
+        case abort
+        case `continue`
+        public var isAbort: Bool { return self == .abort }
+    }
     
-    public func traverse<T>(node: T, visitor: (T) throws -> TreeTraversalDisposition) rethrows -> TreeTraversalDisposition where T : TreeNode {
+    public init() { }
+    
+    public func traverse<T>(node: T, visitor: (T) throws -> PostOrderTraversal.Disposition) rethrows -> PostOrderTraversal.Disposition where T : TreeNode {
+        for child in node.children {
+            let nodeD = try traverse(node: child, visitor: visitor)
+            if nodeD.isAbort { return nodeD }
+        }
+        
+        return try visitor(node)
+    }
+}
+
+public struct BreadthFirstTreeTraversal: TreeTraversing {
+    public enum Disposition: TreeTraversingDisposition {
+        case abort
+        case `continue`
+        case skipChildren
+        public var isAbort: Bool { return self == .abort }
+    }
+    
+    public func traverse<T>(node: T, visitor: (T) throws -> BreadthFirstTreeTraversal.Disposition) rethrows -> BreadthFirstTreeTraversal.Disposition where T : TreeNode {
         var nodesToVisit = [node]
         
         while let next = nodesToVisit.popFirst() {
