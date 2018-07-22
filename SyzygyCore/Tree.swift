@@ -15,13 +15,6 @@ public protocol TreeNode {
     
 }
 
-public enum TreeTraversalOrder {
-    case depthFirstPreOrder
-    case depthFirstInOrder
-    case depthFirstPostOrder
-    case breadthFirst
-}
-
 public enum TreeTraversalDisposition {
     case abort
     case `continue`
