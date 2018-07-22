@@ -11,6 +11,7 @@
 		550E746B2103F50700170790 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E746A2103F50700170790 /* Tree.swift */; };
 		550E746C2104D1C600170790 /* RangeReplaceableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */; };
 		550E746E2104D25000170790 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E746D2104D25000170790 /* BinaryTree.swift */; };
+		550E74712104D59200170790 /* TraversalAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E74702104D59200170790 /* TraversalAlgorithms.swift */; };
 		5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */; };
 		5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */; };
 		5516CC662083F7D5008BB174 /* IOKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5516CC642083F7D5008BB174 /* IOKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -251,6 +252,7 @@
 		550435C92084D555009DF2E2 /* SyzygyConditionals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyConditionals.h; sourceTree = "<group>"; };
 		550E746A2103F50700170790 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		550E746D2104D25000170790 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
+		550E74702104D59200170790 /* TraversalAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraversalAlgorithms.swift; sourceTree = "<group>"; };
 		5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Diffs.swift"; sourceTree = "<group>"; };
 		5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
 		5516CC642083F7D5008BB174 /* IOKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOKit.h; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 			children = (
 				550E746A2103F50700170790 /* Tree.swift */,
 				550E746D2104D25000170790 /* BinaryTree.swift */,
+				550E74702104D59200170790 /* TraversalAlgorithms.swift */,
 			);
 			path = Trees;
 			sourceTree = "<group>";
@@ -1362,6 +1365,7 @@
 				55FB07461FF9D2CF0001D42E /* BasicEvent.swift in Sources */,
 				550E746E2104D25000170790 /* BinaryTree.swift in Sources */,
 				55FB072B1FF9BC070001D42E /* URL.swift in Sources */,
+				550E74712104D59200170790 /* TraversalAlgorithms.swift in Sources */,
 				555C1906200536F80017F253 /* CountedSet.swift in Sources */,
 				55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */,
 				551C00AF20EFCFB5006CE550 /* Entitlements~ios.swift in Sources */,
