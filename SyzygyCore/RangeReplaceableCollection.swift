@@ -19,5 +19,16 @@ public extension RangeReplaceableCollection {
         guard self.isEmpty == false else { return nil }
         return removeFirst()
     }
+    
+}
 
+public extension RangeReplaceableCollection where Element: Equatable {
+    
+    @discardableResult
+    public mutating func remove(_ element: Element) -> Bool {
+        guard let index = firstIndex(of: element) else { return false }
+        self.remove(at: index)
+        return true
+    }
+    
 }

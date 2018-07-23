@@ -101,4 +101,11 @@ public extension String {
         return false
     }
     
+    func matches<C: Collection>(all: C) -> Bool where C.Element: StringProtocol {
+        for item in all {
+            if self.localizedCaseInsensitiveContains(item) == false { return false }
+        }
+        return true
+    }
+    
 }

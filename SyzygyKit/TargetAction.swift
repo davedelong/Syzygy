@@ -15,44 +15,39 @@ public protocol TargetActionProtocol: NSObjectProtocol {
 
 public extension TargetActionProtocol {
     
-    public var actionBlock: ((Any) -> Void)? {
+    public var actionBlock: ((Self) -> Void)? {
         get {
-            let action: ActionTarget? = associatedObject(for: &ActionTarget.AssociatedObjectKey)
+            let action: ActionTarget<Self>? = associatedObject(for: &ActionTargetAssociatedObjectKey)
             return action?.actionBlock
         }
         set {
-            setAssociatedObject(nil, forKey: &ActionTarget.AssociatedObjectKey)
+            setAssociatedObject(nil, forKey: &ActionTargetAssociatedObjectKey)
             self.target = nil
             self.action = nil
             
             guard let block = newValue else { return }
             let target = ActionTarget(block: block)
             self.target = target
-            self.action = #selector(ActionTarget.actionMethod(_:))
-            setAssociatedObject(target, forKey: &ActionTarget.AssociatedObjectKey)
+            self.action = #selector(ActionTarget<Self>.actionMethod(_:))
+            setAssociatedObject(target, forKey: &ActionTargetAssociatedObjectKey)
         }
     }
     
 }
 
-#if BUILDING_FOR_DESKTOP
-    
-extension NSControl: TargetActionProtocol { }
-extension NSMenuItem: TargetActionProtocol { }
-    
-#endif
+internal var ActionTargetAssociatedObjectKey: UInt8 = 0
 
-internal class ActionTarget: NSObject {
-    internal static var AssociatedObjectKey: UInt8 = 0
-    internal let actionBlock: (Any) -> Void
+internal class ActionTarget<T>: NSObject {
+    internal let actionBlock: (T) -> Void
     
-    init(block: @escaping (Any) -> Void) {
+    init(block: @escaping (T) -> Void) {
         self.actionBlock = block
         super.init()
     }
     
     @objc func actionMethod(_ sender: Any) {
-        actionBlock(sender)
+        guard let typedSender = sender as? T else { return }
+        actionBlock(typedSender)
     }
     
     #if BUILDING_FOR_DESKTOP

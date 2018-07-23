@@ -6,7 +6,7 @@
 //  Copyright © 2017 Dave DeLong. All rights reserved.
 //
 
-import Foundation
+import Swift
 
 private func aggregate<C: Collection>(_ values: C, agg: (C.Element, C.Element) -> C.Element) -> C.Element? {
     var final: C.Element?
@@ -34,6 +34,30 @@ public extension Comparable {
         if self < other { return .orderedAscending }
         if self == other { return .orderedSame }
         return .orderedDescending
+    }
+    
+}
+
+public extension Collection where Element: Comparable {
+    
+    func extremes() -> (Element, Element)? {
+        if let r = range() { return (r.lowerBound, r.upperBound) }
+        return nil
+    }
+    
+    func range() -> ClosedRange<Element>? {
+        guard isEmpty == false else { return nil }
+        var slice = Slice(base: self, bounds: startIndex ..< endIndex)
+        let first = slice.removeFirst()
+        
+        var min = first
+        var max = first
+        
+        for other in slice {
+            if other < min { min = other }
+            if other > max { max = other }
+        }
+        return min ... max
     }
     
 }

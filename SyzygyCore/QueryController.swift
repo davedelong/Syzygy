@@ -53,7 +53,7 @@ open class QueryController<T: Equatable> {
         }
     }
     
-    public func setNeedsPerformQuery() {
+    open func setNeedsPerformQuery() {
         _needsQuery = true
         _queryTickle.tickle()
     }

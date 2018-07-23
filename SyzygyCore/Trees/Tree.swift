@@ -37,6 +37,22 @@ public extension TreeNode {
         return try traverse(in: PreOrderTraversal(), visitor: visitor)
     }
     
+    public func flatten<T: TreeTraversing>(in order: T, continuing: T.Disposition) -> Array<T.Node> where T.Node == Self {
+        var flattened = Array<T.Node>()
+        
+        traverse(in: order) {
+            flattened.append($0)
+            return continuing
+        }
+        
+        return flattened
+    }
+    
+    public func flatten() -> Array<Self> {
+        let order = PreOrderTraversal<Self>()
+        return flatten(in: order, continuing: .continue)
+    }
+    
 }
 
 public extension Collection where Element: TreeNode {
@@ -50,6 +66,22 @@ public extension Collection where Element: TreeNode {
     
     public func traverseElements(visitor: (Element) throws -> PreOrderTraversal<Element>.Disposition) rethrows {
         try traverseElements(in: PreOrderTraversal(), visitor: visitor)
+    }
+    
+    public func flatten<T: TreeTraversing>(in order: T, continuing: T.Disposition) -> Array<T.Node> where T.Node == Element {
+        var flattened = Array<T.Node>()
+        for node in self {
+            node.traverse(in: order) {
+                flattened.append($0)
+                return continuing
+            }
+        }
+        return flattened
+    }
+    
+    public func flatten() -> Array<Element> {
+        let order = PreOrderTraversal<Element>()
+        return flatten(in: order, continuing: .continue)
     }
     
 }
