@@ -17,6 +17,13 @@
 		550E747D2105316C00170790 /* TargetAction~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E747C2105316C00170790 /* TargetAction~ios.swift */; };
 		550E747F21053C1C00170790 /* SyzygySearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E747E21053C1C00170790 /* SyzygySearchDelegate.swift */; };
 		550E748321054CD400170790 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E748221054CD400170790 /* Date.swift */; };
+		550E7489210776EE00170790 /* SortDescriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E7488210776EE00170790 /* SortDescriptors.swift */; };
+		550E748B2107795500170790 /* AnySorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E748A2107795500170790 /* AnySorter.swift */; };
+		550E748D2107796100170790 /* InvertedSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E748C2107796100170790 /* InvertedSorter.swift */; };
+		550E748F210779D300170790 /* CombinedSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E748E210779D300170790 /* CombinedSorter.swift */; };
+		550E749121077BC800170790 /* KeyPathSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749021077BC800170790 /* KeyPathSorter.swift */; };
+		550E749321077D7900170790 /* NSSortDescriptor+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */; };
+		550E749521077D9F00170790 /* String+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749421077D9F00170790 /* String+Sorting.swift */; };
 		5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */; };
 		5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */; };
 		5516CC662083F7D5008BB174 /* IOKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5516CC642083F7D5008BB174 /* IOKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -263,6 +270,13 @@
 		550E747C2105316C00170790 /* TargetAction~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetAction~ios.swift"; sourceTree = "<group>"; };
 		550E747E21053C1C00170790 /* SyzygySearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySearchDelegate.swift; sourceTree = "<group>"; };
 		550E748221054CD400170790 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		550E7488210776EE00170790 /* SortDescriptors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortDescriptors.swift; sourceTree = "<group>"; };
+		550E748A2107795500170790 /* AnySorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySorter.swift; sourceTree = "<group>"; };
+		550E748C2107796100170790 /* InvertedSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedSorter.swift; sourceTree = "<group>"; };
+		550E748E210779D300170790 /* CombinedSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedSorter.swift; sourceTree = "<group>"; };
+		550E749021077BC800170790 /* KeyPathSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathSorter.swift; sourceTree = "<group>"; };
+		550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Sorting.swift"; sourceTree = "<group>"; };
+		550E749421077D9F00170790 /* String+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Sorting.swift"; sourceTree = "<group>"; };
 		5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Diffs.swift"; sourceTree = "<group>"; };
 		5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
 		5516CC642083F7D5008BB174 /* IOKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOKit.h; sourceTree = "<group>"; };
@@ -560,6 +574,20 @@
 				550E74702104D59200170790 /* TraversalAlgorithms.swift */,
 			);
 			path = Trees;
+			sourceTree = "<group>";
+		};
+		550E7487210776C900170790 /* Sorting */ = {
+			isa = PBXGroup;
+			children = (
+				550E7488210776EE00170790 /* SortDescriptors.swift */,
+				550E748A2107795500170790 /* AnySorter.swift */,
+				550E748C2107796100170790 /* InvertedSorter.swift */,
+				550E748E210779D300170790 /* CombinedSorter.swift */,
+				550E749021077BC800170790 /* KeyPathSorter.swift */,
+				550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */,
+				550E749421077D9F00170790 /* String+Sorting.swift */,
+			);
+			path = Sorting;
 			sourceTree = "<group>";
 		};
 		551C00A120EFC8FF006CE550 /* Analytics */ = {
@@ -861,6 +889,7 @@
 				55EB037920212D74007B5433 /* UserDefaults.swift */,
 				55FB06B51FF9BC020001D42E /* WeakBox.swift */,
 				554F9568201D5D3F007864A7 /* QueryController.swift */,
+				550E7487210776C900170790 /* Sorting */,
 				551C00A120EFC8FF006CE550 /* Analytics */,
 				551C00A320EFC9AB006CE550 /* Paths */,
 				551C00A220EFC99A006CE550 /* JSON */,
@@ -1327,6 +1356,7 @@
 				55FB06E51FF9BC070001D42E /* String.swift in Sources */,
 				55FB06DD1FF9BC070001D42E /* LocalizedString.swift in Sources */,
 				551C007C20EFB75E006CE550 /* Geometry~ios.swift in Sources */,
+				550E749321077D7900170790 /* NSSortDescriptor+Sorting.swift in Sources */,
 				55DD8FC820FA4D2F0028B6A1 /* Calendar.swift in Sources */,
 				55FB072D1FF9BC070001D42E /* IndexPath.swift in Sources */,
 				55FB06D21FF9BC070001D42E /* Boolean.swift in Sources */,
@@ -1344,6 +1374,7 @@
 				55FB07041FF9BC070001D42E /* Property+Map.swift in Sources */,
 				55FB07011FF9BC070001D42E /* NSObject+Property.swift in Sources */,
 				55FB06D41FF9BC070001D42E /* Exceptions.swift in Sources */,
+				550E7489210776EE00170790 /* SortDescriptors.swift in Sources */,
 				55FB07251FF9BC070001D42E /* LaunchServices.swift in Sources */,
 				55FB07321FF9BC070001D42E /* FileMonitor.swift in Sources */,
 				559079CA20B76F97005AECE7 /* RandomAccessCollection.swift in Sources */,
@@ -1356,6 +1387,7 @@
 				55FB071D1FF9BC070001D42E /* NSMetadataQuery.swift in Sources */,
 				55FB06FB1FF9BC070001D42E /* Property+Throttle.swift in Sources */,
 				55FB071E1FF9BC070001D42E /* JSON+JSONInitializable.swift in Sources */,
+				550E748D2107796100170790 /* InvertedSorter.swift in Sources */,
 				55FB07091FF9BC070001D42E /* Property+Coalesce.swift in Sources */,
 				55FB06E41FF9BC070001D42E /* Collection.swift in Sources */,
 				55FB07431FF9D2740001D42E /* Analytics.swift in Sources */,
@@ -1387,6 +1419,7 @@
 				551C00AF20EFCFB5006CE550 /* Entitlements~ios.swift in Sources */,
 				55FB07121FF9BC070001D42E /* UTI+Defaults.swift in Sources */,
 				55FB06D31FF9BC070001D42E /* Identifier.swift in Sources */,
+				550E748F210779D300170790 /* CombinedSorter.swift in Sources */,
 				554F9561201D38E3007864A7 /* CLLocation.swift in Sources */,
 				55FB06EE1FF9BC070001D42E /* KVOProperty.swift in Sources */,
 				55FB07151FF9BC070001D42E /* Diff.swift in Sources */,
@@ -1398,6 +1431,8 @@
 				55FB07031FF9BC070001D42E /* NotificationCenter+Property.swift in Sources */,
 				55FB071C1FF9BC070001D42E /* JSON+Literals.swift in Sources */,
 				55FB070C1FF9BC070001D42E /* SetAlgebra.swift in Sources */,
+				550E749121077BC800170790 /* KeyPathSorter.swift in Sources */,
+				550E749521077D9F00170790 /* String+Sorting.swift in Sources */,
 				5516CC672083F7D5008BB174 /* IOKit.m in Sources */,
 				55FB06D61FF9BC070001D42E /* Dispatch.swift in Sources */,
 				55FB07331FF9BC070001D42E /* Reachability.swift in Sources */,
@@ -1433,6 +1468,7 @@
 				55FB07281FF9BC070001D42E /* Objective-C.m in Sources */,
 				55FB06FE1FF9BC070001D42E /* Property+Result.swift in Sources */,
 				55FB07111FF9BC070001D42E /* Result.swift in Sources */,
+				550E748B2107795500170790 /* AnySorter.swift in Sources */,
 				55FB06E81FF9BC070001D42E /* Bundle.swift in Sources */,
 				55FB07101FF9BC070001D42E /* URLRouter.swift in Sources */,
 				55FB06D71FF9BC070001D42E /* Plist+Initializers.swift in Sources */,

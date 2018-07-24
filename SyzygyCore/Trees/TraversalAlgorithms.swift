@@ -12,9 +12,12 @@ public struct PreOrderTraversal<N: TreeNode>: TreeTraversing {
     public typealias Node = N
     
     public enum Disposition: TreeTraversingDisposition {
+        public static var keepGoing: Disposition { return .continue }
+        
         case abort
         case `continue`
         case skipChildren
+        
         public var aborts: Bool { return self == .abort }
     }
     
@@ -38,8 +41,11 @@ public struct PreOrderTraversal<N: TreeNode>: TreeTraversing {
 public struct PostOrderTraversal<N: TreeNode>: TreeTraversing {
     public typealias Node = N
     public enum Disposition: TreeTraversingDisposition {
+        public static var keepGoing: Disposition { return .continue }
+        
         case abort
         case `continue`
+        
         public var aborts: Bool { return self == .abort }
     }
     
@@ -58,9 +64,12 @@ public struct PostOrderTraversal<N: TreeNode>: TreeTraversing {
 public struct BreadthFirstTreeTraversal<N: TreeNode>: TreeTraversing {
     public typealias Node = N
     public enum Disposition: TreeTraversingDisposition {
+        public static var keepGoing: Disposition { return .continue }
+        
         case abort
         case `continue`
         case skipChildren
+        
         public var aborts: Bool { return self == .abort }
     }
     
@@ -87,9 +96,12 @@ public struct InOrderTraversal<N: BinaryTreeNode>: TreeTraversing {
     public typealias Node = N
     
     public enum Disposition: TreeTraversingDisposition {
+        public static var keepGoing: Disposition { return .continue }
+        
         case abort
         case `continue`
         case skipChildren
+        
         public var aborts: Bool { return self == .abort }
     }
     

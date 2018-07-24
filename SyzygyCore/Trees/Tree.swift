@@ -14,6 +14,7 @@ public protocol TreeNode {
 }
 
 public protocol TreeTraversingDisposition {
+    static var keepGoing: Self { get }
     var aborts: Bool { get }
 }
 
@@ -37,20 +38,19 @@ public extension TreeNode {
         return try traverse(in: PreOrderTraversal(), visitor: visitor)
     }
     
-    public func flatten<T: TreeTraversing>(in order: T, continuing: T.Disposition) -> Array<T.Node> where T.Node == Self {
+    public func flatten<T: TreeTraversing>(in order: T) -> Array<T.Node> where T.Node == Self {
         var flattened = Array<T.Node>()
         
         traverse(in: order) {
             flattened.append($0)
-            return continuing
+            return T.Disposition.keepGoing
         }
         
         return flattened
     }
     
     public func flatten() -> Array<Self> {
-        let order = PreOrderTraversal<Self>()
-        return flatten(in: order, continuing: .continue)
+        return flatten(in: PreOrderTraversal())
     }
     
 }
@@ -68,20 +68,19 @@ public extension Collection where Element: TreeNode {
         try traverseElements(in: PreOrderTraversal(), visitor: visitor)
     }
     
-    public func flatten<T: TreeTraversing>(in order: T, continuing: T.Disposition) -> Array<T.Node> where T.Node == Element {
+    public func flatten<T: TreeTraversing>(in order: T) -> Array<T.Node> where T.Node == Element {
         var flattened = Array<T.Node>()
         for node in self {
             node.traverse(in: order) {
                 flattened.append($0)
-                return continuing
+                return T.Disposition.keepGoing
             }
         }
         return flattened
     }
     
     public func flatten() -> Array<Element> {
-        let order = PreOrderTraversal<Element>()
-        return flatten(in: order, continuing: .continue)
+        return flatten(in: PreOrderTraversal())
     }
     
 }
