@@ -6,6 +6,8 @@
 //  Copyright © 2017 Syzygy. All rights reserved.
 //
 
+#include "Syzygy-Conditionals.xcconfig"
+
 SUPPORTED_PLATFORMS = iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator macosx
 
 //VALID_ARCHS = arm64 armv7 armv7s

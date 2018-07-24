@@ -1,0 +1,38 @@
+//
+//  Syzygy-Conditionals.xcconfig
+//  Syzygy
+//
+//  Created by Dave DeLong on 7/24/18.
+//  Copyright © 2018 Syzygy. All rights reserved.
+//
+
+// Desktop vs Mobile
+
+SYZ_DESKTOP =
+SYZ_DESKTOP[sdk=mac*] = BUILDING_FOR_DESKTOP
+
+SYZ_MOBILE = BUILDING_FOR_MOBILE
+SYZ_MOBILE[sdk=mac*] =
+
+// Device vs Simulator
+
+SYZ_DEVICE = BUILDING_FOR_DEVICE
+SYZ_DEVICE[sdk=*simulator] =
+
+SYZ_SIM =
+SYZ_SIM[sdk=*simulator] = BUILDING_FOR_SIMULATOR
+
+// Various mobile platforms
+
+SYZ_PLATFORM =
+SYZ_PLATFORM[sdk=mac*] = BUILDING_FOR_MAC
+SYZ_PLATFORM[sdk=iphone*] = BUILDING_FOR_IOS
+SYZ_PLATFORM[sdk=appletv*] = BUILDING_FOR_TV
+SYZ_PLATFORM[sdk=watch*] = BUILDING_FOR_WATCH
+
+// App vs Extension
+//#define BUILDING_AS_EXTENSION 0 // TODO: Figure out something better here
+//#define BUILDING_AS_APP (!BUILDING_AS_EXTENSION)
+
+SYZYGY_CONDITIONALS = $(SYZ_DESKTOP) $(SYZ_MOBILE) $(SYZ_DEVICE) $(SYZ_SIM) $(SYZ_PLATFORM)
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited) $(SYZYGY_CONDITIONALS)

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		550435CA2084D56D009DF2E2 /* SyzygyConditionals.h in Headers */ = {isa = PBXBuildFile; fileRef = 550435C92084D555009DF2E2 /* SyzygyConditionals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		550E746B2103F50700170790 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E746A2103F50700170790 /* Tree.swift */; };
 		550E746C2104D1C600170790 /* RangeReplaceableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */; };
 		550E746E2104D25000170790 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E746D2104D25000170790 /* BinaryTree.swift */; };
@@ -25,6 +24,7 @@
 		550E749321077D7900170790 /* NSSortDescriptor+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */; };
 		550E749521077D9F00170790 /* String+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749421077D9F00170790 /* String+Sorting.swift */; };
 		550E7497210781D200170790 /* Collection+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E7496210781D200170790 /* Collection+Sorting.swift */; };
+		550E749921078F9200170790 /* Comparable+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749821078F9200170790 /* Comparable+Sorting.swift */; };
 		5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */; };
 		5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */; };
 		5516CC662083F7D5008BB174 /* IOKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5516CC642083F7D5008BB174 /* IOKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -262,7 +262,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		550435C92084D555009DF2E2 /* SyzygyConditionals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyConditionals.h; sourceTree = "<group>"; };
 		550E746A2103F50700170790 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		550E746D2104D25000170790 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
 		550E74702104D59200170790 /* TraversalAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraversalAlgorithms.swift; sourceTree = "<group>"; };
@@ -279,6 +278,8 @@
 		550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Sorting.swift"; sourceTree = "<group>"; };
 		550E749421077D9F00170790 /* String+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Sorting.swift"; sourceTree = "<group>"; };
 		550E7496210781D200170790 /* Collection+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Sorting.swift"; sourceTree = "<group>"; };
+		550E749821078F9200170790 /* Comparable+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Sorting.swift"; sourceTree = "<group>"; };
+		550E749A2107A1E600170790 /* Syzygy-Conditionals.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Syzygy-Conditionals.xcconfig"; sourceTree = "<group>"; };
 		5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Diffs.swift"; sourceTree = "<group>"; };
 		5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
 		5516CC642083F7D5008BB174 /* IOKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOKit.h; sourceTree = "<group>"; };
@@ -587,6 +588,7 @@
 				550E748E210779D300170790 /* CombinedSorter.swift */,
 				550E749021077BC800170790 /* KeyPathSorter.swift */,
 				550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */,
+				550E749821078F9200170790 /* Comparable+Sorting.swift */,
 				550E749421077D9F00170790 /* String+Sorting.swift */,
 				550E7496210781D200170790 /* Collection+Sorting.swift */,
 			);
@@ -814,6 +816,7 @@
 			isa = PBXGroup;
 			children = (
 				55FB06681FF9B6E70001D42E /* Syzygy-Base.xcconfig */,
+				550E749A2107A1E600170790 /* Syzygy-Conditionals.xcconfig */,
 				55FB066A1FF9B84F0001D42E /* Syzygy-Debug.xcconfig */,
 				55FB06691FF9B7C30001D42E /* Syzygy-Release.xcconfig */,
 				55FB06501FF9B5BB0001D42E /* SyzygyCore */,
@@ -845,7 +848,6 @@
 				55FB075F1FFAC7690001D42E /* SyzygyCore.swift */,
 				551C00B220F02B7C006CE550 /* SyzygyCore~ios.swift */,
 				551C00B420F07E1E006CE550 /* SyzygyCore~macos.swift */,
-				550435C92084D555009DF2E2 /* SyzygyConditionals.h */,
 				552A40A02005273E009B8C6B /* Standard Library-ish Things */,
 				555C1904200536EB0017F253 /* Data Structures */,
 				55FB067D1FF9BBFD0001D42E /* Bookmark.swift */,
@@ -1068,7 +1070,6 @@
 			files = (
 				55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */,
 				5516CC662083F7D5008BB174 /* IOKit.h in Headers */,
-				550435CA2084D56D009DF2E2 /* SyzygyConditionals.h in Headers */,
 				551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */,
 				55FB06EA1FF9BC070001D42E /* Objective-C.h in Headers */,
 			);
@@ -1448,6 +1449,7 @@
 				55FB07141FF9BC070001D42E /* AbsolutePath.swift in Sources */,
 				55FB06DA1FF9BC070001D42E /* JSONInitializable.swift in Sources */,
 				55FB07311FF9BC070001D42E /* UTI.swift in Sources */,
+				550E749921078F9200170790 /* Comparable+Sorting.swift in Sources */,
 				55FB06F81FF9BC070001D42E /* Property+Queue.swift in Sources */,
 				55FB072E1FF9BC070001D42E /* Comparable.swift in Sources */,
 				55FB06D51FF9BC070001D42E /* Atomic.swift in Sources */,

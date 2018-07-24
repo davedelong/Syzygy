@@ -24,8 +24,8 @@ public extension KeyPath {
         }
     }
     
-    public func using(_ areInIncreasingOrder: @escaping (Value, Value) -> Bool) -> Sorter {
-        return Sorter(keyPath: self, ordersBefore: areInIncreasingOrder)
+    public func sorting(by sorter: @escaping (Value, Value) -> Bool) -> Sorter {
+        return Sorter(keyPath: self, ordersBefore: sorter)
     }
 }
 
@@ -34,6 +34,14 @@ extension KeyPath: ValueSorting, Sorting where Value: Comparable {
     
     public func value(from root: Root) -> Value {
         return root[keyPath: self]
+    }
+    
+    public func ascending() -> Sorter {
+        return sorting(by: <)
+    }
+    
+    public func descending() -> Sorter {
+        return sorting(by: >)
     }
     
 }
