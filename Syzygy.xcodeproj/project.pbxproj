@@ -17,7 +17,7 @@
 		550E747D2105316C00170790 /* TargetAction~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E747C2105316C00170790 /* TargetAction~ios.swift */; };
 		550E747F21053C1C00170790 /* SyzygySearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E747E21053C1C00170790 /* SyzygySearchDelegate.swift */; };
 		550E748321054CD400170790 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E748221054CD400170790 /* Date.swift */; };
-		550E7489210776EE00170790 /* SortDescriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E7488210776EE00170790 /* SortDescriptors.swift */; };
+		550E7489210776EE00170790 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E7488210776EE00170790 /* Sorting.swift */; };
 		550E748B2107795500170790 /* AnySorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E748A2107795500170790 /* AnySorter.swift */; };
 		550E748D2107796100170790 /* InvertedSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E748C2107796100170790 /* InvertedSorter.swift */; };
 		550E748F210779D300170790 /* CombinedSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E748E210779D300170790 /* CombinedSorter.swift */; };
@@ -270,7 +270,7 @@
 		550E747C2105316C00170790 /* TargetAction~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetAction~ios.swift"; sourceTree = "<group>"; };
 		550E747E21053C1C00170790 /* SyzygySearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySearchDelegate.swift; sourceTree = "<group>"; };
 		550E748221054CD400170790 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		550E7488210776EE00170790 /* SortDescriptors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortDescriptors.swift; sourceTree = "<group>"; };
+		550E7488210776EE00170790 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
 		550E748A2107795500170790 /* AnySorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySorter.swift; sourceTree = "<group>"; };
 		550E748C2107796100170790 /* InvertedSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedSorter.swift; sourceTree = "<group>"; };
 		550E748E210779D300170790 /* CombinedSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedSorter.swift; sourceTree = "<group>"; };
@@ -579,7 +579,7 @@
 		550E7487210776C900170790 /* Sorting */ = {
 			isa = PBXGroup;
 			children = (
-				550E7488210776EE00170790 /* SortDescriptors.swift */,
+				550E7488210776EE00170790 /* Sorting.swift */,
 				550E748A2107795500170790 /* AnySorter.swift */,
 				550E748C2107796100170790 /* InvertedSorter.swift */,
 				550E748E210779D300170790 /* CombinedSorter.swift */,
@@ -1374,7 +1374,7 @@
 				55FB07041FF9BC070001D42E /* Property+Map.swift in Sources */,
 				55FB07011FF9BC070001D42E /* NSObject+Property.swift in Sources */,
 				55FB06D41FF9BC070001D42E /* Exceptions.swift in Sources */,
-				550E7489210776EE00170790 /* SortDescriptors.swift in Sources */,
+				550E7489210776EE00170790 /* Sorting.swift in Sources */,
 				55FB07251FF9BC070001D42E /* LaunchServices.swift in Sources */,
 				55FB07321FF9BC070001D42E /* FileMonitor.swift in Sources */,
 				559079CA20B76F97005AECE7 /* RandomAccessCollection.swift in Sources */,
