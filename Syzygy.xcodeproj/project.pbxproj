@@ -24,6 +24,7 @@
 		550E749121077BC800170790 /* KeyPathSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749021077BC800170790 /* KeyPathSorter.swift */; };
 		550E749321077D7900170790 /* NSSortDescriptor+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */; };
 		550E749521077D9F00170790 /* String+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E749421077D9F00170790 /* String+Sorting.swift */; };
+		550E7497210781D200170790 /* Collection+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E7496210781D200170790 /* Collection+Sorting.swift */; };
 		5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */; };
 		5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */; };
 		5516CC662083F7D5008BB174 /* IOKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5516CC642083F7D5008BB174 /* IOKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -277,6 +278,7 @@
 		550E749021077BC800170790 /* KeyPathSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathSorter.swift; sourceTree = "<group>"; };
 		550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Sorting.swift"; sourceTree = "<group>"; };
 		550E749421077D9F00170790 /* String+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Sorting.swift"; sourceTree = "<group>"; };
+		550E7496210781D200170790 /* Collection+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Sorting.swift"; sourceTree = "<group>"; };
 		5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Diffs.swift"; sourceTree = "<group>"; };
 		5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
 		5516CC642083F7D5008BB174 /* IOKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOKit.h; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 				550E749021077BC800170790 /* KeyPathSorter.swift */,
 				550E749221077D7900170790 /* NSSortDescriptor+Sorting.swift */,
 				550E749421077D9F00170790 /* String+Sorting.swift */,
+				550E7496210781D200170790 /* Collection+Sorting.swift */,
 			);
 			path = Sorting;
 			sourceTree = "<group>";
@@ -1366,6 +1369,7 @@
 				55FB071F1FF9BC070001D42E /* Path.swift in Sources */,
 				55FB06E21FF9BC070001D42E /* JSONError.swift in Sources */,
 				55FB07021FF9BC070001D42E /* MutableProperty.swift in Sources */,
+				550E7497210781D200170790 /* Collection+Sorting.swift in Sources */,
 				55FB07291FF9BC070001D42E /* Plist+Subscript.swift in Sources */,
 				55FB06EB1FF9BC070001D42E /* JSON+Serialization.swift in Sources */,
 				559079C220B2359D005AECE7 /* DateFormatter.swift in Sources */,
