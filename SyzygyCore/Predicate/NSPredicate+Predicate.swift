@@ -11,7 +11,10 @@ import Foundation
 extension NSPredicate: Predicate {
     
     public func contains(_ value: Any) -> Bool {
-        return self.evaluate(with: value)
+        let b = (try? catchException {
+            self.evaluate(with: value)
+        }) ?? false
+        return b
     }
     
 }
