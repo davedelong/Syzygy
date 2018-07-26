@@ -14,12 +14,22 @@ public extension Sequence {
         return sorted(by: sorter.orders(_:before:))
     }
     
+    public func sorted<C: Collection>(by sorters: C) -> Array<Element> where C.Element: Sorting, C.Element.Base == Element {
+        let combined = CombinedSorter(sorters)
+        return sorted(by: combined)
+    }
+    
 }
 
 extension MutableCollection where Self: RandomAccessCollection {
     
     public mutating func sort<S: Sorting>(by sorter: S) where S.Base == Element {
         sort(by: sorter.orders(_:before:))
+    }
+    
+    public mutating func sort<C: Collection>(by sorters: C) where C.Element: Sorting, C.Element.Base == Element {
+        let combined = CombinedSorter(sorters)
+        sort(by: combined)
     }
     
 }

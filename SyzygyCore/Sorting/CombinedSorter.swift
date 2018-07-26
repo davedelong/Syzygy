@@ -11,6 +11,12 @@ import Foundation
 public struct CombinedSorter<B>: Sorting {
     private let sorters: Array<(B, B) -> Bool>
     
+    public init<C: Collection>(_ sorters: C) where C.Element: Sorting, C.Element.Base == B {
+        self.sorters = sorters.map { s -> ((B, B) -> Bool) in
+            return { s.orders($0, before: $1) }
+        }
+    }
+    
     public init<S1: Sorting, S2: Sorting>(_ s1: S1, _ s2: S2) where S1.Base == B, S2.Base == B {
         sorters = [
             { s1.orders($0, before: $1) },

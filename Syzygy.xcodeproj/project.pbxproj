@@ -91,7 +91,7 @@
 		552E24EF20F6D39700C1A4EF /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E24EE20F6D39700C1A4EF /* Type.swift */; };
 		552E24F220F6D5C500C1A4EF /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24F020F6D5C500C1A4EF /* type.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		552E24F320F6D5C500C1A4EF /* type.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24F120F6D5C500C1A4EF /* type.m */; };
-		552E24F420F6E50200C1A4EF /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
+		552E24F420F6E50200C1A4EF /* "SyzygyCore".framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* "SyzygyCore".framework */; };
 		552E24F720F7AA5400C1A4EF /* instance.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24F520F7AA5400C1A4EF /* instance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		552E24F820F7AA5400C1A4EF /* instance.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24F620F7AA5400C1A4EF /* instance.m */; };
 		552E24FB20F7AB2800C1A4EF /* class.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24F920F7AB2800C1A4EF /* class.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -133,11 +133,20 @@
 		559B337A20E9749B00034E51 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B337920E9749B00034E51 /* LocationProvider.swift */; };
 		559B337C20E974AA00034E51 /* SyzygyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B337B20E974AA00034E51 /* SyzygyLocation.swift */; };
 		559B337E20E976FE00034E51 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B337D20E976FE00034E51 /* LocationDelegate.swift */; };
-		559B337F20E9785C00034E51 /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
+		559B337F20E9785C00034E51 /* "SyzygyCore".framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* "SyzygyCore".framework */; };
 		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
 		55CF07A920DD4D1800266DCA /* NSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07A820DD4D1800266DCA /* NSApplication.swift */; };
 		55CF07AD20E2F93A00266DCA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07AC20E2F93A00266DCA /* Coordinator.swift */; };
+		55D82F8C210A333000EF7965 /* Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F8B210A333000EF7965 /* Predicate.swift */; };
+		55D82F8E210A335D00EF7965 /* AnyPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F8D210A335D00EF7965 /* AnyPredicate.swift */; };
+		55D82F92210A33A500EF7965 /* NotPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F91210A33A500EF7965 /* NotPredicate.swift */; };
+		55D82F94210A342000EF7965 /* AndPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F93210A342000EF7965 /* AndPredicate.swift */; };
+		55D82F96210A37E200EF7965 /* NSPredicate+Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F95210A37E200EF7965 /* NSPredicate+Predicate.swift */; };
+		55D82F98210A382100EF7965 /* Collection+Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F97210A382100EF7965 /* Collection+Predicate.swift */; };
+		55D82F9A210A3ACA00EF7965 /* OrPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F99210A3ACA00EF7965 /* OrPredicate.swift */; };
+		55D82F9C210A704700EF7965 /* SetAlgebra+Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F9B210A704700EF7965 /* SetAlgebra+Predicate.swift */; };
+		55D82F9E210A767800EF7965 /* XorPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F9D210A767800EF7965 /* XorPredicate.swift */; };
 		55DD8FC820FA4D2F0028B6A1 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD8FC720FA4D2F0028B6A1 /* Calendar.swift */; };
 		55DD8FCA20FA4F560028B6A1 /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD8FC920FA4F560028B6A1 /* DateInterval.swift */; };
 		55DD8FCC20FA584D0028B6A1 /* Cloning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD8FCB20FA584D0028B6A1 /* Cloning.swift */; };
@@ -152,7 +161,7 @@
 		55F72491203892380093473F /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F72490203892380093473F /* Method.swift */; };
 		55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06511FF9B5BB0001D42E /* SyzygyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55FB06621FF9B5D30001D42E /* SyzygyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06601FF9B5D30001D42E /* SyzygyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55FB06671FF9B6100001D42E /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
+		55FB06671FF9B6100001D42E /* "SyzygyCore".framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* "SyzygyCore".framework */; };
 		55FB06D11FF9BC070001D42E /* URL+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB066B1FF9BBFA0001D42E /* URL+Path.swift */; };
 		55FB06D21FF9BC070001D42E /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB066C1FF9BBFA0001D42E /* Boolean.swift */; };
 		55FB06D31FF9BC070001D42E /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB066D1FF9BBFA0001D42E /* Identifier.swift */; };
@@ -339,7 +348,7 @@
 		551D481B20117A9700AF7CF8 /* AffineTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffineTransform.swift; sourceTree = "<group>"; };
 		551D481D20118D7A00AF7CF8 /* TargetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAction.swift; sourceTree = "<group>"; };
 		5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollection.swift; sourceTree = "<group>"; };
-		552B49332012D4600054997E /* SyzygyHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		552B49332012D4600054997E /* "SyzygyHTTP".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyHTTP\".framework"; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552B49352012D4610054997E /* SyzygyHTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyHTTP.h; sourceTree = "<group>"; };
 		552B49362012D4610054997E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552B493B2012D5090054997E /* SyzygyHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyHTTP.swift; sourceTree = "<group>"; };
@@ -369,7 +378,7 @@
 		554F9570201D75A2007864A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
-		557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		557850DC20F6821E00BE7706 /* "SyzygyRuntime".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyRuntime\".framework"; path = SyzygyRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		557850DE20F6821F00BE7706 /* SyzygyRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyRuntime.h; sourceTree = "<group>"; };
 		557850DF20F6821F00BE7706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		557850E520F682F600BE7706 /* objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = objc.h; sourceTree = "<group>"; };
@@ -388,7 +397,7 @@
 		559079C720B76F07005AECE7 /* NSWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowController.swift; sourceTree = "<group>"; };
 		559079C920B76F97005AECE7 /* RandomAccessCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollection.swift; sourceTree = "<group>"; };
 		559079CB20B76FC1005AECE7 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
-		559B337120E973F300034E51 /* SyzygyLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		559B337120E973F300034E51 /* "SyzygyLocation".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyLocation\".framework"; path = SyzygyLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		559B337320E973F300034E51 /* SyzygyLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyLocation.h; sourceTree = "<group>"; };
 		559B337420E973F300034E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		559B337920E9749B00034E51 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
@@ -398,6 +407,15 @@
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55CF07A820DD4D1800266DCA /* NSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication.swift; sourceTree = "<group>"; };
 		55CF07AC20E2F93A00266DCA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		55D82F8B210A333000EF7965 /* Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicate.swift; sourceTree = "<group>"; };
+		55D82F8D210A335D00EF7965 /* AnyPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPredicate.swift; sourceTree = "<group>"; };
+		55D82F91210A33A500EF7965 /* NotPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotPredicate.swift; sourceTree = "<group>"; };
+		55D82F93210A342000EF7965 /* AndPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndPredicate.swift; sourceTree = "<group>"; };
+		55D82F95210A37E200EF7965 /* NSPredicate+Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Predicate.swift"; sourceTree = "<group>"; };
+		55D82F97210A382100EF7965 /* Collection+Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Predicate.swift"; sourceTree = "<group>"; };
+		55D82F99210A3ACA00EF7965 /* OrPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrPredicate.swift; sourceTree = "<group>"; };
+		55D82F9B210A704700EF7965 /* SetAlgebra+Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetAlgebra+Predicate.swift"; sourceTree = "<group>"; };
+		55D82F9D210A767800EF7965 /* XorPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XorPredicate.swift; sourceTree = "<group>"; };
 		55DD8FC720FA4D2F0028B6A1 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		55DD8FC920FA4F560028B6A1 /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		55DD8FCB20FA584D0028B6A1 /* Cloning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloning.swift; sourceTree = "<group>"; };
@@ -410,10 +428,10 @@
 		55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyzygySidebarViewController.xib; sourceTree = "<group>"; };
 		55F7248E2038922B0093473F /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55F72490203892380093473F /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
-		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FB064E1FF9B5BB0001D42E /* "SyzygyCore".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyCore\".framework"; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB06511FF9B5BB0001D42E /* SyzygyCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyCore.h; sourceTree = "<group>"; };
 		55FB06521FF9B5BB0001D42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FB065E1FF9B5D30001D42E /* "SyzygyKit".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyKit\".framework"; path = SyzygyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB06601FF9B5D30001D42E /* SyzygyKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyKit.h; sourceTree = "<group>"; };
 		55FB06611FF9B5D30001D42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55FB06681FF9B6E70001D42E /* Syzygy-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Syzygy-Base.xcconfig"; sourceTree = "<group>"; };
@@ -539,7 +557,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				552E24F420F6E50200C1A4EF /* SyzygyCore.framework in Frameworks */,
+				552E24F420F6E50200C1A4EF /* "SyzygyCore".framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +565,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				559B337F20E9785C00034E51 /* SyzygyCore.framework in Frameworks */,
+				559B337F20E9785C00034E51 /* "SyzygyCore".framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +580,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55FB06671FF9B6100001D42E /* SyzygyCore.framework in Frameworks */,
+				55FB06671FF9B6100001D42E /* "SyzygyCore".framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +817,22 @@
 			path = SyzygyLocation;
 			sourceTree = "<group>";
 		};
+		55D82F8A210A332700EF7965 /* Predicate */ = {
+			isa = PBXGroup;
+			children = (
+				55D82F8B210A333000EF7965 /* Predicate.swift */,
+				55D82F8D210A335D00EF7965 /* AnyPredicate.swift */,
+				55D82F91210A33A500EF7965 /* NotPredicate.swift */,
+				55D82F93210A342000EF7965 /* AndPredicate.swift */,
+				55D82F99210A3ACA00EF7965 /* OrPredicate.swift */,
+				55D82F9D210A767800EF7965 /* XorPredicate.swift */,
+				55D82F95210A37E200EF7965 /* NSPredicate+Predicate.swift */,
+				55D82F97210A382100EF7965 /* Collection+Predicate.swift */,
+				55D82F9B210A704700EF7965 /* SetAlgebra+Predicate.swift */,
+			);
+			path = Predicate;
+			sourceTree = "<group>";
+		};
 		55F7248D20388E8A0093473F /* macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,11 +866,11 @@
 		55FB064F1FF9B5BB0001D42E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */,
-				55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */,
-				552B49332012D4600054997E /* SyzygyHTTP.framework */,
-				559B337120E973F300034E51 /* SyzygyLocation.framework */,
-				557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */,
+				55FB064E1FF9B5BB0001D42E /* "SyzygyCore".framework */,
+				55FB065E1FF9B5D30001D42E /* "SyzygyKit".framework */,
+				552B49332012D4600054997E /* "SyzygyHTTP".framework */,
+				559B337120E973F300034E51 /* "SyzygyLocation".framework */,
+				557850DC20F6821E00BE7706 /* "SyzygyRuntime".framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -894,6 +928,7 @@
 				55EB037920212D74007B5433 /* UserDefaults.swift */,
 				55FB06B51FF9BC020001D42E /* WeakBox.swift */,
 				554F9568201D5D3F007864A7 /* QueryController.swift */,
+				55D82F8A210A332700EF7965 /* Predicate */,
 				550E7487210776C900170790 /* Sorting */,
 				551C00A120EFC8FF006CE550 /* Analytics */,
 				551C00A320EFC9AB006CE550 /* Paths */,
@@ -1101,7 +1136,7 @@
 			);
 			name = SyzygyHTTP;
 			productName = SyzygyHTTP;
-			productReference = 552B49332012D4600054997E /* SyzygyHTTP.framework */;
+			productReference = 552B49332012D4600054997E /* "SyzygyHTTP".framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		557850DB20F6821E00BE7706 /* SyzygyRuntime */ = {
@@ -1119,7 +1154,7 @@
 			);
 			name = SyzygyRuntime;
 			productName = SyzygyRuntime;
-			productReference = 557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */;
+			productReference = 557850DC20F6821E00BE7706 /* "SyzygyRuntime".framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		559B337020E973F300034E51 /* SyzygyLocation */ = {
@@ -1137,7 +1172,7 @@
 			);
 			name = SyzygyLocation;
 			productName = SyzygyLocation;
-			productReference = 559B337120E973F300034E51 /* SyzygyLocation.framework */;
+			productReference = 559B337120E973F300034E51 /* "SyzygyLocation".framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		55FB064D1FF9B5BB0001D42E /* SyzygyCore */ = {
@@ -1156,7 +1191,7 @@
 			);
 			name = SyzygyCore;
 			productName = SyzygyCore;
-			productReference = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */;
+			productReference = 55FB064E1FF9B5BB0001D42E /* "SyzygyCore".framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		55FB065D1FF9B5D30001D42E /* SyzygyKit */ = {
@@ -1174,7 +1209,7 @@
 			);
 			name = SyzygyKit;
 			productName = SyzygyKit;
-			productReference = 55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */;
+			productReference = 55FB065E1FF9B5D30001D42E /* "SyzygyKit".framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1349,6 +1384,7 @@
 				55FB06D91FF9BC070001D42E /* BookmarkMetadata.swift in Sources */,
 				55FB06F11FF9BC070001D42E /* Property+Merge.swift in Sources */,
 				55FB07261FF9BC070001D42E /* AbsoluteDiff.swift in Sources */,
+				55D82F9A210A3ACA00EF7965 /* OrPredicate.swift in Sources */,
 				55FB070F1FF9BC070001D42E /* Either.swift in Sources */,
 				55FB072C1FF9BC070001D42E /* Data+JSON.swift in Sources */,
 				550E746C2104D1C600170790 /* RangeReplaceableCollection.swift in Sources */,
@@ -1356,6 +1392,9 @@
 				55EB0378202125E0007B5433 /* Keychain.swift in Sources */,
 				55FB06EC1FF9BC070001D42E /* Plist+Serialization.swift in Sources */,
 				55FB06DC1FF9BC070001D42E /* JSON.swift in Sources */,
+				55D82F94210A342000EF7965 /* AndPredicate.swift in Sources */,
+				55D82F8C210A333000EF7965 /* Predicate.swift in Sources */,
+				55D82F98210A382100EF7965 /* Collection+Predicate.swift in Sources */,
 				55FB07601FFAC7690001D42E /* SyzygyCore.swift in Sources */,
 				55FB06E51FF9BC070001D42E /* String.swift in Sources */,
 				55FB06DD1FF9BC070001D42E /* LocalizedString.swift in Sources */,
@@ -1364,6 +1403,7 @@
 				55DD8FC820FA4D2F0028B6A1 /* Calendar.swift in Sources */,
 				55FB072D1FF9BC070001D42E /* IndexPath.swift in Sources */,
 				55FB06D21FF9BC070001D42E /* Boolean.swift in Sources */,
+				55D82F92210A33A500EF7965 /* NotPredicate.swift in Sources */,
 				55FB06F71FF9BC070001D42E /* FileManager+Property.swift in Sources */,
 				55FB070A1FF9BC070001D42E /* System.swift in Sources */,
 				550E746B2103F50700170790 /* Tree.swift in Sources */,
@@ -1425,6 +1465,7 @@
 				55FB07121FF9BC070001D42E /* UTI+Defaults.swift in Sources */,
 				55FB06D31FF9BC070001D42E /* Identifier.swift in Sources */,
 				550E748F210779D300170790 /* CombinedSorter.swift in Sources */,
+				55D82F9C210A704700EF7965 /* SetAlgebra+Predicate.swift in Sources */,
 				554F9561201D38E3007864A7 /* CLLocation.swift in Sources */,
 				55FB06EE1FF9BC070001D42E /* KVOProperty.swift in Sources */,
 				55FB07151FF9BC070001D42E /* Diff.swift in Sources */,
@@ -1436,8 +1477,10 @@
 				55FB07031FF9BC070001D42E /* NotificationCenter+Property.swift in Sources */,
 				55FB071C1FF9BC070001D42E /* JSON+Literals.swift in Sources */,
 				55FB070C1FF9BC070001D42E /* SetAlgebra.swift in Sources */,
+				55D82F96210A37E200EF7965 /* NSPredicate+Predicate.swift in Sources */,
 				550E749121077BC800170790 /* KeyPathSorter.swift in Sources */,
 				550E749521077D9F00170790 /* String+Sorting.swift in Sources */,
+				55D82F8E210A335D00EF7965 /* AnyPredicate.swift in Sources */,
 				5516CC672083F7D5008BB174 /* IOKit.m in Sources */,
 				55FB06D61FF9BC070001D42E /* Dispatch.swift in Sources */,
 				55FB07331FF9BC070001D42E /* Reachability.swift in Sources */,
@@ -1483,6 +1526,7 @@
 				55FB06FF1FF9BC070001D42E /* Property+From.swift in Sources */,
 				55FB07081FF9BC070001D42E /* Property+Collections.swift in Sources */,
 				55FB06E31FF9BC070001D42E /* Bookmark.swift in Sources */,
+				55D82F9E210A767800EF7965 /* XorPredicate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1564,8 +1608,6 @@
 		552B49392012D4610054997E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyHTTP/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyHTTP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Debug;
@@ -1573,8 +1615,6 @@
 		552B493A2012D4610054997E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyHTTP/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyHTTP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Release;
@@ -1582,8 +1622,6 @@
 		557850E120F6821F00BE7706 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyRuntime/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyRuntime;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Debug;
@@ -1591,8 +1629,6 @@
 		557850E220F6821F00BE7706 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyRuntime/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyRuntime;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Release;
@@ -1600,8 +1636,6 @@
 		559B337620E973F300034E51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyLocation/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyLocation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Debug;
@@ -1609,8 +1643,6 @@
 		559B337720E973F300034E51 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyLocation/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyLocation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Release;
@@ -1619,8 +1651,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55FB066A1FF9B84F0001D42E /* Syzygy-Debug.xcconfig */;
 			buildSettings = {
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 			};
 			name = Debug;
 		};
@@ -1628,17 +1658,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55FB06691FF9B7C30001D42E /* Syzygy-Release.xcconfig */;
 			buildSettings = {
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
 		55FB06571FF9B5BB0001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyCore/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Debug;
@@ -1646,8 +1671,6 @@
 		55FB06581FF9B5BB0001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyCore/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Release;
@@ -1655,8 +1678,6 @@
 		55FB06641FF9B5D30001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyKit/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Debug;
@@ -1664,8 +1685,6 @@
 		55FB06651FF9B5D30001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SyzygyKit/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygydev.SyzygyKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 			};
 			name = Release;

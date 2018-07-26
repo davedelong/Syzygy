@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-#import <SyzygyCore/SyzygyConditionals.h>
-
 #import <SyzygyCore/Objective-C.h>
 #import <SyzygyCore/Entitlements.h>
 
