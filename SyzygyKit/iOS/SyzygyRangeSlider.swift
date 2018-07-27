@@ -34,6 +34,7 @@ public class SyzygyRangeSlider: UIControl {
         addSubview(maxThumb)
         
         isUserInteractionEnabled = true
+        isEnabled = true
     }
     
     private var _actualValue: ClosedRange<Double> = 0...1
@@ -60,10 +61,9 @@ public class SyzygyRangeSlider: UIControl {
     }()
     
     private lazy var valueTrack: UIView = {
-        let v = ShapeView(frame: extantTrack.bounds)
+        let v = UIView(frame: extantTrack.bounds)
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.shape = Shape.horizontalPill
-        v.shapeColor = Color(hexString: "3378F6")
+        v.backgroundColor = Color(hexString: "3378F6")?.color
         addSubview(v)
         v.topAnchor.constraint(equalTo: extantTrack.topAnchor).isActive = true
         v.bottomAnchor.constraint(equalTo: extantTrack.bottomAnchor).isActive = true
@@ -146,6 +146,16 @@ public class SyzygyRangeSlider: UIControl {
     }
     private var trackingThumb: TrackingThumb?
     
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        return self
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        minPosition?.constant = unclampedPosition(for: value.lowerBound)
+        maxPosition?.constant = unclampedPosition(for: value.upperBound)
+    }
+    
     public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let p = touch.location(in: self)
         print("tracking at \(p.x)")
@@ -190,10 +200,14 @@ public class SyzygyRangeSlider: UIControl {
         if let t = touch {
             _ = self.continueTracking(t, with: event)
         }
+        minThumb.shapeColor = .white
+        maxThumb.shapeColor = .white
         trackingThumb = nil
     }
     
     public override func cancelTracking(with event: UIEvent?) {
+        minThumb.shapeColor = .white
+        maxThumb.shapeColor = .white
         trackingThumb = nil
     }
 }

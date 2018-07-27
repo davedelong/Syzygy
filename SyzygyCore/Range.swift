@@ -8,22 +8,51 @@
 
 import Foundation
 
-public extension Range where Bound: SignedNumeric {
-    public var span: Bound { return upperBound - lowerBound }
-    
-    public func clamping(_ value: Bound) -> Bound {
-        if value < lowerBound { return lowerBound }
-        if value > upperBound { return upperBound }
-        return value
-    }
+public protocol Ranging {
+    associatedtype Bound
+    var lowerBound: Bound { get }
+    var upperBound: Bound { get }
 }
 
-public extension ClosedRange where Bound: SignedNumeric {
+extension Range: Ranging { }
+extension ClosedRange: Ranging { }
+
+public extension Ranging where Bound: SignedNumeric {
     public var span: Bound { return upperBound - lowerBound }
+}
+
+public extension Ranging where Bound: Comparable {
     
     public func clamping(_ value: Bound) -> Bound {
         if value < lowerBound { return lowerBound }
         if value > upperBound { return upperBound }
         return value
     }
+    
+}
+
+public extension Ranging where Bound: BinaryInteger & SignedNumeric {
+    
+    public func value(at percentile: Double) -> Bound {
+        if percentile <= 0 { return lowerBound }
+        if percentile >= 1 { return upperBound }
+        
+        let multiplier = Bound(percentile)
+        let offset = span * multiplier
+        return lowerBound + offset
+    }
+    
+}
+
+public extension Ranging where Bound: BinaryFloatingPoint {
+    
+    public func value(at percentile: Double) -> Bound {
+        if percentile <= 0 { return lowerBound }
+        if percentile >= 1 { return upperBound }
+        
+        let multiplier = Bound(percentile)
+        let offset = span * multiplier
+        return lowerBound + offset
+    }
+    
 }
