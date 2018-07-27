@@ -18,6 +18,10 @@ public struct AndPredicate<E>: Predicate {
         }
     }
     
+    public init(_ predicates: Array<(E) -> Bool>) {
+        self.subpredicates = predicates
+    }
+    
     public init(_ lhs: AndPredicate<E>, _ rhs: AndPredicate<E>) {
         self.subpredicates = lhs.subpredicates + rhs.subpredicates
     }

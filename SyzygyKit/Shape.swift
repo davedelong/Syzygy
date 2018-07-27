@@ -40,5 +40,15 @@ public extension Shape {
     
     static let rectangle = Shape { BezierPath(rect: $0) }
     
-//    static let star = Shape { BezierPath(starShapeIn: $0) }
+    static let horizontalPill = Shape { rect in
+        let radius = rect.height / 2
+        return BezierPath(roundedRect: rect, cornerRadius: radius)
+    }
+    
+    static let verticalPill = Shape { rect in
+        let radius = rect.width / 2
+        return BezierPath(roundedRect: rect, cornerRadius: radius)
+    }
+    
+    static let star = Shape { BezierPath(starShapeIn: $0) }
 }

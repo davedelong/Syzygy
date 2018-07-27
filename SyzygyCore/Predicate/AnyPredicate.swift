@@ -10,6 +10,9 @@ import Foundation
 
 public struct AnyPredicate<E>: Predicate {
     
+    public static var `true`: AnyPredicate<E> { return AnyPredicate { _ in return true } }
+    public static var `false`: AnyPredicate<E> { return AnyPredicate { _ in return false } }
+    
     private let predicate: (E) -> Bool
     
     public init(_ predicate: @escaping (E) -> Bool) {

@@ -108,4 +108,67 @@ public extension String {
         return true
     }
     
+    func extractTerms() -> Array<String> {
+        var terms = Array<String>()
+        var current = ""
+        
+        var isCurrentlyEscaping = false
+        var isInsideQuote = false
+        
+        for nextIndex in indices {
+            let c = self[nextIndex]
+            
+            if isCurrentlyEscaping {
+                isCurrentlyEscaping = false
+                current.append(c)
+            } else if c == "\\" {
+                isCurrentlyEscaping = true
+            } else if c == "\"" {
+                if isInsideQuote {
+                    terms.append(current)
+                    current = ""
+                }
+                isInsideQuote = !isInsideQuote
+            } else if isInsideQuote {
+                current.append(c)
+            } else if c.isWhitespace == false {
+                current.append(c)
+            } else {
+                // it's whitespace
+                if current.isEmpty == false {
+                    terms.append(current)
+                }
+                current = ""
+            }
+        }
+        if current.isEmpty == false {
+            terms.append(current)
+        }
+        return terms
+    }
+    
+    func tokenize() -> AnyPredicate<String> {
+        let terms = self.extractTerms()
+        guard terms.isEmpty == false else { return .false }
+        
+        let predicates = terms.map { t -> AnyPredicate<String> in
+            
+            let p: AnyPredicate<String>
+            if t.hasPrefix("-") == false {
+                p = AnyPredicate<String> { s in
+                    return s.localizedCaseInsensitiveContains(t) == true
+                }
+            } else {
+                let remainder = t.dropFirst()
+                p = AnyPredicate<String> { s -> Bool in
+                    return s.localizedCaseInsensitiveContains(remainder) == false
+                }
+            }
+            return p
+        }
+        
+        let anded = AndPredicate(predicates)
+        return AnyPredicate(anded)
+    }
+    
 }

@@ -60,6 +60,11 @@ public class ShapeView: PlatformView {
         shapeLayer.lineWidth = lineWidth
     }
     
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        updateShape()
+    }
+    
     public override func updateLayer() {
         super.updateLayer()
         updateShape()
