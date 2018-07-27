@@ -33,14 +33,8 @@ public class SyzygyRangeSlider: UIControl {
         addSubview(minThumb)
         addSubview(maxThumb)
         
-        _ = sliderRecognizer
         isUserInteractionEnabled = true
     }
-    
-    public private(set) lazy var sliderRecognizer: UIGestureRecognizer = {
-        let p = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
-        return p
-    }()
     
     private var _actualValue: ClosedRange<Double> = 0...1
     public var value: ClosedRange<Double> {
@@ -152,51 +146,6 @@ public class SyzygyRangeSlider: UIControl {
     }
     private var trackingThumb: TrackingThumb?
     
-    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        let p = gestureRecognizer.location(in: self)
-        print("tracking at \(p.x)")
-        if minThumb.frame.contains(p) {
-            trackingThumb = .min
-            minThumb.shapeColor = .gray
-            return true
-        } else if maxThumb.frame.contains(p) {
-            trackingThumb = .max
-            maxThumb.shapeColor = .gray
-            return true
-        } else {
-            trackingThumb = nil
-            return false
-        }
-        
-    }
-    
-    @objc private func panGesture(_ sender: UIPanGestureRecognizer) {
-        let p = sender.location(in: self)
-        print("tracking at \(p.x)")
-        
-        if trackingThumb == .min {
-            let allowedRange = allowedMinPositionRange()
-            let actualPosition = allowedRange.clamping(p.x)
-            minPosition?.constant = actualPosition
-            
-            _actualValue = value(from: actualPosition) ... _actualValue.upperBound
-            sendActions(for: .valueChanged)
-        } else if trackingThumb == .max {
-            let allowedRange = allowedMaxPositionRange()
-            let actualPosition = allowedRange.clamping(p.x)
-            maxPosition?.constant = actualPosition
-            
-            _actualValue = _actualValue.lowerBound ... value(from: actualPosition)
-            sendActions(for: .valueChanged)
-        }
-        
-        if sender.state == .ended || sender.state == .failed || sender.state == .cancelled {
-            minThumb.shapeColor = .white
-            maxThumb.shapeColor = .white
-            trackingThumb = nil
-        }
-    }
-    
     public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let p = touch.location(in: self)
         print("tracking at \(p.x)")
@@ -210,7 +159,7 @@ public class SyzygyRangeSlider: UIControl {
             return true
         } else {
             trackingThumb = nil
-            return false
+            return super.beginTracking(touch, with: event)
         }
     }
     
