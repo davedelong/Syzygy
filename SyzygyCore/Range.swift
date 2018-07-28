@@ -31,27 +31,13 @@ public extension Ranging where Bound: Comparable {
     
 }
 
-public extension Ranging where Bound: BinaryInteger & SignedNumeric {
+public extension Ranging where Bound: Scalable & SignedNumeric {
     
-    public func value(at percentile: Double) -> Bound {
+    public func value(at percentile: Double, interpolator: Interpolator = .linear) -> Bound {
         if percentile <= 0 { return lowerBound }
         if percentile >= 1 { return upperBound }
         
-        let multiplier = Bound(percentile)
-        let offset = span * multiplier
-        return lowerBound + offset
-    }
-    
-}
-
-public extension Ranging where Bound: BinaryFloatingPoint {
-    
-    public func value(at percentile: Double) -> Bound {
-        if percentile <= 0 { return lowerBound }
-        if percentile >= 1 { return upperBound }
-        
-        let multiplier = Bound(percentile)
-        let offset = span * multiplier
+        let offset = span.scale(by: percentile, interpolator: interpolator)
         return lowerBound + offset
     }
     

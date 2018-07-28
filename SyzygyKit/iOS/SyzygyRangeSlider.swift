@@ -45,6 +45,12 @@ public class SyzygyRangeSlider: UIControl {
             setNeedsUpdateConstraints()
         }
     }
+    private func _setValue(_ newValue: ClosedRange<Double>) {
+        if value != newValue {
+            _actualValue = newValue
+            sendActions(for: .valueChanged)
+        }
+    }
     
     private lazy var extantTrack: UIView = {
         var f = bounds
@@ -183,15 +189,13 @@ public class SyzygyRangeSlider: UIControl {
                 let actualPosition = allowedRange.clamping(p.x)
                 minPosition?.constant = actualPosition
                 
-                _actualValue = value(from: actualPosition) ... _actualValue.upperBound
-                sendActions(for: .valueChanged)
+                _setValue(value(from: actualPosition) ... _actualValue.upperBound)
             case .max:
                 let allowedRange = allowedMaxPositionRange()
                 let actualPosition = allowedRange.clamping(p.x)
                 maxPosition?.constant = actualPosition
                 
-                _actualValue = _actualValue.lowerBound ... value(from: actualPosition)
-                sendActions(for: .valueChanged)
+                _setValue(_actualValue.lowerBound ... value(from: actualPosition))
         }
         return true
     }
