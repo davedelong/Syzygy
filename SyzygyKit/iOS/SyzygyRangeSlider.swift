@@ -164,7 +164,6 @@ public class SyzygyRangeSlider: UIControl {
     
     public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let p = touch.location(in: self)
-        print("tracking at \(p.x)")
         if minThumb.frame.contains(p) {
             trackingThumb = .min
             minThumb.shapeColor = .gray
@@ -202,11 +201,9 @@ public class SyzygyRangeSlider: UIControl {
     
     public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         if let t = touch {
-            _ = self.continueTracking(t, with: event)
+            _ = continueTracking(t, with: event)
         }
-        minThumb.shapeColor = .white
-        maxThumb.shapeColor = .white
-        trackingThumb = nil
+        cancelTracking(with: event)
     }
     
     public override func cancelTracking(with event: UIEvent?) {

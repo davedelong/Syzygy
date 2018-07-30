@@ -16,6 +16,48 @@ public extension UITableViewCell {
     
 }
 
+public class UITableViewCellDefault: UITableViewCell {
+    
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
+    
+}
+
+public class UITableViewCellValue1: UITableViewCell {
+    
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
+    
+}
+
+public class UITableViewCellValue2: UITableViewCell {
+    
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .value2, reuseIdentifier: reuseIdentifier)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
+    
+}
+
+public class UITableViewCellSubtitle: UITableViewCell {
+    
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
+    
+}
+
+
+
 open class ViewControllerTableViewCell: UITableViewCell {
     
     public init(content: UIViewController) {

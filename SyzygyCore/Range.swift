@@ -12,6 +12,7 @@ public protocol Ranging {
     associatedtype Bound
     var lowerBound: Bound { get }
     var upperBound: Bound { get }
+    init(uncheckedBounds bounds: (lower: Bound, upper: Bound))
 }
 
 extension Range: Ranging { }
@@ -31,14 +32,21 @@ public extension Ranging where Bound: Comparable {
     
 }
 
-public extension Ranging where Bound: Scalable & SignedNumeric {
+public extension Ranging where Bound: Interpolatable {
     
-    public func value(at percentile: Double, interpolator: Interpolator = .linear) -> Bound {
+    public func value(at percentile: Double, interpolator: Interpolating = LinearInterpolator()) -> Bound {
         if percentile <= 0 { return lowerBound }
         if percentile >= 1 { return upperBound }
         
         let offset = span.scale(by: percentile, interpolator: interpolator)
         return lowerBound + offset
+    }
+    
+    public func percentile(at value: Bound, interpolator: ReverseInterpolating = LinearInterpolator()) -> Double {
+        if value <= lowerBound { return 0 }
+        if value >= upperBound { return 1 }
+        
+        return span.percentage(of: value, interpolator: interpolator)
     }
     
 }

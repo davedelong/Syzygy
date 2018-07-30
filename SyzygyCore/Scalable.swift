@@ -8,46 +8,61 @@
 
 import Foundation
 
-public struct Interpolator {
-    private static let logScale = 5.0
-    
-    public static let linear = Interpolator { $0 }
-    public static let logarithmic = Interpolator {
-        let r = Interpolator.logScale * $0
-        return exp(r + 1) / exp(Interpolator.logScale + 1)
-    }
-    
-    public let interpolate: (Double) -> Double
-    private init(_ i: @escaping (Double) -> Double) {
-        self.interpolate = i
-    }
-}
-
 public protocol Scalable {
-    func scale(by percentage: Double, interpolator: Interpolator) -> Self
+    func scale(by percentage: Double, interpolator: Interpolating) -> Self
+    func percentage(of scaledValue: Self, interpolator: ReverseInterpolating) -> Double
 }
 
 public extension Scalable {
+    
     func scale(by percentage: Double) -> Self {
-        return self.scale(by: percentage, interpolator: .linear)
+        return self.scale(by: percentage, interpolator: LinearInterpolator())
     }
+    
+    func percentage(of scaledValue: Self) -> Double {
+        return self.percentage(of: scaledValue, interpolator: LinearInterpolator())
+    }
+    
 }
 
 extension Decimal: Scalable {
-    public func scale(by percentage: Double, interpolator: Interpolator) -> Decimal {
+    
+    public func scale(by percentage: Double, interpolator: Interpolating) -> Decimal {
         return self * Decimal(interpolator.interpolate(percentage))
     }
+    
+    public func percentage(of scaledValue: Decimal, interpolator: ReverseInterpolating) -> Double {
+        let p = scaledValue / self
+        let d = NSDecimalNumber(decimal: p).doubleValue
+        return interpolator.reverseInterpolate(d)
+    }
+    
 }
 
 extension Double: Scalable {
-    public func scale(by percentage: Double, interpolator: Interpolator) -> Double {
+    
+    public func scale(by percentage: Double, interpolator: Interpolating) -> Double {
         return self * interpolator.interpolate(percentage)
     }
+    
+    public func percentage(of scaledValue: Double, interpolator: ReverseInterpolating) -> Double {
+        let p = scaledValue / self
+        return interpolator.reverseInterpolate(p)
+    }
+    
 }
 
-extension Measurement: Scalable {
-    public func scale(by percentage: Double, interpolator: Interpolator) -> Measurement<UnitType> {
+extension Measurement: Scalable where UnitType: Dimension {
+    
+    public func scale(by percentage: Double, interpolator: Interpolating) -> Measurement<UnitType> {
         let newValue = value * interpolator.interpolate(percentage)
         return Measurement(value: newValue, unit: unit)
     }
+    
+    public func percentage(of scaledValue: Measurement<UnitType>, interpolator: ReverseInterpolating) -> Double {
+        let actualValue = scaledValue.converted(to: self.unit)
+        let p = actualValue.value / self.value
+        return interpolator.reverseInterpolate(p)
+    }
+    
 }

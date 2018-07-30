@@ -110,6 +110,7 @@
 		554F9571201D75A2007864A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9570201D75A2007864A7 /* UIView.swift */; };
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
+		556EA4E6210CE07D00064D3D /* Interpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA4E5210CE07D00064D3D /* Interpolator.swift */; };
 		557850E020F6821F00BE7706 /* SyzygyRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 557850DE20F6821F00BE7706 /* SyzygyRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		557850E720F682F600BE7706 /* objc.h in Headers */ = {isa = PBXBuildFile; fileRef = 557850E520F682F600BE7706 /* objc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		557850E820F682F600BE7706 /* objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 557850E620F682F600BE7706 /* objc.m */; };
@@ -384,6 +385,7 @@
 		554F9570201D75A2007864A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
+		556EA4E5210CE07D00064D3D /* Interpolator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolator.swift; sourceTree = "<group>"; };
 		557850DC20F6821E00BE7706 /* "SyzygyRuntime".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyRuntime\".framework"; path = SyzygyRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		557850DE20F6821F00BE7706 /* SyzygyRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyRuntime.h; sourceTree = "<group>"; };
 		557850DF20F6821F00BE7706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -924,6 +926,7 @@
 				551C007D20EFB77D006CE550 /* Geometry~macos.swift */,
 				55FB06C81FF9BC060001D42E /* IndexPath.swift */,
 				551C007F20EFB90A006CE550 /* IndexPath~macos.swift */,
+				556EA4E5210CE07D00064D3D /* Interpolator.swift */,
 				55EB0377202125E0007B5433 /* Keychain.swift */,
 				55FB06771FF9BBFC0001D42E /* LocalizedString.swift */,
 				55FB06BB1FF9BC030001D42E /* Log.swift */,
@@ -1477,6 +1480,7 @@
 				550E746E2104D25000170790 /* BinaryTree.swift in Sources */,
 				55FB072B1FF9BC070001D42E /* URL.swift in Sources */,
 				550E74712104D59200170790 /* TraversalAlgorithms.swift in Sources */,
+				556EA4E6210CE07D00064D3D /* Interpolator.swift in Sources */,
 				555C1906200536F80017F253 /* CountedSet.swift in Sources */,
 				55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */,
 				551C00AF20EFCFB5006CE550 /* Entitlements~ios.swift in Sources */,

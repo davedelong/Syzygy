@@ -139,6 +139,14 @@ public extension Collection {
         }
     }
     
+    public func count(where matches: (Element) -> Bool) -> Int {
+        var count = 0
+        for item in self {
+            if matches(item) { count += 1}
+        }
+        return count
+    }
+    
 }
 
 public extension Collection where Element: Hashable {
