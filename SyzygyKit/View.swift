@@ -8,6 +8,10 @@
 
 import Foundation
 
+public extension R where T == PlatformNib {
+    public static let nib = R<PlatformNib>()
+}
+
 public extension NSCoding where Self: PlatformView {
     
     public static func make() -> Self {

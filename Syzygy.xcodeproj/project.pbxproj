@@ -111,6 +111,9 @@
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
 		556EA4E6210CE07D00064D3D /* Interpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA4E5210CE07D00064D3D /* Interpolator.swift */; };
+		556EA5332112A0C900064D3D /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5322112A0C800064D3D /* R.swift */; };
+		556EA5352112A55500064D3D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5342112A55500064D3D /* UIImage.swift */; };
+		556EA5372112A58E00064D3D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5362112A58E00064D3D /* Image.swift */; };
 		557850E020F6821F00BE7706 /* SyzygyRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 557850DE20F6821F00BE7706 /* SyzygyRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		557850E720F682F600BE7706 /* objc.h in Headers */ = {isa = PBXBuildFile; fileRef = 557850E520F682F600BE7706 /* objc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		557850E820F682F600BE7706 /* objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 557850E620F682F600BE7706 /* objc.m */; };
@@ -386,6 +389,9 @@
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
 		556EA4E5210CE07D00064D3D /* Interpolator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolator.swift; sourceTree = "<group>"; };
+		556EA5322112A0C800064D3D /* R.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
+		556EA5342112A55500064D3D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		556EA5362112A58E00064D3D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		557850DC20F6821E00BE7706 /* "SyzygyRuntime".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyRuntime\".framework"; path = SyzygyRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		557850DE20F6821F00BE7706 /* SyzygyRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyRuntime.h; sourceTree = "<group>"; };
 		557850DF20F6821F00BE7706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -727,6 +733,7 @@
 				5512449C1FFC86A9003DECFE /* UITableView+TableFlip.swift */,
 				5512449A1FFC060C003DECFE /* UITableView+Diffs.swift */,
 				554F9564201D3F51007864A7 /* UIGestureRecognizer+Blocks.swift */,
+				556EA5342112A55500064D3D /* UIImage.swift */,
 				554F9570201D75A2007864A7 /* UIView.swift */,
 				554F9546201D2876007864A7 /* UIViewController.swift */,
 				554F954C201D2BD8007864A7 /* UITableViewCell.swift */,
@@ -933,6 +940,7 @@
 				557D20DC210BEAA6005E752B /* Measurement.swift */,
 				55FB06A91FF9BC000001D42E /* NSObject.swift */,
 				55EFBBDD20D423C6002C48FA /* NSPredicate.swift */,
+				556EA5322112A0C800064D3D /* R.swift */,
 				559079C920B76F97005AECE7 /* RandomAccessCollection.swift */,
 				55D82FA9210B7C4D00EF7965 /* Range.swift */,
 				5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */,
@@ -983,6 +991,7 @@
 				551C008B20EFB9ED006CE550 /* BezierPath~macos.swift */,
 				551C009D20EFBF8C006CE550 /* GestureRecognizer~ios.swift */,
 				551C009F20EFC005006CE550 /* GestureRecognizer~macos.swift */,
+				556EA5362112A58E00064D3D /* Image.swift */,
 				551D47EB2010108E00AF7CF8 /* Shape.swift */,
 				551C00A620EFCCCD006CE550 /* Shape~ios.swift */,
 				551C00A820EFCCD3006CE550 /* Shape~macos.swift */,
@@ -1423,6 +1432,7 @@
 				550E749321077D7900170790 /* NSSortDescriptor+Sorting.swift in Sources */,
 				55DD8FC820FA4D2F0028B6A1 /* Calendar.swift in Sources */,
 				55FB072D1FF9BC070001D42E /* IndexPath.swift in Sources */,
+				556EA5332112A0C900064D3D /* R.swift in Sources */,
 				55FB06D21FF9BC070001D42E /* Boolean.swift in Sources */,
 				55D82F92210A33A500EF7965 /* NotPredicate.swift in Sources */,
 				55FB06F71FF9BC070001D42E /* FileManager+Property.swift in Sources */,
@@ -1606,6 +1616,7 @@
 				551C008C20EFB9ED006CE550 /* BezierPath~macos.swift in Sources */,
 				551C008820EFB98B006CE550 /* Color~macos.swift in Sources */,
 				55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */,
+				556EA5372112A58E00064D3D /* Image.swift in Sources */,
 				5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */,
 				55F3755A20BC6A7E00E7D742 /* SyzygySidebarViewController.swift in Sources */,
 				551D480A20114F5600AF7CF8 /* NSBox.swift in Sources */,
@@ -1620,6 +1631,7 @@
 				551C008420EFB950006CE550 /* SyzygyKit~macos.swift in Sources */,
 				551C00A920EFCCD3006CE550 /* Shape~macos.swift in Sources */,
 				551C00B920F08D8F006CE550 /* SyzygyWindowCoordinator.swift in Sources */,
+				556EA5352112A55500064D3D /* UIImage.swift in Sources */,
 				551C00A720EFCCCD006CE550 /* Shape~ios.swift in Sources */,
 				553912DD20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift in Sources */,
 				551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */,

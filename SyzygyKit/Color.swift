@@ -59,3 +59,7 @@ public extension Color {
     public static let blue = Color(color: .blue)
     public static let purple = Color(color: .purple)
 }
+
+public extension R where T == PlatformColor {
+    public static let color = R<PlatformColor>()
+}

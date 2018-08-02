@@ -19,3 +19,9 @@ public extension UIView.AutoresizingMask {
     public static let width = UIView.AutoresizingMask.flexibleWidth
     public static let height = UIView.AutoresizingMask.flexibleHeight
 }
+
+extension PlatformNib: BundleResourceLoadable {
+    public static func loadResource(name: String, in bundle: Bundle?) -> PlatformNib? {
+        return PlatformNib(nibName: name, bundle: bundle)
+    }
+}

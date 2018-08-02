@@ -22,3 +22,9 @@ public extension Color {
     public init(color: UIColor) { self.rawColor = color.cgColor }
     
 }
+
+extension PlatformColor: BundleResourceLoadable {
+    public static func loadResource(name: String, in bundle: Bundle?) -> UIColor? {
+        return UIColor(named: name, in: bundle, compatibleWith: nil)
+    }
+}

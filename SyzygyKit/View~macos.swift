@@ -23,3 +23,9 @@ public extension PlatformNib {
     }
     
 }
+
+extension PlatformNib: BundleResourceLoadable {
+    public static func loadResource(name: String, in bundle: Bundle?) -> PlatformNib? {
+        return PlatformNib(nibNamed: name, bundle: bundle)
+    }
+}
