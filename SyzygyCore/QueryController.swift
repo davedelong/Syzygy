@@ -44,7 +44,10 @@ open class QueryController<T: Equatable> {
     private let _queryTickle = MutableProperty(())
     private let _coalescedTickle: Property<Void>
     private let _contents = MutableProperty<Array<Section>>([])
-    public var contents: Property<Array<Section>> { return _contents }
+    public var contents: Property<Array<Section>> {
+        performQueryImmediatelyIfNecessary()
+        return _contents
+    }
     
     public init() {
         _coalescedTickle = _queryTickle.coalesce(after: 0.3)

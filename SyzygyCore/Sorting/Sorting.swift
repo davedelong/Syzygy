@@ -23,3 +23,7 @@ public extension ValueSorting where Value: Comparable {
         return value(from: left) < value(from: before)
     }
 }
+
+public protocol DirectedSorting: Sorting {
+    var isAscending: Bool { get }
+}
