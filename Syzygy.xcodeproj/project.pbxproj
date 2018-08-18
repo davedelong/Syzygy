@@ -110,6 +110,8 @@
 		554F9571201D75A2007864A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9570201D75A2007864A7 /* UIView.swift */; };
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
+		556015B62128C0D50015E994 /* Glyphish.h in Headers */ = {isa = PBXBuildFile; fileRef = 556015B42128C0D50015E994 /* Glyphish.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		556015BB2128C1A40015E994 /* Glyphish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556015BA2128C1A40015E994 /* Glyphish.swift */; };
 		556EA4E6210CE07D00064D3D /* Interpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA4E5210CE07D00064D3D /* Interpolator.swift */; };
 		556EA5332112A0C900064D3D /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5322112A0C800064D3D /* R.swift */; };
 		556EA5352112A55500064D3D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5342112A55500064D3D /* UIImage.swift */; };
@@ -358,7 +360,7 @@
 		551D481B20117A9700AF7CF8 /* AffineTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffineTransform.swift; sourceTree = "<group>"; };
 		551D481D20118D7A00AF7CF8 /* TargetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAction.swift; sourceTree = "<group>"; };
 		5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollection.swift; sourceTree = "<group>"; };
-		552B49332012D4600054997E /* "SyzygyHTTP".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyHTTP\".framework"; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		552B49332012D4600054997E /* SyzygyHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552B49352012D4610054997E /* SyzygyHTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyHTTP.h; sourceTree = "<group>"; };
 		552B49362012D4610054997E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552B493B2012D5090054997E /* SyzygyHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyHTTP.swift; sourceTree = "<group>"; };
@@ -388,11 +390,15 @@
 		554F9570201D75A2007864A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
+		556015B22128C0D50015E994 /* Glyphish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glyphish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		556015B42128C0D50015E994 /* Glyphish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Glyphish.h; sourceTree = "<group>"; };
+		556015B52128C0D50015E994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		556015BA2128C1A40015E994 /* Glyphish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glyphish.swift; sourceTree = "<group>"; };
 		556EA4E5210CE07D00064D3D /* Interpolator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolator.swift; sourceTree = "<group>"; };
 		556EA5322112A0C800064D3D /* R.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		556EA5342112A55500064D3D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		556EA5362112A58E00064D3D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		557850DC20F6821E00BE7706 /* "SyzygyRuntime".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyRuntime\".framework"; path = SyzygyRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		557850DE20F6821F00BE7706 /* SyzygyRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyRuntime.h; sourceTree = "<group>"; };
 		557850DF20F6821F00BE7706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		557850E520F682F600BE7706 /* objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = objc.h; sourceTree = "<group>"; };
@@ -413,7 +419,7 @@
 		559079C720B76F07005AECE7 /* NSWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowController.swift; sourceTree = "<group>"; };
 		559079C920B76F97005AECE7 /* RandomAccessCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollection.swift; sourceTree = "<group>"; };
 		559079CB20B76FC1005AECE7 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
-		559B337120E973F300034E51 /* "SyzygyLocation".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyLocation\".framework"; path = SyzygyLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		559B337120E973F300034E51 /* SyzygyLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		559B337320E973F300034E51 /* SyzygyLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyLocation.h; sourceTree = "<group>"; };
 		559B337420E973F300034E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		559B337920E9749B00034E51 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
@@ -451,7 +457,7 @@
 		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB06511FF9B5BB0001D42E /* SyzygyCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyCore.h; sourceTree = "<group>"; };
 		55FB06521FF9B5BB0001D42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55FB065E1FF9B5D30001D42E /* "SyzygyKit".framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "\"SyzygyKit\".framework"; path = SyzygyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB06601FF9B5D30001D42E /* SyzygyKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyKit.h; sourceTree = "<group>"; };
 		55FB06611FF9B5D30001D42E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55FB06681FF9B6E70001D42E /* Syzygy-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Syzygy-Base.xcconfig"; sourceTree = "<group>"; };
@@ -567,6 +573,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		552B492F2012D4600054997E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		556015AF2128C0D50015E994 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -787,6 +800,16 @@
 			name = "Data Structures";
 			sourceTree = "<group>";
 		};
+		556015B32128C0D50015E994 /* Glyphish */ = {
+			isa = PBXGroup;
+			children = (
+				556015B42128C0D50015E994 /* Glyphish.h */,
+				556015BA2128C1A40015E994 /* Glyphish.swift */,
+				556015B52128C0D50015E994 /* Info.plist */,
+			);
+			path = Glyphish;
+			sourceTree = "<group>";
+		};
 		557850DD20F6821F00BE7706 /* SyzygyRuntime */ = {
 			isa = PBXGroup;
 			children = (
@@ -880,6 +903,7 @@
 				55FB065F1FF9B5D30001D42E /* SyzygyKit */,
 				559B337220E973F300034E51 /* SyzygyLocation */,
 				557850DD20F6821F00BE7706 /* SyzygyRuntime */,
+				556015B32128C0D50015E994 /* Glyphish */,
 				55FB064F1FF9B5BB0001D42E /* Products */,
 				55FB06661FF9B6100001D42E /* Frameworks */,
 			);
@@ -889,10 +913,11 @@
 			isa = PBXGroup;
 			children = (
 				55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */,
-				55FB065E1FF9B5D30001D42E /* "SyzygyKit".framework */,
-				552B49332012D4600054997E /* "SyzygyHTTP".framework */,
-				559B337120E973F300034E51 /* "SyzygyLocation".framework */,
-				557850DC20F6821E00BE7706 /* "SyzygyRuntime".framework */,
+				55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */,
+				552B49332012D4600054997E /* SyzygyHTTP.framework */,
+				559B337120E973F300034E51 /* SyzygyLocation.framework */,
+				557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */,
+				556015B22128C0D50015E994 /* Glyphish.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1106,6 +1131,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		556015AD2128C0D50015E994 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				556015B62128C0D50015E994 /* Glyphish.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		557850D720F6821E00BE7706 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1166,7 +1199,25 @@
 			);
 			name = SyzygyHTTP;
 			productName = SyzygyHTTP;
-			productReference = 552B49332012D4600054997E /* "SyzygyHTTP".framework */;
+			productReference = 552B49332012D4600054997E /* SyzygyHTTP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		556015B12128C0D50015E994 /* Glyphish */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 556015B72128C0D50015E994 /* Build configuration list for PBXNativeTarget "Glyphish" */;
+			buildPhases = (
+				556015AD2128C0D50015E994 /* Headers */,
+				556015AE2128C0D50015E994 /* Sources */,
+				556015AF2128C0D50015E994 /* Frameworks */,
+				556015B02128C0D50015E994 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Glyphish;
+			productName = Glyphish;
+			productReference = 556015B22128C0D50015E994 /* Glyphish.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		557850DB20F6821E00BE7706 /* SyzygyRuntime */ = {
@@ -1184,7 +1235,7 @@
 			);
 			name = SyzygyRuntime;
 			productName = SyzygyRuntime;
-			productReference = 557850DC20F6821E00BE7706 /* "SyzygyRuntime".framework */;
+			productReference = 557850DC20F6821E00BE7706 /* SyzygyRuntime.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		559B337020E973F300034E51 /* SyzygyLocation */ = {
@@ -1202,7 +1253,7 @@
 			);
 			name = SyzygyLocation;
 			productName = SyzygyLocation;
-			productReference = 559B337120E973F300034E51 /* "SyzygyLocation".framework */;
+			productReference = 559B337120E973F300034E51 /* SyzygyLocation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		55FB064D1FF9B5BB0001D42E /* SyzygyCore */ = {
@@ -1239,7 +1290,7 @@
 			);
 			name = SyzygyKit;
 			productName = SyzygyKit;
-			productReference = 55FB065E1FF9B5D30001D42E /* "SyzygyKit".framework */;
+			productReference = 55FB065E1FF9B5D30001D42E /* SyzygyKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1254,6 +1305,11 @@
 					552B49322012D4600054997E = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					556015B12128C0D50015E994 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					557850DB20F6821E00BE7706 = {
@@ -1295,12 +1351,20 @@
 				552B49322012D4600054997E /* SyzygyHTTP */,
 				559B337020E973F300034E51 /* SyzygyLocation */,
 				557850DB20F6821E00BE7706 /* SyzygyRuntime */,
+				556015B12128C0D50015E994 /* Glyphish */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		552B49312012D4600054997E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		556015B02128C0D50015E994 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1368,6 +1432,14 @@
 				55F7248F2038922B0093473F /* Header.swift in Sources */,
 				55F72491203892380093473F /* Method.swift in Sources */,
 				552B493E2012D5590054997E /* Request.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		556015AE2128C0D50015E994 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				556015BB2128C1A40015E994 /* Glyphish.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1659,6 +1731,20 @@
 			};
 			name = Release;
 		};
+		556015B82128C0D50015E994 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+			};
+			name = Debug;
+		};
+		556015B92128C0D50015E994 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+			};
+			name = Release;
+		};
 		557850E120F6821F00BE7706 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1737,6 +1823,15 @@
 			buildConfigurations = (
 				552B49392012D4610054997E /* Debug */,
 				552B493A2012D4610054997E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		556015B72128C0D50015E994 /* Build configuration list for PBXNativeTarget "Glyphish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				556015B82128C0D50015E994 /* Debug */,
+				556015B92128C0D50015E994 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

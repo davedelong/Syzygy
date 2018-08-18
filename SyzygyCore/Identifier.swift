@@ -8,6 +8,8 @@
 
 import Foundation
 
+public typealias Map<T> = Dictionary<Identifier<T>, T>
+
 public struct Identifier<T>: Newtype, Equatable, Hashable {
     public let rawValue: String
     public var hashValue: Int { return rawValue.hashValue }

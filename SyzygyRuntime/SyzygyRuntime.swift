@@ -16,4 +16,4 @@ public extension Bundle {
     
 }
 
-internal class SyzygyRuntimeMarker { }
+private class SyzygyRuntimeMarker { }

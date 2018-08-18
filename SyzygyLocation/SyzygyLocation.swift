@@ -10,6 +10,10 @@
 @_exported import SyzygyCore
 @_exported import CoreLocation
 
-internal let SyzygyLocation = Bundle(for: SyzygyLocationMarker.self)
+public extension Bundle {
+    
+    public static let SyzygyLocation = Bundle(for: SyzygyLocationMarker.self)
+    
+}
 
-internal class SyzygyLocationMarker { }
+private class SyzygyLocationMarker { }

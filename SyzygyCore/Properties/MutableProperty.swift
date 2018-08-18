@@ -29,6 +29,15 @@ public final class MutableProperty<T>: Property<T> {
         potentiallyModifyValue(modify)
     }
     
+    /// Atomically and conditionally modify the property's value
+    ///
+    /// - Parameter modify: The block to potentially modify the property's value.
+    ///         If this block returns a value of type `T`, then the property's value
+    ///         will be modified. If you return `Optional<T>.none`, then the value
+    ///         will not be modified.
+    public func potentiallyModify(_ modify: (T) -> T?) {
+        potentiallyModifyValue(modify)
+    }
 
     /// Cause the property to fire all of its observers with the current value
     public func tickle() {

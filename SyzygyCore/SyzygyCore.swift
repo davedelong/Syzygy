@@ -8,7 +8,11 @@
 
 @_exported import Foundation
 
-internal let SyzygyCore = Bundle(for: SyzygyCoreMarker.self)
+public extension Bundle {
+    
+    public static let SyzygyCore = Bundle(for: SyzygyCoreMarker.self)
+    
+}
 
-internal class SyzygyCoreMarker { }
+private class SyzygyCoreMarker { }
 

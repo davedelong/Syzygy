@@ -9,6 +9,10 @@
 @_exported import Foundation
 @_exported import SyzygyCore
 
-internal let SyzygyKit = Bundle(for: SyzygyKitMarker.self)
+public extension Bundle {
+    
+    public static let SyzygyKit = Bundle(for: SyzygyKitMarker.self)
+    
+}
 
-internal class SyzygyKitMarker { }
+private class SyzygyKitMarker { }
