@@ -7,11 +7,12 @@
 //
 
 public extension Abort.Reason {
-    public static func notADirectChild(of vc: PlatformViewController) -> Abort.Reason {
-        return Abort.Reason("View controller is not a direct child of \(vc)")
+    public static func viewController(_ vc: PlatformViewController, mustBeChildOf parent: PlatformViewController) -> Abort.Reason {
+        let p = String(describing: vc.parent)
+        return Abort.Reason("\(vc) must be a direct child of \(parent), but is actually a child of \(p)")
     }
-    public static func containerViewNotIn(_ vc: PlatformViewController) -> Abort.Reason {
-        return Abort.Reason("Container view is not in \(vc)'s view hierarchy")
+    public static func view(_ view: PlatformView, mustBeInHierarchyOf vc: PlatformViewController) -> Abort.Reason {
+        return Abort.Reason("Container view \(view) is not in \(vc)'s view hierarchy")
     }
 }
 
@@ -97,11 +98,11 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     }
     
     public func replaceChild(_ child: PlatformViewController, with newChild: PlatformViewController, transitionOptions: SyzygyViewController.TransitionOptions = [], in container: PlatformView? = nil) {
-        Assert.that(child.parent == self, otherwise: .notADirectChild(of: self))
+        Assert.that(child.parent == self, because: .viewController(child, mustBeChildOf: self))
         
         let potentialContainer = container ?? child.view.superview
         let viewContainer = potentialContainer !! "The child's view is not in the UI"
-        Assert.that(viewContainer.isEmbeddedIn(view), otherwise: .containerViewNotIn(self))
+        Assert.that(viewContainer.isEmbeddedIn(view), because: .view(viewContainer, mustBeInHierarchyOf: self))
         
         embedChild(newChild, in: viewContainer)
         

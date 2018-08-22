@@ -149,7 +149,7 @@ public extension String {
     
     func tokenize() -> AnyPredicate<String> {
         let terms = self.extractTerms()
-        guard terms.isEmpty == false else { return .false }
+        guard terms.isEmpty == false else { return .true }
         
         let predicates = terms.map { t -> AnyPredicate<String> in
             

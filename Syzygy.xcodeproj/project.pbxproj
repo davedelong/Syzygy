@@ -98,6 +98,10 @@
 		552E24FC20F7AB2800C1A4EF /* class.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24FA20F7AB2800C1A4EF /* class.m */; };
 		552E24FF20F7ABE700C1A4EF /* property.h in Headers */ = {isa = PBXBuildFile; fileRef = 552E24FD20F7ABE700C1A4EF /* property.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		552E250020F7ABE700C1A4EF /* property.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E24FE20F7ABE700C1A4EF /* property.m */; };
+		5534E2E2212A2A9C00233911 /* AnyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534E2E1212A2A9C00233911 /* AnyDataSource.swift */; };
+		5534E2E4212A2AB500233911 /* CompositeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534E2E3212A2AB400233911 /* CompositeDataSource.swift */; };
+		5534E2E7212A372900233911 /* SegmentedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534E2E6212A372900233911 /* SegmentedDataSource.swift */; };
+		5534E2E9212A5F4E00233911 /* SeparatorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534E2E8212A5F4E00233911 /* SeparatorDataSource.swift */; };
 		553912D920FAF847002CCFA2 /* SyzygyLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912D820FAF847002CCFA2 /* SyzygyLineViewController.swift */; };
 		553912DB20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912DA20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift */; };
 		553912DD20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912DC20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift */; };
@@ -112,6 +116,7 @@
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
 		556015B62128C0D50015E994 /* Glyphish.h in Headers */ = {isa = PBXBuildFile; fileRef = 556015B42128C0D50015E994 /* Glyphish.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		556015BB2128C1A40015E994 /* Glyphish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556015BA2128C1A40015E994 /* Glyphish.swift */; };
+		556015C02128C3890015E994 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 556015BF2128C3890015E994 /* README.md */; };
 		556EA4E6210CE07D00064D3D /* Interpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA4E5210CE07D00064D3D /* Interpolator.swift */; };
 		556EA5332112A0C900064D3D /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5322112A0C800064D3D /* R.swift */; };
 		556EA5352112A55500064D3D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5342112A55500064D3D /* UIImage.swift */; };
@@ -378,6 +383,10 @@
 		552E24FA20F7AB2800C1A4EF /* class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = class.m; sourceTree = "<group>"; };
 		552E24FD20F7ABE700C1A4EF /* property.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = property.h; sourceTree = "<group>"; };
 		552E24FE20F7ABE700C1A4EF /* property.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = property.m; sourceTree = "<group>"; };
+		5534E2E1212A2A9C00233911 /* AnyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDataSource.swift; sourceTree = "<group>"; };
+		5534E2E3212A2AB400233911 /* CompositeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeDataSource.swift; sourceTree = "<group>"; };
+		5534E2E6212A372900233911 /* SegmentedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedDataSource.swift; sourceTree = "<group>"; };
+		5534E2E8212A5F4E00233911 /* SeparatorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorDataSource.swift; sourceTree = "<group>"; };
 		553912D820FAF847002CCFA2 /* SyzygyLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyLineViewController.swift; sourceTree = "<group>"; };
 		553912DA20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyLineViewController~macos.swift"; sourceTree = "<group>"; };
 		553912DC20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyLineViewController~ios.swift"; sourceTree = "<group>"; };
@@ -394,6 +403,7 @@
 		556015B42128C0D50015E994 /* Glyphish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Glyphish.h; sourceTree = "<group>"; };
 		556015B52128C0D50015E994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		556015BA2128C1A40015E994 /* Glyphish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glyphish.swift; sourceTree = "<group>"; };
+		556015BF2128C3890015E994 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		556EA4E5210CE07D00064D3D /* Interpolator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolator.swift; sourceTree = "<group>"; };
 		556EA5322112A0C800064D3D /* R.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		556EA5342112A55500064D3D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -791,6 +801,30 @@
 			path = SyzygyHTTP;
 			sourceTree = "<group>";
 		};
+		5534E2E0212A2A8900233911 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				5534E2E1212A2A9C00233911 /* AnyDataSource.swift */,
+				5534E2E3212A2AB400233911 /* CompositeDataSource.swift */,
+				5534E2E6212A372900233911 /* SegmentedDataSource.swift */,
+				5534E2E8212A5F4E00233911 /* SeparatorDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		5534E2E5212A2B9400233911 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				551D47EB2010108E00AF7CF8 /* Shape.swift */,
+				551C00A620EFCCCD006CE550 /* Shape~ios.swift */,
+				551C00A820EFCCD3006CE550 /* Shape~macos.swift */,
+				551D48192011707500AF7CF8 /* ShapeView.swift */,
+				551C00AA20EFCD74006CE550 /* ShapeView~ios.swift */,
+				551C00AC20EFCD7A006CE550 /* ShapeView~macos.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		555C1904200536EB0017F253 /* Data Structures */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,8 +840,17 @@
 				556015B42128C0D50015E994 /* Glyphish.h */,
 				556015BA2128C1A40015E994 /* Glyphish.swift */,
 				556015B52128C0D50015E994 /* Info.plist */,
+				556015BE2128C3890015E994 /* Sources */,
 			);
 			path = Glyphish;
+			sourceTree = "<group>";
+		};
+		556015BE2128C3890015E994 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				556015BF2128C3890015E994 /* README.md */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		557850DD20F6821F00BE7706 /* SyzygyRuntime */ = {
@@ -1017,13 +1060,7 @@
 				551C009D20EFBF8C006CE550 /* GestureRecognizer~ios.swift */,
 				551C009F20EFC005006CE550 /* GestureRecognizer~macos.swift */,
 				556EA5362112A58E00064D3D /* Image.swift */,
-				551D47EB2010108E00AF7CF8 /* Shape.swift */,
-				551C00A620EFCCCD006CE550 /* Shape~ios.swift */,
-				551C00A820EFCCD3006CE550 /* Shape~macos.swift */,
 				551D47F12011118C00AF7CF8 /* NSAttributedString.swift */,
-				551D48192011707500AF7CF8 /* ShapeView.swift */,
-				551C00AA20EFCD74006CE550 /* ShapeView~ios.swift */,
-				551C00AC20EFCD7A006CE550 /* ShapeView~macos.swift */,
 				551D481D20118D7A00AF7CF8 /* TargetAction.swift */,
 				550E747A2105315D00170790 /* TargetAction~macos.swift */,
 				550E747C2105316C00170790 /* TargetAction~ios.swift */,
@@ -1041,6 +1078,8 @@
 				551C009120EFBB22006CE550 /* View.swift */,
 				551C009320EFBB34006CE550 /* View~ios.swift */,
 				551C009520EFBB45006CE550 /* View~macos.swift */,
+				5534E2E5212A2B9400233911 /* Shapes */,
+				5534E2E0212A2A8900233911 /* DataSources */,
 				551D47F4201112EC00AF7CF8 /* macOS */,
 				551D47FC2011437A00AF7CF8 /* iOS */,
 				55FB06611FF9B5D30001D42E /* Info.plist */,
@@ -1368,6 +1407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556015C02128C3890015E994 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1655,6 +1695,7 @@
 				5512449D1FFC86A9003DECFE /* UITableView+TableFlip.swift in Sources */,
 				551D48162011519900AF7CF8 /* NSTextField.swift in Sources */,
 				551C009620EFBB45006CE550 /* View~macos.swift in Sources */,
+				5534E2E2212A2A9C00233911 /* AnyDataSource.swift in Sources */,
 				551C009820EFBBA1006CE550 /* SyzygyView~ios.swift in Sources */,
 				559079C820B76F07005AECE7 /* NSWindowController.swift in Sources */,
 				55814DC520E340430027DA84 /* BezierPath.swift in Sources */,
@@ -1666,6 +1707,7 @@
 				553912D920FAF847002CCFA2 /* SyzygyLineViewController.swift in Sources */,
 				55814DC420E340410027DA84 /* Shape.swift in Sources */,
 				551C008220EFB93F006CE550 /* SyzygyKit~ios.swift in Sources */,
+				5534E2E4212A2AB500233911 /* CompositeDataSource.swift in Sources */,
 				551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */,
 				551D480220114BA600AF7CF8 /* SyzygyViewControllerBase.swift in Sources */,
 				55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */,
@@ -1697,6 +1739,7 @@
 				551C00A020EFC005006CE550 /* GestureRecognizer~macos.swift in Sources */,
 				551D47F920111ADF00AF7CF8 /* NSRunningApplication.swift in Sources */,
 				554F9547201D2876007864A7 /* UIViewController.swift in Sources */,
+				5534E2E9212A5F4E00233911 /* SeparatorDataSource.swift in Sources */,
 				550E747B2105315D00170790 /* TargetAction~macos.swift in Sources */,
 				55FB07621FFAC7D50001D42E /* SyzygyKit.swift in Sources */,
 				551D4812201150CB00AF7CF8 /* NSImage.swift in Sources */,
@@ -1708,6 +1751,7 @@
 				553912DD20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift in Sources */,
 				551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */,
 				551C008620EFB973006CE550 /* Color~ios.swift in Sources */,
+				5534E2E7212A372900233911 /* SegmentedDataSource.swift in Sources */,
 				553912DB20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift in Sources */,
 				551D48142011517F00AF7CF8 /* NSStackView.swift in Sources */,
 				550E747D2105316C00170790 /* TargetAction~ios.swift in Sources */,

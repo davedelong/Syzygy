@@ -11,6 +11,7 @@ import Foundation
 public enum Abort {
     
     public struct Reason: CustomDebugStringConvertible {
+        
         public static let shutUpXcode = Reason("Xcode requires this dead code")
         public static let mustBeOverridden = Reason("This method must be overridden")
         public static let unreachable = Reason("This code should be unreachable")
@@ -48,10 +49,14 @@ public struct Assert {
         }
     }
     
-    public static func that(_ condition: @autoclosure () -> Bool, otherwise: Abort.Reason, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
+    public static func that(_ condition: @autoclosure () -> Bool, because: Abort.Reason, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
         guard condition() == true else {
-            Abort.because(otherwise, file: file, line: line, function: function)
+            Abort.because(because, file: file, line: line, function: function)
         }
+    }
+    
+    public static func that(_ condition: @autoclosure () -> Bool, because: String, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
+        that(condition, because: Abort.Reason(because), file: file, line: line, function: function)
     }
     
 }

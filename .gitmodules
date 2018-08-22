@@ -1,0 +1,3 @@
+[submodule "SyzygyGlyphish"]
+	path = Glyphish/Sources
+	url = git@github.com:davedelong/SyzygyGlyphish.git

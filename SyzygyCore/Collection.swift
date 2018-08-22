@@ -10,6 +10,8 @@ import Foundation
 
 public extension Collection {
     
+    public var isNotEmpty: Bool { return isEmpty == false }
+    
     public func every(_ predicate: (Element) -> Bool) -> Bool {
         return all(predicate)
     }
