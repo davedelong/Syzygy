@@ -8,77 +8,85 @@
 
 import Foundation
 
-public extension UIViewController {
+extension UIViewController: _PlatformViewController {
     
-    internal var _actualView: UIView { return view! }
+    public typealias TransitionOptions = UIView.AnimationOptions
     
-    public func embedViewController(_ child: UIViewController, in aView: UIView? = nil) {
-        let container: UIView
-        if let v = aView, v.isEmbeddedIn(self.view) {
-            container = v
-        } else {
-            container = self.view
+    public var loadedView: UIView { return view! }
+    
+    public func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?) {
+        let targetView = resolving(container: aView)
+        
+        if viewController.loadedView.superview != targetView {
+            viewController.loadedView.removeFromSuperview()
         }
         
-        if child.parent != self {
-            if child.parent != nil {
-                child.viewIfLoaded?.removeFromSuperview()
-                child.willMove(toParent: nil)
-                child.removeFromParent()
-            }
+        if viewController.parent != self {
+            viewController.beginAppearanceTransition(false, animated: false)
+            viewController.willMove(toParent: nil)
+            viewController.removeFromParent()
+            viewController.endAppearanceTransition()
             
-            addChild(child)
-            child.didMove(toParent: self)
+            viewController.beginAppearanceTransition(true, animated: false)
+            addChild(viewController)
+            viewController.didMove(toParent: self)
+            viewController.endAppearanceTransition()
         }
         
-        let childView = child.view !! "Unable to load child view"
-        container.embedSubview(childView)
-    }
-    
-    public func transition(from fromViewController: PlatformViewController, to toViewController: PlatformViewController, options: SyzygyViewController.TransitionOptions = [], completionHandler completion: (() -> Void)? = nil) {
-        
-        transition(from: fromViewController, to: toViewController, duration: 0.3, options: options, completion: completion)
-        
-    }
-    
-    public func transition(from fromViewController: PlatformViewController, to toViewController: PlatformViewController, duration: TimeInterval, options: SyzygyViewController.TransitionOptions = [], completion: (() -> Void)? = nil) {
-        self.transition(from: fromViewController, to: toViewController, duration: duration, options: options, animations: nil, completion: { _ in completion?() })
-    }
-    
-    public func transition(to child: UIViewController, completion: ((Bool) -> Void)? = nil) {
-        let duration = 0.3
-        
-        let current = children.last
-        guard current != child else {
-            completion?(true)
-            return
+        if viewController.loadedView.superview != targetView {
+            targetView.embedSubview(viewController.loadedView)
         }
+    }
+    
+    public func replaceChild(_ child: PlatformViewController?,
+                             with newChild: PlatformViewController,
+                             in container: PlatformView? = nil,
+                             duration: TimeInterval = 0.3,
+                             options: PlatformViewController.TransitionOptions = [.transitionCrossDissolve]) {
         
-        addChild(child)
+        let targetView = resolving(container: container)
         
-        let newView = child.view!
-        newView.translatesAutoresizingMaskIntoConstraints = true
-        newView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        newView.frame = view.bounds
-        
-        if let existing = current {
+        if let old = child {
+            Assert.that(newChild.parent == nil, because: "Incoming view controller \(newChild) must not have a parent")
             
-            existing.willMove(toParent: nil)
+            Assert.that(old.loadedView.superview == targetView, because: "Incoming view controller \(newChild) must target the same container view as \(old)")
             
-            transition(from: existing, to: child, duration: duration, options: [.transitionCrossDissolve], animations: { }, completion: { done in
-                existing.removeFromParent()
-                child.didMove(toParent: self)
-                completion?(done)
+            old.willMove(toParent: nil)
+            addChild(newChild)
+            
+            old.beginAppearanceTransition(false, animated: true)
+            newChild.beginAppearanceTransition(true, animated: true)
+            
+            targetView.embedSubview(newChild.loadedView)
+            targetView.bringSubviewToFront(old.loadedView)
+            
+            UIView.animate(withDuration: duration,
+                           delay: 0,
+                           options: options,
+                           animations: { },
+                           completion: { _ in
+                            old.endAppearanceTransition()
+                            old.view.removeFromSuperview()
+                            old.removeFromParent()
+                            
+                            newChild.endAppearanceTransition()
+                            newChild.didMove(toParent: self)
             })
-            
         } else {
-            view.addSubview(newView)
+            newChild.loadedView.alpha = 0
             
-            UIView.animate(withDuration: duration, delay: 0, options: [.transitionCrossDissolve], animations: { }, completion: { done in
-                child.didMove(toParent: self)
-                completion?(done)
-            })
+            addChild(newChild)
+            targetView.embedSubview(newChild.loadedView)
+            
+            newChild.beginAppearanceTransition(true, animated: true)
+            
+            UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
+                newChild.loadedView.alpha = 1
+                newChild.endAppearanceTransition()
+                newChild.didMove(toParent: self)
+            }, completion: nil)
         }
+        
     }
     
 }

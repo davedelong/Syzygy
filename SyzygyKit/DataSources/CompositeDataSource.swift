@@ -21,8 +21,8 @@ open class CompositeDataSource: AnyDataSource {
     private var children = Array<AnyDataSource>()
     private var itemCount = 0
     
-    public init(children: Array<AnyDataSource> = []) {
-        super.init()
+    public init(name: String, children: Array<AnyDataSource> = []) {
+        super.init(name: name)
         children.forEach { addChild($0) }
     }
     
@@ -65,7 +65,7 @@ open class CompositeDataSource: AnyDataSource {
         children.forEach { $0.registerWithParent() }
     }
     
-    override func cellForItem(at index: Int) -> PlatformView? {
+    override func cellForItem(at index: Int) -> DataSourceRowView? {
         let (child, childIndex) = self.child(for: index) !! "Invalid cell offset: \(index)"
         return child.cellForItem(at: childIndex)
     }
@@ -73,6 +73,11 @@ open class CompositeDataSource: AnyDataSource {
     override func didSelectItem(at index: Int) {
         let (child, childIndex) = self.child(for: index) !! "Invalid cell offset: \(index)"
         child.didSelectItem(at: childIndex)
+    }
+    
+    override func contextualActions(at index: Int) -> Array<Action> {
+        let (child, childIndex) = self.child(for: index) !! "Invalid cell offset: \(index)"
+        return child.contextualActions(at: childIndex)
     }
     
 }
@@ -87,7 +92,7 @@ extension CompositeDataSource: DataSourceParent {
         parent?.register(class: aClass, for: cellReuseIdentifier)
     }
     
-    public func child(_ child: AnyDataSource, dequeueCellFor reuseIdentifier: String) -> PlatformView? {
+    public func child(_ child: AnyDataSource, dequeueCellFor reuseIdentifier: String) -> DataSourceRowView? {
         return parent?.child(self, dequeueCellFor: reuseIdentifier)
     }
     

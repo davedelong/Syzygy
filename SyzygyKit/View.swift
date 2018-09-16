@@ -47,12 +47,19 @@ public extension PlatformView {
         return mySuperviews.first(where: theirSuperviews.contains)
     }
     
-    public func embedSubview(_ subview: PlatformView) {
+    public func embedSubview(_ subview: PlatformView, margins: PlatformEdgeInsets = .zero) {
         subview.removeFromSuperview()
         subview.frame = self.bounds
-        subview.autoresizingMask = [.width, .height]
-        subview.translatesAutoresizingMaskIntoConstraints = true
+        subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)
+        
+        NSLayoutConstraint.activate([
+            subview.topAnchor.constraint(equalTo: topAnchor, constant: margins.top),
+            bottomAnchor.constraint(equalTo: subview.bottomAnchor, constant: margins.bottom),
+            
+            subview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margins.left),
+            trailingAnchor.constraint(equalTo: subview.trailingAnchor, constant: margins.right)
+        ])
     }
     
 }

@@ -14,7 +14,7 @@ open class SeparatorDataSource: AnyDataSource {
     
     public init(child: AnyDataSource) {
         self.child = child
-        super.init()
+        super.init(name: child.name)
         child.move(to: self)
     }
     
@@ -41,7 +41,7 @@ open class SeparatorDataSource: AnyDataSource {
         child.registerWithParent()
     }
     
-    override func cellForItem(at index: Int) -> PlatformView? {
+    override func cellForItem(at index: Int) -> DataSourceRowView? {
         if let childIndex = self.childIndex(for: index) {
             return child.cellForItem(at: childIndex)
         } else {
@@ -53,6 +53,14 @@ open class SeparatorDataSource: AnyDataSource {
     override func didSelectItem(at index: Int) {
         let childIndex = self.childIndex(for: index) !! "Separator lines are not selectable"
         child.didSelectItem(at: childIndex)
+    }
+    
+    override func contextualActions(at index: Int) -> Array<Action> {
+        if let childIndex = self.childIndex(for: index) {
+            return child.contextualActions(at: childIndex)
+        } else {
+            return []
+        }
     }
     
 }
@@ -67,7 +75,7 @@ extension SeparatorDataSource: DataSourceParent {
         parent?.register(class: aClass, for: cellReuseIdentifier)
     }
     
-    public func child(_ child: AnyDataSource, dequeueCellFor reuseIdentifier: String) -> PlatformView? {
+    public func child(_ child: AnyDataSource, dequeueCellFor reuseIdentifier: String) -> DataSourceRowView? {
         return parent?.child(self, dequeueCellFor: reuseIdentifier)
     }
     

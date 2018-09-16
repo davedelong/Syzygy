@@ -10,17 +10,6 @@ import Foundation
 
 open class SyzygyViewController: _SyzygyViewControllerBase {
     
-    public typealias TransitionOptions = UIView.AnimationOptions
-    
-    public func updateChildren(_ newChildren: Array<PlatformViewController>) {
-        let kids = children
-        kids.forEach { $0.removeFromParent() }
-        newChildren.forEach {
-            addChild($0)
-            $0.didMove(toParent: self)
-        }
-    }
-    
     open override func addChild(_ childController: PlatformViewController) {
         super.addChild(childController)
         if let child = childController as? SyzygyViewController {

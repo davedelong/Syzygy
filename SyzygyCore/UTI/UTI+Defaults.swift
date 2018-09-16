@@ -30,6 +30,8 @@ public extension UTI {
     
     public static let data = UTI(kUTTypeData)
     public static let json = UTI(kUTTypeJSON)
+    public static let plainText = UTI(kUTTypePlainText)
+    public static let url = UTI(kUTTypeURL)
     
     public static let app = UTI(kUTTypeApplication)
     public static let appBundle = UTI(kUTTypeApplicationBundle)

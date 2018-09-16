@@ -27,11 +27,21 @@ open class SegmentedDataSource: AnyDataSource {
     private var switchingChildren = false
     private let changeSemantic: ChangeSemantic
     
-    public init(children: Array<AnyDataSource>, changeSemantic: ChangeSemantic = .vertical) {
+    private let selectionCell: SegmentedCell
+    
+    public init(name: String, children: Array<AnyDataSource>, changeSemantic: ChangeSemantic = .vertical) {
         Assert.that(children.isNotEmpty, because: "Cannot create a SegmentedDataSource with no segments")
         self.children = children
         self.changeSemantic = changeSemantic
-        super.init()
+        
+        let titles = children.map { $0.name }
+        self.selectionCell = SegmentedCell.make(with: titles)
+        
+        super.init(name: name)
+        
+        self.selectionCell.selectionChanged = { [weak self] index in
+            self?.switchToSegment(at: index)
+        }
     }
     
     public func switchToSegment(at index: Int) {
@@ -59,18 +69,18 @@ open class SegmentedDataSource: AnyDataSource {
             let rowsToInsert = new.numberOfItems() - old.numberOfItems()
             
             for i in 0 ..< rowsToReload {
-                parent?.child(self, wantsReloadOfItemAt: i + 1, semantic: .fade)
+                parent?.child(self, wantsReloadOfItemAt: i + 1, semantic: .inPlace)
             }
             
             if rowsToInsert < 0 {
                 // delete some rows
                 for i in 0 ..< abs(rowsToInsert) {
-                    parent?.child(self, didRemoveItemAt: 1 + rowsToReload + i, semantic: .top)
+                    parent?.child(self, didRemoveItemAt: 1 + rowsToReload + i, semantic: .exitBottomToTop)
                 }
             } else {
                 // insert some rows
                 for i in 0 ..< rowsToInsert {
-                    parent?.child(self, didInsertItemAt: 1 + rowsToReload + i, semantic: .top)
+                    parent?.child(self, didInsertItemAt: 1 + rowsToReload + i, semantic: .enterTopToBottom)
                 }
             }
             
@@ -80,12 +90,12 @@ open class SegmentedDataSource: AnyDataSource {
             
             if oldIndex < newIndex {
                 // moving left-to-right
-                removeDirection = .right
-                insertDirection = .left
+                removeDirection = .exitLeftToRight
+                insertDirection = .enterLeftToRight
             } else {
                 // moving right-to-left
-                removeDirection = .left
-                insertDirection = .right
+                removeDirection = .exitRightToLeft
+                insertDirection = .enterRightToLeft
             }
             
             for i in 0 ..< old.numberOfItems() {
@@ -110,12 +120,19 @@ open class SegmentedDataSource: AnyDataSource {
         current.registerWithParent()
     }
     
-    override func cellForItem(at index: Int) -> PlatformView? {
+    override func cellForItem(at index: Int) -> DataSourceRowView? {
         if index == 0 {
-            // TODO: return the segmented cell
-            return nil
+            return selectionCell
         } else {
             return current.cellForItem(at: index - 1)
+        }
+    }
+    
+    override func contextualActions(at index: Int) -> Array<Action> {
+        if index == 0 {
+            return []
+        } else {
+            return current.contextualActions(at: index - 1)
         }
     }
     
@@ -131,7 +148,7 @@ extension SegmentedDataSource: DataSourceParent {
         parent?.register(class: aClass, for: cellReuseIdentifier)
     }
     
-    public func child(_ child: AnyDataSource, dequeueCellFor reuseIdentifier: String) -> PlatformView? {
+    public func child(_ child: AnyDataSource, dequeueCellFor reuseIdentifier: String) -> DataSourceRowView? {
         return parent?.child(self, dequeueCellFor: reuseIdentifier)
     }
     
@@ -169,5 +186,51 @@ extension SegmentedDataSource: DataSourceParent {
         parent?.childDidEndBatchedChanges(self)
     }
     
+    
+}
+
+internal class SegmentedCell: DataSourceRowView {
+    
+    class func make(with titles: Array<String>) -> SegmentedCell {
+        let cell = SegmentedCell.make()
+        cell.setup(titles: titles)
+        return cell
+    }
+    
+    var selectionChanged: ((Int) -> Void)?
+    
+    #if BUILDING_FOR_DESKTOP
+    
+    @IBOutlet private var control: NSSegmentedControl?
+    
+    private func setup(titles: Array<String>) {
+        control?.segmentCount = titles.count
+        for (index, title) in titles.enumerated() {
+            control?.setLabel(title, forSegment: index)
+        }
+        control?.selectedSegment = 0
+    }
+    
+    @IBAction private func segmentAction(_ segment: NSSegmentedControl) {
+        selectionChanged?(segment.selectedSegment)
+    }
+    
+    #else
+    
+    @IBOutlet private var control: UISegmentedControl?
+    
+    private func setup(titles: Array<String>) {
+        control?.removeAllSegments()
+        for (index, title) in titles.enumerated() {
+            control?.insertSegment(withTitle: title, at: index, animated: false)
+        }
+        control?.selectedSegmentIndex = 0
+    }
+    
+    @IBAction private func segmentAction(_ segment: UISegmentedControl) {
+        selectionChanged?(segment.selectedSegmentIndex)
+    }
+    
+    #endif
     
 }

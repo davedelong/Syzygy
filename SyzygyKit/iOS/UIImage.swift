@@ -10,6 +10,7 @@ public typealias PlatformImage = UIImage
 
 extension UIImage: BundleResourceLoadable {
     public static func loadResource(name: String, in bundle: Bundle?) -> UIImage? {
-        return UIImage(named: name)
+        let i = UIImage(named: name)
+        return i?.withRenderingMode(.alwaysTemplate)
     }
 }

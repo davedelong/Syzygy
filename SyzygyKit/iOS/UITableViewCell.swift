@@ -60,22 +60,31 @@ public class UITableViewCellSubtitle: UITableViewCell {
 
 open class ViewControllerTableViewCell: UITableViewCell {
     
-    public init(content: UIViewController) {
+    private let content: UIViewController
+    
+    public init(content: UIViewController, margins: PlatformEdgeInsets = .zero) {
+        self.content = content
         super.init(style: .default, reuseIdentifier: "\(type(of: content))")
-        
-        let size = content.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        var frame = self.frame
-        frame.size.height = size.height
-        self.frame = frame
-        
-        contentView.embedSubview(content.view)
+        contentView.embedSubview(content.view, margins: margins)
     }
     
     public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
     
-    open override var frame: CGRect {
-        get { return super.frame }
-        set { super.frame = newValue }
+    open override func responds(to aSelector: Selector!) -> Bool {
+        var ok = super.responds(to: aSelector)
+        
+        if ok == false {
+            ok = content.responds(to: aSelector)
+        }
+        
+        return ok
+    }
+    
+    override open func perform(_ aSelector: Selector!, with object: Any!) -> Unmanaged<AnyObject>! {
+        if content.responds(to: aSelector) {
+            return content.perform(aSelector, with: object)
+        }
+        return super.perform(aSelector, with: object)
     }
     
 }

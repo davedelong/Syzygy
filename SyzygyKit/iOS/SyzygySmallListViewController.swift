@@ -32,7 +32,7 @@ open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelega
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        embedViewController(table)
+        embedChild(table)
         table.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Empty")
         
         disposable += contents.observe { [weak self] vcs in

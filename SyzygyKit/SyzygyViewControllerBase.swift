@@ -84,53 +84,16 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     
     required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
     
-    public func embedChild(_ viewController: PlatformViewController, in aView: PlatformView? = nil) {
-        let container = (aView?.isEmbeddedIn(syzygyView) == true ? aView : syzygyView) ?? syzygyView
-        
-        viewController.view.removeFromSuperview()
-        viewController.removeFromParent()
-        
-        addChild(viewController)
-        viewController.view.frame = container.bounds
-        viewController.view.autoresizingMask = [.width, .height]
-        viewController.view.translatesAutoresizingMaskIntoConstraints = true
-        container.addSubview(viewController.view)
-    }
-    
-    public func replaceChild(_ child: PlatformViewController, with newChild: PlatformViewController, transitionOptions: SyzygyViewController.TransitionOptions = [], in container: PlatformView? = nil) {
-        Assert.that(child.parent == self, because: .viewController(child, mustBeChildOf: self))
-        
-        let potentialContainer = container ?? child.view.superview
-        let viewContainer = potentialContainer !! "The child's view is not in the UI"
-        Assert.that(viewContainer.isEmbeddedIn(view), because: .view(viewContainer, mustBeInHierarchyOf: self))
-        
-        embedChild(newChild, in: viewContainer)
-        
-        if transitionOptions.isEmpty {
-            child.view.removeFromSuperview()
-            child.removeFromParent()
-        } else {
-            transition(from: child, to: newChild, options: transitionOptions, completionHandler: {
-                child.view.removeFromSuperview()
-                child.removeFromParent()
-            })
-        }
-    }
-    
     open override func loadView() {
         super.loadView()
         
-        let loadedView = view
         let ddv: SyzygyView
         
-        if let v = loadedView as? SyzygyView {
+        if let v = view as? SyzygyView {
             ddv = v
         } else {
-            let newView = SyzygyView(frame: _actualView.frame)
-            _actualView.frame = newView.bounds
-            _actualView.autoresizingMask = [.width, .height]
-            _actualView.translatesAutoresizingMaskIntoConstraints = true
-            newView.addSubview(_actualView)
+            let newView = SyzygyView(frame: loadedView.frame)
+            newView.embedSubview(loadedView)
             
             newView.autoresizingMask = [.width, .height]
             newView.translatesAutoresizingMaskIntoConstraints = true

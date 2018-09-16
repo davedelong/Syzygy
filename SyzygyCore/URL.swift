@@ -11,6 +11,13 @@ import Darwin
 
 public extension URL {
     
+    public init?(phoneNumber: String) {
+        let notNumbers = CharacterSet.decimalDigits.inverted
+        let cleaned = (phoneNumber as NSString).components(separatedBy: notNumbers).joined()
+        guard cleaned.isEmpty == false else { return nil }
+        self.init(string: "tel://\(cleaned)")
+    }
+    
     public init?(bookmarkData: Data) {
         var stale: Bool = false
         try? self.init(resolvingBookmarkData: bookmarkData, options: [.withoutUI, .withoutMounting], relativeTo: nil, bookmarkDataIsStale: &stale)
