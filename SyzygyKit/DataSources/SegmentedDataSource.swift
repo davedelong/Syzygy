@@ -44,7 +44,7 @@ open class SegmentedDataSource: AnyDataSource {
         }
     }
     
-    public func switchToSegment(at index: Int) {
+    public func switchToSegment(at index: Int, animated: Bool = true) {
         guard index != currentIndex else { return }
         Assert.that(index >= 0, because: "Segment indexes cannot be negative (\(index))")
         Assert.that(index < children.count, because: "Cannot switch to nonexistent segment \(index)")
@@ -69,18 +69,24 @@ open class SegmentedDataSource: AnyDataSource {
             let rowsToInsert = new.numberOfItems() - old.numberOfItems()
             
             for i in 0 ..< rowsToReload {
-                parent?.child(self, wantsReloadOfItemAt: i + 1, semantic: .inPlace)
+                parent?.child(self,
+                              wantsReloadOfItemAt: i + 1,
+                              semantic: animated ? .inPlace : .instantaneous)
             }
             
             if rowsToInsert < 0 {
                 // delete some rows
                 for i in 0 ..< abs(rowsToInsert) {
-                    parent?.child(self, didRemoveItemAt: 1 + rowsToReload + i, semantic: .exitBottomToTop)
+                    parent?.child(self,
+                                  didRemoveItemAt: 1 + rowsToReload + i,
+                                  semantic: animated ? .exitBottomToTop : .instantaneous)
                 }
             } else {
                 // insert some rows
                 for i in 0 ..< rowsToInsert {
-                    parent?.child(self, didInsertItemAt: 1 + rowsToReload + i, semantic: .enterTopToBottom)
+                    parent?.child(self,
+                                  didInsertItemAt: 1 + rowsToReload + i,
+                                  semantic: animated ? .enterTopToBottom : .instantaneous)
                 }
             }
             
@@ -88,14 +94,19 @@ open class SegmentedDataSource: AnyDataSource {
             let removeDirection: DataSourceChangeSemantic
             let insertDirection: DataSourceChangeSemantic
             
-            if oldIndex < newIndex {
-                // moving left-to-right
-                removeDirection = .exitLeftToRight
-                insertDirection = .enterLeftToRight
+            if animated {
+                if oldIndex < newIndex {
+                    // moving left-to-right
+                    removeDirection = .exitLeftToRight
+                    insertDirection = .enterLeftToRight
+                } else {
+                    // moving right-to-left
+                    removeDirection = .exitRightToLeft
+                    insertDirection = .enterRightToLeft
+                }
             } else {
-                // moving right-to-left
-                removeDirection = .exitRightToLeft
-                insertDirection = .enterRightToLeft
+                removeDirection = .instantaneous
+                insertDirection = .instantaneous
             }
             
             for i in 0 ..< old.numberOfItems() {

@@ -118,6 +118,13 @@
 		554F9569201D5D3F007864A7 /* QueryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9568201D5D3F007864A7 /* QueryController.swift */; };
 		554F9571201D75A2007864A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9570201D75A2007864A7 /* UIView.swift */; };
 		5555B38F214D632800CC621E /* UIPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B38E214D632800CC621E /* UIPasteboard.swift */; };
+		5555B393214E90E800CC621E /* ItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B392214E90E800CC621E /* ItemDataSource.swift */; };
+		5555B395214E937B00CC621E /* DataSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B394214E937B00CC621E /* DataSourceItem.swift */; };
+		5555B398214EA2CE00CC621E /* BasicTextItem~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B397214EA2CE00CC621E /* BasicTextItem~ios.swift */; };
+		5555B39C214EB1CC00CC621E /* DetailEntriesItem~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B39B214EB1CC00CC621E /* DetailEntriesItem~ios.swift */; };
+		5555B3A2214EECC700CC621E /* LoadingItem~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B3A1214EECC700CC621E /* LoadingItem~ios.swift */; };
+		5555B3A4214EF83900CC621E /* DetailTextItem~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B3A3214EF83900CC621E /* DetailTextItem~ios.swift */; };
+		5555B3A6214EFDF100CC621E /* SeparatorItem~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B3A5214EFDF100CC621E /* SeparatorItem~ios.swift */; };
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
 		556015B62128C0D50015E994 /* Glyphish.h in Headers */ = {isa = PBXBuildFile; fileRef = 556015B42128C0D50015E994 /* Glyphish.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -411,6 +418,13 @@
 		554F9568201D5D3F007864A7 /* QueryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryController.swift; sourceTree = "<group>"; };
 		554F9570201D75A2007864A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5555B38E214D632800CC621E /* UIPasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPasteboard.swift; sourceTree = "<group>"; };
+		5555B392214E90E800CC621E /* ItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataSource.swift; sourceTree = "<group>"; };
+		5555B394214E937B00CC621E /* DataSourceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceItem.swift; sourceTree = "<group>"; };
+		5555B397214EA2CE00CC621E /* BasicTextItem~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicTextItem~ios.swift"; sourceTree = "<group>"; };
+		5555B39B214EB1CC00CC621E /* DetailEntriesItem~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailEntriesItem~ios.swift"; sourceTree = "<group>"; };
+		5555B3A1214EECC700CC621E /* LoadingItem~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingItem~ios.swift"; sourceTree = "<group>"; };
+		5555B3A3214EF83900CC621E /* DetailTextItem~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailTextItem~ios.swift"; sourceTree = "<group>"; };
+		5555B3A5214EFDF100CC621E /* SeparatorItem~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeparatorItem~ios.swift"; sourceTree = "<group>"; };
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
 		556015B22128C0D50015E994 /* Glyphish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glyphish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -827,6 +841,8 @@
 				552F88962133457E0001DBF5 /* SegmentedDataSourceCell~macos.xib */,
 				552F8898213345D30001DBF5 /* SegmentedDataSourceCell~ios.xib */,
 				5534E2E8212A5F4E00233911 /* SeparatorDataSource.swift */,
+				5555B392214E90E800CC621E /* ItemDataSource.swift */,
+				5555B396214E94A900CC621E /* Items */,
 				552F889421333A6F0001DBF5 /* DataSourceAdapter~ios.swift */,
 				55B3B1E7213350E300DFA8A7 /* ContextualActionHandler~ios.swift */,
 			);
@@ -844,6 +860,19 @@
 				551C00AC20EFCD7A006CE550 /* ShapeView~macos.swift */,
 			);
 			path = Shapes;
+			sourceTree = "<group>";
+		};
+		5555B396214E94A900CC621E /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				5555B394214E937B00CC621E /* DataSourceItem.swift */,
+				5555B397214EA2CE00CC621E /* BasicTextItem~ios.swift */,
+				5555B3A3214EF83900CC621E /* DetailTextItem~ios.swift */,
+				5555B39B214EB1CC00CC621E /* DetailEntriesItem~ios.swift */,
+				5555B3A1214EECC700CC621E /* LoadingItem~ios.swift */,
+				5555B3A5214EFDF100CC621E /* SeparatorItem~ios.swift */,
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 		555C1904200536EB0017F253 /* Data Structures */ = {
@@ -1724,6 +1753,7 @@
 				551D48162011519900AF7CF8 /* NSTextField.swift in Sources */,
 				551C009620EFBB45006CE550 /* View~macos.swift in Sources */,
 				5534E2E2212A2A9C00233911 /* AnyDataSource.swift in Sources */,
+				5555B3A4214EF83900CC621E /* DetailTextItem~ios.swift in Sources */,
 				551C009820EFBBA1006CE550 /* SyzygyView~ios.swift in Sources */,
 				559079C820B76F07005AECE7 /* NSWindowController.swift in Sources */,
 				552F889521333A6F0001DBF5 /* DataSourceAdapter~ios.swift in Sources */,
@@ -1732,12 +1762,14 @@
 				5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */,
 				554F9556201D2F2B007864A7 /* SyzygyStackViewController.swift in Sources */,
 				551D480020114B5100AF7CF8 /* SyzygyView~macos.swift in Sources */,
+				5555B3A2214EECC700CC621E /* LoadingItem~ios.swift in Sources */,
 				551C008E20EFBAFA006CE550 /* Responder~ios.swift in Sources */,
 				553912D920FAF847002CCFA2 /* SyzygyLineViewController.swift in Sources */,
 				55814DC420E340410027DA84 /* Shape.swift in Sources */,
 				551C008220EFB93F006CE550 /* SyzygyKit~ios.swift in Sources */,
 				5534E2E4212A2AB500233911 /* CompositeDataSource.swift in Sources */,
 				551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */,
+				5555B3A6214EFDF100CC621E /* SeparatorItem~ios.swift in Sources */,
 				551D480220114BA600AF7CF8 /* SyzygyViewControllerBase.swift in Sources */,
 				55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */,
 				554F9571201D75A2007864A7 /* UIView.swift in Sources */,
@@ -1746,12 +1778,14 @@
 				551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */,
 				55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */,
 				554F9565201D3F51007864A7 /* UIGestureRecognizer+Blocks.swift in Sources */,
+				5555B398214EA2CE00CC621E /* BasicTextItem~ios.swift in Sources */,
 				550E747F21053C1C00170790 /* SyzygySearchDelegate.swift in Sources */,
 				551D481020114FC900AF7CF8 /* NSWindow.swift in Sources */,
 				551D47F22011118C00AF7CF8 /* NSAttributedString.swift in Sources */,
 				55D82FA8210B770400EF7965 /* SyzygyRangeSlider.swift in Sources */,
 				551D47F7201114D800AF7CF8 /* NSWorkspace+Properties.swift in Sources */,
 				551D480C20114F7100AF7CF8 /* NSCollectionView.swift in Sources */,
+				5555B39C214EB1CC00CC621E /* DetailEntriesItem~ios.swift in Sources */,
 				551D4818201151B300AF7CF8 /* NSViewController.swift in Sources */,
 				551C00AD20EFCD7A006CE550 /* ShapeView~macos.swift in Sources */,
 				55B3B1E621334FFA00DFA8A7 /* Action.swift in Sources */,
@@ -1763,6 +1797,7 @@
 				556EA5372112A58E00064D3D /* Image.swift in Sources */,
 				5512449B1FFC060C003DECFE /* UITableView+Diffs.swift in Sources */,
 				55F3755A20BC6A7E00E7D742 /* SyzygySidebarViewController.swift in Sources */,
+				5555B393214E90E800CC621E /* ItemDataSource.swift in Sources */,
 				551D480A20114F5600AF7CF8 /* NSBox.swift in Sources */,
 				551C00AB20EFCD74006CE550 /* ShapeView~ios.swift in Sources */,
 				55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */,
@@ -1781,6 +1816,7 @@
 				552F888E2132F6120001DBF5 /* Font.swift in Sources */,
 				551C00A720EFCCCD006CE550 /* Shape~ios.swift in Sources */,
 				553912DD20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift in Sources */,
+				5555B395214E937B00CC621E /* DataSourceItem.swift in Sources */,
 				551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */,
 				551C008620EFB973006CE550 /* Color~ios.swift in Sources */,
 				5534E2E7212A372900233911 /* SegmentedDataSource.swift in Sources */,

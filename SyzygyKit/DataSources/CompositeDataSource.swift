@@ -61,6 +61,10 @@ open class CompositeDataSource: AnyDataSource {
     
     // Abstract overrides
     
+    override func numberOfItems() -> Int {
+        return itemCount
+    }
+    
     override func registerWithParent() {
         children.forEach { $0.registerWithParent() }
     }

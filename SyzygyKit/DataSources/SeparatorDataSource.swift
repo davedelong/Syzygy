@@ -10,34 +10,74 @@ import Foundation
 
 open class SeparatorDataSource: AnyDataSource {
     
-    private let child: AnyDataSource
+    public struct Placement: OptionSet {
+        public static let `default`: Placement = [.inBetween, .after]
+        public static let before = Placement(rawValue: 1 << 0)
+        public static let inBetween = Placement(rawValue: 1 << 1)
+        public static let after = Placement(rawValue: 1 << 2)
+        
+        public let rawValue: Int
+        public init(rawValue: Int) { self.rawValue = rawValue }
+    }
     
-    public init(child: AnyDataSource) {
+    private let child: AnyDataSource
+    private let separators: Placement
+    
+    public init(child: AnyDataSource, separatorPlacement: Placement = .default) {
         self.child = child
+        self.separators = separatorPlacement
         super.init(name: child.name)
         child.move(to: self)
     }
     
     private func childIndex(for index: Int) -> Int? {
-        guard index % 2 == 1 else { return nil }
-        let i = index - 1
-        return i / 2
+        var newIndex = index
+        
+        if separators.contains(.before) && index == 0 {
+            return nil
+        }
+        if separators.contains(.after) && index == numberOfItems() - 1 {
+            return nil
+        }
+        
+        if separators.contains(.before) {
+            newIndex -= 1
+        }
+        if separators.contains(.inBetween) {
+            guard newIndex % 2 == 0 else { return nil }
+            newIndex /= 2
+        }
+        return newIndex
     }
     
     private func index(for childIndex: Int) -> Int {
-        return (childIndex * 2) + 1
+        var newIndex = childIndex
+        if separators.contains(.inBetween) {
+            newIndex += (childIndex - 1)
+        }
+        if separators.contains(.before) {
+            newIndex += 1
+        }
+        return newIndex
     }
     
     // Abstract overrides
     
     override func numberOfItems() -> Int {
-        let n = child.numberOfItems()
+        var n = child.numberOfItems()
         if n == 0 { return 0 }
-        return (2 * n) + 1
+        
+        if separators.contains(.inBetween) {
+            n += (n - 1)
+        }
+        if separators.contains(.before) { n += 1 }
+        if separators.contains(.after) { n += 1 }
+        
+        return n
     }
     
     override func registerWithParent() {
-        // TODO: register the separator view
+        parent?.register(class: SeparatorView.self, for: "Separator")
         child.registerWithParent()
     }
     
@@ -46,7 +86,7 @@ open class SeparatorDataSource: AnyDataSource {
             return child.cellForItem(at: childIndex)
         } else {
             // it's a separator cell
-            return nil
+            return parent?.child(self, dequeueCellFor: "Separator")
         }
     }
     
@@ -84,31 +124,41 @@ extension SeparatorDataSource: DataSourceParent {
     }
     
     public func child(_ child: AnyDataSource, didInsertItemAt index: Int, semantic: DataSourceChangeSemantic) {
+        let numberOfChildItems = child.numberOfItems()
         
-        
-        if child.numberOfItems() == 1 {
-            // this is the first item in the child
-            // we also need to insert the top separator
+        if numberOfChildItems == 1 && separators.contains(.before) {
             parent?.child(self, didInsertItemAt: 0, semantic: semantic)
         }
         
         let translatedIndex = self.index(for: index)
-        let separatorAfter = translatedIndex + 1
         parent?.child(self, didInsertItemAt: translatedIndex, semantic: semantic)
-        parent?.child(self, didInsertItemAt: separatorAfter, semantic: semantic)
+        
+        if numberOfChildItems == 1 && separators.contains(.after) {
+            parent?.child(self, didInsertItemAt: translatedIndex + 1, semantic: semantic)
+        }
+        
+        if numberOfChildItems > 1 && separators.contains(.inBetween) {
+            parent?.child(self, didInsertItemAt: translatedIndex + 1, semantic: semantic)
+        }
     }
     
     public func child(_ child: AnyDataSource, didRemoveItemAt index: Int, semantic: DataSourceChangeSemantic) {
-        if child.numberOfItems() == 0 {
-            // this was the last item in the child
-            // we also need to delete the top separator
+        let numberOfChildItems = child.numberOfItems()
+        
+        if numberOfChildItems == 0 && separators.contains(.before) {
             parent?.child(self, didRemoveItemAt: 0, semantic: semantic)
         }
         
         let translatedIndex = self.index(for: index)
-        let separatorAfter = translatedIndex + 1
         parent?.child(self, didRemoveItemAt: translatedIndex, semantic: semantic)
-        parent?.child(self, didRemoveItemAt: separatorAfter, semantic: semantic)
+        
+        if numberOfChildItems == 0 && separators.contains(.after) {
+            parent?.child(self, didRemoveItemAt: translatedIndex + 1, semantic: semantic)
+        }
+        
+        if numberOfChildItems > 0 && separators.contains(.inBetween) {
+            parent?.child(self, didRemoveItemAt: translatedIndex + 1, semantic: semantic)
+        }
     }
     
     public func child(_ child: AnyDataSource, didMoveItemAt oldIndex: Int, to newIndex: Int) {
@@ -126,4 +176,70 @@ extension SeparatorDataSource: DataSourceParent {
     public func childDidEndBatchedChanges(_ child: AnyDataSource) {
         parent?.childDidEndBatchedChanges(self)
     }
+}
+
+internal class SeparatorView: DataSourceRowView {
+    
+    private var line: PlatformView?
+    private var height: NSLayoutConstraint?
+    
+    #if BUILDING_FOR_DESKTOP
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        guard line == nil else { return }
+        
+        let l = NSBox(separator: .horizontal)
+        setup(line: l, in: self)
+    }
+    
+    override func viewDidMoveToWindow() {
+        let scale = max(window?.backingScaleFactor ?? 1.0, 1.0)
+        let onePixel = 1 / scale
+        height?.constant = onePixel
+    }
+    #endif
+    
+    #if BUILDING_FOR_MOBILE
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        let l = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 1))
+        l.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        setup(line: l, in: contentView)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let l = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 1))
+        l.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        setup(line: l, in: contentView)
+    }
+    
+    override func didMoveToWindow() {
+        let scale = max(window?.screen.scale ?? 1.0, 1.0)
+        let onePixel = 1 / scale
+        height?.constant = onePixel
+    }
+    #endif
+    
+    private func setup(line: PlatformView, in parent: PlatformView) {
+        line.translatesAutoresizingMaskIntoConstraints = false
+        parent.addSubview(line)
+        
+        let h = line.heightAnchor.constraint(equalToConstant: 1.0)
+        
+        NSLayoutConstraint.activate([
+            line.leadingAnchor.constraint(equalToSystemSpacingAfter: parent.leadingAnchor, multiplier: 1.0),
+            parent.trailingAnchor.constraint(equalTo: line.trailingAnchor),
+            
+            line.topAnchor.constraint(equalTo: parent.topAnchor),
+            parent.bottomAnchor.constraint(equalTo: line.bottomAnchor),
+            
+            h
+        ])
+        
+        self.height = h
+        self.line = line
+        selectable = false
+    }
+    
 }

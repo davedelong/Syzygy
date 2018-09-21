@@ -16,7 +16,7 @@ public extension UITableViewCell {
     
 }
 
-public class UITableViewCellDefault: UITableViewCell {
+open class UITableViewCellDefault: UITableViewCell {
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
@@ -26,7 +26,7 @@ public class UITableViewCellDefault: UITableViewCell {
     
 }
 
-public class UITableViewCellValue1: UITableViewCell {
+open class UITableViewCellValue1: UITableViewCell {
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
@@ -36,7 +36,7 @@ public class UITableViewCellValue1: UITableViewCell {
     
 }
 
-public class UITableViewCellValue2: UITableViewCell {
+open class UITableViewCellValue2: UITableViewCell {
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value2, reuseIdentifier: reuseIdentifier)
@@ -46,7 +46,7 @@ public class UITableViewCellValue2: UITableViewCell {
     
 }
 
-public class UITableViewCellSubtitle: UITableViewCell {
+open class UITableViewCellSubtitle: UITableViewCell {
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)

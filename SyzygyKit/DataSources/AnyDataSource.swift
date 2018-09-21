@@ -26,9 +26,29 @@ public enum DataSourceChangeSemantic {
 }
 
 #if BUILDING_FOR_DESKTOP
+
 public typealias DataSourceRowView = NSTableRowView
+public extension DataSourceRowView {
+    var selectable: Bool {
+        get { return selectionHighlightStyle != .none }
+        set {
+            selectionHighlightStyle = newValue ? .regular : .none
+        }
+    }
+}
+
 #elseif BUILDING_FOR_MOBILE
+
 public typealias DataSourceRowView = UITableViewCell
+public extension DataSourceRowView {
+    var selectable: Bool {
+        get { return selectionStyle != .none }
+        set {
+            selectionStyle = newValue ? .default : .none
+        }
+    }
+}
+
 #else
 #error("Building for unknown platform")
 #endif
