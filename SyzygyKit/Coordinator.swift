@@ -61,14 +61,6 @@ open class Coordinator: PlatformResponder {
         }
     }
     
-    #if BUILDING_FOR_DESKTOP
-    
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    #endif
-    
     open override var next: PlatformResponder? {
         return _nextResponder
     }

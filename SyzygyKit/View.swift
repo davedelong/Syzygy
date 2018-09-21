@@ -16,7 +16,8 @@ public extension NSCoding where Self: PlatformView {
     
     public static func make() -> Self {
         let bundle = Bundle(for: self)
-        let nib = PlatformNib(nibName: "\(self)", bundle: bundle)
+        let maybeNib = PlatformNib.loadResource(name: "\(self)", in: bundle)
+        let nib = maybeNib !! "Unable to load nib named \(self)"
         
         let objects = nib.instantiate(withOwner: nil, options: nil)
         let matches = objects.compactMap { $0 as? Self }

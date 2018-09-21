@@ -82,6 +82,7 @@
 		551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481B20117A9700AF7CF8 /* AffineTransform.swift */; };
 		551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481D20118D7A00AF7CF8 /* TargetAction.swift */; };
 		551D4820201197BD00AF7CF8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551D480720114DA300AF7CF8 /* Empty.xib */; };
+		5523653A214AC8E00044553A /* Property+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55236539214AC8E00044553A /* Property+Debug.swift */; };
 		552B49372012D4610054997E /* SyzygyHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 552B49352012D4610054997E /* SyzygyHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		552B493C2012D5090054997E /* SyzygyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493B2012D5090054997E /* SyzygyHTTP.swift */; };
 		552B493E2012D5590054997E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493D2012D5590054997E /* Request.swift */; };
@@ -380,6 +381,7 @@
 		551D48192011707500AF7CF8 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		551D481B20117A9700AF7CF8 /* AffineTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffineTransform.swift; sourceTree = "<group>"; };
 		551D481D20118D7A00AF7CF8 /* TargetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAction.swift; sourceTree = "<group>"; };
+		55236539214AC8E00044553A /* Property+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Debug.swift"; sourceTree = "<group>"; };
 		5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollection.swift; sourceTree = "<group>"; };
 		552B49332012D4600054997E /* SyzygyHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552B49352012D4610054997E /* SyzygyHTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyHTTP.h; sourceTree = "<group>"; };
@@ -1154,6 +1156,7 @@
 				55FB069D1FF9BBFF0001D42E /* MutableProperty.swift */,
 				55FB06981FF9BBFF0001D42E /* MirroredProperty.swift */,
 				55FB06891FF9BBFF0001D42E /* KVOProperty.swift */,
+				55236539214AC8E00044553A /* Property+Debug.swift */,
 				55FB068A1FF9BBFF0001D42E /* Property+Optional.swift */,
 				55FB068B1FF9BBFF0001D42E /* Property+Boolean.swift */,
 				55FB068C1FF9BBFF0001D42E /* Property+Merge.swift */,
@@ -1711,6 +1714,7 @@
 				55FB06E71FF9BC070001D42E /* Optional.swift in Sources */,
 				55FB06DE1FF9BC070001D42E /* Plist.swift in Sources */,
 				55FB07131FF9BC070001D42E /* FileHandle+Path.swift in Sources */,
+				5523653A214AC8E00044553A /* Property+Debug.swift in Sources */,
 				55FB06FC1FF9BC070001D42E /* NSMetadataQuery+Property.swift in Sources */,
 				55FB072A1FF9BC070001D42E /* Process.swift in Sources */,
 				55FB06EF1FF9BC070001D42E /* Property+Optional.swift in Sources */,

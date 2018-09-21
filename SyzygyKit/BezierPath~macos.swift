@@ -45,6 +45,10 @@ public extension BezierPath {
         return p
     }
     
+    public convenience init(roundedRect: NSRect, cornerRadius: CGFloat) {
+        self.init(roundedRect: roundedRect, xRadius: cornerRadius, yRadius: cornerRadius)
+    }
+    
     public func apply(_ transform: CGAffineTransform) {
         self.transform(using: AffineTransform(transform))
     }

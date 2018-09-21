@@ -24,7 +24,12 @@ public extension Color {
 }
 
 extension PlatformColor: BundleResourceLoadable {
-    public static func loadResource(name: String, in bundle: Bundle?) -> UIColor? {
-        return NSColor(named: name)
+    public static func loadResource(name: String, in bundle: Bundle?) -> PlatformColor? {
+        if #available(OSX 10.13, *) {
+            return NSColor(named: name)
+        } else {
+            // Fallback on earlier versions
+            Abort.because("Need a named color")
+        }
     }
 }

@@ -12,9 +12,9 @@ public extension NSBox {
         case horizontal
     }
     
-    public convenience init(separator: Orientation) {
-        let w: CGFloat = separator == .horizontal ? 100 : 1
-        let h: CGFloat = separator == .vertical ? 100 : 1
+    public convenience init(orientation: Orientation) {
+        let w: CGFloat = orientation == .horizontal ? 100 : 1
+        let h: CGFloat = orientation == .vertical ? 100 : 1
         
         let f = NSRect(x: 0, y: 0, width: w, height: h)
         self.init(frame: f)

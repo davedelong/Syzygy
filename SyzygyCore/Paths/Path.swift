@@ -62,7 +62,7 @@ public enum PathComponent: Hashable {
     }
 }
 
-public protocol Path: Hashable {
+public protocol Path: Hashable, CustomDebugStringConvertible {
     
     var components: Array<PathComponent> { get }
     var fileSystemPath: String { get }
@@ -80,6 +80,10 @@ public extension Path {
     }
     
     public var hashValue: Int { return components.count }
+    
+    public var debugDescription: String {
+        return fileSystemPath
+    }
     
     public var lastComponent: PathComponent? { return components.last }
     public var lastItem: String? { return components.last?.itemString }

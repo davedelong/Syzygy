@@ -51,7 +51,7 @@ internal class ActionTarget<T>: NSObject {
     }
     
     #if BUILDING_FOR_DESKTOP
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         return menuItem.isEnabled
     }
     #endif

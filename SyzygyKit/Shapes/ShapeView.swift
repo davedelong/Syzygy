@@ -60,10 +60,12 @@ public class ShapeView: PlatformView {
         shapeLayer.lineWidth = lineWidth
     }
     
+    #if BUILDING_FOR_MOBILE
     public override func layoutSubviews() {
         super.layoutSubviews()
         updateShape()
     }
+    #endif
     
     public override func updateLayer() {
         super.updateLayer()
