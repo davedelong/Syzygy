@@ -106,11 +106,11 @@ public extension Property where T: Collection, T.Element: Hashable {
     
 }
 
-public extension Property where T: Collection, T.Element: DeeplyEquatable {
+public extension Property where T: RangeReplaceableCollection, T.Element: Differentiable {
     
-    public func diffingPrevious() -> Property<(Array<T.Element>, (Array<Diff<T.Element>>))> {
-        let initial = Array<T.Element>()
-        let current = Array(self.value)
+    public func diffingPrevious() -> Property<(T, StagedChangeset<T>)> {
+        let initial = T.init()
+        let current = self.value
         let startingDiff = initial.difference(to: current)
         
         let m = MutableProperty((current, startingDiff))
@@ -118,7 +118,7 @@ public extension Property where T: Collection, T.Element: DeeplyEquatable {
         observeNext { new in
             m.potentiallyModifyValue { (collection, diff) in
                 let newDiff = collection.difference(to: new)
-                return (Array(new), newDiff)
+                return (new, newDiff)
             }
         }
         

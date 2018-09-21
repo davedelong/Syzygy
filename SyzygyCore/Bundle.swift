@@ -68,7 +68,7 @@ public extension Bundle {
             guard isDirectory else { continue }
             
             let infoPlist = next.appendingPathComponent("Contents/Info.plist")
-            guard FileManager.default.file
+            guard FileManager.default.fileExists(atPath: infoPlist.path) else { continue }
             
             guard let bundle = Bundle(url: next) else { continue }
             guard bundle.identifier == identifier else { continue }
