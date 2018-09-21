@@ -7,6 +7,7 @@
 //
 
 @_exported import Foundation
+@_exported import DifferenceKit
 
 public extension Bundle {
     

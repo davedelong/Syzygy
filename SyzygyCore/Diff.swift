@@ -34,6 +34,14 @@ public extension Collection where Iterator.Element: DeeplyEquatable {
     
 }
 
+public extension Collection where Self: RangeReplaceableCollection, Iterator.Element: Differentiable {
+    
+    public func difference(to other: Self) -> StagedChangeset<Self> {
+        return StagedChangeset(source: self, target: other)
+    }
+    
+}
+
 internal protocol DiffingStrategy {
     static func diff<C, D>(before: C, after: D) -> Array<Diff<C.Element>> where C : Collection, D : Collection, C.Element : DeeplyEquatable, C.Element == D.Element
 }

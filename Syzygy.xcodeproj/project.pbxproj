@@ -83,6 +83,8 @@
 		551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D481D20118D7A00AF7CF8 /* TargetAction.swift */; };
 		551D4820201197BD00AF7CF8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551D480720114DA300AF7CF8 /* Empty.xib */; };
 		5523653A214AC8E00044553A /* Property+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55236539214AC8E00044553A /* Property+Debug.swift */; };
+		5527FCDC21548EC9009D8808 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5527FCD621548EA9009D8808 /* DifferenceKit.framework */; };
+		5527FCDE21548EE3009D8808 /* DifferenceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5527FCD621548EA9009D8808 /* DifferenceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		552B49372012D4610054997E /* SyzygyHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 552B49352012D4610054997E /* SyzygyHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		552B493C2012D5090054997E /* SyzygyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493B2012D5090054997E /* SyzygyHTTP.swift */; };
 		552B493E2012D5590054997E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493D2012D5590054997E /* Request.swift */; };
@@ -303,6 +305,37 @@
 		55FB07621FFAC7D50001D42E /* SyzygyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB07611FFAC7D50001D42E /* SyzygyKit.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5527FCD521548EA9009D8808 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5527FCD021548EA8009D8808 /* DifferenceKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B2DF86E210E2C12004D2D40;
+			remoteInfo = DifferenceKit;
+		};
+		5527FCD721548EA9009D8808 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5527FCD021548EA8009D8808 /* DifferenceKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B2DF877210E2C12004D2D40;
+			remoteInfo = Tests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5527FCDD21548EDB009D8808 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5527FCDE21548EE3009D8808 /* DifferenceKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		550E746A2103F50700170790 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		550E746D2104D25000170790 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
@@ -383,6 +416,7 @@
 		551D481D20118D7A00AF7CF8 /* TargetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAction.swift; sourceTree = "<group>"; };
 		55236539214AC8E00044553A /* Property+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Debug.swift"; sourceTree = "<group>"; };
 		5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollection.swift; sourceTree = "<group>"; };
+		5527FCD021548EA8009D8808 /* DifferenceKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DifferenceKit.xcodeproj; path = DifferenceKit/DifferenceKit.xcodeproj; sourceTree = "<group>"; };
 		552B49332012D4600054997E /* SyzygyHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552B49352012D4610054997E /* SyzygyHTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyHTTP.h; sourceTree = "<group>"; };
 		552B49362012D4610054997E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -648,6 +682,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5527FCDC21548EC9009D8808 /* DifferenceKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,6 +838,15 @@
 				550E747E21053C1C00170790 /* SyzygySearchDelegate.swift */,
 			);
 			path = iOS;
+			sourceTree = "<group>";
+		};
+		5527FCD121548EA8009D8808 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5527FCD621548EA9009D8808 /* DifferenceKit.framework */,
+				5527FCD821548EA9009D8808 /* Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		552A40A02005273E009B8C6B /* Standard Library-ish Things */ = {
@@ -989,6 +1033,7 @@
 		55FB06441FF9B5BB0001D42E = {
 			isa = PBXGroup;
 			children = (
+				5527FCD021548EA8009D8808 /* DifferenceKit.xcodeproj */,
 				55FB06681FF9B6E70001D42E /* Syzygy-Base.xcconfig */,
 				550E749A2107A1E600170790 /* Syzygy-Conditionals.xcconfig */,
 				55FB066A1FF9B84F0001D42E /* Syzygy-Debug.xcconfig */,
@@ -1358,6 +1403,7 @@
 				55A8DB6E20EE74C4005EFDE3 /* ShellScript */,
 				55FB064B1FF9B5BB0001D42E /* Headers */,
 				55FB06491FF9B5BB0001D42E /* Sources */,
+				5527FCDD21548EDB009D8808 /* Embed Frameworks */,
 				55FB064A1FF9B5BB0001D42E /* Frameworks */,
 				55FB064C1FF9B5BB0001D42E /* Resources */,
 			);
@@ -1439,6 +1485,12 @@
 			mainGroup = 55FB06441FF9B5BB0001D42E;
 			productRefGroup = 55FB064F1FF9B5BB0001D42E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5527FCD121548EA8009D8808 /* Products */;
+					ProjectRef = 5527FCD021548EA8009D8808 /* DifferenceKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				55FB064D1FF9B5BB0001D42E /* SyzygyCore */,
@@ -1450,6 +1502,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5527FCD621548EA9009D8808 /* DifferenceKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DifferenceKit.framework;
+			remoteRef = 5527FCD521548EA9009D8808 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5527FCD821548EA9009D8808 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 5527FCD721548EA9009D8808 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		552B49312012D4600054997E /* Resources */ = {
