@@ -51,15 +51,26 @@ public extension PlatformViewController {
         let inserted = new.subtracting(old)
         
         for child in removed {
+            #if BUILDING_FOR_MOBILE
             child.willMove(toParent: nil)
+            #endif
             child.removeFromParent()
         }
         
         for child in inserted {
             addChild(child)
+            #if BUILDING_FOR_MOBILE
             child.didMove(toParent: self)
+            #endif
         }
         
+    }
+    
+    func replaceChild(_ child: PlatformViewController?,
+                      with newChild: PlatformViewController,
+                      in container: PlatformView? = nil) {
+        
+        self.replaceChild(child, with: newChild, in: container, duration: 0.3, options: [.crossfade])
     }
     
 }

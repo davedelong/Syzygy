@@ -37,6 +37,16 @@ public extension FileManager {
         return fileExists(atPath: path.fileSystemPath, isDirectory: isDirectory)
     }
     
+    public func folderExists(atPath path: String) -> Bool {
+        var isFolder: ObjCBool = false
+        let exists = fileExists(atPath: path, isDirectory: &isFolder)
+        return exists && isFolder.boolValue
+    }
+    
+    public func folderExists(atURL url: URL) -> Bool {
+        return folderExists(atPath: url.path)
+    }
+    
     public func folderExists(atPath path: AbsolutePath) -> Bool {
         var isFolder: ObjCBool = false
         let exists = pathExists(path, isDirectory: &isFolder)

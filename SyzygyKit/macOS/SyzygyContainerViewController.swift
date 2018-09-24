@@ -26,7 +26,7 @@ public class SyzygyContainerViewController: SyzygyViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         disposable += contentProvider.observe { [weak self] content in
-            self?.transition(from: self?.content, to: content)
+            self?.replaceChild(self?.content, with: content)
             self?.content = content
         }
     }

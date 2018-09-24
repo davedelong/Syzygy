@@ -6,7 +6,27 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-public extension NSViewController {
+extension NSViewController: _PlatformViewController {
+    
+    var loadedView: PlatformView { return view }
+    
+    func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?) {
+        let targetView = resolving(container: aView)
+        
+        if viewController.loadedView.superview != targetView {
+            viewController.loadedView.removeFromSuperview()
+        }
+        
+        if viewController.parent != self {
+            viewController.removeFromParent()
+            addChild(viewController)
+        }
+        
+        if viewController.loadedView.superview != targetView {
+            targetView.embedSubview(viewController.loadedView)
+        }
+    }
+    
     
     internal var _actualView: NSView { return view }
     
@@ -15,15 +35,16 @@ public extension NSViewController {
         return view
     }
     
-    public func transition(from: NSViewController?, to: NSViewController?, in container: NSView? = nil, options: NSViewController.TransitionOptions = [], completion: ((Bool) -> Void)? = nil) {
-        // don't need to do anything if both are nil
-        guard from != nil || to != nil else { return }
+    func replaceChild(_ child: PlatformViewController?,
+                      with newChild: PlatformViewController,
+                      in container: PlatformView?,
+                      duration: TimeInterval,
+                      options: PlatformViewController.TransitionOptions) {
         
-        let source = from ?? SyzygyViewController(ui: .empty)
-        let dest = to ?? SyzygyViewController(ui: .empty)
+        let source = child ?? SyzygyViewController(ui: .empty)
+        let dest = newChild
         
-        let needsSourceRemoval = from == nil
-        let needsDestRemoval = to == nil
+        let needsSourceRemoval = child == nil
         
         // transitioning expects that all view controllers are children of self
         let sourceView = source.view
@@ -66,13 +87,6 @@ public extension NSViewController {
                 sourceView.removeFromSuperview()
                 source.removeFromParent()
             }
-            
-            if needsDestRemoval {
-                destView.removeFromSuperview()
-                dest.removeFromParent()
-            }
-            
-            completion?(true)
         }
         
     }

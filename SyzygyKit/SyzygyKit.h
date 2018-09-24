@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <SyzygyCore/SyzygyCore.h>
 
 #if TARGET_OS_IPHONE
-
 #import <UIKit/UIKit.h>
-
 #else
-
 #import <AppKit/AppKit.h>
+#endif
 
+#import <SyzygyCore/SyzygyCore.h>
+
+#if BUILDING_FOR_MAC
+#import <SyzygyKit/Authorization.h>
 #endif

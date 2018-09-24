@@ -58,4 +58,16 @@ public extension URL {
         components.path = NSString.path(withComponents: finalPath)
         return components.url ?? self
     }
+    
+    var isHidden: Bool {
+        guard isFileURL else { return false }
+        var url = self
+        while url.path != "/" {
+            if url.path == "/Volumes" { return false }
+            let values = try? url.resourceValues(forKeys: [.isHiddenKey])
+            if values?.isHidden == true { return true }
+            url = url.deletingLastPathComponent()
+        }
+        return false
+    }
 }

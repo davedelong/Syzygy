@@ -10,6 +10,11 @@ import Cocoa
 
 public extension NSView {
     
+    public var isVisible: Bool {
+        get { return !isHidden }
+        set { isHidden = !newValue }
+    }
+    
     public func firstSubview<T: NSView>() -> T? {
         guard let match = subview(where: { $0 is T }, recurses: true) else { return nil }
         return match as? T

@@ -86,6 +86,9 @@
 		5527FCDC21548EC9009D8808 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5527FCD621548EA9009D8808 /* DifferenceKit.framework */; };
 		5527FCDE21548EE3009D8808 /* DifferenceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5527FCD621548EA9009D8808 /* DifferenceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5527FCE32155432D009D8808 /* Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527FCE22155432D009D8808 /* Difference.swift */; };
+		5527FCF72156EF23009D8808 /* _LSSharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5527FCF42156E6A3009D8808 /* _LSSharedFileList.m */; };
+		5527FCF82156EF3E009D8808 /* _LSSharedFileList.h in Headers */ = {isa = PBXBuildFile; fileRef = 5527FCF32156E6A3009D8808 /* _LSSharedFileList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5527FCFA2156F308009D8808 /* SharedFileList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527FCF92156F308009D8808 /* SharedFileList.swift */; };
 		552B49372012D4610054997E /* SyzygyHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 552B49352012D4610054997E /* SyzygyHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		552B493C2012D5090054997E /* SyzygyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493B2012D5090054997E /* SyzygyHTTP.swift */; };
 		552B493E2012D5590054997E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B493D2012D5590054997E /* Request.swift */; };
@@ -170,6 +173,9 @@
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
 		55CF07A920DD4D1800266DCA /* NSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07A820DD4D1800266DCA /* NSApplication.swift */; };
 		55CF07AD20E2F93A00266DCA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07AC20E2F93A00266DCA /* Coordinator.swift */; };
+		55D6905421570AF70090222D /* MoveToApplicationsFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6905321570AF70090222D /* MoveToApplicationsFolder.swift */; };
+		55D69057215731230090222D /* Authorization.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D69055215731230090222D /* Authorization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55D69058215731230090222D /* Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D69056215731230090222D /* Authorization.m */; };
 		55D82F8C210A333000EF7965 /* Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F8B210A333000EF7965 /* Predicate.swift */; };
 		55D82F8E210A335D00EF7965 /* AnyPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F8D210A335D00EF7965 /* AnyPredicate.swift */; };
 		55D82F92210A33A500EF7965 /* NotPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D82F91210A33A500EF7965 /* NotPredicate.swift */; };
@@ -416,6 +422,9 @@
 		5523B0F120C19D3200A0B5CF /* RangeReplaceableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollection.swift; sourceTree = "<group>"; };
 		5527FCD021548EA8009D8808 /* DifferenceKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DifferenceKit.xcodeproj; path = DifferenceKit/DifferenceKit.xcodeproj; sourceTree = "<group>"; };
 		5527FCE22155432D009D8808 /* Difference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difference.swift; sourceTree = "<group>"; };
+		5527FCF32156E6A3009D8808 /* _LSSharedFileList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _LSSharedFileList.h; sourceTree = "<group>"; };
+		5527FCF42156E6A3009D8808 /* _LSSharedFileList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _LSSharedFileList.m; sourceTree = "<group>"; };
+		5527FCF92156F308009D8808 /* SharedFileList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileList.swift; sourceTree = "<group>"; };
 		552B49332012D4600054997E /* SyzygyHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552B49352012D4610054997E /* SyzygyHTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyHTTP.h; sourceTree = "<group>"; };
 		552B49362012D4610054997E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -504,6 +513,9 @@
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55CF07A820DD4D1800266DCA /* NSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication.swift; sourceTree = "<group>"; };
 		55CF07AC20E2F93A00266DCA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		55D6905321570AF70090222D /* MoveToApplicationsFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsFolder.swift; sourceTree = "<group>"; };
+		55D69055215731230090222D /* Authorization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Authorization.h; sourceTree = "<group>"; };
+		55D69056215731230090222D /* Authorization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Authorization.m; sourceTree = "<group>"; };
 		55D82F8B210A333000EF7965 /* Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicate.swift; sourceTree = "<group>"; };
 		55D82F8D210A335D00EF7965 /* AnyPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPredicate.swift; sourceTree = "<group>"; };
 		55D82F91210A33A500EF7965 /* NotPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotPredicate.swift; sourceTree = "<group>"; };
@@ -809,6 +821,9 @@
 				551D4817201151B300AF7CF8 /* NSViewController.swift */,
 				551D480F20114FC900AF7CF8 /* NSWindow.swift */,
 				559079C720B76F07005AECE7 /* NSWindowController.swift */,
+				55D6905321570AF70090222D /* MoveToApplicationsFolder.swift */,
+				55D69055215731230090222D /* Authorization.h */,
+				55D69056215731230090222D /* Authorization.m */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1022,6 +1037,9 @@
 				55FB06A51FF9BBFF0001D42E /* System.swift */,
 				5516CC642083F7D5008BB174 /* IOKit.h */,
 				5516CC652083F7D5008BB174 /* IOKit.m */,
+				5527FCF92156F308009D8808 /* SharedFileList.swift */,
+				5527FCF32156E6A3009D8808 /* _LSSharedFileList.h */,
+				5527FCF42156E6A3009D8808 /* _LSSharedFileList.m */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1293,6 +1311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */,
+				5527FCF82156EF3E009D8808 /* _LSSharedFileList.h in Headers */,
 				5516CC662083F7D5008BB174 /* IOKit.h in Headers */,
 				551D47C22006F9E100AF7CF8 /* Entitlements.h in Headers */,
 				55FB06EA1FF9BC070001D42E /* Objective-C.h in Headers */,
@@ -1303,6 +1322,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D69057215731230090222D /* Authorization.h in Headers */,
 				55FB06621FF9B5D30001D42E /* SyzygyKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1456,7 +1476,7 @@
 					};
 					55FB065D1FF9B5D30001D42E = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1647,6 +1667,7 @@
 				55FB06EC1FF9BC070001D42E /* Plist+Serialization.swift in Sources */,
 				55FB06DC1FF9BC070001D42E /* JSON.swift in Sources */,
 				55D82F94210A342000EF7965 /* AndPredicate.swift in Sources */,
+				5527FCF72156EF23009D8808 /* _LSSharedFileList.m in Sources */,
 				55D82F8C210A333000EF7965 /* Predicate.swift in Sources */,
 				55D82F98210A382100EF7965 /* Collection+Predicate.swift in Sources */,
 				55FB07601FFAC7690001D42E /* SyzygyCore.swift in Sources */,
@@ -1724,6 +1745,7 @@
 				55D82F9C210A704700EF7965 /* SetAlgebra+Predicate.swift in Sources */,
 				554F9561201D38E3007864A7 /* CLLocation.swift in Sources */,
 				55FB06EE1FF9BC070001D42E /* KVOProperty.swift in Sources */,
+				5527FCFA2156F308009D8808 /* SharedFileList.swift in Sources */,
 				551C00B320F02B7C006CE550 /* SyzygyCore~ios.swift in Sources */,
 				55FB073F1FF9D0EE0001D42E /* Sandbox.swift in Sources */,
 				55FB07191FF9BC070001D42E /* URLRouting.swift in Sources */,
@@ -1835,6 +1857,7 @@
 				551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */,
 				55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */,
 				554F9565201D3F51007864A7 /* UIGestureRecognizer+Blocks.swift in Sources */,
+				55D6905421570AF70090222D /* MoveToApplicationsFolder.swift in Sources */,
 				5555B398214EA2CE00CC621E /* BasicTextItem~ios.swift in Sources */,
 				550E747F21053C1C00170790 /* SyzygySearchDelegate.swift in Sources */,
 				551D481020114FC900AF7CF8 /* NSWindow.swift in Sources */,
@@ -1874,6 +1897,7 @@
 				551C00A720EFCCCD006CE550 /* Shape~ios.swift in Sources */,
 				553912DD20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift in Sources */,
 				5555B395214E937B00CC621E /* DataSourceItem.swift in Sources */,
+				55D69058215731230090222D /* Authorization.m in Sources */,
 				551D481C20117A9700AF7CF8 /* AffineTransform.swift in Sources */,
 				551C008620EFB973006CE550 /* Color~ios.swift in Sources */,
 				5534E2E7212A372900233911 /* SegmentedDataSource.swift in Sources */,
@@ -1973,14 +1997,23 @@
 		55FB06641FF9B5D30001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		55FB06651FF9B5D30001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

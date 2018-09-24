@@ -90,3 +90,7 @@ extension UIViewController: _PlatformViewController {
     }
     
 }
+
+public extension UIView.AnimationOptions {
+    public static let crossfade = UIView.AnimationOptions.transitionCrossDissolve
+}

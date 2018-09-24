@@ -188,7 +188,7 @@ internal class SeparatorView: DataSourceRowView {
         super.awakeFromNib()
         guard line == nil else { return }
         
-        let l = NSBox(separator: .horizontal)
+        let l = NSBox(orientation: .horizontal)
         setup(line: l, in: self)
     }
     
@@ -227,8 +227,14 @@ internal class SeparatorView: DataSourceRowView {
         
         let h = line.heightAnchor.constraint(equalToConstant: 1.0)
         
+        #if BUILDING_FOR_MOBILE
+        let leading = line.leadingAnchor.constraint(equalToSystemSpacingAfter: parent.leadingAnchor, multiplier: 1.0)
+        #else
+        let leading = line.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 20)
+        #endif
+        
         NSLayoutConstraint.activate([
-            line.leadingAnchor.constraint(equalToSystemSpacingAfter: parent.leadingAnchor, multiplier: 1.0),
+            leading,
             parent.trailingAnchor.constraint(equalTo: line.trailingAnchor),
             
             line.topAnchor.constraint(equalTo: parent.topAnchor),

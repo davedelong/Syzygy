@@ -14,4 +14,5 @@
 
 #if BUILDING_FOR_DESKTOP
 #import <SyzygyCore/IOKit.h>
+#import <SyzygyCore/_LSSharedFileList.h>
 #endif

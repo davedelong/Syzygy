@@ -9,14 +9,22 @@
 import Foundation
 
 public class Action {
+    #if BUILDING_FOR_MAC
+    private static let copySelector = #selector(NSText.copy(_:))
+    private static let pasteSelector = #selector(NSText.paste(_:))
+    #else
+    private static let copySelector = #selector(UIResponderStandardEditActions.copy(_:))
+    private static let pasteSelector = #selector(UIResponderStandardEditActions.paste(_:))
+    #endif
+    
     public typealias Handler = (Any?) -> Void
     
     public static func copy(_ handler: @escaping Handler) -> Action {
-        return Action(name: "Copy", image: nil, selector: #selector(UIResponderStandardEditActions.copy(_:)), handler: handler)
+        return Action(name: "Copy", image: nil, selector: copySelector, handler: handler)
     }
     
     public static func paste(_ handler: @escaping Handler) -> Action {
-        return Action(name: "Paste", image: nil, selector: #selector(UIResponderStandardEditActions.paste(_:)), handler: handler)
+        return Action(name: "Paste", image: nil, selector: pasteSelector, handler: handler)
     }
     
     public let name: String
