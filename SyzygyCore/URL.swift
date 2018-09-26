@@ -70,4 +70,6 @@ public extension URL {
         }
         return false
     }
+    
+    var isVisible: Bool { return !isHidden }
 }
