@@ -36,6 +36,10 @@ public extension Bundle {
         return (try? Plist(data: data)) ?? .unknown
     }
     
+    var shortBundleVersion: String? {
+        return object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+    
     var bundleVersion: String {
         guard let version = object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String else {
             return "unknown"

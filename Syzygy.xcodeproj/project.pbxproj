@@ -199,6 +199,7 @@
 		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
 		55F3755A20BC6A7E00E7D742 /* SyzygySidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */; };
 		55F3755B20BC6A7E00E7D742 /* SyzygySidebarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */; };
+		55F3A5AC215EAC5A0038B3BA /* UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3A5AB215EAC5A0038B3BA /* UUID.swift */; };
 		55F7248F2038922B0093473F /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7248E2038922B0093473F /* Header.swift */; };
 		55F72491203892380093473F /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F72490203892380093473F /* Method.swift */; };
 		55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06511FF9B5BB0001D42E /* SyzygyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -539,6 +540,7 @@
 		55F0AFB11FFD9EAF003DCBB6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySidebarViewController.swift; sourceTree = "<group>"; };
 		55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyzygySidebarViewController.xib; sourceTree = "<group>"; };
+		55F3A5AB215EAC5A0038B3BA /* UUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUID.swift; sourceTree = "<group>"; };
 		55F7248E2038922B0093473F /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55F72490203892380093473F /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1135,6 +1137,7 @@
 				55FB06CF1FF9BC070001D42E /* Timer.swift */,
 				55FB06C61FF9BC050001D42E /* URL.swift */,
 				55EB037920212D74007B5433 /* UserDefaults.swift */,
+				55F3A5AB215EAC5A0038B3BA /* UUID.swift */,
 				55FB06B51FF9BC020001D42E /* WeakBox.swift */,
 				554F9568201D5D3F007864A7 /* QueryController.swift */,
 				55D82F8A210A332700EF7965 /* Predicate */,
@@ -1683,6 +1686,7 @@
 				55FB06F71FF9BC070001D42E /* FileManager+Property.swift in Sources */,
 				55FB070A1FF9BC070001D42E /* System.swift in Sources */,
 				550E746B2103F50700170790 /* Tree.swift in Sources */,
+				55F3A5AC215EAC5A0038B3BA /* UUID.swift in Sources */,
 				55FB071F1FF9BC070001D42E /* Path.swift in Sources */,
 				55FB06E21FF9BC070001D42E /* JSONError.swift in Sources */,
 				55FB07021FF9BC070001D42E /* MutableProperty.swift in Sources */,
