@@ -8,39 +8,26 @@
 
 import Foundation
 
-public protocol ManagedPath {
-    var content: AbsolutePath { get }
-    func keepAlive()
-}
-
-public extension ManagedPath {
-    public func keepAlive() { }
-}
-
-extension AbsolutePath: ManagedPath {
-    public var content: AbsolutePath { return self }
-}
-
-public final class TemporaryPath: ManagedPath {
+public final class TemporaryFile {
     
-    public let content: AbsolutePath
+    public let location: AbsolutePath
     
     public lazy var fileHandle: FileHandle? = {
-        return FileHandle(forUpdatingAtPath: self.content)
+        return FileHandle(forUpdatingAtPath: self.location)
     }()
     
-    public init(extension ext: String? = nil, in directory: AbsolutePath = .temporaryDirectory) {
+    public init(extension ext: String? = nil, in directory: AbsolutePath = .temporaryDirectory, contents: Data? = nil) {
         var name = UUID().uuidString
         if let ext = ext {
             name = name + "." + ext
         }
-        content = AbsolutePath.temporaryDirectory.appending(component: name)
+        location = AbsolutePath.temporaryDirectory.appending(component: name)
         
-        FileManager.default.createFile(atPath: content)
+        FileManager.default.createFile(atPath: location, contents: contents)
     }
     
     deinit {
-        let path = self.content
+        let path = self.location
         DispatchQueue.global(qos: .utility).async {
             try? FileManager.default.removeItem(atPath: path)
         }

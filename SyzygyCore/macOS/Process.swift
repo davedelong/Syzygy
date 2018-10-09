@@ -61,7 +61,7 @@ public extension Process {
         task.arguments = arguments
         task.qualityOfService = .userInitiated
         
-        let output = TemporaryPath(extension: "txt")
+        let output = TemporaryFile(extension: "txt")
         let handle = output.fileHandle
         defer { handle?.closeFile() }
         

@@ -62,8 +62,10 @@ void sharedFileListDidChange(LSSharedFileListRef inList, void *context);
         UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
         CFURLRef currentItemURL = NULL;
         LSSharedFileListItemResolve(item, resolutionFlags, &currentItemURL, NULL);
-        NSURL *itemURL = CFBridgingRelease(currentItemURL);
-        [snapshot addObject:itemURL];
+        if (currentItemURL != NULL) {
+            NSURL *itemURL = CFBridgingRelease(currentItemURL);
+            [snapshot addObject:itemURL];
+        }
     }
     
     return snapshot;

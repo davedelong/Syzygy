@@ -10,6 +10,17 @@ import Foundation
 
 public class Sandbox {
     
+    private static func namespace(path: AbsolutePath) -> AbsolutePath {
+        #if BUILDING_FOR_MAC
+        let name = Bundle.main.bundleIdentifier ?? Bundle.main.name
+        let subfolder = path.appending(component: name)
+        try? FileManager.default.createDirectory(at: subfolder)
+        return subfolder
+        #else
+        return path
+        #endif
+    }
+    
     public static let `default`: Sandbox = {
         guard let group = Entitlements.current?.sharedGroupContainers.first else { return currentProcess }
         guard let box = Sandbox(groupIdentifier: group) else { return currentProcess }
@@ -20,7 +31,8 @@ public class Sandbox {
         let docs = try! FileManager.default.path(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let cache = try! FileManager.default.path(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let support = try! FileManager.default.path(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        return Sandbox(documents: docs, caches: cache, support: support, defaults: UserDefaults.standard)
+        
+        return Sandbox(documents: docs, caches: namespace(path: cache), support: namespace(path: support), defaults: UserDefaults.standard)
     }()
     
     public let documents: AbsolutePath
@@ -63,7 +75,7 @@ public class Sandbox {
         self.temporary = AbsolutePath(fileSystemPath: NSTemporaryDirectory())
     }
     
-    public func temporaryPath() -> TemporaryPath {
-        return TemporaryPath(in: temporary)
+    public func temporaryFile() -> TemporaryFile {
+        return TemporaryFile(in: temporary)
     }
 }
