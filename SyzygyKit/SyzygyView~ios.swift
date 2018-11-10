@@ -12,6 +12,8 @@ public class SyzygyView: PlatformView {
     
     public internal(set) weak var controller: _SyzygyViewControllerBase?
     
+    private var delegatingSystemLayoutSize = false
+    
     open override func didMoveToSuperview() {
         super.didMoveToSuperview()
         controller?.viewDidMoveToSuperview(self.superview)
@@ -20,6 +22,24 @@ public class SyzygyView: PlatformView {
     open override func didMoveToWindow() {
         super.didMoveToWindow()
         controller?.viewDidMoveToWindow(self.window)
+    }
+    
+    open override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+        
+        var size = super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
+        
+        if let c = controller, delegatingSystemLayoutSize == false {
+            delegatingSystemLayoutSize = true
+            size = c.viewSystemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
+            delegatingSystemLayoutSize = false
+        }
+        
+        return size        
+    }
+    
+    public override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
+        print("HERE2")
+        return super.systemLayoutSizeFitting(targetSize)
     }
     
 }

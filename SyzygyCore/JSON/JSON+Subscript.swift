@@ -22,6 +22,8 @@ public extension JSON {
             if var dict = self.object {
                 dict[key] = newValue
                 self = .object(dict)
+            } else if self.isUnknown {
+                self = .object([key: newValue])
             }
             
         }
@@ -40,6 +42,10 @@ public extension JSON {
             if var arr = self.array {
                 arr[index] = newValue
                 self = .array(arr)
+            } else if self.isUnknown {
+                var pieces = Array(repeating: JSON.unknown, count: max(index - 1, 0))
+                pieces.append(newValue)
+                self = .array(pieces)
             }
         }
     }

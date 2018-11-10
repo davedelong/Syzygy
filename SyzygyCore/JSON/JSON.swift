@@ -34,6 +34,10 @@ public enum JSON {
             case .object(_): return .object
         }
     }
+    
+    public init() {
+        self = .unknown
+    }
 }
 
 extension JSON {

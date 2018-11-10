@@ -135,9 +135,9 @@ public extension Collection {
     
     public func sorted<C: Comparable>(ascending: Bool = true, by: (Element) -> C) -> Array<Element> {
         if ascending {
-            return sorted(by: { by($0) < by($1) })
-        } else {
             return sorted(by: { by($0) > by($1) })
+        } else {
+            return sorted(by: { by($0) < by($1) })
         }
     }
     
@@ -147,6 +147,22 @@ public extension Collection {
             if matches(item) { count += 1}
         }
         return count
+    }
+    
+    public func chunks(of size: Int) -> ChunkedCollection<Self> {
+        return ChunkedCollection(self, size: size)
+    }
+    
+}
+
+public extension Collection where Element: Numeric {
+    
+    public func sum() -> Element {
+        var s = Element.init(exactly: 0) !! "Unable to create zero of type \(Element.self)"
+        for item in self {
+            s += item
+        }
+        return s
     }
     
 }
@@ -163,5 +179,34 @@ public extension Collection where Element: Hashable {
             }
         }
         return uniqued
+    }
+}
+
+
+public struct ChunkedCollection<Base: Collection>: Collection {
+    private let base: Base
+    private let chunkSize: Int
+    
+    public init(_ base: Base, size: Int) {
+        self.base = base
+        chunkSize = size
+    }
+    
+    public typealias Index = Base.Index
+    
+    public var startIndex: Index {
+        return base.startIndex
+    }
+    
+    public var endIndex: Index {
+        return base.endIndex
+    }
+    
+    public func index(after index: Index) -> Index {
+        return base.index(index, offsetBy: chunkSize, limitedBy: base.endIndex) ?? base.endIndex
+    }
+    
+    public subscript(index: Index) -> Base.SubSequence {
+        return base[index..<self.index(after: index)]
     }
 }

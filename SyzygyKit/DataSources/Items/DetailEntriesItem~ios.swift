@@ -8,17 +8,19 @@
 
 import UIKit
 
-open class DetailEntriesItem: UITableViewCellDefault, DataSourceItem {
+open class DetailEntriesItem: DataSourceItemCell {
     public typealias Entry = (NSAttributedString, NSAttributedString)
     
     private let titleLabel: UILabel
+    private let captionLabel: UILabel
     private let detailStack: UIStackView
     
-    public init(title: String, entries: Array<Entry>) {
+    public init(title: String, caption: NSAttributedString? = nil, entries: Array<Entry>) {
         self.titleLabel = UILabel(frame: .zero)
+        self.captionLabel = UILabel(frame: .zero)
         self.detailStack = UIStackView(arrangedSubviews: [])
         
-        super.init(style: .default, reuseIdentifier: "DetailEntriesItem")
+        super.init()
         
         selectable = false
         
@@ -27,16 +29,26 @@ open class DetailEntriesItem: UITableViewCellDefault, DataSourceItem {
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.text = title
         
+        captionLabel.translatesAutoresizingMaskIntoConstraints = false
+        captionLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
+        captionLabel.adjustsFontForContentSizeCategory = true
+        captionLabel.attributedText = caption
+        captionLabel.textAlignment = .right
+        
         detailStack.translatesAutoresizingMaskIntoConstraints = false
         detailStack.axis = .vertical
         
         contentView.addSubview(titleLabel)
+        contentView.addSubview(captionLabel)
         contentView.addSubview(detailStack)
         
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
             titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
-            contentView.trailingAnchor.constraint(greaterThanOrEqualTo: titleLabel.trailingAnchor),
+            
+            captionLabel.firstBaselineAnchor.constraint(equalTo: titleLabel.firstBaselineAnchor),
+            captionLabel.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: titleLabel.trailingAnchor, multiplier: 1.0),
+            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: captionLabel.trailingAnchor, multiplier: 1.0),
             
             detailStack.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
             detailStack.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 1.0),

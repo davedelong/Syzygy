@@ -40,7 +40,8 @@ public struct Entitlements {
         guard plist.isDictionary else { return nil }
         raw = plist
         
-        applicationIdentifier = raw.value(for: "application-identifier") !! "Missing application identifier"
+        applicationIdentifier = raw.value(for: "application-identifier") ?? "UNKNOWN"
+        //!! "Missing application identifier"
         
         sharedGroupContainers = raw.value(for: "com.apple.security.application-groups") ?? []
         keychainAccessGroups = raw.value(for: "keychain-access-groups") ?? []

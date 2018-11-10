@@ -78,6 +78,7 @@ open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelega
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = _contents[indexPath.row]
         selectionHandler?(row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

@@ -77,4 +77,9 @@ public class ShapeView: PlatformView {
         updateShape()
     }
     
+    public override func didAddSubview(_ subview: UIView) {
+        super.didAddSubview(subview)
+        layer.insertSublayer(shapeLayer, at: 0)
+    }
+    
 }

@@ -94,7 +94,7 @@ private func enumerateFormatPieces(dateFormat: String, enumerator: (String, Date
     for character in dateFormat {
         if stop == true { break }
         
-        isInsideLiteral = (character == LiteralCharacter ? !isInsideLiteral : isInsideLiteral)
+        isInsideLiteral = (character == LiteralCharacter ? isInsideLiteral.negated() : isInsideLiteral)
         if character == currentCharacter {
             // same format character as before
             currentPiece = (currentPiece ?? "") + String(character)
@@ -107,7 +107,7 @@ private func enumerateFormatPieces(dateFormat: String, enumerator: (String, Date
             currentCharacter = character
         }
         
-        if !isInsideLiteral {
+        if isInsideLiteral == false {
             currentAttribute = FormatMappings[character]
         } else {
             currentAttribute = nil

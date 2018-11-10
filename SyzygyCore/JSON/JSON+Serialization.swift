@@ -25,7 +25,7 @@ extension JSON {
         return try JSONSerialization.data(withJSONObject: o, options: options)
     }
     
-    func jsonObject() throws -> Any {
+    public func jsonObject() throws -> Any {
         switch self {
             case .unknown: throw JSONError.unknownJSON()
             case .null: return NSNull()
@@ -35,6 +35,11 @@ extension JSON {
             case .array(let a): return try a.map { try $0.jsonObject() }
             case .object(let d): return try d.mapValues { try $0.jsonObject() }
         }
+    }
+    
+    public func jsonString(_ options: JSONSerialization.WritingOptions = [.prettyPrinted]) throws -> String {
+        let d = try data(options)
+        return try String(data: d, encoding: .utf8) ?! JSONError.serializationError()
     }
     
 }

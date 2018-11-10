@@ -128,7 +128,7 @@ public extension String {
                     terms.append(current)
                     current = ""
                 }
-                isInsideQuote = !isInsideQuote
+                isInsideQuote.toggle()
             } else if isInsideQuote {
                 current.append(c)
             } else if c.isWhitespace == false {

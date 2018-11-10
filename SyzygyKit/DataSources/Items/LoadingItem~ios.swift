@@ -8,10 +8,10 @@
 
 import UIKit
 
-open class LoadingItem: UITableViewCellDefault, DataSourceItem {
+open class LoadingItem: DataSourceItemCell {
     
-    public init() {
-        super.init(style: .default, reuseIdentifier: "Loading")
+    public override init() {
+        super.init()
         
         selectable = false
         

@@ -10,7 +10,7 @@ import Foundation
 
 public typealias Map<T> = Dictionary<Identifier<T>, T>
 
-public struct Identifier<T>: Newtype, Equatable, Hashable {
+public struct Identifier<T>: Newtype, Equatable, Hashable, Codable {
     public let rawValue: String
     public var hashValue: Int { return rawValue.hashValue }
     
@@ -20,6 +20,16 @@ public struct Identifier<T>: Newtype, Equatable, Hashable {
     
     public init(_ rawValue: String) {
         self.rawValue = rawValue
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        self = .init(rawValue: try container.decode(String.self))
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(rawValue)
     }
     
 }

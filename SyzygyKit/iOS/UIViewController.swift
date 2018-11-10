@@ -43,6 +43,7 @@ extension UIViewController: _PlatformViewController {
                              in container: PlatformView? = nil,
                              duration: TimeInterval = 0.3,
                              options: PlatformViewController.TransitionOptions = [.transitionCrossDissolve]) {
+        guard child != newChild else { return }
         
         let targetView = resolving(container: container)
         
@@ -51,11 +52,12 @@ extension UIViewController: _PlatformViewController {
             
             Assert.that(old.loadedView.superview == targetView, because: "Incoming view controller \(newChild) must target the same container view as \(old)")
             
+            old.beginAppearanceTransition(false, animated: true)
+            newChild.beginAppearanceTransition(true, animated: true)
+            
             old.willMove(toParent: nil)
             addChild(newChild)
             
-            old.beginAppearanceTransition(false, animated: true)
-            newChild.beginAppearanceTransition(true, animated: true)
             
             targetView.embedSubview(newChild.loadedView)
             targetView.bringSubviewToFront(old.loadedView)
@@ -65,25 +67,25 @@ extension UIViewController: _PlatformViewController {
                            options: options,
                            animations: { },
                            completion: { _ in
-                            old.endAppearanceTransition()
                             old.view.removeFromSuperview()
                             old.removeFromParent()
+                            old.endAppearanceTransition()
                             
-                            newChild.endAppearanceTransition()
                             newChild.didMove(toParent: self)
+                            newChild.endAppearanceTransition()
             })
         } else {
             newChild.loadedView.alpha = 0
             
+            newChild.beginAppearanceTransition(true, animated: true)
+            
             addChild(newChild)
             targetView.embedSubview(newChild.loadedView)
             
-            newChild.beginAppearanceTransition(true, animated: true)
-            
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
                 newChild.loadedView.alpha = 1
-                newChild.endAppearanceTransition()
                 newChild.didMove(toParent: self)
+                newChild.endAppearanceTransition()
             }, completion: nil)
         }
         

@@ -39,6 +39,13 @@ open class CompositeDataSource: AnyDataSource {
         children.remove(at: index)
     }
     
+    public func removeAllChildren() {
+        while children.isNotEmpty {
+            let first = children.removeFirst()
+            removeChild(first)
+        }
+    }
+    
     private func offset(for child: AnyDataSource) -> Int? {
         var offset = 0
         for thisChild in children {

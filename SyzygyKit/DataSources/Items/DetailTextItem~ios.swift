@@ -8,50 +8,57 @@
 
 import UIKit
 
-open class DetailTextItem: UITableViewCellDefault, DataSourceItem {
+open class DetailTextItem: DataSourceItemCell {
     
     public convenience init(headline: String, detail: String = "") {
         let t = NSAttributedString(string: headline, attributes: [.font: UIFont.preferredFont(forTextStyle: .headline)])
-        let d = NSAttributedString(string: detail, attributes: [.font: UIFont.preferredFont(forTextStyle: .body)])
-        self.init(title: t, detail: d)
+        self.init(title: t, detail: detail)
     }
     
     public convenience init(title: String, detail: String) {
         let t = NSAttributedString(string: title, attributes: [.font: UIFont.preferredFont(forTextStyle: .body)])
-        let d = NSAttributedString(string: detail, attributes: [.font: UIFont.preferredFont(forTextStyle: .body)])
-        self.init(title: t, detail: d)
+        self.init(title: t, detail: detail)
     }
     
-    public init(title: NSAttributedString, detail: NSAttributedString) {
-        super.init(style: .default, reuseIdentifier: "DetailTextItem")
+    private let titleLabel = UILabel()
+    private let detailLabel = UILabel()
+    
+    public init(title: NSAttributedString, detail: String) {
+        super.init()
         
         selectable = false
         
-        let t = UILabel()
-        t.translatesAutoresizingMaskIntoConstraints = false
-        t.adjustsFontForContentSizeCategory = true
-        t.numberOfLines = 0
-        t.attributedText = title
-        contentView.addSubview(t)
-        
-        let d = UILabel()
-        d.translatesAutoresizingMaskIntoConstraints = false
-        d.adjustsFontForContentSizeCategory = true
-        d.numberOfLines = 0
-        d.textAlignment = .right
-        d.attributedText = detail
-        contentView.addSubview(d)
-        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.numberOfLines = 0
+        titleLabel.attributedText = title
+        titleLabel.setContentHuggingPriority(.required, for: .horizontal)
+        titleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        contentView.addSubview(titleLabel)
+
+        detailLabel.translatesAutoresizingMaskIntoConstraints = false
+        detailLabel.adjustsFontForContentSizeCategory = true
+        detailLabel.numberOfLines = 0
+        detailLabel.textAlignment = .right
+        detailLabel.text = detail
+        detailLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        contentView.addSubview(detailLabel)
+
         NSLayoutConstraint.activate([
-            t.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            t.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
-            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: t.bottomAnchor, multiplier: 1.0),
+            // horizontal
+            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
+            detailLabel.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: titleLabel.trailingAnchor, multiplier: 1.0),
+            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: detailLabel.trailingAnchor, multiplier: 1.0),
             
-            d.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: t.leadingAnchor, multiplier: 1.0),
-            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: d.trailingAnchor, multiplier: 1.0),
-            d.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
-            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: d.bottomAnchor, multiplier: 1.0),
+            // title vertical
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleLabel.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
             
+            // detail vertical
+            detailLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            detailLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
+            
+            // cell min height
             contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0)
         ])
     }

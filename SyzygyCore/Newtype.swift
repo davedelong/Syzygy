@@ -8,10 +8,7 @@
 
 import Foundation
 
-public protocol Newtype {
-    associatedtype RawValue
-    
-    var rawValue: RawValue { get }
+public protocol Newtype: RawRepresentable {
     init(rawValue: RawValue)
 }
 

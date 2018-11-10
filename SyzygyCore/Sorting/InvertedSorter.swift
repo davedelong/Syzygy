@@ -16,7 +16,7 @@ public struct InvertedSorter<B>: Sorting {
     }
     
     public func orders(_ left: B, before: B) -> Bool {
-        return !ordersBefore(left, before)
+        return ordersBefore(left, before) == false
     }
 }
 

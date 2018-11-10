@@ -8,22 +8,24 @@
 
 import Foundation
 
+
+extension Set where Element == SeparatorDataSource.Placement {
+    public static var surround: Set<Element> = [.before, .inBetween, .after]
+    public static var `default`: Set<Element> = [.inBetween, .after]
+}
+
 open class SeparatorDataSource: AnyDataSource {
     
-    public struct Placement: OptionSet {
-        public static let `default`: Placement = [.inBetween, .after]
-        public static let before = Placement(rawValue: 1 << 0)
-        public static let inBetween = Placement(rawValue: 1 << 1)
-        public static let after = Placement(rawValue: 1 << 2)
-        
-        public let rawValue: Int
-        public init(rawValue: Int) { self.rawValue = rawValue }
+    public enum Placement: Option, CaseIterable {        
+        case before
+        case inBetween
+        case after
     }
     
     private let child: AnyDataSource
-    private let separators: Placement
+    private let separators: Set<Placement>
     
-    public init(child: AnyDataSource, separatorPlacement: Placement = .default) {
+    public init(child: AnyDataSource, separatorPlacement: Set<Placement> = .default) {
         self.child = child
         self.separators = separatorPlacement
         super.init(name: child.name)

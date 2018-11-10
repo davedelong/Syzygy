@@ -13,7 +13,7 @@ public struct NotPredicate<E>: Predicate {
     private let predicate: (E) -> Bool
     
     public init<P: Predicate>(_ predicate: P) where P.Element == Element {
-        self.predicate = { !predicate.contains($0) }
+        self.predicate = { predicate.contains($0) == false }
     }
     
     public func contains(_ value: E) -> Bool {

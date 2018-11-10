@@ -8,17 +8,17 @@
 
 import UIKit
 
-open class SeparatorItem: UITableViewCell, DataSourceItem {
+open class SeparatorItem: DataSourceItemCell {
     
     private let lineHeight: NSLayoutConstraint
     
-    public init() {
+    public override init() {
         let l = UIView()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        l.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
         lineHeight = l.heightAnchor.constraint(equalToConstant: 1.0)
         
-        super.init(style: .default, reuseIdentifier: "SeparatorItem")
+        super.init()
         contentView.addSubview(l)
         
         NSLayoutConstraint.activate([

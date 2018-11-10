@@ -10,36 +10,35 @@ import UIKit
 
 internal class ContextualActionHandler: NSObject {
     
+    private var allActions = Array<Action>()
     private var actions = Array<Action>()
-    private var selectors = Array<Selector>()
-    
-    internal var hasActions: Bool { return actions.isNotEmpty }
     
     internal override init() {
         super.init()
     }
     
-    internal func update(with actions: Array<Action>) {
-        self.actions = actions
+    internal func update(with actions: Array<Action>) -> Bool {
+        allActions = actions
+        let nonStandard = actions.filter { $0.isStandardEditAction == false }
+        self.actions = nonStandard
         
-        self.selectors = (0..<actions.count).map { Selector("\($0):")}
-        
-        let menuItems = zip(actions, selectors).map { (a, s) in
-            return UIMenuItem(title: a.name, action: s)
+        let menuItems = nonStandard.map { a in
+            return UIMenuItem(title: a.name, action: a.selector)
         }
         
         let menu = UIMenuController.shared
         menu.menuItems = menuItems
+        
+        return allActions.isNotEmpty
     }
     
     internal func canPerform(_ selector: Selector) -> Bool {
-        return selectors.contains(selector)
+        return allActions.any { $0.selector == selector }
     }
     
     internal func perform(_ selector: Selector, sender: Any?) {
-        guard let index = selectors.index(of: selector) else { return }
-        let action = actions[index]
-        action.handler(sender)
+        let action = allActions.first { $0.selector == selector }
+        action?.handler(sender)
     }
     
 }

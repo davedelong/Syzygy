@@ -106,6 +106,19 @@ public extension Property where T: Collection, T.Element: Hashable {
     
 }
 
+public extension Property {
+    
+    public func includingPrevious() -> Property<(T, T)> {
+        var initial = value
+        return map { newValue in
+            let oldValue = initial
+            initial = newValue
+            return (oldValue, newValue)
+        }
+    }
+    
+}
+
 public extension Property where T: RangeReplaceableCollection, T.Element: Differentiable {
     
     public func diffingPrevious() -> Property<(T, StagedChangeset<T>)> {

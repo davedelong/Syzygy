@@ -45,6 +45,8 @@ public struct Color {
 }
 
 public extension Color {
+    public static let action = Color(hexString: "007AFF")!
+    
     public static let black = Color(color: .black)
     public static let darkGray = Color(color: .darkGray)
     public static let gray = Color(color: .gray)

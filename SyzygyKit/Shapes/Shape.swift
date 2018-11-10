@@ -51,4 +51,5 @@ public extension Shape {
     }
     
     static let star = Shape { BezierPath(starShapeIn: $0) }
+    static let heart = Shape { BezierPath(heartShapeIn: $0) }
 }

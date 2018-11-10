@@ -8,11 +8,24 @@
 
 import UIKit
 
+public class ItemViewController: UITableViewController {
+    
+    private var adapter: DataSourceAdapter?
+    
+    public init(dataSource: AnyDataSource) {
+        super.init(style: .plain)
+        adapter = DataSourceAdapter(dataSource: dataSource, tableViewController: self)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
+    
+}
+
 public class DataSourceAdapter: NSObject {
     
     private let dataSource: AnyDataSource
-    private let controller: UITableViewController
-    private var tableView: UITableView { return controller.tableView }
+    private weak var controller: UITableViewController?
+    private var tableView: UITableView? { return controller?.tableView }
     private var batchCount = 0
     
     fileprivate let actionHandler = ContextualActionHandler()
@@ -22,11 +35,11 @@ public class DataSourceAdapter: NSObject {
         self.controller = tableViewController
         super.init()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44
+        tableView?.dataSource = self
+        tableView?.delegate = self
+        tableView?.separatorStyle = .none
+        tableView?.rowHeight = UITableView.automaticDimension
+        tableView?.estimatedRowHeight = 44
         
         dataSource.move(to: self)
     }
@@ -60,8 +73,7 @@ extension DataSourceAdapter: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         let actions = dataSource.contextualActions(at: indexPath.row)
-        actionHandler.update(with: actions)
-        return actionHandler.hasActions
+        return actionHandler.update(with: actions)
     }
     
     public func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
@@ -76,41 +88,41 @@ extension DataSourceAdapter: UITableViewDataSource, UITableViewDelegate {
 extension DataSourceAdapter: DataSourceParent {
     
     public func register(nib: PlatformNib, for cellReuseIdentifier: String) {
-        tableView.register(nib, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView?.register(nib, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
     public func register(class aClass: AnyClass, for cellReuseIdentifier: String) {
-        tableView.register(aClass, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView?.register(aClass, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
     public func child(_ child: AnyDataSource, dequeueCellFor reuseIdentifier: String) -> DataSourceRowView? {
-        return tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
+        return tableView?.dequeueReusableCell(withIdentifier: reuseIdentifier)
     }
     
     public func childWillBeginBatchedChanges(_ child: AnyDataSource) {
-        if batchCount == 0 { tableView.beginUpdates() }
+        if batchCount == 0 { tableView?.beginUpdates() }
         batchCount += 1
     }
     
     public func child(_ child: AnyDataSource, didInsertItemAt index: Int, semantic: DataSourceChangeSemantic) {
-        tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: semantic.rowAnimation)
+        tableView?.insertRows(at: [IndexPath(row: index, section: 0)], with: semantic.rowAnimation)
     }
     
     public func child(_ child: AnyDataSource, didRemoveItemAt index: Int, semantic: DataSourceChangeSemantic) {
-        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: semantic.rowAnimation)
+        tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: semantic.rowAnimation)
     }
     
     public func child(_ child: AnyDataSource, didMoveItemAt oldIndex: Int, to newIndex: Int) {
-        tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
+        tableView?.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
     }
     
     public func child(_ child: AnyDataSource, wantsReloadOfItemAt index: Int, semantic: DataSourceChangeSemantic) {
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: semantic.rowAnimation)
+        tableView?.reloadRows(at: [IndexPath(row: index, section: 0)], with: semantic.rowAnimation)
     }
     
     public func childDidEndBatchedChanges(_ child: AnyDataSource) {
         batchCount -= 1
-        if batchCount == 0 { tableView.endUpdates() }
+        if batchCount == 0 { tableView?.endUpdates() }
         Assert.that(batchCount >= 0, because: "Imbalanced calls to begin/end batched changes!")
     }
     

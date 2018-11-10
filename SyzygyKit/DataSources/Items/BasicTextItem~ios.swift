@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BasicTextItem: UITableViewCellDefault, DataSourceItem {
+open class BasicTextItem: DataSourceItemCell {
     
     public var title: String {
         didSet { titleLabel.text = title }
@@ -21,22 +21,16 @@ open class BasicTextItem: UITableViewCellDefault, DataSourceItem {
     private let titleLabel: UILabel
     private let detailLabel: UILabel
     
-    public var selectionAction: Action? {
-        didSet { selectable = (selectionAction != nil) }
-    }
-    
-    public var actions = Array<Action>()
-    
     public init(title: String, detail: String, actions: Array<Action> = []) {
         self.title = title
         self.detail = detail
-        self.actions = actions
         
         self.titleLabel = UILabel(frame: .zero)
         self.detailLabel = UILabel(frame: .zero)
         
-        super.init(style: .default, reuseIdentifier: "BasicTextItem")
+        super.init()
         
+        self.actions = actions
         selectable = false
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -66,13 +60,5 @@ open class BasicTextItem: UITableViewCellDefault, DataSourceItem {
     }
     
     public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
-    
-    public func handleSelection() {
-        selectionAction?.handler(self)
-    }
-    
-    public func contextualActions() -> Array<Action> {
-        return actions
-    }
     
 }

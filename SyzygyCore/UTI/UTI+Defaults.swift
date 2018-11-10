@@ -52,6 +52,9 @@ public extension UTI {
     public static let xcworkspace = UTI(rawValue: "com.apple.dt.document.workspace")
     public static let playground = UTI(rawValue: "com.apple.dt.playground")
     
+    public static let png = UTI(kUTTypePNG)
+    public static let jpeg = UTI(kUTTypeJPEG)
+    
     public enum DeviceColor {
         case rgb(UInt8, UInt8, UInt8)
         case hex(String)

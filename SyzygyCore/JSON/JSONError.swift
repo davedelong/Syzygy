@@ -34,6 +34,11 @@ public struct JSONError: Error {
         return JSONError(message: message, file: file, line: line)
     }
     
+    public static func serializationError(_ file: StaticString = #file, _ line: UInt = #line) -> JSONError {
+        let message = "Cannot serialize JSON"
+        return JSONError(message: message, file: file, line: line)
+    }
+    
     public let file: StaticString
     public let line: UInt
     public let message: String

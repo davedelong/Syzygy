@@ -124,4 +124,8 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     
     open func viewDidMoveToWindow(_ window: PlatformWindow?) { }
     
+    open func viewSystemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+        return targetSize
+    }
+    
 }
