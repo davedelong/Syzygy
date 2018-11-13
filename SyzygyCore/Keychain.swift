@@ -9,7 +9,7 @@
 import Foundation
 import Security
 
-public class Keychain {
+public class Keychain: KeyValueStore {
     private let name: String
     private let accessGroup: String?
     
@@ -57,8 +57,7 @@ public class Keychain {
         return keys
     }
     
-    /// Retrieve a value from the Keychain, if it exists.
-    internal func fetch<T: NSSecureCoding>(_ key: String) -> T? {
+    public func retrieveValue(for key: String) -> Any? {
         var query = queryForKey(key)
         query[kSecReturnData as String] = true
         
@@ -70,13 +69,10 @@ public class Keychain {
         guard status == errSecSuccess else { return nil }
         guard let data = value as? Data else { return nil }
         guard data.isEmpty == false else { return nil }
-        guard let object = NSKeyedUnarchiver.unarchiveObject(with: data) else { return nil }
-        
-        return object as? T
+        return NSKeyedUnarchiver.unarchiveObject(with: data)
     }
     
-    /// Persist a value to the Keychain. If `value` is nil, then any persisted value is deleted.
-    internal func save<T: NSSecureCoding>(_ value: T?, forKey key: String) {
+    public func persistValue(_ value: Any?, for key: String) {
         let query = queryForKey(key)
         
         guard let object = value else {
@@ -85,9 +81,8 @@ public class Keychain {
         }
         
         let data = NSKeyedArchiver.archivedData(withRootObject: object)
-        let fetched: T? = fetch(key)
         
-        if fetched != nil {
+        if retrieveValue(for: key) != nil {
             let attributes = [kSecValueData as String: data]
             SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
         } else {
@@ -97,6 +92,17 @@ public class Keychain {
             mutableQuery[kSecAttrAccessible as String] = kSecAttrAccessibleWhenUnlocked as String
             let _ = SecItemAdd(mutableQuery as CFDictionary, nil)
         }
+    }
+    
+    /// Retrieve a value from the Keychain, if it exists.
+    internal func fetch<T: NSSecureCoding>(_ key: String) -> T? {
+        guard let value = retrieveValue(for: key) else { return nil }
+        return value as? T
+    }
+    
+    /// Persist a value to the Keychain. If `value` is nil, then any persisted value is deleted.
+    internal func save<T: NSSecureCoding>(_ value: T?, forKey key: String) {
+        persistValue(value, for: key)
     }
     
     private func queryForKey(_ key: String?) -> Dictionary<String, Any> {

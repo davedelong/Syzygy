@@ -38,7 +38,9 @@ open class ItemDataSource: AnyDataSource {
     }
     
     public func addItem(_ item: DataSourceItem) {
-        // TODO: make sure item isn't already in the array?
+        if items.first(where: { $0 === item }) != nil {
+            return
+        }
         
         let index = items.count
         items.append(item)

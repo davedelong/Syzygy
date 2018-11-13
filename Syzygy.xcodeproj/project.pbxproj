@@ -173,6 +173,7 @@
 		55991F8E2196305100524481 /* InfoActionButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55991F8C2196305100524481 /* InfoActionButton.xib */; };
 		55991F8F2196305100524481 /* InfoActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55991F8D2196305100524481 /* InfoActionButton.swift */; };
 		55991F9621973E2600524481 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55991F9521973E2600524481 /* UIDevice.swift */; };
+		55991FA9219A47A700524481 /* KeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55991FA8219A47A700524481 /* KeyValueStore.swift */; };
 		559B337520E973F300034E51 /* SyzygyLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 559B337320E973F300034E51 /* SyzygyLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		559B337A20E9749B00034E51 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B337920E9749B00034E51 /* LocationProvider.swift */; };
 		559B337C20E974AA00034E51 /* SyzygyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B337B20E974AA00034E51 /* SyzygyLocation.swift */; };
@@ -251,7 +252,7 @@
 		55FB06F31FF9BC070001D42E /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB068E1FF9BBFF0001D42E /* Property.swift */; };
 		55FB06F41FF9BC070001D42E /* Property+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB068F1FF9BBFF0001D42E /* Property+Combine.swift */; };
 		55FB06F51FF9BC070001D42E /* Property+Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB06901FF9BBFF0001D42E /* Property+Filter.swift */; };
-		55FB06F61FF9BC070001D42E /* Property+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB06911FF9BBFF0001D42E /* Property+UserDefaults.swift */; };
+		55FB06F61FF9BC070001D42E /* Property+KeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB06911FF9BBFF0001D42E /* Property+KeyValueStore.swift */; };
 		55FB06F71FF9BC070001D42E /* FileManager+Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB06921FF9BBFF0001D42E /* FileManager+Property.swift */; };
 		55FB06F81FF9BC070001D42E /* Property+Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB06931FF9BBFF0001D42E /* Property+Queue.swift */; };
 		55FB06F91FF9BC070001D42E /* Property+Tickle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB06941FF9BBFF0001D42E /* Property+Tickle.swift */; };
@@ -336,6 +337,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 6B2DF877210E2C12004D2D40;
 			remoteInfo = Tests;
+		};
+		55991F9B2198BF3B00524481 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5527FCD021548EA8009D8808 /* DifferenceKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B2DF86D210E2C12004D2D40;
+			remoteInfo = DifferenceKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -526,6 +534,7 @@
 		55991F8C2196305100524481 /* InfoActionButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoActionButton.xib; sourceTree = "<group>"; };
 		55991F8D2196305100524481 /* InfoActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoActionButton.swift; sourceTree = "<group>"; };
 		55991F9521973E2600524481 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		55991FA8219A47A700524481 /* KeyValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStore.swift; sourceTree = "<group>"; };
 		559B337120E973F300034E51 /* SyzygyLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		559B337320E973F300034E51 /* SyzygyLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyzygyLocation.h; sourceTree = "<group>"; };
 		559B337420E973F300034E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -611,7 +620,7 @@
 		55FB068E1FF9BBFF0001D42E /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		55FB068F1FF9BBFF0001D42E /* Property+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Property+Combine.swift"; sourceTree = "<group>"; };
 		55FB06901FF9BBFF0001D42E /* Property+Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Property+Filter.swift"; sourceTree = "<group>"; };
-		55FB06911FF9BBFF0001D42E /* Property+UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Property+UserDefaults.swift"; sourceTree = "<group>"; };
+		55FB06911FF9BBFF0001D42E /* Property+KeyValueStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Property+KeyValueStore.swift"; sourceTree = "<group>"; };
 		55FB06921FF9BBFF0001D42E /* FileManager+Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Property.swift"; sourceTree = "<group>"; };
 		55FB06931FF9BBFF0001D42E /* Property+Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Property+Queue.swift"; sourceTree = "<group>"; };
 		55FB06941FF9BBFF0001D42E /* Property+Tickle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Property+Tickle.swift"; sourceTree = "<group>"; };
@@ -1169,6 +1178,7 @@
 				551C007F20EFB90A006CE550 /* IndexPath~macos.swift */,
 				556EA4E5210CE07D00064D3D /* Interpolator.swift */,
 				55EB0377202125E0007B5433 /* Keychain.swift */,
+				55991FA8219A47A700524481 /* KeyValueStore.swift */,
 				55FB06771FF9BBFC0001D42E /* LocalizedString.swift */,
 				55F3A5D8216C15430038B3BA /* Logging */,
 				557D20DC210BEAA6005E752B /* Measurement.swift */,
@@ -1279,7 +1289,7 @@
 				55FB068D1FF9BBFF0001D42E /* Property+Skip.swift */,
 				55FB068F1FF9BBFF0001D42E /* Property+Combine.swift */,
 				55FB06901FF9BBFF0001D42E /* Property+Filter.swift */,
-				55FB06911FF9BBFF0001D42E /* Property+UserDefaults.swift */,
+				55FB06911FF9BBFF0001D42E /* Property+KeyValueStore.swift */,
 				55FB06931FF9BBFF0001D42E /* Property+Queue.swift */,
 				55FB06941FF9BBFF0001D42E /* Property+Tickle.swift */,
 				55FB06951FF9BBFF0001D42E /* Property+Concatenation.swift */,
@@ -1491,6 +1501,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				55991F9C2198BF3B00524481 /* PBXTargetDependency */,
 			);
 			name = SyzygyKit;
 			productName = SyzygyKit;
@@ -1712,7 +1723,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55FB06F91FF9BC070001D42E /* Property+Tickle.swift in Sources */,
-				55FB06F61FF9BC070001D42E /* Property+UserDefaults.swift in Sources */,
+				55FB06F61FF9BC070001D42E /* Property+KeyValueStore.swift in Sources */,
 				55FB07161FF9BC070001D42E /* Disposable.swift in Sources */,
 				55FB06D91FF9BC070001D42E /* BookmarkMetadata.swift in Sources */,
 				55FB06F11FF9BC070001D42E /* Property+Merge.swift in Sources */,
@@ -1727,6 +1738,7 @@
 				55D82F94210A342000EF7965 /* AndPredicate.swift in Sources */,
 				5527FCF72156EF23009D8808 /* _LSSharedFileList.m in Sources */,
 				55D82F8C210A333000EF7965 /* Predicate.swift in Sources */,
+				55991FA9219A47A700524481 /* KeyValueStore.swift in Sources */,
 				55D82F98210A382100EF7965 /* Collection+Predicate.swift in Sources */,
 				55FB07601FFAC7690001D42E /* SyzygyCore.swift in Sources */,
 				55FB06E51FF9BC070001D42E /* String.swift in Sources */,
@@ -1978,6 +1990,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55991F9C2198BF3B00524481 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DifferenceKit;
+			targetProxy = 55991F9B2198BF3B00524481 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		552B49392012D4610054997E /* Debug */ = {

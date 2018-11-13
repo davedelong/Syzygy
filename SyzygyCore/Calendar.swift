@@ -27,7 +27,11 @@ public extension Calendar {
         
     }
     
-    func startOfWeek(for date: Date) -> Date {
+    public func intervalOfWeek(for date: Date) -> DateInterval {
+        return self.dateInterval(of: .weekOfYear, for: date) !! "Can't find week range for \(date)"
+    }
+    
+    public func startOfWeek(for date: Date) -> Date {
         if let weekRange = dateInterval(of: .weekOfYear, for: date) {
             return weekRange.start
         }
@@ -42,7 +46,7 @@ public extension Calendar {
         return startOfDay(for: startOfWeek)
     }
     
-    func daysInWeek(containing: Date) -> Array<Date> {
+    public func daysInWeek(containing: Date) -> Array<Date> {
         let weekday = component(.weekday, from: containing)
         let calendricalStartOfWeek = self.firstWeekday
         
@@ -60,7 +64,7 @@ public extension Calendar {
         return days.map { $0.mid }
     }
     
-    func isDate(_ date: Date, before: Date, granularity: Calendar.Component) -> Bool {
+    public func isDate(_ date: Date, before: Date, granularity: Calendar.Component) -> Bool {
         let components = [Calendar.Component.era, .year, .month, .weekOfYear, .day, .hour, .minute, .second, .nanosecond]
         let componentSet = Set(components)
         Assert.that(componentSet.contains(granularity), because: "Cannot search for unit \(granularity)")
@@ -79,7 +83,7 @@ public extension Calendar {
         return false
     }
     
-    func isDate(_ date: Date, after: Date, granularity: Calendar.Component) -> Bool {
+    public func isDate(_ date: Date, after: Date, granularity: Calendar.Component) -> Bool {
         let isBefore = isDate(date, before: after, granularity: granularity)
         let isOn = isDate(date, equalTo: after, toGranularity: granularity)
         

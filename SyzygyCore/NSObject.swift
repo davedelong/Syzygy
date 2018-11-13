@@ -9,6 +9,8 @@
 import Foundation
 import ObjectiveC.runtime
 
+private var DeallocHelperKey: UInt8 = 0
+
 public enum AssociationPolicy {
     case assign
     case retain
@@ -42,6 +44,11 @@ public extension NSObjectProtocol {
         return object
     }
     
+    public func addDeallocHandler(_ handler: @escaping () -> Void) {
+        let helper = associatedObject(for: &DeallocHelperKey, create: { DeallocHelper() })
+        helper?.handlers.append(handler)
+    }
+    
 }
 
 public extension NSObject {
@@ -62,4 +69,12 @@ public extension NSObject {
         return false
     }
     
+}
+
+private class DeallocHelper: NSObject {
+    var handlers = Array<() -> Void>()
+    
+    deinit {
+        handlers.forEach { $0() }
+    }
 }

@@ -54,12 +54,15 @@ open class SeparatorDataSource: AnyDataSource {
     
     private func index(for childIndex: Int) -> Int {
         var newIndex = childIndex
+        
         if separators.contains(.inBetween) {
-            newIndex += (childIndex - 1)
+            newIndex = childIndex * 2
         }
+        
         if separators.contains(.before) {
             newIndex += 1
         }
+        
         return newIndex
     }
     

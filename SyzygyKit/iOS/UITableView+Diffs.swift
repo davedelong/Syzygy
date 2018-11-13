@@ -8,6 +8,7 @@
 
 public extension UITableView {
     
+    /*
     public func performDiffs<T>(_ diffs: Array<Diff<T>>) {
         beginUpdates()
         
@@ -33,5 +34,6 @@ public extension UITableView {
     
         endUpdates()
     }
+ */
     
 }
