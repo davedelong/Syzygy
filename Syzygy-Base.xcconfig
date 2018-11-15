@@ -94,6 +94,11 @@ CLANG_ANALYZER_NONNULL = YES
 CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE
 CLANG_ENABLE_OBJC_WEAK = YES
 
+// When building for iOS, Xcode will produce a warning about header files that are conditionally excluded
+// For example, the "IOKit.h" file is only used on macOS, so Xcode complains it's not being included on iOS
+// The "no-incomplete-umbrella" flag silences these warnings
+OTHER_SWIFT_FLAGS = -Xcc -Wno-incomplete-umbrella $(inherited)
+
 
 MTL_FAST_MATH = YES
 

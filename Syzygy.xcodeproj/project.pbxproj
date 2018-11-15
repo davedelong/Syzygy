@@ -85,7 +85,6 @@
 		551D4820201197BD00AF7CF8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551D480720114DA300AF7CF8 /* Empty.xib */; };
 		5523653A214AC8E00044553A /* Property+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55236539214AC8E00044553A /* Property+Debug.swift */; };
 		5527FCDC21548EC9009D8808 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5527FCD621548EA9009D8808 /* DifferenceKit.framework */; };
-		5527FCDE21548EE3009D8808 /* DifferenceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5527FCD621548EA9009D8808 /* DifferenceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5527FCE32155432D009D8808 /* Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527FCE22155432D009D8808 /* Difference.swift */; };
 		5527FCF72156EF23009D8808 /* _LSSharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5527FCF42156E6A3009D8808 /* _LSSharedFileList.m */; };
 		5527FCF82156EF3E009D8808 /* _LSSharedFileList.h in Headers */ = {isa = PBXBuildFile; fileRef = 5527FCF32156E6A3009D8808 /* _LSSharedFileList.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -345,21 +344,14 @@
 			remoteGlobalIDString = 6B2DF86D210E2C12004D2D40;
 			remoteInfo = DifferenceKit;
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5527FCDD21548EDB009D8808 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5527FCDE21548EE3009D8808 /* DifferenceKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+		55991FAC219B814400524481 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5527FCD021548EA8009D8808 /* DifferenceKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B2DF86D210E2C12004D2D40;
+			remoteInfo = DifferenceKit;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		550E746A2103F50700170790 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
@@ -1476,13 +1468,13 @@
 				55A8DB6E20EE74C4005EFDE3 /* ShellScript */,
 				55FB064B1FF9B5BB0001D42E /* Headers */,
 				55FB06491FF9B5BB0001D42E /* Sources */,
-				5527FCDD21548EDB009D8808 /* Embed Frameworks */,
 				55FB064A1FF9B5BB0001D42E /* Frameworks */,
 				55FB064C1FF9B5BB0001D42E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				55991FAD219B814400524481 /* PBXTargetDependency */,
 			);
 			name = SyzygyCore;
 			productName = SyzygyCore;
@@ -1996,6 +1988,11 @@
 			isa = PBXTargetDependency;
 			name = DifferenceKit;
 			targetProxy = 55991F9B2198BF3B00524481 /* PBXContainerItemProxy */;
+		};
+		55991FAD219B814400524481 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DifferenceKit;
+			targetProxy = 55991FAC219B814400524481 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
