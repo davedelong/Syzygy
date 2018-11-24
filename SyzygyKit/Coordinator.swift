@@ -25,6 +25,10 @@ open class Coordinator: PlatformResponder {
         case normal
     }
     
+    open var rootViewController: PlatformViewController {
+        Abort.because(.mustBeOverridden)
+    }
+    
     public private(set) weak var parent: Coordinator?
     public private(set) var children = Array<Coordinator>()
     

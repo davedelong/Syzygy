@@ -185,6 +185,7 @@
 		55B3B1E8213350E300DFA8A7 /* ContextualActionHandler~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3B1E7213350E300DFA8A7 /* ContextualActionHandler~ios.swift */; };
 		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
+		55CB0D8F21A9D4720070701E /* NSTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB0D8E21A9D4720070701E /* NSTabViewController.swift */; };
 		55CF07A920DD4D1800266DCA /* NSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07A820DD4D1800266DCA /* NSApplication.swift */; };
 		55CF07AD20E2F93A00266DCA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07AC20E2F93A00266DCA /* Coordinator.swift */; };
 		55D6905421570AF70090222D /* MoveToApplicationsFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6905321570AF70090222D /* MoveToApplicationsFolder.swift */; };
@@ -547,6 +548,7 @@
 		55B3B1E7213350E300DFA8A7 /* ContextualActionHandler~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContextualActionHandler~ios.swift"; sourceTree = "<group>"; };
 		55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
+		55CB0D8E21A9D4720070701E /* NSTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTabViewController.swift; sourceTree = "<group>"; };
 		55CF07A820DD4D1800266DCA /* NSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication.swift; sourceTree = "<group>"; };
 		55CF07AC20E2F93A00266DCA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		55D6905321570AF70090222D /* MoveToApplicationsFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsFolder.swift; sourceTree = "<group>"; };
@@ -861,6 +863,7 @@
 				551D480D20114F9500AF7CF8 /* NSEvent.swift */,
 				551D4811201150CA00AF7CF8 /* NSImage.swift */,
 				551D48132011517F00AF7CF8 /* NSStackView.swift */,
+				55CB0D8E21A9D4720070701E /* NSTabViewController.swift */,
 				551D48152011519900AF7CF8 /* NSTextField.swift */,
 				559079CB20B76FC1005AECE7 /* NSView.swift */,
 				551D4817201151B300AF7CF8 /* NSViewController.swift */,
@@ -1912,6 +1915,7 @@
 				551C009020EFBB09006CE550 /* Responder~macos.swift in Sources */,
 				551C009A20EFBD15006CE550 /* SyzygyViewController~ios.swift in Sources */,
 				551D480E20114F9500AF7CF8 /* NSEvent.swift in Sources */,
+				55CB0D8F21A9D4720070701E /* NSTabViewController.swift in Sources */,
 				5512BA34214D22E00046B779 /* ViewController.swift in Sources */,
 				55CF07AD20E2F93A00266DCA /* Coordinator.swift in Sources */,
 				551D481A2011707500AF7CF8 /* ShapeView.swift in Sources */,
