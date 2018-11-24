@@ -53,4 +53,8 @@ public extension BezierPath {
         self.transform(using: AffineTransform(transform))
     }
     
+    public func addCurve(to: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) {
+        self.relativeCurve(to: to, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
+    }
+    
 }

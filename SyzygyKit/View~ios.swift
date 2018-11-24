@@ -10,6 +10,7 @@ public typealias PlatformView = UIView
 public typealias PlatformNib = UINib
 public typealias PlatformWindow = UIWindow
 public typealias PlatformViewController = UIViewController
+public typealias PlatformLayoutConstraintPriority = UILayoutPriority
 
 public extension UINib {
     typealias Name = String

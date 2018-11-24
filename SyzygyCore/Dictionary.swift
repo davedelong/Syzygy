@@ -46,4 +46,14 @@ public extension Dictionary {
         }
     }
     
+    func compactMapValues<T>(_ transform: (Value) -> T?) -> Dictionary<Key, T> {
+        var final = Dictionary<Key, T>()
+        for (key, value) in self {
+            if let transformed = transform(value) {
+                final[key] = transformed
+            }
+        }
+        return final
+    }
+    
 }

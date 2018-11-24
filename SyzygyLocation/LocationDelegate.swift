@@ -21,6 +21,8 @@ internal class LocationDelegate: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("got \(locations.count) locations: \(locations)")
+
         let sorted = locations.sorted { $0.timestamp > $1.timestamp }
         if let newest = sorted.first {
             location.value = newest
@@ -28,19 +30,23 @@ internal class LocationDelegate: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
+        print("location manager failed: \(error)")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.status.value = status
     }
     
+    #if BUILDING_FOR_MOBILE
+    
     func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
-        
+        print("location updates paused")
     }
     
     func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
-        
+        print("location updates resumed")
     }
+    
+    #endif
     
 }

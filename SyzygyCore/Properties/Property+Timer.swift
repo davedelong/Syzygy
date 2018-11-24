@@ -22,3 +22,11 @@ public extension Property {
     }
     
 }
+
+public extension Property where T == Date {
+    
+    public convenience init(pollEvery interval: TimeInterval, on queue: DispatchQueue = .main) {
+        self.init(pollEvery: interval, on: queue, producing: { Date() })
+    }
+    
+}

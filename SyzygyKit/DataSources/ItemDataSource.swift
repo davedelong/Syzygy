@@ -66,6 +66,25 @@ open class ItemDataSource: AnyDataSource {
         parent?.childDidEndBatchedChanges(self)
     }
     
+    public func replaceAllItems(with item: DataSourceItem) {
+        let count = items.count
+        
+        if count == 0 {
+            addItem(item)
+        } else {
+            items = [item]
+            if let p = parent {
+                item.register(with: p)
+            }
+            parent?.childWillBeginBatchedChanges(self)
+            parent?.child(self, wantsReloadOfItemAt: 0, semantic: .inPlace)
+            for i in 1 ..< count {
+                parent?.child(self, didRemoveItemAt: i, semantic: .exitBottomToTop)
+            }
+            parent?.childDidEndBatchedChanges(self)
+        }
+    }
+    
     public func removeItem(_ item: DataSourceItem) {
         guard let index = items.firstIndex(where: { $0 === item }) else { return }
         
@@ -87,6 +106,9 @@ open class ItemDataSource: AnyDataSource {
     public func replaceItem(_ item: DataSourceItem, with newItem: DataSourceItem) {
         if let index = items.firstIndex(where: { $0 === item }) {
             items[index] = newItem
+            if let p = parent {
+                newItem.register(with: p)
+            }
             parent?.childWillBeginBatchedChanges(self)
             parent?.child(self, wantsReloadOfItemAt: index, semantic: .inPlace)
             parent?.childDidEndBatchedChanges(self)

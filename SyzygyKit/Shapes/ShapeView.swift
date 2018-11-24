@@ -47,17 +47,28 @@ public class ShapeView: PlatformView {
         
         guard let shape = shape else {
             shapeLayer.path = nil
+//            layer.mask = nil
             return
         }
+        
         
         shapeLayer.frame = layer.bounds
         
         let boundingRect = bounds.applying(shapeInsets)
         let path = shape.bezierPath(in: boundingRect)
-        shapeLayer.path = path.CGPath
+        let p = path.CGPath
+        shapeLayer.path = p
         shapeLayer.fillColor = shapeColor?.rawColor
         shapeLayer.strokeColor = lineColor?.rawColor
         shapeLayer.lineWidth = lineWidth
+        
+//        let mask = CAShapeLayer()
+//        mask.frame = layer.bounds
+//        mask.path = p
+//        mask.fillColor = UIColor.black.cgColor
+//        mask.strokeColor = UIColor.black.cgColor
+//        mask.lineWidth = lineWidth
+//        layer.mask = mask
     }
     
     #if BUILDING_FOR_MOBILE
@@ -77,9 +88,10 @@ public class ShapeView: PlatformView {
         updateShape()
     }
     
-    public override func didAddSubview(_ subview: UIView) {
+    public override func didAddSubview(_ subview: PlatformView) {
         super.didAddSubview(subview)
-        layer.insertSublayer(shapeLayer, at: 0)
+
+        platformLayer?.insertSublayer(shapeLayer, at: 0)
     }
     
 }

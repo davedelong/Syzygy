@@ -39,7 +39,7 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     public let selected: Property<Bool>
     
     // Background Color
-    public let defaultBackgroundColor = MutableProperty<PlatformColor?>(nil)
+    public let defaultBackgroundColor = MutableProperty<PlatformColor?>(.white)
     public let selectedBackgroundColor = MutableProperty<PlatformColor?>(.defaultSelectionColor)
     public let currentBackgroundColor: Property<PlatformColor?>
     
@@ -124,7 +124,7 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     
     open func viewDidMoveToWindow(_ window: PlatformWindow?) { }
     
-    open func viewSystemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+    open func viewSystemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: PlatformLayoutConstraintPriority, verticalFittingPriority: PlatformLayoutConstraintPriority) -> CGSize {
         return targetSize
     }
     

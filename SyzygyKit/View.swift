@@ -32,6 +32,8 @@ public extension NSCoding where Self: PlatformView {
 }
 
 public extension PlatformView {
+        
+    public var platformLayer: CALayer? { return layer }
     
     public func isEmbeddedIn(_ other: PlatformView) -> Bool {
         var possible: PlatformView? = self
@@ -61,6 +63,12 @@ public extension PlatformView {
             subview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margins.left),
             trailingAnchor.constraint(equalTo: subview.trailingAnchor, constant: margins.right)
         ])
+    }
+    
+    public func removeAllSubviews() {
+        while let n = subviews.first {
+            n.removeFromSuperview()
+        }
     }
     
 }

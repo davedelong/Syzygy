@@ -49,3 +49,34 @@ public extension UIBarButtonItem {
     }
     
 }
+
+
+private var ButtonActionsAssociatedObjectKey: UInt8 = 0
+
+public extension UIButton {
+    
+    public func addAction(_ action: Action) {
+        let target = ButtonActionHelper(action: action)
+        self.addTarget(target, action: #selector(ButtonActionHelper.actionMethod(_:)), for: .touchUpInside)
+        
+        var helpers: Array<ButtonActionHelper> = associatedObject(for: &ButtonActionsAssociatedObjectKey) ?? []
+        helpers.append(target)
+        setAssociatedObject(helpers, forKey: &ButtonActionsAssociatedObjectKey)
+    }
+    
+}
+
+
+
+internal class ButtonActionHelper: NSObject {
+    internal let action: Action
+    
+    init(action: Action) {
+        self.action = action
+        super.init()
+    }
+    
+    @objc func actionMethod(_ sender: Any) {
+        action.handler(sender)
+    }
+}

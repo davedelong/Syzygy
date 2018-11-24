@@ -17,10 +17,21 @@ public struct R<T: BundleResourceLoadable> {
     public init() { }
     
     public subscript(dynamicMember member: String) -> T.LoadedResourceType {
-        guard let r = T.loadResource(name: member, in: .main) else {
-            Abort.because("LoadableResource of type \(T.self) did not find a resource named '\(member)'")
+        return loadResource(name: member)
+    }
+    
+    // An explicit subscript is nice for when you have to specify an extension
+    // Ex: R.images["background.jpg"]
+    public subscript(key: String) -> T.LoadedResourceType {
+        return loadResource(name: key)
+    }
+    
+    private func loadResource(name: String) -> T.LoadedResourceType {
+        let bundles = Bundle.allBundles
+        for b in bundles {
+            if let r = T.loadResource(name: name, in: b) { return r }
         }
-        return r
+        Abort.because("LoadableResource of type \(T.self) did not find a resource named '\(name)'")
     }
     
 }

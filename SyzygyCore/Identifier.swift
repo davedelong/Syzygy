@@ -9,6 +9,7 @@
 import Foundation
 
 public typealias Map<T> = Dictionary<Identifier<T>, T>
+public typealias IdentifierSet<T> = Set<Identifier<T>>
 
 public struct Identifier<T>: Newtype, Equatable, Hashable, Codable {
     public let rawValue: String

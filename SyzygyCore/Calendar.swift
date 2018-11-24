@@ -23,8 +23,26 @@ public extension Calendar {
             case thursday = 5
             case friday = 6
             case saturday = 7
+            
+            public var displayableName: String {
+                switch self {
+                    case .sunday: return "Sunday"
+                    case .monday: return "Monday"
+                    case .tuesday: return "Tuesday"
+                    case .wednesdsay: return "Wednesday"
+                    case .thursday: return "Thursday"
+                    case .friday: return "Friday"
+                    case .saturday: return "Saturday"
+                }
+            }
         }
         
+    }
+    
+    public func weekday(of date: Date) -> Gregorian.Weekday {
+        let weekday = component(.weekday, from: date) !! "Can't get weekday of \(date)"
+        let typed = Gregorian.Weekday(rawValue: weekday) !! "Can't convert \(weekday) into a weekday"
+        return typed
     }
     
     public func intervalOfWeek(for date: Date) -> DateInterval {
@@ -44,6 +62,19 @@ public extension Calendar {
         let startOfWeek = self.date(byAdding: .day, value: -difference, to: date) !! "Can't find start of week for \(date)"
         
         return startOfDay(for: startOfWeek)
+    }
+    
+    public func daysInRange(_ interval: DateInterval) -> Array<Date> {
+        var days = Array<Date>()
+        
+        var current = interval.start
+        while current <= interval.end {
+            let dayRange = dateInterval(of: .day, for: current) !! "Can't find day interval of \(current)"
+            days.append(dayRange.mid)
+            current = dayRange.end.addingTimeInterval(1.0)
+        }
+        
+        return days
     }
     
     public func daysInWeek(containing: Date) -> Array<Date> {

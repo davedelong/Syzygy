@@ -34,16 +34,20 @@ extension DataSourceItem where Self: DataSourceRowView {
     
 }
 
-open class DataSourceItemCell: UITableViewCell, DataSourceItem {
+open class DataSourceItemCell: DataSourceRowView, DataSourceItem {
     
-    public var selectionAction: Action? {
+    open var selectionAction: Action? {
         didSet { selectable = selectionAction != nil }
     }
     
     public var actions = Array<Action>()
     
     public init() {
+        #if BUILDING_FOR_MOBILE
         super.init(style: .default, reuseIdentifier: "\(type(of: self))")
+        #else
+        super.init(frame: .zero)
+        #endif
         selectable = false
     }
     

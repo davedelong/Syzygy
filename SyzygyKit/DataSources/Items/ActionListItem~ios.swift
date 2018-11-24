@@ -14,14 +14,25 @@ open class ActionListItem: DataSourceItemCell {
         super.init()
         
         let views = actions.map { a -> UIView in
-            let button = InfoActionButton.make()
-            button.titleLabel?.text = a.name
-            button.imageView?.image = a.image
+            let v: UIView
             
-            button.addTapAction { a.handler(nil) }
-            button.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9098039216, blue: 0.8980392157, alpha: 1)
-            button.layer.cornerRadius = 8
-            return button
+            if let i = a.image {
+                let button = InfoActionButton.make()
+                button.titleLabel?.text = a.name
+                button.imageView?.image = i
+                
+                button.addTapAction { a.handler(nil) }
+                button.layer.cornerRadius = 8
+                button.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9098039216, blue: 0.8980392157, alpha: 1)
+                v = button
+            } else {
+                let button = UIButton(type: .system)
+                button.setTitle(a.name, for: .normal)
+                button.titleLabel?.font = .preferredFont(forTextStyle: .caption1)
+                button.addAction(a)
+                v = button
+            }
+            return v
         }
         
         let stack = UIStackView(arrangedSubviews: views)

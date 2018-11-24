@@ -135,9 +135,9 @@ public extension Collection {
     
     public func sorted<C: Comparable>(ascending: Bool = true, by: (Element) -> C) -> Array<Element> {
         if ascending {
-            return sorted(by: { by($0) > by($1) })
-        } else {
             return sorted(by: { by($0) < by($1) })
+        } else {
+            return sorted(by: { by($0) > by($1) })
         }
     }
     

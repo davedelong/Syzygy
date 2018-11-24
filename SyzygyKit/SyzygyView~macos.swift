@@ -13,11 +13,13 @@ open class SyzygyView: PlatformView {
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         layerContentsRedrawPolicy = .onSetNeedsDisplay
+        wantsLayer = true
     }
     
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         layerContentsRedrawPolicy = .onSetNeedsDisplay
+        wantsLayer = true
     }
     
     open override var wantsLayer: Bool {

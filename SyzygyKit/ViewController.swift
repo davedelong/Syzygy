@@ -19,7 +19,7 @@ internal protocol _PlatformViewController {
     
     var loadedView: PlatformView { get }
     
-    func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?)
+    func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?, margins: PlatformEdgeInsets)
     
     func replaceChild(_ child: PlatformViewController?,
                       with newChild: PlatformViewController,
@@ -40,7 +40,15 @@ public extension PlatformViewController {
     }
     
     public func embedChild(_ viewController: PlatformViewController) {
-        self.embedChild(viewController, in: nil)
+        self.embedChild(viewController, in: nil, margins: .zero)
+    }
+    
+    public func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?) {
+        self.embedChild(viewController, in: aView, margins: .zero)
+    }
+    
+    public func embedChild(_ viewController: PlatformViewController, margins: PlatformEdgeInsets) {
+        self.embedChild(viewController, in: nil, margins: margins)
     }
     
     public func setChildren(_ newChildren: Array<PlatformViewController>) {

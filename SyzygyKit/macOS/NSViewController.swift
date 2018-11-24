@@ -10,7 +10,7 @@ extension NSViewController: _PlatformViewController {
     
     var loadedView: PlatformView { return view }
     
-    func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?) {
+    func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?, margins: PlatformEdgeInsets) {
         let targetView = resolving(container: aView)
         
         if viewController.loadedView.superview != targetView {
@@ -23,7 +23,7 @@ extension NSViewController: _PlatformViewController {
         }
         
         if viewController.loadedView.superview != targetView {
-            targetView.embedSubview(viewController.loadedView)
+            targetView.embedSubview(viewController.loadedView, margins: margins)
         }
     }
     

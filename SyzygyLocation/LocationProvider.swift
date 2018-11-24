@@ -55,6 +55,7 @@ public class LocationProvider {
     private let _authorizationStatus = MutableProperty<CLAuthorizationStatus>(.notDetermined)
     
     public let latestLocation: Property<CLLocation?>
+    public let authorizationStatus: Property<CLAuthorizationStatus>
     
     private let level: DesiredAuthorizationLevel
     private let locationMananger: CLLocationManager
@@ -87,16 +88,15 @@ public class LocationProvider {
         self.level = level
         
         latestLocation = _latestLocation.combine(_authorizationStatus).map { (l, s) -> CLLocation? in
-            if s == .authorizedAlways || s == .authorizedWhenInUse { return l }
+            if s.isAuthorized { return l }
             return nil
         }.skipRepeats(==)
+        
+        authorizationStatus = _authorizationStatus
         
         locationDelegate = LocationDelegate(status: _authorizationStatus, location: _latestLocation)
         locationMananger = CLLocationManager()
         locationMananger.delegate = self.locationDelegate
-        
-        // TODO: take this out
-        _latestLocation.value = CLLocation(latitude: 40.4055, longitude: -111.9342)
     }
     
     deinit {
@@ -110,11 +110,13 @@ public class LocationProvider {
         requestCount += 1
         
         if updatingLocation == false {
+            #if BUILDING_FOR_IOS
             if level == .whenInUse {
                 locationMananger.requestWhenInUseAuthorization()
             } else {
                 locationMananger.requestAlwaysAuthorization()
             }
+            #endif
             updatingLocation = true
             locationMananger.startUpdatingLocation()
         }

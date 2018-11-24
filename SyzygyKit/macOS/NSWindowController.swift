@@ -12,6 +12,7 @@ public extension NSWindowController {
     
     public convenience init(contentViewController: NSViewController) {
         let w = NSWindow(contentViewController: contentViewController)
+        w.contentView?.wantsLayer = true
         self.init(window: w)
     }
     
