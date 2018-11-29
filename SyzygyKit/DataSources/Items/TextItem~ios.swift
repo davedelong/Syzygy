@@ -26,11 +26,11 @@ open class TextItem: DataSourceItemCell {
         contentView.addSubview(label)
         
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            label.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
+            label.leading.constraint(equalToSystemSpacingAfter: contentView.leading),
+            label.top.constraint(equalToSystemSpacingBelow: contentView.top),
             
-            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: label.trailingAnchor, multiplier: 1.0),
-            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: label.bottomAnchor, multiplier: 1.0)
+            contentView.trailing.constraint(equalToSystemSpacingAfter: label.trailing),
+            contentView.bottom.constraint(equalToSystemSpacingBelow: label.bottom)
         ])
     }
     

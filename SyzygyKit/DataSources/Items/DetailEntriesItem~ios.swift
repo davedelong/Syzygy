@@ -43,17 +43,17 @@ open class DetailEntriesItem: DataSourceItemCell {
         contentView.addSubview(detailStack)
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
+            titleLabel.leading.constraint(equalToSystemSpacingAfter: contentView.leading),
+            titleLabel.top.constraint(equalToSystemSpacingBelow: contentView.top),
             
             captionLabel.firstBaselineAnchor.constraint(equalTo: titleLabel.firstBaselineAnchor),
-            captionLabel.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: titleLabel.trailingAnchor, multiplier: 1.0),
-            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: captionLabel.trailingAnchor, multiplier: 1.0),
+            captionLabel.leading.constraint(greaterThanOrEqualToSystemSpacingAfter: titleLabel.trailing),
+            contentView.trailing.constraint(equalToSystemSpacingAfter: captionLabel.trailing),
             
-            detailStack.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            detailStack.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 1.0),
-            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: detailStack.bottomAnchor, multiplier: 1.0),
-            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: detailStack.trailingAnchor, multiplier: 1.0)
+            detailStack.leading.constraint(equalToSystemSpacingAfter: contentView.leading),
+            detailStack.top.constraint(equalToSystemSpacingBelow: titleLabel.bottom),
+            contentView.bottom.constraint(equalToSystemSpacingBelow: detailStack.bottom),
+            contentView.trailing.constraint(equalToSystemSpacingAfter: detailStack.trailing)
         ])
         
         for entry in entries {
@@ -86,15 +86,15 @@ private class DetailEntryView: UIView {
         addSubview(secondary)
         
         NSLayoutConstraint.activate([
-            primary.leadingAnchor.constraint(equalTo: leadingAnchor),
-            primary.topAnchor.constraint(equalTo: topAnchor),
-            primary.bottomAnchor.constraint(equalTo: bottomAnchor),
+            primary.leading.constraint(equalTo: leadingAnchor),
+            primary.top.constraint(equalTo: topAnchor),
+            primary.bottom.constraint(equalTo: bottomAnchor),
             
-            trailingAnchor.constraint(equalTo: secondary.trailingAnchor),
-            secondary.topAnchor.constraint(equalTo: topAnchor),
-            secondary.bottomAnchor.constraint(equalTo: bottomAnchor),
+            trailingAnchor.constraint(equalTo: secondary.trailing),
+            secondary.top.constraint(equalTo: topAnchor),
+            secondary.bottom.constraint(equalTo: bottomAnchor),
             
-            secondary.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: primary.trailingAnchor, multiplier: 1.0)
+            secondary.leading.constraint(greaterThanOrEqualToSystemSpacingAfter: primary.trailing)
         ])
     }
     

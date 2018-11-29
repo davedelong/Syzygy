@@ -59,10 +59,10 @@ public class SyzygyRangeSlider: UIControl {
         v.shape = Shape.horizontalPill
         v.shapeColor = Color(color: UIColor(white: 0.9, alpha: 1.0))
         addSubview(v)
-        v.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        v.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        v.leading.constraint(equalTo: leadingAnchor).isActive = true
+        v.trailing.constraint(equalTo: trailingAnchor).isActive = true
         v.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        v.heightAnchor.constraint(equalToConstant: 8).isActive = true
+        v.height.constraint(equalToConstant: 8).isActive = true
         return v
     }()
     
@@ -71,10 +71,10 @@ public class SyzygyRangeSlider: UIControl {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = Color(hexString: "3378F6")?.color
         addSubview(v)
-        v.topAnchor.constraint(equalTo: extantTrack.topAnchor).isActive = true
-        v.bottomAnchor.constraint(equalTo: extantTrack.bottomAnchor).isActive = true
-        v.leadingAnchor.constraint(equalTo: minThumb.centerXAnchor).isActive = true
-        v.trailingAnchor.constraint(equalTo: maxThumb.centerXAnchor).isActive = true
+        v.top.constraint(equalTo: extantTrack.top).isActive = true
+        v.bottom.constraint(equalTo: extantTrack.bottom).isActive = true
+        v.leading.constraint(equalTo: minThumb.centerXAnchor).isActive = true
+        v.trailing.constraint(equalTo: maxThumb.centerXAnchor).isActive = true
         return v
     }()
     
@@ -95,8 +95,8 @@ public class SyzygyRangeSlider: UIControl {
         minPosition?.constant = p
         minPosition?.isActive = true
         v.centerYAnchor.constraint(equalTo: extantTrack.centerYAnchor).isActive = true
-        v.heightAnchor.constraint(equalToConstant: SyzygyRangeSlider.thumbDimension).isActive = true
-        v.widthAnchor.constraint(equalToConstant: SyzygyRangeSlider.thumbDimension).isActive = true
+        v.height.constraint(equalToConstant: SyzygyRangeSlider.thumbDimension).isActive = true
+        v.width.constraint(equalToConstant: SyzygyRangeSlider.thumbDimension).isActive = true
         return v
     }()
     
@@ -114,8 +114,8 @@ public class SyzygyRangeSlider: UIControl {
         maxPosition?.constant = p
         maxPosition?.isActive = true
         v.centerYAnchor.constraint(equalTo: extantTrack.centerYAnchor).isActive = true
-        v.heightAnchor.constraint(equalToConstant: SyzygyRangeSlider.thumbDimension).isActive = true
-        v.widthAnchor.constraint(equalToConstant: SyzygyRangeSlider.thumbDimension).isActive = true
+        v.height.constraint(equalToConstant: SyzygyRangeSlider.thumbDimension).isActive = true
+        v.width.constraint(equalToConstant: SyzygyRangeSlider.thumbDimension).isActive = true
         return v
     }()
     

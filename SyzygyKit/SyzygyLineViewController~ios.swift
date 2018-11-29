@@ -13,9 +13,9 @@ internal extension SyzygyLineViewController {
     static func makeLine(orientation: Orientation) -> SyzygyView {
         let v = SyzygyView()
         if orientation == .vertical {
-            v.widthAnchor.constraint(equalToConstant: 1.0).isActive = true
+            v.width.constraint(equalToConstant: 1.0).isActive = true
         } else {
-            v.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+            v.height.constraint(equalToConstant: 1.0).isActive = true
         }
         v.backgroundColor = UIColor.lightGray
         return v

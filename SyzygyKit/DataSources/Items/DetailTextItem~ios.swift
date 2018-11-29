@@ -46,20 +46,20 @@ open class DetailTextItem: DataSourceItemCell {
 
         NSLayoutConstraint.activate([
             // horizontal
-            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            detailLabel.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: titleLabel.trailingAnchor, multiplier: 1.0),
-            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: detailLabel.trailingAnchor, multiplier: 1.0),
+            titleLabel.leading.constraint(equalToSystemSpacingAfter: contentView.leading),
+            detailLabel.leading.constraint(greaterThanOrEqualToSystemSpacingAfter: titleLabel.trailing),
+            contentView.trailing.constraint(equalToSystemSpacingAfter: detailLabel.trailing),
             
             // title vertical
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLabel.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
+            titleLabel.top.constraint(greaterThanOrEqualToSystemSpacingBelow: contentView.top),
             
             // detail vertical
             detailLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            detailLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
+            detailLabel.top.constraint(equalToSystemSpacingBelow: contentView.top),
             
             // cell min height
-            contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0)
+            contentView.height.constraint(greaterThanOrEqualToConstant: 44.0)
         ])
     }
     

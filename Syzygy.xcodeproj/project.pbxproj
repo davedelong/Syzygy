@@ -186,6 +186,7 @@
 		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
 		55CB0D8F21A9D4720070701E /* NSTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB0D8E21A9D4720070701E /* NSTabViewController.swift */; };
+		55CB0E2821B0963E0070701E /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB0E2721B0963E0070701E /* AutoLayout.swift */; };
 		55CF07A920DD4D1800266DCA /* NSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07A820DD4D1800266DCA /* NSApplication.swift */; };
 		55CF07AD20E2F93A00266DCA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF07AC20E2F93A00266DCA /* Coordinator.swift */; };
 		55D6905421570AF70090222D /* MoveToApplicationsFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6905321570AF70090222D /* MoveToApplicationsFolder.swift */; };
@@ -549,6 +550,7 @@
 		55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55CB0D8E21A9D4720070701E /* NSTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTabViewController.swift; sourceTree = "<group>"; };
+		55CB0E2721B0963E0070701E /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 		55CF07A820DD4D1800266DCA /* NSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication.swift; sourceTree = "<group>"; };
 		55CF07AC20E2F93A00266DCA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		55D6905321570AF70090222D /* MoveToApplicationsFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsFolder.swift; sourceTree = "<group>"; };
@@ -1243,6 +1245,7 @@
 				551C008120EFB93F006CE550 /* SyzygyKit~ios.swift */,
 				551C008320EFB950006CE550 /* SyzygyKit~macos.swift */,
 				55B3B1E521334FFA00DFA8A7 /* Action.swift */,
+				55CB0E2721B0963E0070701E /* AutoLayout.swift */,
 				55F0AFB11FFD9EAF003DCBB6 /* Color.swift */,
 				551C008520EFB973006CE550 /* Color~ios.swift */,
 				551C008720EFB98B006CE550 /* Color~macos.swift */,
@@ -1949,6 +1952,7 @@
 				551D47FE20114AF700AF7CF8 /* AutosizingTextField.swift in Sources */,
 				5555B3A6214EFDF100CC621E /* SeparatorItem~ios.swift in Sources */,
 				551D480220114BA600AF7CF8 /* SyzygyViewControllerBase.swift in Sources */,
+				55CB0E2821B0963E0070701E /* AutoLayout.swift in Sources */,
 				55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */,
 				554F9571201D75A2007864A7 /* UIView.swift in Sources */,
 				554F954D201D2BD8007864A7 /* UITableViewCell.swift in Sources */,

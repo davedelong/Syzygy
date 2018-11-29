@@ -11,6 +11,7 @@ public typealias PlatformNib = NSNib
 public typealias PlatformWindow = NSWindow
 public typealias PlatformViewController = NSViewController
 public typealias PlatformLayoutConstraintPriority = NSLayoutConstraint.Priority
+public typealias PlatformLayoutGuide = NSLayoutGuide
 
 public extension PlatformNib {
     

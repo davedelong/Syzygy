@@ -42,11 +42,11 @@ public class SyzygyLoadingViewController: SyzygyViewController {
         
         
         #if BUILDING_FOR_MOBILE
-        topConstraint = loading.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: view.topAnchor, multiplier: 1.0)
-        leadingConstraint = loading.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: view.leadingAnchor, multiplier: 1.0)
+        topConstraint = loading.top.constraint(greaterThanOrEqualToSystemSpacingBelow: view.top)
+        leadingConstraint = loading.leading.constraint(greaterThanOrEqualToSystemSpacingAfter: view.leading)
         #else
-        topConstraint = loading.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 8)
-        leadingConstraint = loading.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 8)
+        topConstraint = loading.top.constraint(greaterThanOrEqualTo: view.top, constant: 8)
+        leadingConstraint = loading.leading.constraint(greaterThanOrEqualTo: view.leading, constant: 8)
         #endif
             
         NSLayoutConstraint.activate([

@@ -57,11 +57,11 @@ public extension PlatformView {
         addSubview(subview)
         
         NSLayoutConstraint.activate([
-            subview.topAnchor.constraint(equalTo: topAnchor, constant: margins.top),
-            bottomAnchor.constraint(equalTo: subview.bottomAnchor, constant: margins.bottom),
+            subview.top.constraint(equalTo: topAnchor, constant: margins.top),
+            bottomAnchor.constraint(equalTo: subview.bottom, constant: margins.bottom),
             
-            subview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margins.left),
-            trailingAnchor.constraint(equalTo: subview.trailingAnchor, constant: margins.right)
+            subview.leading.constraint(equalTo: leadingAnchor, constant: margins.left),
+            trailingAnchor.constraint(equalTo: subview.trailing, constant: margins.right)
         ])
     }
     

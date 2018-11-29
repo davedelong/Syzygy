@@ -40,12 +40,12 @@ public class MessageTextItem: DataSourceItemCell {
             
             contentView.addSubview(self.background)
             NSLayoutConstraint.activate([
-                self.background.topAnchor.constraint(equalTo: contentView.topAnchor),
-                self.background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                self.background.widthAnchor.constraint(equalTo: self.background.heightAnchor, multiplier: ratio),
+                self.background.top.constraint(equalTo: contentView.top),
+                self.background.leading.constraint(equalTo: contentView.leading),
+                self.background.width.constraint(equalTo: self.background.height, multiplier: ratio),
                 
-                contentView.bottomAnchor.constraint(equalTo: self.background.bottomAnchor),
-                contentView.trailingAnchor.constraint(equalTo: self.background.trailingAnchor)
+                contentView.bottom.constraint(equalTo: self.background.bottom),
+                contentView.trailing.constraint(equalTo: self.background.trailing)
             ])
         }
         
@@ -56,9 +56,9 @@ public class MessageTextItem: DataSourceItemCell {
             messageLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             messageLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            messageLabel.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            messageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11.0),
-            messageLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 22.0)
+            messageLabel.leading.constraint(greaterThanOrEqualToSystemSpacingAfter: contentView.leading),
+            messageLabel.top.constraint(equalTo: contentView.top, constant: 11.0),
+            messageLabel.height.constraint(greaterThanOrEqualToConstant: 22.0)
         ])
     }
     

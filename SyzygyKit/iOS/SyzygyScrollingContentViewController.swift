@@ -29,7 +29,7 @@ open class SyzygyScrollingContentViewController: SyzygyViewController {
         scrollView.preservesSuperviewLayoutMargins = true
         
         scrollView.embedSubview(scrollViewContentContainer)
-        scrollView.widthAnchor.constraint(equalTo: scrollViewContentContainer.widthAnchor).isActive = true
+        scrollView.width.constraint(equalTo: scrollViewContentContainer.width).isActive = true
         
         embedChild(content, in: scrollViewContentContainer)
         

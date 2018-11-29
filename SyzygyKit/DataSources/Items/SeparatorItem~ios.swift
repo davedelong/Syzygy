@@ -16,17 +16,17 @@ open class SeparatorItem: DataSourceItemCell {
         let l = UIView()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1)
-        lineHeight = l.heightAnchor.constraint(equalToConstant: 1.0)
+        lineHeight = l.height.constraint(equalToConstant: 1.0)
         
         super.init()
         contentView.addSubview(l)
         
         NSLayoutConstraint.activate([
-            l.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            l.topAnchor.constraint(equalTo: contentView.topAnchor),
+            l.leading.constraint(equalToSystemSpacingAfter: contentView.leading),
+            l.top.constraint(equalTo: contentView.top),
             
-            contentView.trailingAnchor.constraint(equalTo: l.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: l.bottomAnchor),
+            contentView.trailing.constraint(equalTo: l.trailing),
+            contentView.bottom.constraint(equalTo: l.bottom),
             
             lineHeight
         ])

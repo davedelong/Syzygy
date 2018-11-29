@@ -48,14 +48,14 @@ open class BasicTextItem: DataSourceItemCell {
         contentView.addSubview(detailLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
-            contentView.trailingAnchor.constraint(greaterThanOrEqualTo: titleLabel.trailingAnchor),
+            titleLabel.leading.constraint(equalToSystemSpacingAfter: contentView.leading),
+            titleLabel.top.constraint(equalToSystemSpacingBelow: contentView.top),
+            contentView.trailing.constraint(greaterThanOrEqualTo: titleLabel.trailing),
             
-            detailLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            detailLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 1.0),
-            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: detailLabel.bottomAnchor, multiplier: 1.0),
-            contentView.trailingAnchor.constraint(greaterThanOrEqualTo: detailLabel.trailingAnchor)
+            detailLabel.leading.constraint(equalToSystemSpacingAfter: contentView.leading),
+            detailLabel.top.constraint(equalToSystemSpacingBelow: titleLabel.bottom),
+            contentView.bottom.constraint(equalToSystemSpacingBelow: detailLabel.bottom),
+            contentView.trailing.constraint(greaterThanOrEqualTo: detailLabel.trailing)
         ])
     }
     

@@ -23,7 +23,7 @@ open class MapItem: DataSourceItemCell, MKMapViewDelegate {
         map.isRotateEnabled = false
         map.isScrollEnabled = false
         
-        map.heightAnchor.constraint(equalTo: map.widthAnchor, multiplier: 1.0).isActive = true
+        map.height.constraint(equalTo: map.width).isActive = true
         
         map.delegate = self
         map.register(MKPinAnnotationView.self, forAnnotationViewWithReuseIdentifier: "store")

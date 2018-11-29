@@ -28,10 +28,10 @@ public class TitleTextItem: DataSourceItemCell {
         
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
-            titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
-            contentView.trailingAnchor.constraint(greaterThanOrEqualTo: titleLabel.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 1.0)
+            titleLabel.leading.constraint(equalToSystemSpacingAfter: contentView.leading),
+            titleLabel.top.constraint(equalToSystemSpacingBelow: contentView.top),
+            contentView.trailing.constraint(greaterThanOrEqualTo: titleLabel.trailing),
+            contentView.bottom.constraint(equalToSystemSpacingBelow: titleLabel.bottom)
         ])
     }
     

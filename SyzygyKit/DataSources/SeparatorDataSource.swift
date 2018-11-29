@@ -230,20 +230,20 @@ internal class SeparatorView: DataSourceRowView {
         line.translatesAutoresizingMaskIntoConstraints = false
         parent.addSubview(line)
         
-        let h = line.heightAnchor.constraint(equalToConstant: 1.0)
+        let h = line.height.constraint(equalToConstant: 1.0)
         
         #if BUILDING_FOR_MOBILE
-        let leading = line.leadingAnchor.constraint(equalToSystemSpacingAfter: parent.leadingAnchor, multiplier: 1.0)
+        let leading = line.leading.constraint(equalToSystemSpacingAfter: parent.leading)
         #else
-        let leading = line.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 20)
+        let leading = line.leading.constraint(equalTo: parent.leading, constant: 20)
         #endif
         
         NSLayoutConstraint.activate([
             leading,
-            parent.trailingAnchor.constraint(equalTo: line.trailingAnchor),
+            parent.trailing.constraint(equalTo: line.trailing),
             
-            line.topAnchor.constraint(equalTo: parent.topAnchor),
-            parent.bottomAnchor.constraint(equalTo: line.bottomAnchor),
+            line.top.constraint(equalTo: parent.top),
+            parent.bottom.constraint(equalTo: line.bottom),
             
             h
         ])

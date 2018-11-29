@@ -71,7 +71,7 @@ public class SyzygySidebarViewController: SyzygyViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        viewWidth = view.widthAnchor.constraint(equalToConstant: view.bounds.width)
+        viewWidth = view.width.constraint(equalToConstant: view.bounds.width)
         
         let sep = separator !! "Missing outlet"
         sep.backgroundColor = .lightGray

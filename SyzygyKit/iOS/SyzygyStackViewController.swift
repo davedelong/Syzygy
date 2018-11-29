@@ -63,7 +63,7 @@ public class SyzygyStackViewController: UIViewController {
             scroller.addSubview(stack)
             scroller.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[stack]|", options: [], metrics: nil, views: ["stack": stack]))
             scroller.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[stack]|", options: [], metrics: nil, views: ["stack": stack]))
-            scroller.addConstraint(scroller.widthAnchor.constraint(equalTo: stack.widthAnchor))
+            scroller.addConstraint(scroller.width.constraint(equalTo: stack.width))
         } else {
             view = stack
         }

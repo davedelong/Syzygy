@@ -25,10 +25,10 @@ open class LoadingItem: DataSourceItemCell {
             ai.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             ai.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            ai.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
-            ai.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1.0),
+            ai.top.constraint(greaterThanOrEqualToSystemSpacingBelow: contentView.top),
+            ai.leading.constraint(greaterThanOrEqualToSystemSpacingAfter: contentView.leading),
             
-            contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0)
+            contentView.height.constraint(greaterThanOrEqualToConstant: 44.0)
         ])
     }
     
