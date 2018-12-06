@@ -43,6 +43,8 @@ extension AnchorProviding {
 extension PlatformLayoutGuide: AnchorProviding { }
 extension PlatformView: AnchorProviding { }
 
+#if BUILDING_FOR_MOBILE
+
 extension NSLayoutXAxisAnchor {
     
     public func constraint(equalToSystemSpacingAfter anchor: NSLayoutXAxisAnchor) -> NSLayoutConstraint {
@@ -72,3 +74,5 @@ extension NSLayoutYAxisAnchor {
         return constraint(lessThanOrEqualToSystemSpacingBelow: anchor, multiplier: 1.0)
     }
 }
+
+#endif
