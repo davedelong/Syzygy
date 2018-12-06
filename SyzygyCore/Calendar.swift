@@ -121,4 +121,11 @@ public extension Calendar {
         return (isBefore == false && isOn == false)
     }
     
+    public func startOfNextDay(after day: Date) -> Date {
+        let r = dateInterval(of: .day, for: day) !! "Can't find day containing \(day)"
+        let end = r.end
+        let nextDay = end.addingTimeInterval(1.0)
+        return startOfDay(for: nextDay)
+    }
+    
 }
