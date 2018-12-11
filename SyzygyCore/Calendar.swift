@@ -128,4 +128,9 @@ public extension Calendar {
         return startOfDay(for: nextDay)
     }
     
+    public func startOfMonth(containing date: Date) -> Date {
+        let r = dateInterval(of: .month, for: date) !! "Can't find day containing \(date)"
+        return r.start
+    }
+    
 }
