@@ -40,6 +40,10 @@ public extension String {
         return String(self[startIndex..<suffixRange.lowerBound])
     }
     
+    func capitalizingFirstLetter(with locale: Locale? = nil) -> String {
+        return prefix(1).capitalized(with: locale) + self.dropFirst()
+    }
+    
     func longestCommonPrefix(_ with: String) -> String {
         return String.longestCommonPrefix([self, with])
     }
