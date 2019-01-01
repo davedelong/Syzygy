@@ -217,6 +217,9 @@
 		55F3755B20BC6A7E00E7D742 /* SyzygySidebarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */; };
 		55F3A5AC215EAC5A0038B3BA /* UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3A5AB215EAC5A0038B3BA /* UUID.swift */; };
 		55F3A5DA216C15560038B3BA /* DefaultLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3A5D9216C15560038B3BA /* DefaultLog.swift */; };
+		55F653DD21D73C5900E86C11 /* Property+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F653DC21D73C5900E86C11 /* Property+Diffs.swift */; };
+		55F653DF21D92FC800E86C11 /* MasterItem+Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F653DE21D92FC800E86C11 /* MasterItem+Diff.swift */; };
+		55F653E721D9DC5000E86C11 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F653E621D9DC5000E86C11 /* String+HTML.swift */; };
 		55F7248F2038922B0093473F /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7248E2038922B0093473F /* Header.swift */; };
 		55F72491203892380093473F /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F72490203892380093473F /* Method.swift */; };
 		55FB06531FF9B5BB0001D42E /* SyzygyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB06511FF9B5BB0001D42E /* SyzygyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -581,6 +584,9 @@
 		55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyzygySidebarViewController.xib; sourceTree = "<group>"; };
 		55F3A5AB215EAC5A0038B3BA /* UUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUID.swift; sourceTree = "<group>"; };
 		55F3A5D9216C15560038B3BA /* DefaultLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLog.swift; sourceTree = "<group>"; };
+		55F653DC21D73C5900E86C11 /* Property+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Diffs.swift"; sourceTree = "<group>"; };
+		55F653DE21D92FC800E86C11 /* MasterItem+Diff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterItem+Diff.swift"; sourceTree = "<group>"; };
+		55F653E621D9DC5000E86C11 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		55F7248E2038922B0093473F /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55F72490203892380093473F /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyzygyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1213,6 +1219,7 @@
 				55D82FA1210AB2B600EF7965 /* Set.swift */,
 				55FB06A71FF9BBFF0001D42E /* SetAlgebra.swift */,
 				55FB067F1FF9BBFD0001D42E /* String.swift */,
+				55F653E621D9DC5000E86C11 /* String+HTML.swift */,
 				55FB06CF1FF9BC070001D42E /* Timer.swift */,
 				55FB06C61FF9BC050001D42E /* URL.swift */,
 				55EB037920212D74007B5433 /* UserDefaults.swift */,
@@ -1321,6 +1328,7 @@
 				55FB06A11FF9BBFF0001D42E /* Property+Take.swift */,
 				55FB06A21FF9BBFF0001D42E /* Property+BookmarkMetadata.swift */,
 				55FB06A31FF9BBFF0001D42E /* Property+Collections.swift */,
+				55F653DC21D73C5900E86C11 /* Property+Diffs.swift */,
 				55FB06A41FF9BBFF0001D42E /* Property+Coalesce.swift */,
 				55FB06921FF9BBFF0001D42E /* FileManager+Property.swift */,
 				55FB06971FF9BBFF0001D42E /* NSMetadataQuery+Property.swift */,
@@ -1892,6 +1900,7 @@
 				55FB071B1FF9BC070001D42E /* Bundle+Path.swift in Sources */,
 				551C00B120EFCFBB006CE550 /* Entitlements~macos.swift in Sources */,
 				55F3A5DA216C15560038B3BA /* DefaultLog.swift in Sources */,
+				55F653E721D9DC5000E86C11 /* String+HTML.swift in Sources */,
 				55FB07281FF9BC070001D42E /* Objective-C.m in Sources */,
 				55FB06FE1FF9BC070001D42E /* Property+Result.swift in Sources */,
 				55FB07111FF9BC070001D42E /* Result.swift in Sources */,
@@ -1900,6 +1909,7 @@
 				55FB07101FF9BC070001D42E /* URLRouter.swift in Sources */,
 				55D82FA2210AB2B600EF7965 /* Set.swift in Sources */,
 				55FB06D71FF9BC070001D42E /* Plist+Initializers.swift in Sources */,
+				55F653DD21D73C5900E86C11 /* Property+Diffs.swift in Sources */,
 				55FB07481FF9D2F10001D42E /* AnalyticEvent.swift in Sources */,
 				55FB07061FF9BC070001D42E /* Property+Take.swift in Sources */,
 				55FB06FF1FF9BC070001D42E /* Property+From.swift in Sources */,

@@ -41,51 +41,51 @@ extension NSViewController: _PlatformViewController {
                       duration: TimeInterval,
                       options: PlatformViewController.TransitionOptions) {
         
-        let source = child ?? SyzygyViewController(ui: .empty)
-        let dest = newChild
+        let old = child ?? SyzygyViewController(ui: .empty)
+        let new = newChild
         
         let needsSourceRemoval = child == nil
         
         // transitioning expects that all view controllers are children of self
-        let sourceView = source.view
-        let destView = dest.view
+        let oldView = old.view
+        let newView = new.view
         
-        let targetContainer = sourceView.superview ?? container ?? view
+        let targetContainer = oldView.superview ?? container ?? view
         
-        if source.parent != self {
-            sourceView.removeFromSuperview()
-            source.removeFromParent()
-            addChild(source)
+        if old.parent != self {
+            oldView.removeFromSuperview()
+            old.removeFromParent()
+            addChild(old)
         }
         
-        if sourceView.superview != targetContainer {
-            sourceView.removeFromSuperview()
-            sourceView.alphaValue = 1.0
-            sourceView.autoresizingMask = [.height, .width]
-            sourceView.translatesAutoresizingMaskIntoConstraints = true
-            sourceView.frame = targetContainer.bounds
-            targetContainer.addSubview(sourceView, positioned: .above, relativeTo: destView)
+        if oldView.superview != targetContainer {
+            oldView.removeFromSuperview()
+            oldView.alphaValue = 1.0
+            oldView.autoresizingMask = [.height, .width]
+            oldView.translatesAutoresizingMaskIntoConstraints = true
+            oldView.frame = targetContainer.bounds
+            targetContainer.addSubview(oldView)
         }
         
-        if dest.parent != self {
-            destView.removeFromSuperview()
-            dest.removeFromParent()
-            addChild(dest)
+        if new.parent != self {
+            newView.removeFromSuperview()
+            new.removeFromParent()
+            addChild(new)
         }
         
-        if destView.superview != targetContainer {
-            destView.removeFromSuperview()
-            destView.alphaValue = 1.0
-            destView.autoresizingMask = [.height, .width]
-            destView.translatesAutoresizingMaskIntoConstraints = true
-            destView.frame = targetContainer.bounds
-            targetContainer.addSubview(destView, positioned: .below, relativeTo: sourceView)
+        if newView.superview != targetContainer {
+            newView.removeFromSuperview()
+            newView.alphaValue = 1.0
+            newView.autoresizingMask = [.height, .width]
+            newView.translatesAutoresizingMaskIntoConstraints = true
+            newView.frame = targetContainer.bounds
+            targetContainer.addSubview(newView, positioned: .below, relativeTo: oldView)
         }
         
-        self.transition(from: source, to: dest, options: options) {
+        self.transition(from: old, to: new, options: options) {
             if needsSourceRemoval {
-                sourceView.removeFromSuperview()
-                source.removeFromParent()
+                oldView.removeFromSuperview()
+                old.removeFromParent()
             }
         }
         

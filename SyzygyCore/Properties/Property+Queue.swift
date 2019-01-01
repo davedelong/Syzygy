@@ -12,7 +12,12 @@ public extension Property {
     
     public func deliver(on queue: DispatchQueue) -> Property<T> {
         let m = MutableProperty(value)
-        let serial = DispatchQueue(label: "delivery<\(type(of: T.self))>", target: queue)
+        let serial: DispatchQueue
+        if queue == .main {
+            serial = .main
+        } else {
+            serial = DispatchQueue(label: "delivery<\(type(of: T.self))>", target: queue)
+        }
         observeNext { newValue in
             serial.async { m.value = newValue }
         }
