@@ -57,7 +57,7 @@ public class SyzygyRangeSlider: UIControl {
         let v = ShapeView(frame: f)
         v.translatesAutoresizingMaskIntoConstraints = false
         v.shape = Shape.horizontalPill
-        v.shapeColor = Color(color: UIColor(white: 0.9, alpha: 1.0))
+        v.shapeColor = UIColor(white: 0.9, alpha: 1.0)
         addSubview(v)
         v.leading.constraint(equalTo: leadingAnchor).isActive = true
         v.trailing.constraint(equalTo: trailingAnchor).isActive = true

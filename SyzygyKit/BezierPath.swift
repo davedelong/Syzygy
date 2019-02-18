@@ -18,17 +18,17 @@ public extension BezierPath {
         
         // solve the triangle for the length of the minor radius
         /*
-         B
-         |\
-         | \
-         |  \ c
-         |   \
+           B
+           |\
+           | \
+           |  \ c
+           |   \
          a |    \ A
-         |   /
-         |  /
-         | / b
-         |/
-         C
+           |   /
+           |  /
+           | / b
+           |/
+           C
          
          given side 'a' of length 'majorRadius',
          the length of side b (the minor radius)

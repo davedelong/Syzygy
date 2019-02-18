@@ -10,7 +10,7 @@ import Foundation
 
 open class ActionListItem: DataSourceItemCell {
     
-    public init(actions: Array<Action>) {
+    public init(actions: Array<Action>, actionColor: UIColor = .action) {
         super.init()
         
         let views = actions.map { a -> UIView in
@@ -19,7 +19,9 @@ open class ActionListItem: DataSourceItemCell {
             if let i = a.image {
                 let button = InfoActionButton.make()
                 button.titleLabel?.text = a.name
+                button.titleLabel?.textColor = actionColor
                 button.imageView?.image = i
+                button.imageView?.tintColor = actionColor
                 
                 button.addTapAction { a.handler(nil) }
                 button.layer.cornerRadius = 8
@@ -29,6 +31,7 @@ open class ActionListItem: DataSourceItemCell {
                 let button = UIButton(type: .system)
                 button.setTitle(a.name, for: .normal)
                 button.titleLabel?.font = .preferredFont(forTextStyle: .caption1)
+                button.setTitleColor(actionColor, for: .normal)
                 button.addAction(a)
                 v = button
             }

@@ -8,6 +8,19 @@
 
 import Foundation
 
+public extension PlatformColor {
+    
+    public convenience init?(hexString: String) {
+        let c = Color(hexString: hexString)
+        if let color = c?.color.cgColor {
+            self.init(cgColor: color)
+        } else {
+            return nil
+        }
+    }
+    
+}
+
 public struct Color {
     
     private static let sRGB = CGColorSpace(name: CGColorSpace.sRGB) !! "Unable to create sRGB color space"
@@ -44,22 +57,8 @@ public struct Color {
     
 }
 
-public extension Color {
-    public static let action = Color(hexString: "007AFF")!
-    
-    public static let black = Color(color: .black)
-    public static let darkGray = Color(color: .darkGray)
-    public static let gray = Color(color: .gray)
-    public static let lightGray = Color(color: .lightGray)
-    public static let white = Color(color: .white)
-    public static let clear = Color(color: .clear)
-    
-    public static let red = Color(color: .red)
-    public static let orange = Color(color: .orange)
-    public static let yellow = Color(color: .yellow)
-    public static let green = Color(color: .green)
-    public static let blue = Color(color: .blue)
-    public static let purple = Color(color: .purple)
+public extension PlatformColor {
+    public static let action = PlatformColor(hexString: "007AFF")!
 }
 
 public extension R where T == PlatformColor {

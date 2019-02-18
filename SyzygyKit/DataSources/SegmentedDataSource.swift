@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Abort.Reason {
-    public static func child(_ child: AnyDataSource, isNotCurrent current: AnyDataSource) -> Abort.Reason {
+    public static func child(_ child: AnyDataSource, mustBe current: AnyDataSource) -> Abort.Reason {
         return Abort.Reason("Child \(child) is not the expected \(current)")
     }
 }
@@ -170,25 +170,25 @@ extension SegmentedDataSource: DataSourceParent {
     
     public func child(_ child: AnyDataSource, didInsertItemAt index: Int, semantic: DataSourceChangeSemantic) {
         guard switchingChildren == false else { return }
-        Assert.that(child == current, because: .child(child, isNotCurrent: current))
+        Assert.that(child == current, because: .child(child, mustBe: current))
         parent?.child(self, didInsertItemAt: index + 1, semantic: semantic)
     }
     
     public func child(_ child: AnyDataSource, didRemoveItemAt index: Int, semantic: DataSourceChangeSemantic) {
         guard switchingChildren == false else { return }
-        Assert.that(child == current, because: .child(child, isNotCurrent: current))
+        Assert.that(child == current, because: .child(child, mustBe: current))
         parent?.child(self, didRemoveItemAt: index + 1, semantic: semantic)
     }
     
     public func child(_ child: AnyDataSource, didMoveItemAt oldIndex: Int, to newIndex: Int) {
         guard switchingChildren == false else { return }
-        Assert.that(child == current, because: .child(child, isNotCurrent: current))
+        Assert.that(child == current, because: .child(child, mustBe: current))
         parent?.child(self, didMoveItemAt: oldIndex + 1, to: newIndex + 1)
     }
     
     public func child(_ child: AnyDataSource, wantsReloadOfItemAt index: Int, semantic: DataSourceChangeSemantic) {
         guard switchingChildren == false else { return }
-        Assert.that(child == current, because: .child(child, isNotCurrent: current))
+        Assert.that(child == current, because: .child(child, mustBe: current))
         parent?.child(self, wantsReloadOfItemAt: index + 1, semantic: semantic)
     }
     

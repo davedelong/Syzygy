@@ -211,7 +211,6 @@
 		55EB0378202125E0007B5433 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB0377202125E0007B5433 /* Keychain.swift */; };
 		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
 		55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFBBDD20D423C6002C48FA /* NSPredicate.swift */; };
-		55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */; };
 		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
 		55F3755A20BC6A7E00E7D742 /* SyzygySidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */; };
 		55F3755B20BC6A7E00E7D742 /* SyzygySidebarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */; };
@@ -578,7 +577,6 @@
 		55EB0377202125E0007B5433 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		55EB037920212D74007B5433 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		55EFBBDD20D423C6002C48FA /* NSPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicate.swift; sourceTree = "<group>"; };
-		55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		55F0AFB11FFD9EAF003DCBB6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySidebarViewController.swift; sourceTree = "<group>"; };
 		55F3755920BC6A7E00E7D742 /* SyzygySidebarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyzygySidebarViewController.xib; sourceTree = "<group>"; };
@@ -1258,7 +1256,6 @@
 				551C008720EFB98B006CE550 /* Color~macos.swift */,
 				551B615721A3AC4D007A6B0F /* ColorViewController.swift */,
 				552F888D2132F6120001DBF5 /* Font.swift */,
-				55F0AFAF1FFD9E96003DCBB6 /* Theme.swift */,
 				551D47ED2010133000AF7CF8 /* BezierPath.swift */,
 				551C008920EFB9CF006CE550 /* BezierPath~ios.swift */,
 				551C008B20EFB9ED006CE550 /* BezierPath~macos.swift */,
@@ -1968,7 +1965,6 @@
 				554F954D201D2BD8007864A7 /* UITableViewCell.swift in Sources */,
 				55CF07A920DD4D1800266DCA /* NSApplication.swift in Sources */,
 				551D481E20118D7A00AF7CF8 /* TargetAction.swift in Sources */,
-				55F0AFB01FFD9E96003DCBB6 /* Theme.swift in Sources */,
 				554F9565201D3F51007864A7 /* UIGestureRecognizer+Blocks.swift in Sources */,
 				55D6905421570AF70090222D /* MoveToApplicationsFolder.swift in Sources */,
 				5555B398214EA2CE00CC621E /* BasicTextItem~ios.swift in Sources */,
@@ -2130,23 +2126,14 @@
 		55FB06641FF9B5D30001D42E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		55FB06651FF9B5D30001D42E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

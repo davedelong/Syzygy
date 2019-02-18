@@ -13,11 +13,11 @@ public class MessageTextItem: DataSourceItemCell {
     private let messageLabel: UILabel
     private let background: UIImageView
     
-    public convenience init(background: UIImage? = nil, action: Action) {
-        self.init(message: action.name, background: background, action: action)
+    public convenience init(background: UIImage? = nil, action: Action, actionColor: PlatformColor = .action) {
+        self.init(message: action.name, background: background, action: action, actionColor: actionColor)
     }
     
-    public init(message: String, background: UIImage? = nil, action: Action? = nil) {
+    public init(message: String, background: UIImage? = nil, action: Action? = nil, actionColor: PlatformColor = .action) {
         self.messageLabel = UILabel(frame: .zero)
         self.background = UIImageView(image: background)
         
@@ -30,7 +30,7 @@ public class MessageTextItem: DataSourceItemCell {
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         messageLabel.text = message
-        messageLabel.textColor = action == nil ? .darkText : Color.action.color
+        messageLabel.textColor = action == nil ? .darkText : actionColor
         
         if let bg = background, bg.size.height > 0 {
             let ratio = bg.size.width / bg.size.height

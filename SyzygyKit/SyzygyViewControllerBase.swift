@@ -47,6 +47,17 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     
     public var syzygyView: SyzygyView { return view as! SyzygyView }
     
+    #if BUILDING_FOR_MOBILE
+    private var _preferredStatusBarStyle: UIStatusBarStyle = .default
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        get { return _preferredStatusBarStyle }
+        set {
+            _preferredStatusBarStyle = newValue
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    #endif
+    
     public enum UI {
         case empty
         case `default`
@@ -94,9 +105,6 @@ open class _SyzygyViewControllerBase: PlatformViewController {
         } else {
             let newView = SyzygyView(frame: loadedView.frame)
             newView.embedSubview(loadedView)
-            
-            newView.autoresizingMask = [.width, .height]
-            newView.translatesAutoresizingMaskIntoConstraints = true
             view = newView
             
             ddv = newView

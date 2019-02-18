@@ -26,7 +26,7 @@ public class ShapeView: PlatformView {
         didSet { _shapeNeedsUpdate() }
     }
     
-    public var lineColor: Color? {
+    public var lineColor: PlatformColor? {
         didSet { _shapeNeedsUpdate() }
     }
     
@@ -34,7 +34,7 @@ public class ShapeView: PlatformView {
         didSet { _shapeNeedsUpdate() }
     }
     
-    public var shapeColor: Color? {
+    public var shapeColor: PlatformColor? {
         didSet { _shapeNeedsUpdate() }
     }
     
@@ -58,8 +58,8 @@ public class ShapeView: PlatformView {
         let path = shape.bezierPath(in: boundingRect)
         let p = path.CGPath
         shapeLayer.path = p
-        shapeLayer.fillColor = shapeColor?.rawColor
-        shapeLayer.strokeColor = lineColor?.rawColor
+        shapeLayer.fillColor = shapeColor?.cgColor
+        shapeLayer.strokeColor = lineColor?.cgColor
         shapeLayer.lineWidth = lineWidth
         
 //        let mask = CAShapeLayer()

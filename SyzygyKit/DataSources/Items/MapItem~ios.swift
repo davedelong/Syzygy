@@ -11,9 +11,11 @@ import MapKit
 open class MapItem: DataSourceItemCell, MKMapViewDelegate {
     
     private let map: MKMapView
+    private let pinTintColor: UIColor?
     
-    public init(annotation: MKAnnotation) {
+    public init(annotation: MKAnnotation, pinTintColor: UIColor? = nil) {
         map = MKMapView(frame: CGRect(x: 0, y: 0, width: 320, height: 320))
+        self.pinTintColor = pinTintColor
         super.init()
         embedSubview(map)
         
@@ -26,7 +28,7 @@ open class MapItem: DataSourceItemCell, MKMapViewDelegate {
         map.height.constraint(equalTo: map.width).isActive = true
         
         map.delegate = self
-        map.register(MKPinAnnotationView.self, forAnnotationViewWithReuseIdentifier: "store")
+        map.register(MKPinAnnotationView.self, forAnnotationViewWithReuseIdentifier: "pin")
         map.addAnnotation(annotation)
     }
     
@@ -38,8 +40,9 @@ open class MapItem: DataSourceItemCell, MKMapViewDelegate {
     }
     
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let pin = mapView.dequeueReusableAnnotationView(withIdentifier: "store", for: annotation)
+        let pin = mapView.dequeueReusableAnnotationView(withIdentifier: "pin", for: annotation) as! MKPinAnnotationView
         pin.canShowCallout = false
+        pin.pinTintColor = pinTintColor
         return pin
     }
     

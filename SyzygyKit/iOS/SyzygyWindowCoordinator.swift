@@ -18,6 +18,11 @@ open class SyzygyWindowCoordinator: Coordinator {
     
     private let container: SyzygyContainerViewController
     
+    public var preferredStatusBarStyle: UIStatusBarStyle {
+        get { return container.preferredStatusBarStyle }
+        set { container.preferredStatusBarStyle = newValue }
+    }
+    
     public init(content: Property<UIViewController>) {
         container = SyzygyContainerViewController(content: content)
         super.init()

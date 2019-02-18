@@ -33,9 +33,9 @@ public enum Abort {
         fatalError(message, file: file, line: line)
     }
     
-    public static func `if`(_ condition: @autoclosure () -> Bool, because: Reason, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
+    public static func `if`(_ condition: @autoclosure () -> Bool, because reason: Reason, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
         if condition() == true {
-            Abort.because(because, file: file, line: line, function: function)
+            Abort.because(reason, file: file, line: line, function: function)
         }
     }
     
