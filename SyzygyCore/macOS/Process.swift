@@ -73,10 +73,19 @@ public extension Process {
             let error = ProcessError(exitCode: task.terminationStatus, reason: task.terminationReason)
             return .error(error)
         } else {
-            handle?.seek(toFileOffset: 0)
-            let data = handle?.readDataToEndOfFile()
-            
-            return .success(data ?? Data())
+            do {
+                let result = try catchException { () -> Result<Data> in
+                    handle?.seek(toFileOffset: 0)
+                    let data = handle?.readDataToEndOfFile()
+                    
+                    return .success(data ?? Data())
+                }
+                return result
+            } catch {
+                Log.info("Attempting to read process output threw an exception: \(error)")
+                let error = ProcessError(exitCode: EX_NOPERM, reason: .uncaughtSignal)
+                return .error(error)
+            }
         }
     }
 }
