@@ -79,20 +79,21 @@ public extension Process {
         if task.terminationStatus != 0 {
             let error = ProcessError(exitCode: task.terminationStatus, reason: task.terminationReason)
             return .error(error)
-        } else {
+        } else if let handle = outputHandle {
             do {
-                let result = try catchException { () -> Result<Data> in
-                    outputHandle?.seek(toFileOffset: 0)
-                    let data = outputHandle?.readDataToEndOfFile()
-                    
-                    return .success(data ?? Data())
+                var data = Data()
+                try catchException {
+                    data = handle.readDataToEndOfFile()
                 }
-                return result
+                return .success(data)
             } catch {
                 Log.info("Attempting to read process output threw an exception: \(error)")
                 let error = ProcessError(exitCode: EPERM, reason: .uncaughtSignal)
                 return .error(error)
             }
+        } else {
+            let error = ProcessError(exitCode: ENOEXEC, reason: .exit)
+            return .error(error)
         }
     }
 }
