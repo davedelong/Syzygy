@@ -55,17 +55,24 @@ public extension Process {
         }
     }
     
-    private class func runAsUser(_ path: AbsolutePath, arguments: Array<String>) -> Result<Data> {
+    private class func runAsUser(_ path: AbsolutePath, arguments: Array<String>, usingPipe: Bool = false) -> Result<Data> {
         let task = Process()
         task.launchPath = path.fileSystemPath
         task.arguments = arguments
         task.qualityOfService = .userInitiated
         
-        let output = TemporaryFile(extension: "txt")
-        let handle = output.fileHandle
-        defer { handle?.closeFile() }
+        let outputHandle: FileHandle?
+        if usingPipe == false {
+            let output = TemporaryFile(extension: "txt")
+            outputHandle = output.fileHandle
+            task.standardOutput = outputHandle
+            defer { outputHandle?.closeFile() }
+        } else {
+            let pipe = Pipe()
+            task.standardOutput = pipe
+            outputHandle = pipe.fileHandleForReading
+        }
         
-        task.standardOutput = handle
         task.launch()
         task.waitUntilExit()
         
@@ -75,15 +82,15 @@ public extension Process {
         } else {
             do {
                 let result = try catchException { () -> Result<Data> in
-                    handle?.seek(toFileOffset: 0)
-                    let data = handle?.readDataToEndOfFile()
+                    outputHandle?.seek(toFileOffset: 0)
+                    let data = outputHandle?.readDataToEndOfFile()
                     
                     return .success(data ?? Data())
                 }
                 return result
             } catch {
                 Log.info("Attempting to read process output threw an exception: \(error)")
-                let error = ProcessError(exitCode: EX_NOPERM, reason: .uncaughtSignal)
+                let error = ProcessError(exitCode: EPERM, reason: .uncaughtSignal)
                 return .error(error)
             }
         }

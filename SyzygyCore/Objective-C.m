@@ -10,7 +10,7 @@
 
 @implementation ObjectiveC
 
-+ (BOOL)catchException:(NS_NOESCAPE void(^)(void))tryBlock error:(__autoreleasing NSError **)error {
++ (BOOL)catchException:(NS_NOESCAPE void(^)(void))tryBlock error:(NSError **)error {
     @try {
         tryBlock();
         return YES;

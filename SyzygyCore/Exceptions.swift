@@ -14,5 +14,4 @@ public func catchException<T>(_ block: () -> T) throws -> T {
         result = block()
     }
     return result
-    
 }

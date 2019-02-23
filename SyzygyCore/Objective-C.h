@@ -10,6 +10,6 @@
 
 @interface ObjectiveC : NSObject
 
-+ (BOOL)catchException:(NS_NOESCAPE void(^)(void))tryBlock error:(__autoreleasing NSError **)error;
++ (BOOL)catchException:(NS_NOESCAPE void(^)(void))tryBlock error:(NSError * _Nullable *)error;
 
 @end
