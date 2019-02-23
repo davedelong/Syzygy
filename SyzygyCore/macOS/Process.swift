@@ -19,18 +19,18 @@ public extension Process {
         public let errorDictionary: NSDictionary
     }
     
-    public class func runSynchronously(_ path: AbsolutePath, arguments: Array<String> = []) -> Result<Data> {
-        return runAsUser(path, arguments: arguments)
+    public class func runSynchronously(_ path: AbsolutePath, arguments: Array<String> = [], usingPipe: Bool = false) -> Result<Data> {
+        return runAsUser(path, arguments: arguments, usingPipe: usingPipe)
     }
     
-    public class func run(process path: AbsolutePath, arguments: Array<String> = [], asAdministrator: Bool = false, completion: @escaping (Result<Data>) -> Void) {
+    public class func run(process path: AbsolutePath, arguments: Array<String> = [], asAdministrator: Bool = false, usingPipe: Bool = false, completion: @escaping (Result<Data>) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
             let result: Result<Data>
             
             if asAdministrator == true {
                 result = runAsAdmin(path, arguments: arguments)
             } else {
-                result = runAsUser(path, arguments: arguments)
+                result = runAsUser(path, arguments: arguments, usingPipe: usingPipe)
             }
             
             DispatchQueue.main.async { completion(result) }
