@@ -10,9 +10,9 @@ import Foundation
 
 public extension Property where T: OptionalType {
     
-    public static var empty: Property<T> { return Property<T>(T.init(nil)) }
+    static var empty: Property<T> { return Property<T>(T.init(nil)) }
     
-    public func ignoreNil() throws -> Property<T.ValueType> {
+    func ignoreNil() throws -> Property<T.ValueType> {
         let initial = try value.optionalValue ?! PropertyError.missingInitialValue
         let m = MutableProperty(initial)
         observeNext {
@@ -25,7 +25,7 @@ public extension Property where T: OptionalType {
 
 public extension Property where T: OptionalType, T.ValueType: Equatable {
     
-    public func skipRepeats() -> Property<T> {
+    func skipRepeats() -> Property<T> {
         return skipRepeats { $0.optionalValue == $1.optionalValue }
     }
     

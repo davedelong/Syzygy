@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property where T: Concatenatable {
     
-    public func concatenateValues(_ others: Property<T> ...) -> Property<T> {
+    func concatenateValues(_ others: Property<T> ...) -> Property<T> {
         let all = [self] + others
         let combined = Property.combine(all)
         return combined.map { values in

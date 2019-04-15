@@ -11,7 +11,7 @@
 
 public extension Bundle {
     
-    public static let SyzygyKit = Bundle(for: SyzygyKitMarker.self)
+    static let SyzygyKit = Bundle(for: SyzygyKitMarker.self)
     
 }
 

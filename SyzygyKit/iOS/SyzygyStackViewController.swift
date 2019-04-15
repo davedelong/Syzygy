@@ -49,6 +49,10 @@ public class SyzygyStackViewController: UIViewController {
     private let disposable = CompositeDisposable()
     private let observedChildren: Property<Array<UIViewController>>
     
+    public convenience init(children: Array<UIViewController>, scrollsContents: Bool = true) {
+        self.init(children: Property(children), scrollContents: scrollsContents)
+    }
+    
     public init(children: Property<Array<UIViewController>>, scrollContents: Bool = true) {
         self.observedChildren = children
         self.scrollsContent = scrollContents

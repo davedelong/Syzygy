@@ -23,7 +23,7 @@ public class Bag<T> {
     
     public func remove(_ uuid: UUID) {
         _map[uuid] = nil
-        if let idx = _list.index(of: uuid) {
+        if let idx = _list.firstIndex(of: uuid) {
             _list.remove(at: idx)
         }
     }

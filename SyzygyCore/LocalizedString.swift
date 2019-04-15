@@ -54,7 +54,10 @@ public final class LocalizedString: Hashable {
         self.providerLock.unlock()
         return s
     }()
-    public var hashValue: Int { return value.hashValue }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
+    }
     
     public init(provider: Provider) {
         self.provider = provider

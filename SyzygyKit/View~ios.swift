@@ -18,8 +18,8 @@ public extension UINib {
 }
 
 public extension UIView.AutoresizingMask {
-    public static let width = UIView.AutoresizingMask.flexibleWidth
-    public static let height = UIView.AutoresizingMask.flexibleHeight
+    static let width = UIView.AutoresizingMask.flexibleWidth
+    static let height = UIView.AutoresizingMask.flexibleHeight
 }
 
 extension PlatformNib: BundleResourceLoadable {

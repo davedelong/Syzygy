@@ -9,28 +9,10 @@
 import Foundation
 
 public enum PathComponent: Hashable {
-    
-    public static func ==(lhs: PathComponent, rhs: PathComponent) -> Bool {
-        switch (lhs, rhs) {
-            case (.up, .up): return true
-            case (.this, .this): return true
-            case (.item(let l, let le), .item(let r, let re)): return l == r && le == re
-            default: return false
-        }
-    }
-    
     case this
     case up
     case item(String, String?)
-    
-    public var hashValue: Int {
-        switch self {
-            case .this: return 1
-            case .up: return 2
-            case .item(let s, _): return s.hashValue
-        }
-    }
-    
+        
     public init(_ string: String) {
         switch string {
             case ".": self = .this
@@ -75,25 +57,27 @@ public let PathSeparator = "/"
 
 public extension Path {
     
-    public static func ==(lhs: Self, rhs: Self) -> Bool {
+    static func ==(lhs: Self, rhs: Self) -> Bool {
         return lhs.components == rhs.components
     }
     
-    public var hashValue: Int { return components.count }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(components.count)
+    }
     
-    public var debugDescription: String {
+    var debugDescription: String {
         return fileSystemPath
     }
     
-    public var lastComponent: PathComponent? { return components.last }
-    public var lastItem: String? { return components.last?.itemString }
+    var lastComponent: PathComponent? { return components.last }
+    var lastItem: String? { return components.last?.itemString }
     
-    public var `extension`: String? {
+    var `extension`: String? {
         guard case .some(.item(_, let e)) = components.last else { return nil }
         return e
     }
     
-    public func modifyingLastItem(_ modifier: (String, String?) -> (String, String?)?) -> Self {
+    func modifyingLastItem(_ modifier: (String, String?) -> (String, String?)?) -> Self {
         var pieces = self.components
         guard case .some(.item(let s, let e)) = pieces.popLast() else { return self }
         if let (name, ext) = modifier(s, e) {
@@ -102,15 +86,15 @@ public extension Path {
         return Self.init(pieces)
     }
     
-    public func deletingExtension() -> Self {
+    func deletingExtension() -> Self {
         return modifyingLastItem { (s, _) in return (s, nil) }
     }
     
-    public func deletingLastComponent() -> Self {
+    func deletingLastComponent() -> Self {
         return modifyingLastItem { (_, _) in return nil }
     }
     
-    public func trimming(_ path: RelativePath) -> Self {
+    func trimming(_ path: RelativePath) -> Self {
         var pieces = self.components
         var toRemove = path.components
         
@@ -121,30 +105,30 @@ public extension Path {
         return Self.init(pieces)
     }
     
-    public func deletingFirstComponent() -> Self {
+    func deletingFirstComponent() -> Self {
         var pieces = self.components
         _ = pieces.removeFirst()
         return Self.init(pieces)
     }
     
-    public func appending(components: String...) -> Self {
+    func appending(components: String...) -> Self {
         let pieces = components.map { PathComponent($0) }
         return Self.init(self.components + pieces)
     }
     
-    public func appending(component: String) -> Self {
+    func appending(component: String) -> Self {
         return Self.init(self.components + [PathComponent(component)])
     }
     
-    public func appending(component: PathComponent) -> Self {
+    func appending(component: PathComponent) -> Self {
         return Self.init(self.components + [component])
     }
     
-    public func appending(path: RelativePath) -> Self {
+    func appending(path: RelativePath) -> Self {
         return Self.init(self.components + path.components)
     }
     
-    public func appending(extension ext: String) -> Self {
+    func appending(extension ext: String) -> Self {
         return modifyingLastItem { (n, e) in
             guard let existing = e else { return (n, ext) }
             guard let last = (n as NSString).appendingPathExtension(existing) else { return (n, e) }
@@ -152,15 +136,15 @@ public extension Path {
         }
     }
     
-    public func appending(lastItemPiece piece: String) -> Self {
+    func appending(lastItemPiece piece: String) -> Self {
         return modifyingLastItem { ($0+piece, $1) }
     }
     
-    public func replacingLast(extension ext: String) -> Self {
+    func replacingLast(extension ext: String) -> Self {
         return modifyingLastItem { (s, _) in return (s, ext) }
     }
     
-    public func containedWithin(name: String? = nil, extensions: Set<String>? = nil) -> Bool {
+    func containedWithin(name: String? = nil, extensions: Set<String>? = nil) -> Bool {
         if name == nil && `extension` == nil { return true }
         
         let nameMatcher: (String) -> Bool

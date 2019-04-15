@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property where T: ResultType {
     
-    public func ignoreError() throws -> Property<T.SuccessType> {
+    func ignoreError() throws -> Property<T.SuccessType> {
         let initial = try value.success ?! PropertyError.missingInitialValue 
         let m = MutableProperty(initial)
         

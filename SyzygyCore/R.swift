@@ -45,5 +45,5 @@ extension String: BundleResourceLoadable {
 }
 
 public extension R where T == String {
-    public static let strings = R<String>()
+    static let strings = R<String>()
 }

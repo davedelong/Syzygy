@@ -15,7 +15,7 @@ public protocol TargetActionProtocol: NSObjectProtocol {
 
 public extension TargetActionProtocol {
     
-    public var actionBlock: ((Self) -> Void)? {
+    var actionBlock: ((Self) -> Void)? {
         get {
             let action: ActionTarget<Self>? = associatedObject(for: &ActionTargetAssociatedObjectKey)
             return action?.actionBlock

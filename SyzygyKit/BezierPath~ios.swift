@@ -12,8 +12,8 @@ public typealias BezierPath = UIBezierPath
 
 public extension BezierPath {
     
-    public func line(to point: CGPoint) { self.addLine(to: point) }
+    func line(to point: CGPoint) { self.addLine(to: point) }
     
-    public var CGPath: CGPath { return cgPath }
+    var CGPath: CGPath { return cgPath }
 
 }

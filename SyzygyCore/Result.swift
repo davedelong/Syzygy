@@ -17,8 +17,8 @@ public protocol ResultType {
 }
 
 public extension ResultType {
-    public var isSuccess: Bool { return self.success != nil }
-    public var isError: Bool { return self.error != nil }
+    var isSuccess: Bool { return self.success != nil }
+    var isError: Bool { return self.error != nil }
 }
 
 public enum Result<T>: ResultType {

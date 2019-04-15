@@ -14,20 +14,20 @@ public extension Property {
     ///
     /// - Parameter mapper: The block to transform a passed value into a new type
     /// - Returns: A new `Property` that reflects the transformed values
-    public func map<U>(_ mapper: @escaping (T) -> U) -> Property<U> {
+    func map<U>(_ mapper: @escaping (T) -> U) -> Property<U> {
         let p = MutableProperty(mapper(value))
         observeNext { p.value = mapper($0) }
         return p
     }
     
-//    public func compactMap<U>(initialValue: U, _ mapper: @escaping (T) -> U?) -> Property<U> {
+//    func compactMap<U>(initialValue: U, _ mapper: @escaping (T) -> U?) -> Property<U> {
 //        let initial = mapper(value) ?? initialValue
 //        let p = MutableProperty(initial)
 //        observeNext { new in p.potentiallyModifyValue(mapper(new)) }
 //        return p
 //    }
 //    
-//    public func compactMap<U>(_ mapper: @escaping (T) -> U?) throws -> Property<U> {
+//    func compactMap<U>(_ mapper: @escaping (T) -> U?) throws -> Property<U> {
 //        guard let initial = mapper(value) else { throw PropertyError.missingInitialValue }
 //        let p = MutableProperty(initial)
 //        observeNext { new in p.potentiallyModifyValue(mapper(new)) }
@@ -39,7 +39,7 @@ public extension Property {
     /// - Parameter mapper: The block to transform a passed value into a new property.
     ///        The returned property will take its values from the most recent property returned from the `mapper`
     /// - Returns: A new `Property` that reflects the latest mirrored value
-    public func flatMap<U>(_ mapper: @escaping (T) -> Property<U>) -> Property<U> {
+    func flatMap<U>(_ mapper: @escaping (T) -> Property<U>) -> Property<U> {
         let p = MirroredProperty(mirroring: mapper(value))
         
         observeNext { newValue in
@@ -56,7 +56,7 @@ public extension Property {
     ///        The returned property will take its values from the most recently return property (or none at all)
     /// - Returns: A new `Property` that reflects the latest mirrored value
     /// - Throws: `.missingInitialValue` if the mapper does not return a Property for the source's current value
-    public func flatMap<U>(_ mapper: @escaping (T) -> Property<U>?) throws -> Property<U> {
+    func flatMap<U>(_ mapper: @escaping (T) -> Property<U>?) throws -> Property<U> {
         guard let initial = mapper(value) else {
             throw PropertyError.missingInitialValue
         }
@@ -77,7 +77,7 @@ public extension Property {
     ///   - mapper: The block to transform a passed value into a new, but potentially `nil`, property.
     ///        The returned property will take its values from the most recently return property (or none at all)
     /// - Returns: A new `Property` that mirrors the latest property returned from the `mapper`
-    public func flatMap<U>(initialValue: U, _ mapper: @escaping (T) -> Property<U>?) -> Property<U> {
+    func flatMap<U>(initialValue: U, _ mapper: @escaping (T) -> Property<U>?) -> Property<U> {
         let p: MirroredProperty<U>
         if let source = mapper(value) {
             p = MirroredProperty(mirroring: source)
@@ -100,7 +100,7 @@ public extension Property where T: Hashable {
     ///
     /// - Parameter mapper: The block to transform a passed value into a new type
     /// - Returns: A new `Property` that reflects the transformed values
-    public func mapReusingValues<U>(_ mapper: @escaping (T) -> U) -> Property<U> {
+    func mapReusingValues<U>(_ mapper: @escaping (T) -> U) -> Property<U> {
         var producedValues = Dictionary<T, U>()
         let itemMapper: (T) -> U = { v in
             return producedValues.value(for: v, builder: mapper)
@@ -122,7 +122,7 @@ public extension Property where T: Collection, T.Element: Hashable {
     ///
     /// - Parameter mapper: The block to transform a passed value into a new type
     /// - Returns: A new `Property` that reflects the transformed values
-    public func mapItemsReusingValues<U>(_ mapper: @escaping (T.Element) -> U) -> Property<Array<U>> {
+    func mapItemsReusingValues<U>(_ mapper: @escaping (T.Element) -> U) -> Property<Array<U>> {
         var producedValues = Dictionary<T.Element, U>()
         let collectionMapper: (T) -> Array<U> = { c in
             return c.map { producedValues.value(for: $0, builder: mapper) }
@@ -140,7 +140,7 @@ public extension Property where T: Collection, T.Element: Hashable {
     ///
     /// - Parameter mapper: The block to transform a passed value into a new type
     /// - Returns: A new `Property` that reflects the transformed values
-    public func flatMapItemsReusingValues<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
+    func flatMapItemsReusingValues<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
         var producedValues = Dictionary<T.Element, U>()
         let collectionMapper: (T) -> Array<U> = { c in
             return c.compactMap { producedValues.value(for: $0, builder: mapper) }

@@ -10,13 +10,13 @@ import Foundation
 
 public extension UUID {
     
-    public init?(_ cfuuid: CFUUID) {
+    init?(_ cfuuid: CFUUID) {
         guard let cfstring = CFUUIDCreateString(nil, cfuuid) else { return nil }
         let string = cfstring as String
         self.init(uuidString: string)
     }
     
-    public init?(_ nsuuid: NSUUID) {
+    init?(_ nsuuid: NSUUID) {
         self.init(uuidString: nsuuid.uuidString)
     }
     

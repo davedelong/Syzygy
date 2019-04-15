@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public func skipNext(_ count: Int) -> Property<T> {
+    func skipNext(_ count: Int) -> Property<T> {
         var skippedSoFar = 0
         
         // we only skip *subsequent* values
@@ -25,7 +25,7 @@ public extension Property {
         return m
     }
     
-    public func skipUntil<U>(_ other: Property<U>) -> Property<T> {
+    func skipUntil<U>(_ other: Property<U>) -> Property<T> {
         let m = MutableProperty(value)
         
         let skipping = Atomic(true)
@@ -42,7 +42,7 @@ public extension Property {
         return m
     }
     
-    public func skipWhile(_ other: Property<Bool>) -> Property<T> {
+    func skipWhile(_ other: Property<Bool>) -> Property<T> {
         let m = MutableProperty(value)
         
         let skipping = Atomic(other.value)
@@ -59,7 +59,7 @@ public extension Property {
         return m
     }
     
-    public func skipRepeats(_ isEqual: @escaping (T, T) -> Bool) -> Property<T> {
+    func skipRepeats(_ isEqual: @escaping (T, T) -> Bool) -> Property<T> {
         let m = MutableProperty(value)
         observeNext { new in
             m.potentiallyModifyValue {
@@ -74,7 +74,7 @@ public extension Property {
 
 public extension Property where T: Equatable {
     
-    public func skipRepeats() -> Property<T> {
+    func skipRepeats() -> Property<T> {
         return skipRepeats(==)
     }
     
@@ -83,7 +83,7 @@ public extension Property where T: Equatable {
 /*
  public extension Property where T: Collection, T.Iterator.Element: Equatable {
  
- public func skipRepeats() -> Property<T> {
+ func skipRepeats() -> Property<T> {
  return skipRepeats { (left, right) -> Bool in
  guard left.count == right.count else { return false }
  for (l, r) in Swift.zip(left, right) {
@@ -101,7 +101,7 @@ public extension Property where T: Hashable {
     /// Skip sending values that have ever been sent before
     ///
     /// - Returns: A new `Property` that only sends values that have have never been sent before
-    public func skipDuplicates() -> Property<T> {
+    func skipDuplicates() -> Property<T> {
         let v = value
         var soFar = Set<T>([v])
         

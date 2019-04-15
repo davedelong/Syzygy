@@ -14,23 +14,23 @@ public extension Collection {
         return filter(predicate.contains(_:))
     }
     
-    public func every<P: Predicate>(_ predicate: P) -> Bool where P.Element == Element {
+    func every<P: Predicate>(_ predicate: P) -> Bool where P.Element == Element {
         return all(predicate)
     }
     
-    public func all<P: Predicate>(_ predicate: P) -> Bool where P.Element == Element {
+    func all<P: Predicate>(_ predicate: P) -> Bool where P.Element == Element {
         return all(predicate.contains(_:))
     }
     
-    public func any<P: Predicate>(_ predicate: P) -> Bool where P.Element == Element {
+    func any<P: Predicate>(_ predicate: P) -> Bool where P.Element == Element {
         return any(predicate.contains(_:))
     }
     
-    public func none<P: Predicate>(_ predicate: P) -> Bool where P.Element == Element {
+    func none<P: Predicate>(_ predicate: P) -> Bool where P.Element == Element {
         return none(predicate.contains(_:))
     }
     
-    public func divide<P: Predicate>(_ isInFirst: P) -> (Array<Element>, Array<Element>) where P.Element == Element {
+    func divide<P: Predicate>(_ isInFirst: P) -> (Array<Element>, Array<Element>) where P.Element == Element {
         return divide(isInFirst.contains(_:))
     }
     

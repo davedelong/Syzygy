@@ -10,7 +10,7 @@ import Foundation
 
 public extension PlatformColor {
     
-    public convenience init?(hexString: String) {
+    convenience init?(hexString: String) {
         let c = Color(hexString: hexString)
         if let color = c?.color.cgColor {
             self.init(cgColor: color)
@@ -58,9 +58,9 @@ public struct Color {
 }
 
 public extension PlatformColor {
-    public static let action = PlatformColor(hexString: "007AFF")!
+    static let action = PlatformColor(hexString: "007AFF")!
 }
 
 public extension R where T == PlatformColor {
-    public static let color = R<PlatformColor>()
+    static let color = R<PlatformColor>()
 }

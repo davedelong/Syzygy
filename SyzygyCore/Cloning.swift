@@ -10,7 +10,7 @@ import Foundation
 
 public extension NSCoding {
     
-    public func clone() -> Self {
+    func clone() -> Self {
         let d = NSKeyedArchiver.archivedData(withRootObject: self)
         return NSKeyedUnarchiver.unarchiveObject(with: d) as! Self
         

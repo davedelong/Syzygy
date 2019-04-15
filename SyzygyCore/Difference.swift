@@ -10,7 +10,7 @@ import Foundation
 
 public extension RangeReplaceableCollection where Element: Differentiable {
     
-    public func difference(to new: Self) -> StagedChangeset<Self> {
+    func difference(to new: Self) -> StagedChangeset<Self> {
         return StagedChangeset(source: self, target: new)
     }
     

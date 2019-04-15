@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public func deliver(on queue: DispatchQueue) -> Property<T> {
+    func deliver(on queue: DispatchQueue) -> Property<T> {
         let m = MutableProperty(value)
         let serial: DispatchQueue
         if queue == .main {
@@ -24,11 +24,11 @@ public extension Property {
         return m
     }
     
-    public func observe(on queue: DispatchQueue) -> Property<T> {
+    func observe(on queue: DispatchQueue) -> Property<T> {
         return deliver(on: queue)
     }
     
-    public func delay(_ interval: TimeInterval, on queue: DispatchQueue = .main) -> Property<T> {
+    func delay(_ interval: TimeInterval, on queue: DispatchQueue = .main) -> Property<T> {
         let m = MutableProperty(value)
         let serial = DispatchQueue(label: "delayed<\(type(of: T.self))>", target: queue)
         observeNext { newValue in

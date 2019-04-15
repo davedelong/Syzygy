@@ -37,7 +37,9 @@ public final class Bookmark: Hashable {
     
     private let raw: Property<AbsolutePath?>
     public let path: Property<AbsolutePath?>
-    public var hashValue: Int { return path.value?.hashValue ?? 0 }
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(path.value)
+    }
     
     public init(path: AbsolutePath) {
         self.raw = FileManager.default.resolved(path: path)

@@ -11,11 +11,11 @@ import Foundation
 public extension Property {
     
     @discardableResult
-    public func observeNext(_ count: Int, _ observer: @escaping PropertyObserver<T>) -> Disposable {
+    func observeNext(_ count: Int, _ observer: @escaping PropertyObserver<T>) -> Disposable {
         return takeNext(count).observeNext(observer)
     }
     
-    public func takeNext(_ count: Int) -> Property<T> {
+    func takeNext(_ count: Int) -> Property<T> {
         let m = MutableProperty(value)
         
         if count > 0 {
@@ -37,7 +37,7 @@ public extension Property {
         return m
     }
     
-    public func takeUntil<U>(_ other: Property<U>) -> Property<T> {
+    func takeUntil<U>(_ other: Property<U>) -> Property<T> {
         let m = MutableProperty(value)
         
         let d = observeNext { m.value = $0 }
@@ -46,7 +46,7 @@ public extension Property {
         return m
     }
     
-    public func takeWhile(_ other: Property<Bool>) -> Property<T> {
+    func takeWhile(_ other: Property<Bool>) -> Property<T> {
         let m = MutableProperty(value)
         
         let taking = Atomic(other.value)

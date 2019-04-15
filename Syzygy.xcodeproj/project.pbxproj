@@ -183,6 +183,9 @@
 		559B337F20E9785C00034E51 /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
 		55B3B1E621334FFA00DFA8A7 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3B1E521334FFA00DFA8A7 /* Action.swift */; };
 		55B3B1E8213350E300DFA8A7 /* ContextualActionHandler~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3B1E7213350E300DFA8A7 /* ContextualActionHandler~ios.swift */; };
+		55B752882231B97400BDDDBA /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B752872231B97400BDDDBA /* Store.swift */; };
+		55B7528B2231BB7900BDDDBA /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7528A2231BB7900BDDDBA /* Map.swift */; };
+		55BA6A4C225D5F1C00AABBC4 /* KeyboardLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA6A4B225D5F1C00AABBC4 /* KeyboardLayoutGuide.swift */; };
 		55BF8CEF2098DFDB00341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */; };
 		55BF8CF12098E07900341FD9 /* SyzygyContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */; };
 		55CB0D8F21A9D4720070701E /* NSTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB0D8E21A9D4720070701E /* NSTabViewController.swift */; };
@@ -210,6 +213,7 @@
 		55DD8FCC20FA584D0028B6A1 /* Cloning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD8FCB20FA584D0028B6A1 /* Cloning.swift */; };
 		55EB0378202125E0007B5433 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB0377202125E0007B5433 /* Keychain.swift */; };
 		55EB037A20212D74007B5433 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB037920212D74007B5433 /* UserDefaults.swift */; };
+		55EEF4FE2239AF0D00E27388 /* SyzygyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FB064E1FF9B5BB0001D42E /* SyzygyCore.framework */; };
 		55EFBBDE20D423C6002C48FA /* NSPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFBBDD20D423C6002C48FA /* NSPredicate.swift */; };
 		55F0AFB21FFD9EAF003DCBB6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0AFB11FFD9EAF003DCBB6 /* Color.swift */; };
 		55F3755A20BC6A7E00E7D742 /* SyzygySidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3755820BC6A7E00E7D742 /* SyzygySidebarViewController.swift */; };
@@ -217,7 +221,6 @@
 		55F3A5AC215EAC5A0038B3BA /* UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3A5AB215EAC5A0038B3BA /* UUID.swift */; };
 		55F3A5DA216C15560038B3BA /* DefaultLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3A5D9216C15560038B3BA /* DefaultLog.swift */; };
 		55F653DD21D73C5900E86C11 /* Property+Diffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F653DC21D73C5900E86C11 /* Property+Diffs.swift */; };
-		55F653DF21D92FC800E86C11 /* MasterItem+Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F653DE21D92FC800E86C11 /* MasterItem+Diff.swift */; };
 		55F653E721D9DC5000E86C11 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F653E621D9DC5000E86C11 /* String+HTML.swift */; };
 		55F7248F2038922B0093473F /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7248E2038922B0093473F /* Header.swift */; };
 		55F72491203892380093473F /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F72490203892380093473F /* Method.swift */; };
@@ -361,6 +364,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6B2DF86D210E2C12004D2D40;
 			remoteInfo = DifferenceKit;
+		};
+		55BA696D22569F5200AABBC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55FB06451FF9B5BB0001D42E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55FB065D1FF9B5D30001D42E;
+			remoteInfo = SyzygyKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -549,6 +559,9 @@
 		559B337D20E976FE00034E51 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 		55B3B1E521334FFA00DFA8A7 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		55B3B1E7213350E300DFA8A7 /* ContextualActionHandler~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContextualActionHandler~ios.swift"; sourceTree = "<group>"; };
+		55B752872231B97400BDDDBA /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		55B7528A2231BB7900BDDDBA /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		55BA6A4B225D5F1C00AABBC4 /* KeyboardLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutGuide.swift; sourceTree = "<group>"; };
 		55BF8CEE2098DFDB00341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyContainerViewController.swift; sourceTree = "<group>"; };
 		55CB0D8E21A9D4720070701E /* NSTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTabViewController.swift; sourceTree = "<group>"; };
@@ -583,7 +596,6 @@
 		55F3A5AB215EAC5A0038B3BA /* UUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUID.swift; sourceTree = "<group>"; };
 		55F3A5D9216C15560038B3BA /* DefaultLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLog.swift; sourceTree = "<group>"; };
 		55F653DC21D73C5900E86C11 /* Property+Diffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Diffs.swift"; sourceTree = "<group>"; };
-		55F653DE21D92FC800E86C11 /* MasterItem+Diff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterItem+Diff.swift"; sourceTree = "<group>"; };
 		55F653E621D9DC5000E86C11 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		55F7248E2038922B0093473F /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55F72490203892380093473F /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -717,6 +729,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55EEF4FE2239AF0D00E27388 /* SyzygyCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +906,7 @@
 				554F9570201D75A2007864A7 /* UIView.swift */,
 				554F9546201D2876007864A7 /* UIViewController.swift */,
 				554F954C201D2BD8007864A7 /* UITableViewCell.swift */,
+				55BA6A4B225D5F1C00AABBC4 /* KeyboardLayoutGuide.swift */,
 				55BF8CF02098E07900341FD9 /* SyzygyContainerViewController.swift */,
 				55FD0BB521A64A9700434E2F /* SyzygyScrollingContentViewController.swift */,
 				554F9554201D2F2B007864A7 /* SyzygyStackViewController.swift */,
@@ -1019,6 +1033,8 @@
 			isa = PBXGroup;
 			children = (
 				556015BF2128C3890015E994 /* README.md */,
+				55B752872231B97400BDDDBA /* Store.swift */,
+				55B7528A2231BB7900BDDDBA /* Map.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1451,6 +1467,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				55BA696E22569F5200AABBC4 /* PBXTargetDependency */,
 			);
 			name = Glyphish;
 			productName = Glyphish;
@@ -1517,6 +1534,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55FB06631FF9B5D30001D42E /* Build configuration list for PBXNativeTarget "SyzygyKit" */;
 			buildPhases = (
+				55375E002264F42600AE4D29 /* ShellScript */,
 				55FB065B1FF9B5D30001D42E /* Headers */,
 				55FB06591FF9B5D30001D42E /* Sources */,
 				55FB065A1FF9B5D30001D42E /* Frameworks */,
@@ -1538,7 +1556,7 @@
 		55FB06451FF9B5BB0001D42E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Syzygy;
 				TargetAttributes = {
 					552B49322012D4600054997E = {
@@ -1579,6 +1597,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 55FB06441FF9B5BB0001D42E;
 			productRefGroup = 55FB064F1FF9B5BB0001D42E /* Products */;
@@ -1672,6 +1691,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		55375E002264F42600AE4D29 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		55A8DB6E20EE74C4005EFDE3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1707,6 +1743,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				556015BB2128C1A40015E994 /* Glyphish.swift in Sources */,
+				55B7528B2231BB7900BDDDBA /* Map.swift in Sources */,
+				55B752882231B97400BDDDBA /* Store.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1922,6 +1960,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				551C008A20EFB9CF006CE550 /* BezierPath~ios.swift in Sources */,
+				55BA6A4C225D5F1C00AABBC4 /* KeyboardLayoutGuide.swift in Sources */,
 				551C009020EFBB09006CE550 /* Responder~macos.swift in Sources */,
 				551C009A20EFBD15006CE550 /* SyzygyViewController~ios.swift in Sources */,
 				551D480E20114F9500AF7CF8 /* NSEvent.swift in Sources */,
@@ -2035,6 +2074,11 @@
 			isa = PBXTargetDependency;
 			name = DifferenceKit;
 			targetProxy = 55991FAC219B814400524481 /* PBXContainerItemProxy */;
+		};
+		55BA696E22569F5200AABBC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55FB065D1FF9B5D30001D42E /* SyzygyKit */;
+			targetProxy = 55BA696D22569F5200AABBC4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

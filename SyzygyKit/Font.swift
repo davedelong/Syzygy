@@ -16,7 +16,7 @@ public typealias PlatformFont = UIFont
 
 public extension PlatformFont {
     
-    public func bolded() -> PlatformFont {
+    func bolded() -> PlatformFont {
         var descriptor = self.fontDescriptor
         #if BUILDING_FOR_DESKTOP
         descriptor = descriptor.withSymbolicTraits([.bold])

@@ -10,21 +10,21 @@ import Foundation
 
 public extension Character {
     
-    public var isDigit: Bool {
+    var isDigit: Bool {
         switch self {
             case "0"..."9": return true
             default: return false
         }
     }
     
-    public var isOctalDigit: Bool {
+    var isOctalDigit: Bool {
         switch self {
             case "0"..."7": return true
             default: return false
         }
     }
     
-    public var isHexDigit: Bool {
+    var isHexDigit: Bool {
         switch self {
             case "a"..."f": return true
             case "A"..."F": return true
@@ -32,7 +32,7 @@ public extension Character {
         }
     }
     
-    public var isAlphabetic: Bool {
+    var isAlphabetic: Bool {
         switch self {
             case "a"..."z": return true
             case "A"..."Z": return true
@@ -40,11 +40,11 @@ public extension Character {
         }
     }
     
-    public var isAlphaNumeric: Bool {
+    var isAlphaNumeric: Bool {
         return isAlphabetic || isDigit
     }
     
-    public var isNewline: Bool {
+    var isNewline: Bool {
         switch self {
             // From CoreFoundation/CFUniChar.c:301
             // http://www.opensource.apple.com/source/CF/CF-1151.16/CFUniChar.c
@@ -56,7 +56,7 @@ public extension Character {
         }
     }
     
-    public var isWhitespace: Bool {
+    var isWhitespace: Bool {
         switch self {
             // From CoreFoundation/CFUniChar.c:297
             // http://www.opensource.apple.com/source/CF/CF-1151.16/CFUniChar.c
@@ -72,11 +72,11 @@ public extension Character {
         }
     }
     
-    public var isWhitespaceOrNewline: Bool {
+    var isWhitespaceOrNewline: Bool {
         return isWhitespace || isNewline
     }
     
-    public var isSuperscript: Bool {
+    var isSuperscript: Bool {
         switch self {
             case "\u{00B2}": return true
             case "\u{00B3}": return true

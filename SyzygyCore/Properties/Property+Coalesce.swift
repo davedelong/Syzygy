@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public func coalesce(after: TimeInterval, on queue: DispatchQueue = .main) -> Property<T> {
+    func coalesce(after: TimeInterval, on queue: DispatchQueue = .main) -> Property<T> {
         let last = Atomic<Disposable?>(nil)
         let m = MutableProperty(value)
         

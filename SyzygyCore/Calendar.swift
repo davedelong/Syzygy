@@ -10,7 +10,7 @@ import Foundation
 
 public extension Calendar {
     
-    public enum Gregorian {
+    enum Gregorian {
         
         public enum Weekday: Int {
             public static func ==(lhs: Int, rhs: Weekday) -> Bool { return lhs == rhs.rawValue }
@@ -39,17 +39,17 @@ public extension Calendar {
         
     }
     
-    public func weekday(of date: Date) -> Gregorian.Weekday {
+    func weekday(of date: Date) -> Gregorian.Weekday {
         let weekday = component(.weekday, from: date) !! "Can't get weekday of \(date)"
         let typed = Gregorian.Weekday(rawValue: weekday) !! "Can't convert \(weekday) into a weekday"
         return typed
     }
     
-    public func intervalOfWeek(for date: Date) -> DateInterval {
+    func intervalOfWeek(for date: Date) -> DateInterval {
         return self.dateInterval(of: .weekOfYear, for: date) !! "Can't find week range for \(date)"
     }
     
-    public func startOfWeek(for date: Date) -> Date {
+    func startOfWeek(for date: Date) -> Date {
         if let weekRange = dateInterval(of: .weekOfYear, for: date) {
             return weekRange.start
         }
@@ -64,7 +64,7 @@ public extension Calendar {
         return startOfDay(for: startOfWeek)
     }
     
-    public func daysInRange(_ interval: DateInterval) -> Array<Date> {
+    func daysInRange(_ interval: DateInterval) -> Array<Date> {
         var days = Array<Date>()
         
         var current = interval.start
@@ -77,7 +77,7 @@ public extension Calendar {
         return days
     }
     
-    public func daysInWeek(containing: Date) -> Array<Date> {
+    func daysInWeek(containing: Date) -> Array<Date> {
         let weekday = component(.weekday, from: containing)
         let calendricalStartOfWeek = self.firstWeekday
         
@@ -95,7 +95,7 @@ public extension Calendar {
         return days.map { $0.mid }
     }
     
-    public func isDate(_ date: Date, before: Date, granularity: Calendar.Component) -> Bool {
+    func isDate(_ date: Date, before: Date, granularity: Calendar.Component) -> Bool {
         let components = [Calendar.Component.era, .year, .month, .weekOfYear, .day, .hour, .minute, .second, .nanosecond]
         let componentSet = Set(components)
         Assert.that(componentSet.contains(granularity), because: "Cannot search for unit \(granularity)")
@@ -114,21 +114,21 @@ public extension Calendar {
         return false
     }
     
-    public func isDate(_ date: Date, after: Date, granularity: Calendar.Component) -> Bool {
+    func isDate(_ date: Date, after: Date, granularity: Calendar.Component) -> Bool {
         let isBefore = isDate(date, before: after, granularity: granularity)
         let isOn = isDate(date, equalTo: after, toGranularity: granularity)
         
         return (isBefore == false && isOn == false)
     }
     
-    public func startOfNextDay(after day: Date) -> Date {
+    func startOfNextDay(after day: Date) -> Date {
         let r = dateInterval(of: .day, for: day) !! "Can't find day containing \(day)"
         let end = r.end
         let nextDay = end.addingTimeInterval(1.0)
         return startOfDay(for: nextDay)
     }
     
-    public func startOfMonth(containing date: Date) -> Date {
+    func startOfMonth(containing date: Date) -> Date {
         let r = dateInterval(of: .month, for: date) !! "Can't find day containing \(date)"
         return r.start
     }

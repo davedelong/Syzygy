@@ -10,11 +10,11 @@ import Foundation
 
 public extension MutableProperty {
     
-    public convenience init(store: KeyValueStore, key: String, defaultValue: T) {
+    convenience init(store: KeyValueStore, key: String, defaultValue: T) {
         self.init(store: store, key: key, read: { ($0 as? T) ?? defaultValue }, write: { $0 })
     }
     
-    public convenience init(store: KeyValueStore, key: String, read: @escaping (Any?) -> T, write: @escaping (T) -> Any?) {
+    convenience init(store: KeyValueStore, key: String, read: @escaping (Any?) -> T, write: @escaping (T) -> Any?) {
         let value = read(store.retrieveValue(for: key))
         self.init(value)
         
@@ -28,7 +28,7 @@ public extension MutableProperty {
 
 public extension MutableProperty where T == Array<UTI> {
     
-    public convenience init(store: KeyValueStore, key: String, defaultValue: T) {
+    convenience init(store: KeyValueStore, key: String, defaultValue: T) {
         self.init(store: store, key: key, read: { value in
             guard let array = value as? Array<String> else { return defaultValue }
             return array.map { UTI(rawValue: $0) }

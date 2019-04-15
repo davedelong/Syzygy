@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Abort.Reason {
-    public static func child(_ child: AnyDataSource, mustBe current: AnyDataSource) -> Abort.Reason {
+    static func child(_ child: AnyDataSource, mustBe current: AnyDataSource) -> Abort.Reason {
         return Abort.Reason("Child \(child) is not the expected \(current)")
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 public extension PlatformEdgeInsets {
     
-    public init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
+    init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
         self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
     
@@ -18,7 +18,7 @@ public extension PlatformEdgeInsets {
 
 public extension CGRect {
     
-    public var center: CGPoint {
+    var center: CGPoint {
         get { return CGPoint(x: midX, y: midY) }
         set {
             let size = self.size
@@ -29,7 +29,7 @@ public extension CGRect {
         }
     }
     
-    public func applying(_ insets: PlatformEdgeInsets) -> CGRect {
+    func applying(_ insets: PlatformEdgeInsets) -> CGRect {
         var f = self
         f.origin.x += insets.left
         f.size.width -= (insets.left + insets.right)
@@ -44,7 +44,7 @@ public extension CGRect {
 
 public extension CGPoint {
     
-    public init(polarAngle: CGFloat, length: CGFloat) {
+    init(polarAngle: CGFloat, length: CGFloat) {
         self.init(x: cos(polarAngle) * length,
                   y: sin(polarAngle) * -length)
     }
@@ -53,7 +53,7 @@ public extension CGPoint {
 
 public extension CGFloat {
     
-    public static let tau: CGFloat = 2 * CGFloat.pi
+    static let tau: CGFloat = 2 * CGFloat.pi
     
 }
 

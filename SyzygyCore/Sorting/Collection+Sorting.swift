@@ -10,11 +10,11 @@ import Foundation
 
 public extension Sequence {
     
-    public func sorted<S: Sorting>(by sorter: S) -> Array<Element> where S.Base == Element {
+    func sorted<S: Sorting>(by sorter: S) -> Array<Element> where S.Base == Element {
         return sorted(by: sorter.orders(_:before:))
     }
     
-    public func sorted<C: Collection>(by sorters: C) -> Array<Element> where C.Element: Sorting, C.Element.Base == Element {
+    func sorted<C: Collection>(by sorters: C) -> Array<Element> where C.Element: Sorting, C.Element.Base == Element {
         let combined = CombinedSorter(sorters)
         return sorted(by: combined)
     }

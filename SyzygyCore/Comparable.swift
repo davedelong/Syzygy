@@ -30,7 +30,7 @@ public func max<C: Collection>(_ values: C) -> C.Element? where C.Element: Compa
 
 public extension Comparable {
     
-    public func compare(_ other: Self) -> ComparisonResult {
+    func compare(_ other: Self) -> ComparisonResult {
         if self < other { return .orderedAscending }
         if self == other { return .orderedSame }
         return .orderedDescending

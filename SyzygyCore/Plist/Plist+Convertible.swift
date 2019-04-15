@@ -63,13 +63,13 @@ extension Bool: PlistConvertible {
 
 public extension Plist {
     
-    public func value<T: PlistConvertible>(for key: String) -> T? {
+    func value<T: PlistConvertible>(for key: String) -> T? {
         guard let d = self.dictionary else { return nil }
         guard let plist = d[key] else { return nil }
         return T.init(plist)
     }
     
-    public func value<T: PlistConvertible>(for key: String) -> Array<T>? {
+    func value<T: PlistConvertible>(for key: String) -> Array<T>? {
         guard let d = self.dictionary else { return nil }
         guard let array = d[key]?.array else { return nil }
         return array.compactMap { T.init($0) }

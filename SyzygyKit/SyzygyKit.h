@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
+#if BUILDING_FOR_IOS
 #import <UIKit/UIKit.h>
 #else
 #import <AppKit/AppKit.h>

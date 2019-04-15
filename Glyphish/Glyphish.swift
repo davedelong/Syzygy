@@ -12,7 +12,7 @@
 
 public extension Bundle {
     
-    public static let Glyphish = Bundle(for: GlyphishMarker.self)
+    static let Glyphish = Bundle(for: GlyphishMarker.self)
     
 }
 

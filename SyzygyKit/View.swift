@@ -9,12 +9,12 @@
 import Foundation
 
 public extension R where T == PlatformNib {
-    public static let nib = R<PlatformNib>()
+    static let nib = R<PlatformNib>()
 }
 
 public extension NSCoding where Self: PlatformView {
     
-    public static func make() -> Self {
+    static func make() -> Self {
         let bundle = Bundle(for: self)
         let maybeNib = PlatformNib.loadResource(name: "\(self)", in: bundle)
         let nib = maybeNib !! "Unable to load nib named \(self)"
@@ -33,9 +33,9 @@ public extension NSCoding where Self: PlatformView {
 
 public extension PlatformView {
         
-    public var platformLayer: CALayer? { return layer }
+    var platformLayer: CALayer? { return layer }
     
-    public func isEmbeddedIn(_ other: PlatformView) -> Bool {
+    func isEmbeddedIn(_ other: PlatformView) -> Bool {
         var possible: PlatformView? = self
         while let p = possible {
             if p == other { return true }
@@ -44,28 +44,28 @@ public extension PlatformView {
         return false
     }
     
-    public func firstCommonSuperview(with otherView: PlatformView) -> PlatformView? {
+    func firstCommonSuperview(with otherView: PlatformView) -> PlatformView? {
         let mySuperviews = sequence(first: self, next: { $0.superview })
         let theirSuperviews = Set(sequence(first: otherView, next: { $0.superview }))
         return mySuperviews.first(where: theirSuperviews.contains)
     }
     
-    public func embedSubview(_ subview: PlatformView, margins: PlatformEdgeInsets = .zero) {
+    func embedSubview(_ subview: PlatformView, margins: PlatformEdgeInsets = .zero) {
         subview.removeFromSuperview()
         subview.frame = self.bounds
         subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)
         
         NSLayoutConstraint.activate([
-            subview.top.constraint(equalTo: topAnchor, constant: margins.top),
-            bottomAnchor.constraint(equalTo: subview.bottom, constant: margins.bottom),
+            subview.top.constraint(equalTo: top, constant: margins.top),
+            bottom.constraint(equalTo: subview.bottom, constant: margins.bottom),
             
-            subview.leading.constraint(equalTo: leadingAnchor, constant: margins.left),
-            trailingAnchor.constraint(equalTo: subview.trailing, constant: margins.right)
+            subview.leading.constraint(equalTo: leading, constant: margins.left),
+            trailing.constraint(equalTo: subview.trailing, constant: margins.right)
         ])
     }
     
-    public func removeAllSubviews() {
+    func removeAllSubviews() {
         while let n = subviews.first {
             n.removeFromSuperview()
         }

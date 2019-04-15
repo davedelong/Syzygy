@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public static func latest(from properties: Array<Property<T>>, defaultValue: T) -> Property<T> {
+    static func latest(from properties: Array<Property<T>>, defaultValue: T) -> Property<T> {
         let initial = properties.last?.value ?? defaultValue
         let m = MutableProperty(initial)
         
@@ -21,7 +21,7 @@ public extension Property {
         return m
     }
     
-    public static func combine<C: Collection>(_ properties: C) -> Property<Array<T>> where C.Iterator.Element == Property<T> {
+    static func combine<C: Collection>(_ properties: C) -> Property<Array<T>> where C.Iterator.Element == Property<T> {
         let props = Array(properties)
         let initial = props.map { $0.value }
         
@@ -46,7 +46,7 @@ public extension Property {
     // these could technically be accomplished by chaining .combine calls and then flattening a tuple
     // however, that *REALLY* complicates backtraces
     // so for the sake of easier backtracing, each variant gets duplicated here
-    public func combine<A>(_ a: Property<A>) -> Property<(T, A)> {
+    func combine<A>(_ a: Property<A>) -> Property<(T, A)> {
         
         let initial = (value, a.value)
         let combined = MutableProperty(initial)
@@ -57,7 +57,7 @@ public extension Property {
         return combined
     }
     
-    public func combine<A, B>(_ a: Property<A>, _ b: Property<B>) -> Property<(T, A, B)> {
+    func combine<A, B>(_ a: Property<A>, _ b: Property<B>) -> Property<(T, A, B)> {
         let initial = (value, a.value, b.value)
         let combined = MutableProperty(initial)
         
@@ -68,7 +68,7 @@ public extension Property {
         return combined
     }
     
-    public func combine<A, B, C>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>) -> Property<(T, A, B, C)> {
+    func combine<A, B, C>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>) -> Property<(T, A, B, C)> {
         let initial = (value, a.value, b.value, c.value)
         let combined = MutableProperty(initial)
         
@@ -80,7 +80,7 @@ public extension Property {
         return combined
     }
     
-    public func combine<A, B, C, D>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>) -> Property<(T, A, B, C, D)> {
+    func combine<A, B, C, D>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>) -> Property<(T, A, B, C, D)> {
         let initial = (value, a.value, b.value, c.value, d.value)
         let combined = MutableProperty(initial)
         
@@ -93,7 +93,7 @@ public extension Property {
         return combined
     }
     
-    public func combine<A, B, C, D, E>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>) -> Property<(T, A, B, C, D, E)> {
+    func combine<A, B, C, D, E>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>) -> Property<(T, A, B, C, D, E)> {
         let initial = (value, a.value, b.value, c.value, d.value, e.value)
         let combined = MutableProperty(initial)
         
@@ -107,7 +107,7 @@ public extension Property {
         return combined
     }
     
-    public func combine<A, B, C, D, E, F>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>, _ f: Property<F>) -> Property<(T, A, B, C, D, E, F)> {
+    func combine<A, B, C, D, E, F>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>, _ f: Property<F>) -> Property<(T, A, B, C, D, E, F)> {
         let initial = (value, a.value, b.value, c.value, d.value, e.value, f.value)
         let combined = MutableProperty(initial)
         
@@ -122,7 +122,7 @@ public extension Property {
         return combined
     }
     
-    public func combine<A, B, C, D, E, F, G>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>, _ f: Property<F>, _ g: Property<G>) -> Property<(T, A, B, C, D, E, F, G)> {
+    func combine<A, B, C, D, E, F, G>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>, _ f: Property<F>, _ g: Property<G>) -> Property<(T, A, B, C, D, E, F, G)> {
         let initial = (value, a.value, b.value, c.value, d.value, e.value, f.value, g.value)
         let combined = MutableProperty(initial)
         
@@ -138,7 +138,7 @@ public extension Property {
         return combined
     }
     
-    public func combine<A, B, C, D, E, F, G, H>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>, _ f: Property<F>, _ g: Property<G>, _ h: Property<H>) -> Property<(T, A, B, C, D, E, F, G, H)> {
+    func combine<A, B, C, D, E, F, G, H>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>, _ f: Property<F>, _ g: Property<G>, _ h: Property<H>) -> Property<(T, A, B, C, D, E, F, G, H)> {
         let initial = (value, a.value, b.value, c.value, d.value, e.value, f.value, g.value, h.value)
         let combined = MutableProperty(initial)
         
@@ -155,7 +155,7 @@ public extension Property {
         return combined
     }
     
-    public func combine<A, B, C, D, E, F, G, H, I>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>, _ f: Property<F>, _ g: Property<G>, _ h: Property<H>, _ i: Property<I>) -> Property<(T, A, B, C, D, E, F, G, H, I)> {
+    func combine<A, B, C, D, E, F, G, H, I>(_ a: Property<A>, _ b: Property<B>, _ c: Property<C>, _ d: Property<D>, _ e: Property<E>, _ f: Property<F>, _ g: Property<G>, _ h: Property<H>, _ i: Property<I>) -> Property<(T, A, B, C, D, E, F, G, H, I)> {
         let initial = (value, a.value, b.value, c.value, d.value, e.value, f.value, g.value, h.value, i.value)
         let combined = MutableProperty(initial)
         

@@ -7,11 +7,11 @@
 //
 
 public extension Abort.Reason {
-    public static func viewController(_ vc: PlatformViewController, mustBeChildOf parent: PlatformViewController) -> Abort.Reason {
+    static func viewController(_ vc: PlatformViewController, mustBeChildOf parent: PlatformViewController) -> Abort.Reason {
         let p = String(describing: vc.parent)
         return Abort.Reason("\(vc) must be a direct child of \(parent), but is actually a child of \(p)")
     }
-    public static func view(_ view: PlatformView, mustBeInHierarchyOf vc: PlatformViewController) -> Abort.Reason {
+    static func view(_ view: PlatformView, mustBeInHierarchyOf vc: PlatformViewController) -> Abort.Reason {
         return Abort.Reason("Container view \(view) is not in \(vc)'s view hierarchy")
     }
 }
@@ -31,6 +31,28 @@ public extension Abort.Reason {
 ///
 /// DO NOT subclass _SyzygyViewControllerBase yourself.
 open class _SyzygyViewControllerBase: PlatformViewController {
+    
+    private static var nibsAndBundles = Dictionary<ObjectIdentifier, (PlatformNib.Name, Bundle)>()
+    
+    private static func nibAndBundle(for class: AnyClass) -> (nib: PlatformNib.Name, bundle: Bundle)? {
+        var currentClass: AnyClass? = `class`
+        
+        while let current = currentClass {
+            if let cached = nibsAndBundles[ObjectIdentifier(current)] { return cached }
+            
+            let bundle = Bundle(for: current)
+            
+            if bundle.path(forResource: "\(current)", ofType: "nib") != nil {
+                let value: (PlatformNib.Name, Bundle) = (PlatformNib.Name("\(current)"), bundle)
+                nibsAndBundles[ObjectIdentifier(current)] = value
+                return value
+            }
+            
+            currentClass = current.superclass()
+        }
+        
+        return nil
+    }
     
     // Selection
     internal let parentWantsSelection = MirroredProperty(false)
@@ -84,8 +106,10 @@ open class _SyzygyViewControllerBase: PlatformViewController {
                 nib = PlatformNib.Name("Empty")
                 bundle = Bundle(for: SyzygyViewController.self)
             case .default:
-                nib = PlatformNib.Name("\(type(of: self))")
-                bundle = Bundle(for: type(of: self))
+                let c = type(of: self)
+                let nibAndBundle = _SyzygyViewControllerBase.nibAndBundle(for: c)
+                nib = nibAndBundle?.nib
+                bundle = nibAndBundle?.bundle
             case .explicit(let n, let b):
                 nib = n
                 bundle = b

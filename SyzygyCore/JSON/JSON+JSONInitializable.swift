@@ -8,17 +8,17 @@
 
 import Foundation
 
-    public extension JSON {
+public extension JSON {
         
-        public func value<T: JSONInitializable>(for key: String, path: String? = nil) throws -> T {
-            let o = try self.object ?! JSONError.wrongKind(self, expected: .object)
+    func value<T: JSONInitializable>(for key: String, path: String? = nil) throws -> T {
+        let o = try self.object ?! JSONError.wrongKind(self, expected: .object)
         
         let newPath = path.map { $0.isEmpty ? key : "\($0)[\(key)]" } ?? key
         let json = try o[key] ?! JSONError.object(self, missing: key)
         return try T.init(path: newPath, json: json)
     }
     
-    public func value<T: JSONInitializable>(for key: String, path: String? = nil) throws -> T? {
+    func value<T: JSONInitializable>(for key: String, path: String? = nil) throws -> T? {
         let o = try self.object ?! JSONError.wrongKind(self, expected: .object)
         
         let newPath = path.map { $0.isEmpty ? key : "\($0)[\(key)]" } ?? key
@@ -26,7 +26,7 @@ import Foundation
         return try T.init(path: newPath, json: json)
     }
     
-    public func value<T: JSONInitializable>(for key: String, path: String? = nil) throws -> Array<T> {
+    func value<T: JSONInitializable>(for key: String, path: String? = nil) throws -> Array<T> {
         let o = try self.object ?! JSONError.wrongKind(self, expected: .object)
         
         let newPath = path.map { $0.isEmpty ? key : "\($0)[\(key)]" } ?? key
@@ -39,7 +39,7 @@ import Foundation
         return mapped
     }
     
-    public func value<T: JSONInitializable>(for key: String, path: String? = nil) throws -> Array<T>? {
+    func value<T: JSONInitializable>(for key: String, path: String? = nil) throws -> Array<T>? {
         let o = try self.object ?! JSONError.wrongKind(self, expected: .object)
         
         let newPath = path.map { $0.isEmpty ? key : "\($0)[\(key)]" } ?? key

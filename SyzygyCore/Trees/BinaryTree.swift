@@ -17,9 +17,9 @@ public protocol BinaryTreeNode: TreeNode {
 
 public extension BinaryTreeNode {
     
-    public var isLeaf: Bool { return left == nil && right == nil }
+    var isLeaf: Bool { return left == nil && right == nil }
     
-    public var children: Array<Self> {
+    var children: Array<Self> {
         if let l = left, let r = right { return [l, r] }
         if let l = left { return [l] }
         if let r = right { return [r] }

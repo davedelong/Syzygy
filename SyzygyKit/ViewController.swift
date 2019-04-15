@@ -31,7 +31,7 @@ internal protocol _PlatformViewController {
 
 public extension PlatformViewController {
     
-    public func resolving(container: PlatformView?) -> PlatformView {
+    func resolving(container: PlatformView?) -> PlatformView {
         let v = container ?? loadedView
         guard v.isEmbeddedIn(loadedView) else {
             Abort.because("Proposed container \(v) is not in \(self)'s view hierarchy")
@@ -39,19 +39,19 @@ public extension PlatformViewController {
         return v
     }
     
-    public func embedChild(_ viewController: PlatformViewController) {
+    func embedChild(_ viewController: PlatformViewController) {
         self.embedChild(viewController, in: nil, margins: .zero)
     }
     
-    public func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?) {
+    func embedChild(_ viewController: PlatformViewController, in aView: PlatformView?) {
         self.embedChild(viewController, in: aView, margins: .zero)
     }
     
-    public func embedChild(_ viewController: PlatformViewController, margins: PlatformEdgeInsets) {
+    func embedChild(_ viewController: PlatformViewController, margins: PlatformEdgeInsets) {
         self.embedChild(viewController, in: nil, margins: margins)
     }
     
-    public func setChildren(_ newChildren: Array<PlatformViewController>) {
+    func setChildren(_ newChildren: Array<PlatformViewController>) {
         let old = Set(children)
         let new = Set(newChildren)
         

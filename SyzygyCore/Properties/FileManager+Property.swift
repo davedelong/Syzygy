@@ -11,7 +11,7 @@ import Foundation
 public extension FileManager {
     
     
-    public func resolved(symlink: AbsolutePath, defaultResolution: AbsolutePath? = nil) -> Property<AbsolutePath> {
+    func resolved(symlink: AbsolutePath, defaultResolution: AbsolutePath? = nil) -> Property<AbsolutePath> {
         let containingFolder = symlink.deletingLastComponent()
         var monitor: FileMonitor? = FileMonitor(path: containingFolder, events: [.write, .delete])
         
@@ -42,12 +42,12 @@ public extension FileManager {
         return m
     }
     
-    public func resolved(path: AbsolutePath) -> Property<AbsolutePath?> {
+    func resolved(path: AbsolutePath) -> Property<AbsolutePath?> {
         guard let data = path.bookmarkData else { return Property(nil) }
         return resolved(bookmark: data)
     }
     
-    public func resolved(bookmark: Data) -> Property<AbsolutePath?> {
+    func resolved(bookmark: Data) -> Property<AbsolutePath?> {
         let resolveBookmark = { AbsolutePath(bookmarkData: bookmark) }
         guard let path = resolveBookmark() else { return Property(nil) }
         

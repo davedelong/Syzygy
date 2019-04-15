@@ -13,7 +13,9 @@ open class QueryController<T: Equatable> {
     public struct Section: Hashable {
         public static func ==(lhs: Section, rhs: Section) -> Bool { return lhs.name == rhs.name }
         
-        public var hashValue: Int { return name.hashValue }
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(name)
+        }
         
         public let name: String
         public let indexTitle: String?
@@ -106,7 +108,7 @@ open class QueryController<T: Equatable> {
         performQueryImmediatelyIfNecessary()
         let contents = _contents.value
         for (sectionIndex, section) in contents.enumerated() {
-            if let rowIndex = section.objects.index(of: object) {
+            if let rowIndex = section.objects.firstIndex(of: object) {
                 return IndexPath(row: rowIndex, section: sectionIndex)
             }
         }

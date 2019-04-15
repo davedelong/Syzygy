@@ -17,7 +17,7 @@ extension CLLocationCoordinate2D: Equatable {
 
 public extension CLLocationCoordinate2D {
     
-    public var isValid: Bool {
+    var isValid: Bool {
         return CLLocationCoordinate2DIsValid(self)
     }
     

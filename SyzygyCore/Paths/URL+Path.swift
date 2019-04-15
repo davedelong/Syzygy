@@ -10,13 +10,13 @@ import Foundation
 
 public extension URL {
     
-    public var absolutePath: AbsolutePath { return AbsolutePath(fileSystemPath: self.path) }
+    var absolutePath: AbsolutePath { return AbsolutePath(fileSystemPath: self.path) }
     
 }
 
 public extension URLComponents {
     
-    public var absolutePath: AbsolutePath {
+    var absolutePath: AbsolutePath {
         
         get {
             return AbsolutePath(fileSystemPath: self.path)

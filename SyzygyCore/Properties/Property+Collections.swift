@@ -10,19 +10,19 @@ import Foundation
 
 public extension Property where T: Collection {
     
-    public func mapItems<U>(_ mapper: @escaping (T.Element) -> U) -> Property<Array<U>> {
+    func mapItems<U>(_ mapper: @escaping (T.Element) -> U) -> Property<Array<U>> {
         return map { $0.map(mapper) }
     }
     
-    public func compactMapItems<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
+    func compactMapItems<U>(_ mapper: @escaping (T.Element) -> U?) -> Property<Array<U>> {
         return map { $0.compactMap(mapper) }
     }
     
-    public func flatMapItems<U>(_ mapper: @escaping (T.Element) -> Array<U>) -> Property<Array<U>> {
+    func flatMapItems<U>(_ mapper: @escaping (T.Element) -> Array<U>) -> Property<Array<U>> {
         return map { $0.flatMap(mapper) }
     }
     
-    public func combineFlatMapItems<U>(_ mapper: @escaping (T.Element) -> Property<U>) -> Property<Array<U>> {
+    func combineFlatMapItems<U>(_ mapper: @escaping (T.Element) -> Property<U>) -> Property<Array<U>> {
         let combiner: (T) -> Property<Array<U>> = { items in
             let properties = items.map(mapper)
             return Property<U>.combine(properties)
@@ -35,7 +35,7 @@ public extension Property where T: Collection {
         return mirrored
     }
     
-    public func combineFlatMapItems<U>(_ mapper: @escaping (T.Element) -> Property<Array<U>>) -> Property<Array<U>> {
+    func combineFlatMapItems<U>(_ mapper: @escaping (T.Element) -> Property<Array<U>>) -> Property<Array<U>> {
         let combiner: (T) -> Property<Array<U>> = { items in
             let properties = items.map(mapper)
             let combined = Property<Array<U>>.combine(properties)
@@ -49,11 +49,11 @@ public extension Property where T: Collection {
         return mirrored
     }
     
-    public func filterItems(_ f: @escaping (T.Element) -> Bool) -> Property<Array<T.Element>> {
+    func filterItems(_ f: @escaping (T.Element) -> Bool) -> Property<Array<T.Element>> {
         return map { $0.filter(f) }
     }
     
-    public func partition(by goesInFirst: @escaping (T.Element) -> Bool) -> (Property<Array<T.Element>>, Property<Array<T.Element>>) {
+    func partition(by goesInFirst: @escaping (T.Element) -> Bool) -> (Property<Array<T.Element>>, Property<Array<T.Element>>) {
         let m1 = MutableProperty<Array<T.Element>>([])
         let m2 = MutableProperty<Array<T.Element>>([])
         
@@ -78,7 +78,7 @@ public extension Property where T: Collection {
 
 public extension Property where T: RandomAccessCollection {
     
-    public func item(at index: Property<T.Index>) -> Property<T.Element> {
+    func item(at index: Property<T.Index>) -> Property<T.Element> {
         let m = MutableProperty<T.Element>(self.value[index.value])
         combine(index).observeNext { coll, ind in
             m.value = coll[ind]
@@ -90,9 +90,9 @@ public extension Property where T: RandomAccessCollection {
 
 public extension Property where T: Collection, T.Element: Comparable {
     
-    public func sorted() -> Property<Array<T.Element>> { return sorted(<) }
+    func sorted() -> Property<Array<T.Element>> { return sorted(<) }
     
-    public func sorted(_ sorter: @escaping (T.Element, T.Element) -> Bool) -> Property<Array<T.Element>> {
+    func sorted(_ sorter: @escaping (T.Element, T.Element) -> Bool) -> Property<Array<T.Element>> {
         return map { $0.sorted(by: sorter) }
     }
     
@@ -100,7 +100,7 @@ public extension Property where T: Collection, T.Element: Comparable {
 
 public extension Property where T: Collection, T.Element: Hashable {
     
-    public func uniquedItems() -> Property<Array<T.Element>> {
+    func uniquedItems() -> Property<Array<T.Element>> {
         return map { $0.unique() }
     }
     
@@ -108,7 +108,7 @@ public extension Property where T: Collection, T.Element: Hashable {
 
 public extension Property {
     
-    public func includingPrevious() -> Property<(T, T)> {
+    func includingPrevious() -> Property<(T, T)> {
         var initial = value
         return map { newValue in
             let oldValue = initial
@@ -117,7 +117,7 @@ public extension Property {
         }
     }
     
-    public func includingPrevious(initial: T) -> Property<(T, T)> {
+    func includingPrevious(initial: T) -> Property<(T, T)> {
         var previous = initial
         return map { newValue in
             let oldValue = previous

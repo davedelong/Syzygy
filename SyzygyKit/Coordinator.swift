@@ -9,11 +9,11 @@
 import Foundation
 
 public extension Abort.Reason {
-    public static let missingParent = Abort.Reason("Coordinator does not have a parent")
-    public static let recursiveChild = Abort.Reason("Coordinator cannot be its own child")
-    public static let unbalancedStop = Abort.Reason("Coordinator.stop() has been invoked too many times")
-    public static let existingRoot = Abort.Reason("A root coordinator already exists")
-    public static let unstopped = Abort.Reason("This coordinator has not been stopped")
+    static let missingParent = Abort.Reason("Coordinator does not have a parent")
+    static let recursiveChild = Abort.Reason("Coordinator cannot be its own child")
+    static let unbalancedStop = Abort.Reason("Coordinator.stop() has been invoked too many times")
+    static let existingRoot = Abort.Reason("A root coordinator already exists")
+    static let unstopped = Abort.Reason("This coordinator has not been stopped")
 }
 
 private var _rootCoordinator: Coordinator?
@@ -151,7 +151,7 @@ open class Coordinator: PlatformResponder {
     /// - Parameter child: The `Coordinator` to remove
     open func removeChild(_ child: Coordinator) {
         guard child.parent === self else { return }
-        guard let index = children.index(where: { $0 === child }) else { return }
+        guard let index = children.firstIndex(where: { $0 === child }) else { return }
         child.stop()
         child.parent = nil
         child._nextResponder = nil

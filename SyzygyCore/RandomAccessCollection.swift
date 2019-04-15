@@ -10,7 +10,7 @@ import Foundation
 
 public extension RandomAccessCollection {
     
-    public func randomElement() -> Element {
+    func randomElement() -> Element {
         guard count > 0 else { fatalError() }
         let randomOffset = Int(arc4random()) % indices.count
         let randomIndex = indices.index(indices.startIndex, offsetBy: randomOffset)

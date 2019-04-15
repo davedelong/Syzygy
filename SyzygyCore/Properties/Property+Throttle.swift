@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public func throttle(_ interval: TimeInterval, on queue: DispatchQueue = .main) -> Property<T> {
+    func throttle(_ interval: TimeInterval, on queue: DispatchQueue = .main) -> Property<T> {
         let m = MutableProperty(value)
         
         let state = ThrottleState(m, interval: interval, queue: queue)

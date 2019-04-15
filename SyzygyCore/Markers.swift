@@ -56,7 +56,7 @@ public struct Assert {
     }
     
     public static func that(_ condition: @autoclosure () -> Bool, because: String, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
-        that(condition, because: Abort.Reason(because), file: file, line: line, function: function)
+        that(condition(), because: Abort.Reason(because), file: file, line: line, function: function)
     }
     
 }

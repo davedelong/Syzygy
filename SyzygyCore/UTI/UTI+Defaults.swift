@@ -28,34 +28,34 @@ public extension UTI {
         #endif
     }()
     
-    public static let data = UTI(kUTTypeData)
-    public static let json = UTI(kUTTypeJSON)
-    public static let plainText = UTI(kUTTypePlainText)
-    public static let url = UTI(kUTTypeURL)
+    static let data = UTI(kUTTypeData)
+    static let json = UTI(kUTTypeJSON)
+    static let plainText = UTI(kUTTypePlainText)
+    static let url = UTI(kUTTypeURL)
     
-    public static let app = UTI(kUTTypeApplication)
-    public static let appBundle = UTI(kUTTypeApplicationBundle)
-    public static let ipa = UTI(rawValue: "com.apple.itunes.ipa")
+    static let app = UTI(kUTTypeApplication)
+    static let appBundle = UTI(kUTTypeApplicationBundle)
+    static let ipa = UTI(rawValue: "com.apple.itunes.ipa")
     
-    public static let publicDevice = UTI(rawValue: "public.device")
+    static let publicDevice = UTI(rawValue: "public.device")
     
-    public static let mac = UTI(rawValue: "com.apple.mac")
-    public static let macLaptop = UTI(rawValue: "com.apple.mac.laptop")
+    static let mac = UTI(rawValue: "com.apple.mac")
+    static let macLaptop = UTI(rawValue: "com.apple.mac.laptop")
     
-    public static let iOS = UTI(rawValue: "com.apple.ios-device")
-    public static let iPad = UTI(rawValue: "com.apple.ipad")
-    public static let iPhone = UTI(rawValue: "com.apple.iphone")
-    public static let watch = UTI(rawValue: "com.apple.watch")
-    public static let tv = UTI(rawValue: "com.apple.apple-tv")
+    static let iOS = UTI(rawValue: "com.apple.ios-device")
+    static let iPad = UTI(rawValue: "com.apple.ipad")
+    static let iPhone = UTI(rawValue: "com.apple.iphone")
+    static let watch = UTI(rawValue: "com.apple.watch")
+    static let tv = UTI(rawValue: "com.apple.apple-tv")
     
-    public static let xcodeproj = UTI(rawValue: "com.apple.xcode.project")
-    public static let xcworkspace = UTI(rawValue: "com.apple.dt.document.workspace")
-    public static let playground = UTI(rawValue: "com.apple.dt.playground")
+    static let xcodeproj = UTI(rawValue: "com.apple.xcode.project")
+    static let xcworkspace = UTI(rawValue: "com.apple.dt.document.workspace")
+    static let playground = UTI(rawValue: "com.apple.dt.playground")
     
-    public static let png = UTI(kUTTypePNG)
-    public static let jpeg = UTI(kUTTypeJPEG)
+    static let png = UTI(kUTTypePNG)
+    static let jpeg = UTI(kUTTypeJPEG)
     
-    public enum DeviceColor {
+    enum DeviceColor {
         case rgb(UInt8, UInt8, UInt8)
         case hex(String)
         case named(String)
@@ -66,7 +66,7 @@ public extension UTI {
     /// - Parameters:
     ///   - deviceType: A string identifying a device type. Ex: "iPhone5,3", "D10AP", "MacBook5,1", etc
     ///   - color: A string representing the color of the device hardware. This can be a 6-digit hex string ("e5bdb5"), a color ("yellow"), or an rgb tuple ("157,157,160")
-    public convenience init?(deviceType: String, color: DeviceColor? = nil) {
+    convenience init?(deviceType: String, color: DeviceColor? = nil) {
         _ = UTI.registeredDeviceTypes
         
         var matches = UTI.UTIs(for: "com.apple.device-model-code", tag: deviceType, conformingTo: .publicDevice)

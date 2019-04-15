@@ -10,11 +10,11 @@ import Foundation
 
 public extension Comparable {
     
-    public static func ascending() -> AnySorter<Self> {
+    static func ascending() -> AnySorter<Self> {
         return AnySorter(sorter: <)
     }
     
-    public static func descending() -> AnySorter<Self> {
+    static func descending() -> AnySorter<Self> {
         return AnySorter(sorter: >)
     }
     

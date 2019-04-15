@@ -10,7 +10,7 @@ import Foundation
 
 public extension CLAuthorizationStatus {
     
-    public var isAuthorized: Bool {
+    var isAuthorized: Bool {
         if self == .authorizedAlways { return true }
         #if BUILDING_FOR_MOBILE
         if self == .authorizedWhenInUse { return true }

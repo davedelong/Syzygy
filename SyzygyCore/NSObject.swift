@@ -31,11 +31,11 @@ public enum AssociationPolicy {
 
 public extension NSObjectProtocol {
     
-    public func setAssociatedObject(_ object: Any?, forKey key: UnsafeRawPointer, policy: AssociationPolicy = .retain) {
+    func setAssociatedObject(_ object: Any?, forKey key: UnsafeRawPointer, policy: AssociationPolicy = .retain) {
         objc_setAssociatedObject(self, key, object, policy.policy)
     }
     
-    public func associatedObject<T>(for key: UnsafeRawPointer, create: (() -> T?)? = nil) -> T? {
+    func associatedObject<T>(for key: UnsafeRawPointer, create: (() -> T?)? = nil) -> T? {
         var object = objc_getAssociatedObject(self, key) as? T
         if object == nil, let creator = create {
             object = creator()
@@ -44,7 +44,7 @@ public extension NSObjectProtocol {
         return object
     }
     
-    public func addDeallocHandler(_ handler: @escaping () -> Void) {
+    func addDeallocHandler(_ handler: @escaping () -> Void) {
         let helper = associatedObject(for: &DeallocHelperKey, create: { DeallocHelper() })
         helper?.handlers.append(handler)
     }
@@ -53,7 +53,7 @@ public extension NSObjectProtocol {
 
 public extension NSObject {
     
-    public func overrides(_ selector: Selector, upTo targetParent: AnyClass? = nil) -> Bool {
+    func overrides(_ selector: Selector, upTo targetParent: AnyClass? = nil) -> Bool {
         guard let myIMP = method(for: selector) else { return false }
         
         var parentClass: AnyClass? = type(of: self)

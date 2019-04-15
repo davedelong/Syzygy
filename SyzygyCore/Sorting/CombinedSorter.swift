@@ -69,27 +69,27 @@ public struct CombinedSorter<B>: Sorting {
 
 public extension Sorting {
     
-    public static func +<S: Sorting>(lhs: Self, rhs: S) -> CombinedSorter<Base> where S.Base == Base {
+    static func +<S: Sorting>(lhs: Self, rhs: S) -> CombinedSorter<Base> where S.Base == Base {
         return CombinedSorter(lhs, rhs)
     }
     
-    public func combine<S1: Sorting>(_ s1: S1) -> CombinedSorter<Base> where S1.Base == Base {
+    func combine<S1: Sorting>(_ s1: S1) -> CombinedSorter<Base> where S1.Base == Base {
         return CombinedSorter(self, s1)
     }
     
-    public func combine<S1: Sorting, S2: Sorting>(_ s1: S1, _ s2: S2) -> CombinedSorter<Base>
+    func combine<S1: Sorting, S2: Sorting>(_ s1: S1, _ s2: S2) -> CombinedSorter<Base>
         where S1.Base == Base, S2.Base == Base {
             
         return CombinedSorter(self, s1, s2)
     }
     
-    public func combine<S1: Sorting, S2: Sorting, S3: Sorting>(_ s1: S1, _ s2: S2, _ s3: S3) -> CombinedSorter<Base>
+    func combine<S1: Sorting, S2: Sorting, S3: Sorting>(_ s1: S1, _ s2: S2, _ s3: S3) -> CombinedSorter<Base>
         where S1.Base == Base, S2.Base == Base, S3.Base == Base {
             
             return CombinedSorter(self, s1, s2, s3)
     }
     
-    public func combine<S1: Sorting, S2: Sorting, S3: Sorting, S4: Sorting>(_ s1: S1, _ s2: S2, _ s3: S3, _ s4: S4) -> CombinedSorter<Base>
+    func combine<S1: Sorting, S2: Sorting, S3: Sorting, S4: Sorting>(_ s1: S1, _ s2: S2, _ s3: S3, _ s4: S4) -> CombinedSorter<Base>
         where S1.Base == Base, S2.Base == Base, S3.Base == Base, S4.Base == Base {
             
             return CombinedSorter(self, s1, s2, s3, s4)

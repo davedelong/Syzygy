@@ -20,7 +20,7 @@ public func +(lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedS
 
 public extension NSAttributedString {
     
-    public func firstRange(of attribute: NSAttributedString.Key) -> NSRange? {
+    func firstRange(of attribute: NSAttributedString.Key) -> NSRange? {
         var returnValue: NSRange?
         let r = NSRange(location: 0, length: length)
         self.enumerateAttribute(attribute, in: r, options: []) { (_, range, stop) in

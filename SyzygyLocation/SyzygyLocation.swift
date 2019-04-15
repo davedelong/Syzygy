@@ -12,7 +12,7 @@
 
 public extension Bundle {
     
-    public static let SyzygyLocation = Bundle(for: SyzygyLocationMarker.self)
+    static let SyzygyLocation = Bundle(for: SyzygyLocationMarker.self)
     
 }
 

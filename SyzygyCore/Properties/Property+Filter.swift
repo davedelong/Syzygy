@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public func filter(_ f: @escaping (T) -> Bool) throws -> Property<T> {
+    func filter(_ f: @escaping (T) -> Bool) throws -> Property<T> {
         let currentValue = value
         guard f(currentValue) == true else {
             throw PropertyError.missingInitialValue
@@ -25,7 +25,7 @@ public extension Property {
         return m
     }
     
-    public func filterNext(_ f: @escaping (T) -> Bool) -> Property<T> {
+    func filterNext(_ f: @escaping (T) -> Bool) -> Property<T> {
         let m = MutableProperty(value)
         
         observeNext {

@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public func zip<U>(_ other: Property<U>) -> Property<(T, U)> {
+    func zip<U>(_ other: Property<U>) -> Property<(T, U)> {
         
         let initial = (value, other.value)
         let m = MutableProperty(initial)
@@ -39,7 +39,7 @@ public extension Property {
         return m
     }
     
-    public func withPrevious(_ initial: T) -> Property<(T, T)> {
+    func withPrevious(_ initial: T) -> Property<(T, T)> {
         let m = MutableProperty((initial, value))
         observeNext { new in
             m.potentiallyModifyValue {
@@ -49,7 +49,7 @@ public extension Property {
         return m
     }
     
-    public func withPrevious() -> Property<(T?, T)> {
+    func withPrevious() -> Property<(T?, T)> {
         let m = MutableProperty((Optional<T>.none, value))
         observeNext { new in
             m.potentiallyModifyValue {

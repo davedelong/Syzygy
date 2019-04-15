@@ -56,15 +56,15 @@ public struct AndPredicate<E>: Predicate {
 
 public extension Predicate {
     
-    public static func &&<P: Predicate>(lhs: Self, rhs: P) -> AndPredicate<Element> where P.Element == Element {
+    static func &&<P: Predicate>(lhs: Self, rhs: P) -> AndPredicate<Element> where P.Element == Element {
         return AndPredicate(lhs, rhs)
     }
     
-    public static func &&(lhs: Self, rhs: AndPredicate<Element>) -> AndPredicate<Element> {
+    static func &&(lhs: Self, rhs: AndPredicate<Element>) -> AndPredicate<Element> {
         return AndPredicate(lhs, rhs)
     }
     
-    public static func &&(lhs: AndPredicate<Element>, rhs: Self) -> AndPredicate<Element> {
+    static func &&(lhs: AndPredicate<Element>, rhs: Self) -> AndPredicate<Element> {
         return AndPredicate(lhs, rhs)
     }
     

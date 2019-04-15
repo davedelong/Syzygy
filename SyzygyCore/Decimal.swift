@@ -10,35 +10,35 @@ import Foundation
 
 public extension Decimal {
     
-    public static func +(lhs: Decimal, rhs: Int) -> Decimal {
+    static func +(lhs: Decimal, rhs: Int) -> Decimal {
         return lhs + Decimal(rhs)
     }
     
-    public static func -(lhs: Decimal, rhs: Int) -> Decimal {
+    static func -(lhs: Decimal, rhs: Int) -> Decimal {
         return lhs - Decimal(rhs)
     }
     
-    public static func *(lhs: Decimal, rhs: Int) -> Decimal {
+    static func *(lhs: Decimal, rhs: Int) -> Decimal {
         return lhs * Decimal(rhs)
     }
     
-    public static func /(lhs: Decimal, rhs: Int) -> Decimal {
+    static func /(lhs: Decimal, rhs: Int) -> Decimal {
         return lhs / Decimal(rhs)
     }
     
-    public static func += (lhs: inout Decimal, rhs: Int) {
+    static func += (lhs: inout Decimal, rhs: Int) {
         lhs += Decimal(rhs)
     }
     
-    public static func -= (lhs: inout Decimal, rhs: Int) {
+    static func -= (lhs: inout Decimal, rhs: Int) {
         lhs -= Decimal(rhs)
     }
     
-    public static func *= (lhs: inout Decimal, rhs: Int) {
+    static func *= (lhs: inout Decimal, rhs: Int) {
         lhs *= Decimal(rhs)
     }
     
-    public static func /= (lhs: inout Decimal, rhs: Int) {
+    static func /= (lhs: inout Decimal, rhs: Int) {
         lhs /= Decimal(rhs)
     }
     

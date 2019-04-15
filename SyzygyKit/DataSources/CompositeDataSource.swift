@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Abort.Reason {
-    public static func child(_ child: AnyDataSource, mustHaveParent parent: AnyDataSource) -> Abort.Reason {
+    static func child(_ child: AnyDataSource, mustHaveParent parent: AnyDataSource) -> Abort.Reason {
         let p = String(describing: child.parent)
         let r = "DataSource \(child) has parent \(p), but should have parent \(parent)"
         return Abort.Reason(r)
@@ -34,7 +34,7 @@ open class CompositeDataSource: AnyDataSource {
     
     public func removeChild(_ child: AnyDataSource) {
         Assert.that(child.parent === self, because: .child(child, mustHaveParent: self))
-        let index = children.index(of: child) !! "Child \(child) has parent \(self), but is not in children array"
+        let index = children.firstIndex(of: child) !! "Child \(child) has parent \(self), but is not in children array"
         child.move(to: nil)
         children.remove(at: index)
     }

@@ -88,21 +88,21 @@ public func ~= (left: Regex, right: String) -> RegexMatch? {
 
 public extension String {
     
-    public func matches(regex: String) -> Bool {
+    func matches(regex: String) -> Bool {
         let r = Regex(pattern: regex)
         return r.matches(self)
     }
     
-    public func matches(regex: Regex) -> Bool {
+    func matches(regex: Regex) -> Bool {
         return regex.matches(self)
     }
     
-    public func match(regex: String) -> RegexMatch? {
+    func match(regex: String) -> RegexMatch? {
         let r = Regex(pattern: regex)
         return r.match(self)
     }
     
-    public func match(regex: Regex) -> RegexMatch? {
+    func match(regex: Regex) -> RegexMatch? {
         return regex.match(self)
     }
     

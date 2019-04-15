@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public func tickle<U>(_ other: Property<U>) -> Property<T> {
+    func tickle<U>(_ other: Property<U>) -> Property<T> {
         return combine(other).map { $0.0 }
     }
     

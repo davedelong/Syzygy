@@ -10,7 +10,7 @@ import Foundation
 
 public extension Measurement where UnitType == UnitVolume {
     
-    public init(milliliters: Double, allowUSUnits: Bool = true) {
+    init(milliliters: Double, allowUSUnits: Bool = true) {
         let floz = milliliters / 29.5735296
         let gal = milliliters / 3785.411784
         

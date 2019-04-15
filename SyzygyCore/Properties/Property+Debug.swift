@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property {
     
-    public func log(from file: StaticString = #file, line: UInt = #line, function: StaticString = #function) -> Property {
+    func log(from file: StaticString = #file, line: UInt = #line, function: StaticString = #function) -> Property {
         
         observeNext { value in
             print("Property<\(T.self)> (Created at \(function):\(line)) received \(value)")

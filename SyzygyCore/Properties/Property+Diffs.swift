@@ -10,7 +10,7 @@ import Foundation
 
 public extension Property where T: RangeReplaceableCollection, T.Element: Differentiable {
     
-    public func diffingPrevious() -> Property<(T, StagedChangeset<T>)> {
+    func diffingPrevious() -> Property<(T, StagedChangeset<T>)> {
         let initial = T.init()
         let current = self.value
         let startingDiff = initial.difference(to: current)

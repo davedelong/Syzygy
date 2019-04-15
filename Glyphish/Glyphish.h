@@ -6,7 +6,11 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_IOS
 #import <UIKit/UIKit.h>
+#else
+#import <Cocoa/Cocoa.h>
+#endif
 
 //! Project version number for Glyphish.
 FOUNDATION_EXPORT double GlyphishVersionNumber;

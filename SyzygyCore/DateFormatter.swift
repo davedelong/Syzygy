@@ -121,7 +121,7 @@ private func enumerateFormatPieces(dateFormat: String, enumerator: (String, Date
 
 public extension DateFormatter {
     
-    public func annotatedString(from date: Date) -> NSAttributedString {
+    func annotatedString(from date: Date) -> NSAttributedString {
         let formatted = string(from: date) as NSString
         let attributed = NSMutableAttributedString(string: formatted as String)
         

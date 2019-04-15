@@ -10,7 +10,7 @@ import Foundation
 
 public extension NSMetadataQuery {
     
-    public func property() -> Property<Array<NSMetadataItem>> {
+    func property() -> Property<Array<NSMetadataItem>> {
         let m = MutableProperty<Array<NSMetadataItem>>([])
         let token = NotificationCenter.default.addObserver(forName: nil, object: self, queue: .main, using: { note in
             guard let q = note.object as? NSMetadataQuery else { return }

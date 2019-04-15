@@ -12,14 +12,14 @@ public typealias PlatformColor = UIColor
 
 public extension PlatformColor {
     
-    public static let defaultSelectionColor: PlatformColor = UIColor.blue
+    static let defaultSelectionColor: PlatformColor = UIColor.blue
     
 }
 
 public extension Color {
     
-    public var color: UIColor { return UIColor(cgColor: rawColor) }
-    public init(color: UIColor) { self.rawColor = color.cgColor }
+    var color: UIColor { return UIColor(cgColor: rawColor) }
+    init(color: UIColor) { self.rawColor = color.cgColor }
     
 }
 

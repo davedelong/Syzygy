@@ -10,7 +10,7 @@ import Foundation
 
 public extension Set {
     
-    public func filter<P: Predicate>(by predicate: P) -> Set<Element> where P.Element == Element {
+    func filter<P: Predicate>(by predicate: P) -> Set<Element> where P.Element == Element {
         return self.filter(predicate.contains(_:))
     }
     

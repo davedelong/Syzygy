@@ -60,15 +60,15 @@ public struct XorPredicate<E>: Predicate {
 
 public extension Predicate {
     
-    public static func ^<P: Predicate>(lhs: Self, rhs: P) -> XorPredicate<Element> where P.Element == Element {
+    static func ^<P: Predicate>(lhs: Self, rhs: P) -> XorPredicate<Element> where P.Element == Element {
         return XorPredicate(lhs, rhs)
     }
     
-    public static func ^(lhs: Self, rhs: XorPredicate<Element>) -> XorPredicate<Element> {
+    static func ^(lhs: Self, rhs: XorPredicate<Element>) -> XorPredicate<Element> {
         return XorPredicate(lhs, rhs)
     }
     
-    public static func ^(lhs: XorPredicate<Element>, rhs: Self) -> XorPredicate<Element> {
+    static func ^(lhs: XorPredicate<Element>, rhs: Self) -> XorPredicate<Element> {
         return XorPredicate(lhs, rhs)
     }
     

@@ -12,18 +12,18 @@ private let LabelKey = DispatchSpecificKey<String>()
 
 public extension DispatchQueue {
     
-    public class func getLabel() -> String {
+    class func getLabel() -> String {
         _ = DispatchQueue.setup
         return getSpecific(key: LabelKey) ?? "UNK"
     }
     
-    public convenience init(specificLabel: String, target: DispatchQueue? = nil) {
+    convenience init(specificLabel: String, target: DispatchQueue? = nil) {
         self.init(label: specificLabel, target: target)
         setSpecific(key: LabelKey, value: specificLabel)
     }
     
     /// Execute a block a certain number of times on the dispatch queue.
-    public func apply(_ count: Int, block: (Int) -> Void) {
+    func apply(_ count: Int, block: (Int) -> Void) {
         DispatchQueue.concurrentPerform(iterations: count, execute: block)
     }
     
@@ -31,16 +31,16 @@ public extension DispatchQueue {
     ///
     /// - parameter interval: The number of seconds to wait before executing `block`.
     /// - parameter block: The block to execute.
-    public func async(after interval: TimeInterval, block: @escaping () -> Void) {
+    func async(after interval: TimeInterval, block: @escaping () -> Void) {
         self.asyncAfter(deadline: .now() + interval, execute: block)
     }
     
-    public func async(at time: Date, execute: @escaping () -> Void) {
+    func async(at time: Date, execute: @escaping () -> Void) {
         let interval = max(time.timeIntervalSinceNow, 0)
         asyncAfter(deadline: .now() + interval, execute: execute)
     }
     
-    public func async(at time: Date, execute: DispatchWorkItem) {
+    func async(at time: Date, execute: DispatchWorkItem) {
         let interval = max(time.timeIntervalSinceNow, 0)
         asyncAfter(deadline: .now() + interval, execute: execute)
     }

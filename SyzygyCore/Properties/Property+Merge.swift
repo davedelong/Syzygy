@@ -10,11 +10,11 @@ import Foundation
 
 public extension Property {
     
-    public func merge(_ others: Property<T> ...) -> Property<T> {
+    func merge(_ others: Property<T> ...) -> Property<T> {
         return merge(others)
     }
     
-    public func merge(_ others: Array<Property<T>>) -> Property<T> {
+    func merge(_ others: Array<Property<T>>) -> Property<T> {
         let all = [self] + others
         
         // no fear of force unwrapping, because we know that `all` must contain at least `self`

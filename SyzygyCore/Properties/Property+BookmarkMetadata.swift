@@ -10,7 +10,7 @@ import Foundation
 
 public extension MutableProperty where T: PlistConvertible {
     
-    public convenience init(bookmark: Bookmark, key: String, defaultValue: T) {
+    convenience init(bookmark: Bookmark, key: String, defaultValue: T) {
         let persisted: T? = bookmark[key]
         let initial = persisted ?? defaultValue
         self.init(initial)
@@ -24,7 +24,7 @@ public extension MutableProperty where T: PlistConvertible {
 
 public extension MutableProperty where T: OptionalType, T.ValueType: PlistConvertible {
     
-    public convenience init(bookmark: Bookmark, key: String, defaultValue: T) {
+    convenience init(bookmark: Bookmark, key: String, defaultValue: T) {
         let persisted: T.ValueType? = bookmark[key] ?? defaultValue.optionalValue
         let initial: T = T.init(persisted)
         self.init(initial)

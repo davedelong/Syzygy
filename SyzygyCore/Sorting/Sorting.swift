@@ -19,7 +19,7 @@ public protocol ValueSorting: Sorting {
 }
 
 public extension ValueSorting where Value: Comparable {
-    public func orders(_ left: Base, before: Base) -> Bool {
+    func orders(_ left: Base, before: Base) -> Bool {
         return value(from: left) < value(from: before)
     }
 }

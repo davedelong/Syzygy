@@ -10,7 +10,7 @@ import Foundation
 
 public extension CLLocationCoordinate2D {
     
-    public func distance(to other: CLLocationCoordinate2D) -> Double {
+    func distance(to other: CLLocationCoordinate2D) -> Double {
         let l1 = CLLocation(latitude: latitude, longitude: longitude)
         let l2 = CLLocation(latitude: other.latitude, longitude: other.longitude)
         return l2.distance(from: l1)

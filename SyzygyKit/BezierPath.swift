@@ -10,7 +10,7 @@ import Foundation
 
 public extension BezierPath {
     
-    public convenience init (starShapeIn rect: CGRect, insets: PlatformEdgeInsets = PlatformEdgeInsets()) {
+    convenience init (starShapeIn rect: CGRect, insets: PlatformEdgeInsets = PlatformEdgeInsets()) {
         let starFrame = rect.applying(insets)
         let center = starFrame.center
         let smallestDimension = min(starFrame.width, starFrame.height)
@@ -59,7 +59,7 @@ public extension BezierPath {
         self.apply(recenter)
     }
     
-    public convenience init(heartShapeIn rect: CGRect) {
+    convenience init(heartShapeIn rect: CGRect) {
         func p(x: CGFloat, y: CGFloat) -> CGPoint {
             return CGPoint(x: x / 56 * rect.size.width, y: y / 50 * rect.size.height)
         }

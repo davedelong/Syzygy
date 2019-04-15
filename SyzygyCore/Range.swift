@@ -19,12 +19,12 @@ extension Range: Ranging { }
 extension ClosedRange: Ranging { }
 
 public extension Ranging where Bound: SignedNumeric {
-    public var span: Bound { return upperBound - lowerBound }
+    var span: Bound { return upperBound - lowerBound }
 }
 
 public extension Ranging where Bound: Comparable {
     
-    public func clamping(_ value: Bound) -> Bound {
+    func clamping(_ value: Bound) -> Bound {
         if value < lowerBound { return lowerBound }
         if value > upperBound { return upperBound }
         return value
@@ -34,7 +34,7 @@ public extension Ranging where Bound: Comparable {
 
 public extension Ranging where Bound: Interpolatable {
     
-    public func value(at percentile: Double, interpolator: Interpolating = LinearInterpolator()) -> Bound {
+    func value(at percentile: Double, interpolator: Interpolating = LinearInterpolator()) -> Bound {
         if percentile <= 0 { return lowerBound }
         if percentile >= 1 { return upperBound }
         
@@ -42,7 +42,7 @@ public extension Ranging where Bound: Interpolatable {
         return lowerBound + offset
     }
     
-    public func percentile(at value: Bound, interpolator: ReverseInterpolating = LinearInterpolator()) -> Double {
+    func percentile(at value: Bound, interpolator: ReverseInterpolating = LinearInterpolator()) -> Double {
         if value <= lowerBound { return 0 }
         if value >= upperBound { return 1 }
         

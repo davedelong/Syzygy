@@ -10,11 +10,11 @@ import Foundation
 
 public extension String {
     
-    public struct Sorter<B>: Sorting {
+    struct Sorter<B>: Sorting {
         fileprivate let ordersBefore: (B, B) -> Bool
         
         public init<S: ValueSorting>(_ s: S, options: String.CompareOptions = [], locale: Locale? = nil)
-            where S.Base == B, S.Value: StringProtocol, S.Value.Index == String.Index {
+            where S.Base == B, S.Value: StringProtocol {
             
             ordersBefore = { l, r -> Bool in
                 let v1 = s.value(from: l)
@@ -28,7 +28,7 @@ public extension String {
         }
     }
     
-    public static func localizedCaseInsensitiveCompare() -> Sorter<String> {
+    static func localizedCaseInsensitiveCompare() -> Sorter<String> {
         return Sorter(options: [.caseInsensitive], locale: .current)
     }
     
@@ -36,7 +36,7 @@ public extension String {
 
 public extension String.Sorter where B == String {
     
-    public init(options: String.CompareOptions = [], locale: Locale? = nil, order: ComparisonResult = .orderedAscending) {
+    init(options: String.CompareOptions = [], locale: Locale? = nil, order: ComparisonResult = .orderedAscending) {
         ordersBefore = {
             return $0.compare($1, options: options, locale: locale) == order
         }
@@ -44,7 +44,7 @@ public extension String.Sorter where B == String {
     
 }
 
-extension ValueSorting where Value: StringProtocol, Value.Index == String.Index {
+extension ValueSorting where Value: StringProtocol {
     
     public func using(options: String.CompareOptions = [], locale: Locale?) -> String.Sorter<Base> {
         return String.Sorter(self, options: options, locale: locale)

@@ -10,34 +10,34 @@ import Foundation
 
 public extension Collection {
     
-    public var isNotEmpty: Bool { return isEmpty == false }
+    var isNotEmpty: Bool { return isEmpty == false }
     
-    public func every(_ predicate: (Element) -> Bool) -> Bool {
+    func every(_ predicate: (Element) -> Bool) -> Bool {
         return all(predicate)
     }
     
-    public func all(_ predicate: (Element) -> Bool) -> Bool {
+    func all(_ predicate: (Element) -> Bool) -> Bool {
         for item in self {
             if predicate(item) == false { return false }
         }
         return true
     }
     
-    public func any(_ predicate: (Element) -> Bool) -> Bool {
+    func any(_ predicate: (Element) -> Bool) -> Bool {
         for item in self {
             if predicate(item) == true { return true }
         }
         return false
     }
     
-    public func none(_ predicate: (Element) -> Bool) -> Bool {
+    func none(_ predicate: (Element) -> Bool) -> Bool {
         for item in self {
             if predicate(item) == true { return false }
         }
         return true
     }
     
-    public func keyedBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T, Element> {
+    func keyedBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T, Element> {
         var d = Dictionary<T, Element>()
         for item in self {
             if let key = keyer(item) {
@@ -47,7 +47,7 @@ public extension Collection {
         return d
     }
     
-    public func keyedBy<T: Hashable>(_ keyer: (Element) -> Array<T>) -> Dictionary<T, Element> {
+    func keyedBy<T: Hashable>(_ keyer: (Element) -> Array<T>) -> Dictionary<T, Element> {
         var d = Dictionary<T, Element>()
         for item in self {
             let keys = keyer(item)
@@ -58,7 +58,7 @@ public extension Collection {
         return d
     }
     
-    public func groupedBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T, Array<Element>> {
+    func groupedBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T, Array<Element>> {
         var d = Dictionary<T, Array<Element>>()
         for item in self {
             if let key = keyer(item) {
@@ -70,7 +70,7 @@ public extension Collection {
         return d
     }
     
-    public func groupedWithNilsBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T?, Array<Element>> {
+    func groupedWithNilsBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T?, Array<Element>> {
         var d = Dictionary<T?, Array<Element>>()
         for item in self {
             let key = keyer(item)
@@ -81,7 +81,7 @@ public extension Collection {
         return d
     }
     
-    public func groupedBy<T: Hashable>(_ keyer: (Element) -> Array<T>) -> Dictionary<T, Array<Element>> {
+    func groupedBy<T: Hashable>(_ keyer: (Element) -> Array<T>) -> Dictionary<T, Array<Element>> {
         var d = Dictionary<T, Array<Element>>()
         for item in self {
             let keys = keyer(item)
@@ -94,11 +94,11 @@ public extension Collection {
         return d
     }
     
-    public func intersperse(_ separator: Element) -> Array<Element> {
+    func intersperse(_ separator: Element) -> Array<Element> {
         return intersperse { separator }
     }
     
-    public func intersperse(_ item: () -> Element) -> Array<Element> {
+    func intersperse(_ item: () -> Element) -> Array<Element> {
         var everything = Array<Element>()
         for element in self {
             everything.append(element)
@@ -108,7 +108,7 @@ public extension Collection {
         return everything
     }
     
-    public func divide(_ isInFirst: (Element) -> Bool) -> (Array<Element>, Array<Element>) {
+    func divide(_ isInFirst: (Element) -> Bool) -> (Array<Element>, Array<Element>) {
         var first = Array<Element>()
         var second = Array<Element>()
         for item in self {
@@ -121,7 +121,7 @@ public extension Collection {
         return (first, second)
     }
     
-    public func sum<T: Numeric>(_ value: (Element) -> T) -> T {
+    func sum<T: Numeric>(_ value: (Element) -> T) -> T {
         var s = T.init(exactly: 0) !! "Unable to create zero of type \(T.self)"
         for item in self {
             s += value(item)
@@ -129,11 +129,11 @@ public extension Collection {
         return s
     }
     
-    public func compacted<T>() -> Array<T> where Element == Optional<T> {
+    func compacted<T>() -> Array<T> where Element == Optional<T> {
         return compactMap { $0 }
     }
     
-    public func sorted<C: Comparable>(ascending: Bool = true, by: (Element) -> C) -> Array<Element> {
+    func sorted<C: Comparable>(ascending: Bool = true, by: (Element) -> C) -> Array<Element> {
         if ascending {
             return sorted(by: { by($0) < by($1) })
         } else {
@@ -141,7 +141,7 @@ public extension Collection {
         }
     }
     
-    public func count(where matches: (Element) -> Bool) -> Int {
+    func count(where matches: (Element) -> Bool) -> Int {
         var count = 0
         for item in self {
             if matches(item) { count += 1}
@@ -149,7 +149,7 @@ public extension Collection {
         return count
     }
     
-    public func chunks(of size: Int) -> ChunkedCollection<Self> {
+    func chunks(of size: Int) -> ChunkedCollection<Self> {
         return ChunkedCollection(self, size: size)
     }
     
@@ -157,7 +157,7 @@ public extension Collection {
 
 public extension Collection where Element: Numeric {
     
-    public func sum() -> Element {
+    func sum() -> Element {
         var s = Element.init(exactly: 0) !! "Unable to create zero of type \(Element.self)"
         for item in self {
             s += item

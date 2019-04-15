@@ -10,7 +10,7 @@ import Foundation
 
 public extension KeyPath {
     
-    public struct Sorter: Sorting {
+    struct Sorter: Sorting {
         private let keyPath: KeyPath<Root, Value>
         private let ordersBefore: (Value, Value) -> Bool
         
@@ -24,7 +24,7 @@ public extension KeyPath {
         }
     }
     
-    public func sorting(by sorter: @escaping (Value, Value) -> Bool) -> Sorter {
+    func sorting(by sorter: @escaping (Value, Value) -> Bool) -> Sorter {
         return Sorter(keyPath: self, ordersBefore: sorter)
     }
 }

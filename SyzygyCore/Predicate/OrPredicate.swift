@@ -52,15 +52,15 @@ public struct OrPredicate<E>: Predicate {
 
 public extension Predicate {
     
-    public static func ||<P: Predicate>(lhs: Self, rhs: P) -> OrPredicate<Element> where P.Element == Element {
+    static func ||<P: Predicate>(lhs: Self, rhs: P) -> OrPredicate<Element> where P.Element == Element {
         return OrPredicate(lhs, rhs)
     }
     
-    public static func ||(lhs: Self, rhs: OrPredicate<Element>) -> OrPredicate<Element> {
+    static func ||(lhs: Self, rhs: OrPredicate<Element>) -> OrPredicate<Element> {
         return OrPredicate(lhs, rhs)
     }
     
-    public static func ||(lhs: OrPredicate<Element>, rhs: Self) -> OrPredicate<Element> {
+    static func ||(lhs: OrPredicate<Element>, rhs: Self) -> OrPredicate<Element> {
         return OrPredicate(lhs, rhs)
     }
     

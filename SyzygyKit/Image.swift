@@ -9,7 +9,7 @@
 import Foundation
 
 public extension R where T == PlatformImage {
-    public static let images = R<PlatformImage>()
+    static let images = R<PlatformImage>()
 }
 
 

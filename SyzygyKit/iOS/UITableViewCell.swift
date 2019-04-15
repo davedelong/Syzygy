@@ -10,7 +10,7 @@ import Foundation
 
 public extension UITableViewCell {
     
-    public static func nib() -> UINib? {
+    static func nib() -> UINib? {
         return UINib(nibName: "\(self)", bundle: Bundle(for: self))
     }
     

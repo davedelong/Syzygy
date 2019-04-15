@@ -21,6 +21,11 @@ open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelega
     private var _contents = Array<T>()
     
     public var selectionHandler: ((T) -> Void)?
+    public var showSeparators: Bool = true {
+        didSet {
+            table.tableView.separatorStyle = showSeparators ? .singleLine : .none
+        }
+    }
     
     public init(contents: Property<Array<T>>, viewControllerExtractor: @escaping (T) -> UIViewController) {
         self.contents = contents
