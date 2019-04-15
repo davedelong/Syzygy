@@ -200,7 +200,7 @@ func ContainingDiskImageDevice(_ path: URL) -> String? {
         return ns as String
     }
     
-    let hdiutil = Process.runSynchronously(AbsolutePath(fileSystemPath: "/usr/bin/hdiutil"), arguments: ["info", "-plist"]).success
+    let hdiutil = Process.runSynchronously(AbsolutePath(fileSystemPath: "/usr/bin/hdiutil"), arguments: ["info", "-plist"], usingPipe: true).success
     
     guard let hdiutilData = hdiutil else { return nil }
     guard let plist = try? Plist(data: hdiutilData) else { return nil }

@@ -19,18 +19,18 @@ public extension Process {
         public let errorDictionary: NSDictionary
     }
     
-    public class func runSynchronously(_ path: AbsolutePath, arguments: Array<String> = []) -> Result<Data> {
-        return runAsUser(path, arguments: arguments)
+    public class func runSynchronously(_ path: AbsolutePath, arguments: Array<String> = [], usingPipe: Bool = false) -> Result<Data> {
+        return runAsUser(path, arguments: arguments, usingPipe: usingPipe)
     }
     
-    public class func run(process path: AbsolutePath, arguments: Array<String> = [], asAdministrator: Bool = false, completion: @escaping (Result<Data>) -> Void) {
+    public class func run(process path: AbsolutePath, arguments: Array<String> = [], asAdministrator: Bool = false, usingPipe: Bool = false, completion: @escaping (Result<Data>) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
             let result: Result<Data>
             
             if asAdministrator == true {
                 result = runAsAdmin(path, arguments: arguments)
             } else {
-                result = runAsUser(path, arguments: arguments)
+                result = runAsUser(path, arguments: arguments, usingPipe: usingPipe)
             }
             
             DispatchQueue.main.async { completion(result) }
@@ -55,28 +55,45 @@ public extension Process {
         }
     }
     
-    private class func runAsUser(_ path: AbsolutePath, arguments: Array<String>) -> Result<Data> {
+    private class func runAsUser(_ path: AbsolutePath, arguments: Array<String>, usingPipe: Bool = false) -> Result<Data> {
         let task = Process()
         task.launchPath = path.fileSystemPath
         task.arguments = arguments
         task.qualityOfService = .userInitiated
         
-        let output = TemporaryFile(extension: "txt")
-        let handle = output.fileHandle
-        defer { handle?.closeFile() }
+        let outputHandle: FileHandle?
+        if usingPipe == false {
+            let output = TemporaryFile(extension: "txt")
+            outputHandle = output.fileHandle
+            task.standardOutput = outputHandle
+            defer { outputHandle?.closeFile() }
+        } else {
+            let pipe = Pipe()
+            task.standardOutput = pipe
+            outputHandle = pipe.fileHandleForReading
+        }
         
-        task.standardOutput = handle
         task.launch()
         task.waitUntilExit()
         
         if task.terminationStatus != 0 {
             let error = ProcessError(exitCode: task.terminationStatus, reason: task.terminationReason)
             return .error(error)
+        } else if let handle = outputHandle {
+            do {
+                var data = Data()
+                try catchException {
+                    data = handle.readDataToEndOfFile()
+                }
+                return .success(data)
+            } catch {
+                Log.info("Attempting to read process output threw an exception: \(error)")
+                let error = ProcessError(exitCode: EPERM, reason: .uncaughtSignal)
+                return .error(error)
+            }
         } else {
-            handle?.seek(toFileOffset: 0)
-            let data = handle?.readDataToEndOfFile()
-            
-            return .success(data ?? Data())
+            let error = ProcessError(exitCode: ENOEXEC, reason: .exit)
+            return .error(error)
         }
     }
 }

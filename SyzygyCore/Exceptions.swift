@@ -8,11 +8,8 @@
 
 import Foundation
 
-public func catchException<T>(_ block: () -> T) throws -> T {
-    var result: T!
+public func catchException(_ block: () -> Void) throws {
     try ObjectiveC.catchException {
-        result = block()
+        block()
     }
-    return result
-    
 }

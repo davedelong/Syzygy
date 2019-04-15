@@ -41,9 +41,9 @@ public extension Bundle {
     }
     
     var bundleVersion: String {
-        return object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ??
-        object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ??
-        "unknown"
+        return object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ??
+            object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ??
+            "unknown"
     }
     
     var name: String {
