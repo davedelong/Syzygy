@@ -67,7 +67,8 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     
     public let disposable = CompositeDisposable()
     
-    public var syzygyView: SyzygyView { return view as! SyzygyView }
+    private var _syzygyView: SyzygyView?
+    public var syzygyView: SyzygyView? { return _syzygyView }
     
     #if BUILDING_FOR_MOBILE
     private var _preferredStatusBarStyle: UIStatusBarStyle = .default
@@ -120,28 +121,31 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     required public init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
     
     open override func loadView() {
+        ViewSwizzling.swizzleInHierarchyHooks()
         super.loadView()
         
-        let ddv: SyzygyView
+        var ddv: SyzygyView?
         
         if let v = view as? SyzygyView {
             ddv = v
-        } else {
+        } else if (view is UITableViewCell) == false {
             let newView = SyzygyView(frame: loadedView.frame)
             newView.embedSubview(loadedView)
             view = newView
             
             ddv = newView
         }
-        ddv.controller = self
-        
+        ddv?.controller = self
+        _syzygyView = ddv
     }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        disposable += currentBackgroundColor.observe { [weak self] color in
-            self?.syzygyView.backgroundColor = color
+        if let v = syzygyView {
+            disposable += currentBackgroundColor.observe { color in
+                v.backgroundColor = color
+            }
         }
     }
     
@@ -152,9 +156,8 @@ open class _SyzygyViewControllerBase: PlatformViewController {
         wantsSelection.modify(!)
     }
     
-    open func viewDidMoveToSuperview(_ superview: PlatformView?) { }
-    
-    open func viewDidMoveToWindow(_ window: PlatformWindow?) { }
+    @objc open func viewDidMoveToSuperview(_ superview: PlatformView?) { }
+    @objc open func viewDidMoveToWindow(_ window: PlatformWindow?) { }
     
     open func viewSystemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: PlatformLayoutConstraintPriority, verticalFittingPriority: PlatformLayoutConstraintPriority) -> CGSize {
         return targetSize

@@ -51,7 +51,7 @@ public class ShapeView: PlatformView {
             return
         }
         
-        
+        layer.masksToBounds = true
         shapeLayer.frame = layer.bounds
         
         let boundingRect = bounds.applying(shapeInsets)

@@ -12,6 +12,9 @@ open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelega
         let tvc = UITableViewController(style: .plain)
         tvc.tableView.dataSource = self
         tvc.tableView.delegate = self
+        tvc.tableView.rowHeight = UITableView.automaticDimension
+        tvc.tableView.estimatedRowHeight = 64
+        tvc.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Empty")
         return tvc
     }()
     
@@ -38,8 +41,6 @@ open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelega
     open override func viewDidLoad() {
         super.viewDidLoad()
         embedChild(table)
-        table.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Empty")
-        
         disposable += contents.observe { [weak self] vcs in
             self?.transitionToTableContent(vcs)
         }

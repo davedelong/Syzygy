@@ -48,14 +48,4 @@ open class SyzygyView: PlatformView {
         }
     }
     
-    override open func viewDidMoveToSuperview() {
-        super.viewDidMoveToSuperview()
-        controller?.viewDidMoveToSuperview(self.superview)
-    }
-    
-    override open func viewDidMoveToWindow() {
-        super.viewDidMoveToWindow()
-        controller?.viewDidMoveToWindow(self.window)
-    }
-    
 }

@@ -117,6 +117,12 @@
 		5534E2E4212A2AB500233911 /* CompositeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534E2E3212A2AB400233911 /* CompositeDataSource.swift */; };
 		5534E2E7212A372900233911 /* SegmentedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534E2E6212A372900233911 /* SegmentedDataSource.swift */; };
 		5534E2E9212A5F4E00233911 /* SeparatorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534E2E8212A5F4E00233911 /* SeparatorDataSource.swift */; };
+		55375E072265152000AE4D29 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55375E052265152000AE4D29 /* Search.swift */; };
+		55375E112265328F00AE4D29 /* OrgChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55375E102265328E00AE4D29 /* OrgChart.swift */; };
+		55375E132265414A00AE4D29 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55375E122265414A00AE4D29 /* People.swift */; };
+		55375E15226542D800AE4D29 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55375E14226542D800AE4D29 /* Plus.swift */; };
+		55375E372266912400AE4D29 /* ViewSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 55375E352266912400AE4D29 /* ViewSwizzling.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55375E382266912400AE4D29 /* ViewSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 55375E362266912400AE4D29 /* ViewSwizzling.m */; };
 		553912D920FAF847002CCFA2 /* SyzygyLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912D820FAF847002CCFA2 /* SyzygyLineViewController.swift */; };
 		553912DB20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912DA20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift */; };
 		553912DD20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553912DC20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift */; };
@@ -490,6 +496,12 @@
 		5534E2E3212A2AB400233911 /* CompositeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeDataSource.swift; sourceTree = "<group>"; };
 		5534E2E6212A372900233911 /* SegmentedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedDataSource.swift; sourceTree = "<group>"; };
 		5534E2E8212A5F4E00233911 /* SeparatorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorDataSource.swift; sourceTree = "<group>"; };
+		55375E052265152000AE4D29 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		55375E102265328E00AE4D29 /* OrgChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgChart.swift; sourceTree = "<group>"; };
+		55375E122265414A00AE4D29 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		55375E14226542D800AE4D29 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
+		55375E352266912400AE4D29 /* ViewSwizzling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewSwizzling.h; sourceTree = "<group>"; };
+		55375E362266912400AE4D29 /* ViewSwizzling.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewSwizzling.m; sourceTree = "<group>"; };
 		553912D820FAF847002CCFA2 /* SyzygyLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygyLineViewController.swift; sourceTree = "<group>"; };
 		553912DA20FAF8BA002CCFA2 /* SyzygyLineViewController~macos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyLineViewController~macos.swift"; sourceTree = "<group>"; };
 		553912DC20FAF8C5002CCFA2 /* SyzygyLineViewController~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyzygyLineViewController~ios.swift"; sourceTree = "<group>"; };
@@ -1035,6 +1047,10 @@
 				556015BF2128C3890015E994 /* README.md */,
 				55B752872231B97400BDDDBA /* Store.swift */,
 				55B7528A2231BB7900BDDDBA /* Map.swift */,
+				55375E052265152000AE4D29 /* Search.swift */,
+				55375E102265328E00AE4D29 /* OrgChart.swift */,
+				55375E122265414A00AE4D29 /* People.swift */,
+				55375E14226542D800AE4D29 /* Plus.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1297,6 +1313,8 @@
 				551C009120EFBB22006CE550 /* View.swift */,
 				551C009320EFBB34006CE550 /* View~ios.swift */,
 				551C009520EFBB45006CE550 /* View~macos.swift */,
+				55375E352266912400AE4D29 /* ViewSwizzling.h */,
+				55375E362266912400AE4D29 /* ViewSwizzling.m */,
 				5512BA33214D22E00046B779 /* ViewController.swift */,
 				5534E2E5212A2B9400233911 /* Shapes */,
 				5534E2E0212A2A8900233911 /* DataSources */,
@@ -1431,6 +1449,7 @@
 			files = (
 				55D69057215731230090222D /* Authorization.h in Headers */,
 				55FB06621FF9B5D30001D42E /* SyzygyKit.h in Headers */,
+				55375E372266912400AE4D29 /* ViewSwizzling.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1742,8 +1761,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55375E15226542D800AE4D29 /* Plus.swift in Sources */,
 				556015BB2128C1A40015E994 /* Glyphish.swift in Sources */,
+				55375E072265152000AE4D29 /* Search.swift in Sources */,
+				55375E112265328F00AE4D29 /* OrgChart.swift in Sources */,
 				55B7528B2231BB7900BDDDBA /* Map.swift in Sources */,
+				55375E132265414A00AE4D29 /* People.swift in Sources */,
 				55B752882231B97400BDDDBA /* Store.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1979,6 +2002,7 @@
 				5555B3A4214EF83900CC621E /* DetailTextItem~ios.swift in Sources */,
 				55FD0BCB21A79BCF00434E2F /* SyzygyListViewController~macos.swift in Sources */,
 				551C009820EFBBA1006CE550 /* SyzygyView~ios.swift in Sources */,
+				55375E382266912400AE4D29 /* ViewSwizzling.m in Sources */,
 				559079C820B76F07005AECE7 /* NSWindowController.swift in Sources */,
 				552F889521333A6F0001DBF5 /* DataSourceAdapter~ios.swift in Sources */,
 				55814DC520E340430027DA84 /* BezierPath.swift in Sources */,

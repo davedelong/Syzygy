@@ -16,6 +16,16 @@ public struct Shape {
     }
     
     public func bezierPath(in rect: CGRect) -> BezierPath { return builder(rect) }
+    
+    public func inset(by insets: PlatformEdgeInsets) -> Shape {
+        let b = builder
+        return Shape { rect in
+            let insetRect = rect.inset(by: insets)
+            let path = b(insetRect)
+            path.apply(CGAffineTransform(translationX: insets.left, y: insets.top))
+            return path
+        }
+    }
 }
 
 public extension Shape {

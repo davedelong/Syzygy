@@ -21,7 +21,7 @@ open class ColorViewController: SyzygyViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        syzygyView.backgroundColor = color.color
+        syzygyView?.backgroundColor = color.color
     }
     
 }

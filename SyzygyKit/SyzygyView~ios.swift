@@ -14,16 +14,6 @@ public class SyzygyView: PlatformView {
     
     private var delegatingSystemLayoutSize = false
     
-    open override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        controller?.viewDidMoveToSuperview(self.superview)
-    }
-    
-    open override func didMoveToWindow() {
-        super.didMoveToWindow()
-        controller?.viewDidMoveToWindow(self.window)
-    }
-    
     open override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
         
         var size = super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
