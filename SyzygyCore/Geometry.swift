@@ -14,6 +14,10 @@ public extension PlatformEdgeInsets {
         self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
     
+    init(padding: CGFloat) {
+        self.init(top: padding, left: padding, bottom: padding, right: padding)
+    }
+    
 }
 
 public extension CGRect {
