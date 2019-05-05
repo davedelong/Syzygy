@@ -60,9 +60,13 @@ public struct LinearInterpolator: ReverseInterpolating {
 
 public struct LogarithmicInterpolator: ReverseInterpolating {
     
-    private let scale = 5.0
+    private let scale: Double
     
-    public init() { }
+    // the larger the number, the "steeper" the curve
+    // the number may not be smaller than 0.1
+    public init(magicNumber: Double = 7.0) {
+        scale = max(magicNumber, 0.1)
+    }
     
     public func interpolate(_ value: Double) -> Double {
         let r = scale * value
