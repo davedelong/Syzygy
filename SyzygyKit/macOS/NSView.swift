@@ -10,17 +10,17 @@ import Cocoa
 
 public extension NSView {
     
-    public var isVisible: Bool {
+    var isVisible: Bool {
         get { return !isHidden }
         set { isHidden = !newValue }
     }
     
-    public func firstSubview<T: NSView>() -> T? {
+    func firstSubview<T: NSView>() -> T? {
         guard let match = subview(where: { $0 is T }, recurses: true) else { return nil }
         return match as? T
     }
     
-    public func subview(where matches: (NSView) -> Bool, recurses: Bool = true) -> NSView? {
+    func subview(where matches: (NSView) -> Bool, recurses: Bool = true) -> NSView? {
         for subview in subviews {
             if matches(subview) { return subview }
             if recurses {

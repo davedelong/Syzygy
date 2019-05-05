@@ -8,7 +8,7 @@
     
 public extension NSWindow {
     
-    public var allGestureRecognizers: Array<NSGestureRecognizer> {
+    var allGestureRecognizers: Array<NSGestureRecognizer> {
         let mutable = NSMutableArray()
         
         let remainingViews = NSMutableArray()
@@ -28,7 +28,7 @@ public extension NSWindow {
         return views.flatMap { $0.gestureRecognizers }
     }
     
-    public func gestureRecognizersIntersecting(_ view: NSView) -> Array<NSGestureRecognizer> {
+    func gestureRecognizersIntersecting(_ view: NSView) -> Array<NSGestureRecognizer> {
         guard view.window == self else { return [] }
         let allRecognizers = allGestureRecognizers
         
@@ -43,12 +43,12 @@ public extension NSWindow {
         }
     }
     
-    public func convertFromScreen(_ point: NSPoint) -> NSPoint {
+    func convertFromScreen(_ point: NSPoint) -> NSPoint {
         let rect = NSRect(origin: point, size: .zero)
         return convertFromScreen(rect).origin
     }
     
-    public func convertFromScreen(_ point: NSPoint, to view: NSView) -> NSPoint {
+    func convertFromScreen(_ point: NSPoint, to view: NSView) -> NSPoint {
         let pointInWindow = convertFromScreen(point)
         return view.convert(pointInWindow, from: nil)
     }

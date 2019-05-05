@@ -10,20 +10,20 @@ import Foundation
 
 public extension Process {
     
-    public struct ProcessError: Error {
+    struct ProcessError: Error {
         public let exitCode: Int32
         public let reason: Process.TerminationReason
     }
     
-    public struct ApplescriptError: Error {
+    struct ApplescriptError: Error {
         public let errorDictionary: NSDictionary
     }
     
-    public class func runSynchronously(_ path: AbsolutePath, arguments: Array<String> = [], usingPipe: Bool = false) -> Result<Data> {
+    class func runSynchronously(_ path: AbsolutePath, arguments: Array<String> = [], usingPipe: Bool = false) -> Result<Data> {
         return runAsUser(path, arguments: arguments, usingPipe: usingPipe)
     }
     
-    public class func run(process path: AbsolutePath, arguments: Array<String> = [], asAdministrator: Bool = false, usingPipe: Bool = false, completion: @escaping (Result<Data>) -> Void) {
+    class func run(process path: AbsolutePath, arguments: Array<String> = [], asAdministrator: Bool = false, usingPipe: Bool = false, completion: @escaping (Result<Data>) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
             let result: Result<Data>
             
@@ -62,16 +62,20 @@ public extension Process {
         task.qualityOfService = .userInitiated
         
         let outputHandle: FileHandle?
+        var handleCleanup: (() -> Void)?
+        
         if usingPipe == false {
             let output = TemporaryFile(extension: "txt")
             outputHandle = output.fileHandle
             task.standardOutput = outputHandle
-            defer { outputHandle?.closeFile() }
+            handleCleanup = { outputHandle?.closeFile() }
         } else {
             let pipe = Pipe()
             task.standardOutput = pipe
             outputHandle = pipe.fileHandleForReading
         }
+        
+        defer { handleCleanup?() }
         
         task.launch()
         task.waitUntilExit()

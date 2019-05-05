@@ -7,12 +7,12 @@
 //
     
 public extension NSBox {
-    public enum Orientation {
+    enum Orientation {
         case vertical
         case horizontal
     }
     
-    public convenience init(orientation: Orientation) {
+    convenience init(orientation: Orientation) {
         let w: CGFloat = orientation == .horizontal ? 100 : 1
         let h: CGFloat = orientation == .vertical ? 100 : 1
         

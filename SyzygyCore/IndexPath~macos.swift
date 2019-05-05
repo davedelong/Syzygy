@@ -10,12 +10,12 @@ import Foundation
 
 public extension IndexPath {
     
-    public var row: Int {
+    var row: Int {
         get { return self.item }
         set { self.item = newValue }
     }
     
-    public init(row: Int, section: Int) {
+    init(row: Int, section: Int) {
         self.init(item: row, section: section)
     }
     

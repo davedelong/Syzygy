@@ -31,7 +31,7 @@ private let workspaceMountedVolumes: Property<Array<AbsolutePath>> = {
 
 public extension NSWorkspace {
     
-    public var runningApps: Property<Array<NSRunningApplication>> { return workspaceRunningApps }
-    public var mountedVolumes: Property<Array<AbsolutePath>> { return workspaceMountedVolumes }
+    var runningApps: Property<Array<NSRunningApplication>> { return workspaceRunningApps }
+    var mountedVolumes: Property<Array<AbsolutePath>> { return workspaceMountedVolumes }
     
 }

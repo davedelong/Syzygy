@@ -8,7 +8,7 @@
     
 public extension NSEvent {
     
-    public static var mouseMonitor: Property<NSEvent?> = {
+    static var mouseMonitor: Property<NSEvent?> = {
         let m = MutableProperty<NSEvent?>(nil)
         let monitor = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved, .scrollWheel], handler: { [weak m] event in
             m?.value = event
@@ -20,7 +20,7 @@ public extension NSEvent {
         return m
     }()
     
-    public static func mouseMoved(inside view: NSView) -> Property<Bool> {
+    static func mouseMoved(inside view: NSView) -> Property<Bool> {
         return mouseMonitor.map { e in
             guard e != nil else { return false }
             guard let w = view.window else { return false }

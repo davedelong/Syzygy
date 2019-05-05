@@ -12,14 +12,14 @@ public typealias PlatformColor = NSColor
 
 public extension PlatformColor {
     
-    public static let defaultSelectionColor: PlatformColor = NSColor.selectedMenuItemColor
+    static let defaultSelectionColor: PlatformColor = NSColor.selectedMenuItemColor
     
 }
 
 public extension Color {
     
-    public var color: NSColor { return NSColor(cgColor: rawColor) !! "Unable to create color from \(rawColor)" }
-    public init(color: NSColor) { self.rawColor = color.cgColor }
+    var color: NSColor { return NSColor(cgColor: rawColor) !! "Unable to create color from \(rawColor)" }
+    init(color: NSColor) { self.rawColor = color.cgColor }
 
 }
 

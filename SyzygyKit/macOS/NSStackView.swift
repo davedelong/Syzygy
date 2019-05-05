@@ -10,19 +10,20 @@ public extension NSStackView {
     
     private var gravitys: Array<NSStackView.Gravity> {
         switch orientation {
-        case .horizontal: return [.leading, .center, .trailing]
-        case .vertical: return [.top, .center, .bottom]
+            case .horizontal: return [.leading, .center, .trailing]
+            case .vertical: return [.top, .center, .bottom]
+            @unknown default: return []
         }
     }
     
-    public func insertView(_ aView: NSView, afterView: NSView?) {
+    func insertView(_ aView: NSView, afterView: NSView?) {
         guard let after = afterView else { return }
         
         let areas = gravitys
         for area in areas {
             
             let views = self.views(in: area)
-            if let index = views.index(of: after) {
+            if let index = views.firstIndex(of: after) {
                 insertView(aView, at: views.index(after: index), in: area)
                 return
             }
@@ -31,14 +32,14 @@ public extension NSStackView {
         
     }
     
-    public func insertView(_ aView: NSView, beforeView: NSView?) {
+    func insertView(_ aView: NSView, beforeView: NSView?) {
         guard let before = beforeView else { return }
         
         let areas = gravitys
         for area in areas {
             
             let views = self.views(in: area)
-            if let index = views.index(of: before) {
+            if let index = views.firstIndex(of: before) {
                 insertView(aView, at: index, in: area)
                 return
             }
@@ -47,7 +48,7 @@ public extension NSStackView {
         
     }
     
-    public func addArrangedSubview(_ subview: NSView?, animated: Bool) {
+    func addArrangedSubview(_ subview: NSView?, animated: Bool) {
         guard let view = subview else { return }
         guard animated == true else {
             addArrangedSubview(view)
@@ -58,7 +59,7 @@ public extension NSStackView {
         })
     }
     
-    public func removeArrangedSubview(_ subview: NSView?, animated: Bool) {
+    func removeArrangedSubview(_ subview: NSView?, animated: Bool) {
         guard let view = subview else { return }
         guard animated == true else {
             removeArrangedSubview(view)

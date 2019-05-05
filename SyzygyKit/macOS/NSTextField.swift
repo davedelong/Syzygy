@@ -8,7 +8,7 @@
 
 public extension NSTextField {
     
-    public convenience init(label: String, size: NSControl.ControlSize = .regular) {
+    convenience init(label: String, size: NSControl.ControlSize = .regular) {
         self.init(frame: NSRect(x: 0, y: 0, width: 100, height: 22))
         controlSize = size
         setContentCompressionResistancePriority(.required, for: .horizontal)
@@ -22,7 +22,7 @@ public extension NSTextField {
         invalidateIntrinsicContentSize()
     }
     
-    public convenience init(wrappingLabel: NSAttributedString, size: NSControl.ControlSize = .regular) {
+    convenience init(wrappingLabel: NSAttributedString, size: NSControl.ControlSize = .regular) {
         self.init(label: wrappingLabel.string, size: size)
         attributedStringValue = wrappingLabel
         cell?.wraps = true

@@ -10,7 +10,7 @@ import Foundation
 
 public extension NSMetadataQuery {
     
-    public convenience init(localSearch: NSPredicate?) {
+    convenience init(localSearch: NSPredicate?) {
         self.init()
         self.predicate = localSearch
         self.searchScopes = [NSMetadataQueryIndexedLocalComputerScope]

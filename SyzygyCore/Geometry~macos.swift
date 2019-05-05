@@ -11,5 +11,5 @@ import AppKit
 public typealias PlatformEdgeInsets = NSEdgeInsets
 
 public extension PlatformEdgeInsets {
-    public static let zero = NSEdgeInsetsZero
+    static let zero = NSEdgeInsetsZero
 }

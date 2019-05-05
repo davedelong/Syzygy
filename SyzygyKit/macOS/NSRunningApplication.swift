@@ -8,7 +8,7 @@
     
 public extension NSRunningApplication {
     
-    public var bundlePath: AbsolutePath? {
+    var bundlePath: AbsolutePath? {
         guard let bundleURL = self.bundleURL else { return nil }
         return AbsolutePath(bundleURL)
     }

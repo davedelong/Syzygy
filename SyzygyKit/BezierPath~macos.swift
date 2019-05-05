@@ -23,18 +23,20 @@ public extension BezierPath {
             let e = self.element(at: i, associatedPoints: &points)
             
             switch e {
-            case .moveTo:
-                p.move(to: points[0])
+                case .moveTo:
+                    p.move(to: points[0])
                 
-            case .lineTo:
-                p.addLine(to: points[0])
-                didClose = false
-            case .curveTo:
-                p.addCurve(to: points[2], control1: points[0], control2: points[1])
-                didClose = false
-            case .closePath:
-                p.closeSubpath()
-                didClose = true
+                case .lineTo:
+                    p.addLine(to: points[0])
+                    didClose = false
+                case .curveTo:
+                    p.addCurve(to: points[2], control1: points[0], control2: points[1])
+                    didClose = false
+                case .closePath:
+                    p.closeSubpath()
+                    didClose = true
+                @unknown default:
+                    NSLog("Unknown type of path element: \(e). Skipping...")
             }
         }
         
@@ -45,16 +47,20 @@ public extension BezierPath {
         return p
     }
     
-    public convenience init(roundedRect: NSRect, cornerRadius: CGFloat) {
+    convenience init(roundedRect: NSRect, cornerRadius: CGFloat) {
         self.init(roundedRect: roundedRect, xRadius: cornerRadius, yRadius: cornerRadius)
     }
     
-    public func apply(_ transform: CGAffineTransform) {
+    func apply(_ transform: CGAffineTransform) {
         self.transform(using: AffineTransform(transform))
     }
     
-    public func addCurve(to: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) {
+    func addCurve(to: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) {
         self.relativeCurve(to: to, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
+    }
+    
+    func addLine(to point: CGPoint) {
+        self.line(to: point)
     }
     
 }

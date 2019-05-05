@@ -12,10 +12,11 @@ public typealias PlatformWindow = NSWindow
 public typealias PlatformViewController = NSViewController
 public typealias PlatformLayoutConstraintPriority = NSLayoutConstraint.Priority
 public typealias PlatformLayoutGuide = NSLayoutGuide
+public typealias PlatformTableViewCell = NSTableCellView
 
 public extension PlatformNib {
     
-    public func instantiate(withOwner ownerOrNil: Any?, options optionsOrNil: [AnyHashable : Any]? = nil) -> [Any] {
+    func instantiate(withOwner ownerOrNil: Any?, options optionsOrNil: [AnyHashable : Any]? = nil) -> [Any] {
         var topLevelObjects: NSArray?
         let ok = self.instantiate(withOwner: ownerOrNil, topLevelObjects: &topLevelObjects)
         

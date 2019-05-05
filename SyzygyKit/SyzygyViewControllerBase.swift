@@ -128,7 +128,7 @@ open class _SyzygyViewControllerBase: PlatformViewController {
         
         if let v = view as? SyzygyView {
             ddv = v
-        } else if (view is UITableViewCell) == false {
+        } else if (view is PlatformTableViewCell) == false {
             let newView = SyzygyView(frame: loadedView.frame)
             newView.embedSubview(loadedView)
             view = newView
