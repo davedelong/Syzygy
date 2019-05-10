@@ -153,6 +153,21 @@ public extension Collection {
         return ChunkedCollection(self, size: size)
     }
     
+    func partition(by goesInFirst: (Element) -> Bool) -> (Array<Element>, Array<Element>) {
+        var a1 = Array<Element>()
+        var a2 = Array<Element>()
+        
+        for i in self {
+            if goesInFirst(i) {
+                a1.append(i)
+            } else {
+                a2.append(i)
+            }
+        }
+        
+        return (a1, a2)
+    }
+    
 }
 
 public extension Collection where Element: Numeric {
@@ -180,6 +195,45 @@ public extension Collection where Element: Hashable {
         }
         return uniqued
     }
+}
+
+public extension Collection where Index: Strideable {
+    
+    func stride(by step: Index.Stride) -> UnfoldSequence<Element, Index> {
+        return self.stride(by: step, from: startIndex, to: endIndex)
+    }
+    
+    func stride(by step: Index.Stride, from start: Index) -> UnfoldSequence<Element, Index> {
+        return self.stride(by: step, from: start, to: endIndex)
+    }
+    
+    func stride(by step: Index.Stride, to end: Index) -> UnfoldSequence<Element, Index> {
+        return self.stride(by: step, from: startIndex, to: end)
+    }
+    
+    func stride(by step: Index.Stride, from start: Index, to end: Index) -> UnfoldSequence<Element, Index> {
+        return sequence(state: start, next: { state in
+            guard state < end else { return nil }
+            defer { state = state.advanced(by: step) }
+            return self[state]
+        })
+    }
+    
+    
+    func stride(by step: Index.Stride, through end: Index) -> UnfoldSequence<Element, Index> {
+        return self.stride(by: step, from: startIndex, through: end)
+    }
+    
+    func stride(by step: Index.Stride, from start: Index, through end: Index) -> UnfoldSequence<Element, Index> {
+        guard isEmpty == false else { return sequence(state: start, next: { _ in return nil })}
+        
+        return sequence(state: start, next: { state in
+            guard state <= end else { return nil }
+            defer { state = state.advanced(by: step) }
+            return self[state]
+        })
+    }
+    
 }
 
 
