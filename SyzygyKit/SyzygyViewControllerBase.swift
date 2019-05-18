@@ -141,12 +141,7 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let v = syzygyView {
-            disposable += currentBackgroundColor.observe { color in
-                v.backgroundColor = color
-            }
-        }
+        disposable += syzygyView?.take(\.backgroundColor, from: currentBackgroundColor)
     }
     
     open func select() { wantsSelection.value = true }

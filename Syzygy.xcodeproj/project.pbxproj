@@ -147,6 +147,7 @@
 		556015B62128C0D50015E994 /* Glyphish.h in Headers */ = {isa = PBXBuildFile; fileRef = 556015B42128C0D50015E994 /* Glyphish.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		556015BB2128C1A40015E994 /* Glyphish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556015BA2128C1A40015E994 /* Glyphish.swift */; };
 		556015C02128C3890015E994 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 556015BF2128C3890015E994 /* README.md */; };
+		55612D912290511F00BC25F0 /* AnyObject+Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55612D902290511F00BC25F0 /* AnyObject+Property.swift */; };
 		556EA4E6210CE07D00064D3D /* Interpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA4E5210CE07D00064D3D /* Interpolator.swift */; };
 		556EA5332112A0C900064D3D /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5322112A0C800064D3D /* R.swift */; };
 		556EA5352112A55500064D3D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EA5342112A55500064D3D /* UIImage.swift */; };
@@ -529,6 +530,7 @@
 		556015B52128C0D50015E994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		556015BA2128C1A40015E994 /* Glyphish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glyphish.swift; sourceTree = "<group>"; };
 		556015BF2128C3890015E994 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		55612D902290511F00BC25F0 /* AnyObject+Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyObject+Property.swift"; sourceTree = "<group>"; };
 		556EA4E5210CE07D00064D3D /* Interpolator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolator.swift; sourceTree = "<group>"; };
 		556EA5322112A0C800064D3D /* R.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		556EA5342112A55500064D3D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -1368,6 +1370,7 @@
 				55FB06971FF9BBFF0001D42E /* NSMetadataQuery+Property.swift */,
 				55FB069C1FF9BBFF0001D42E /* NSObject+Property.swift */,
 				55FB069E1FF9BBFF0001D42E /* NotificationCenter+Property.swift */,
+				55612D902290511F00BC25F0 /* AnyObject+Property.swift */,
 			);
 			path = Properties;
 			sourceTree = "<group>";
@@ -1880,6 +1883,7 @@
 				55991F85219605A800524481 /* Decimal.swift in Sources */,
 				55FB06E11FF9BC070001D42E /* Plist+Literals.swift in Sources */,
 				55FB06DF1FF9BC070001D42E /* Plist+Convenience.swift in Sources */,
+				55612D912290511F00BC25F0 /* AnyObject+Property.swift in Sources */,
 				55FB071A1FF9BC070001D42E /* WeakBox.swift in Sources */,
 				551D47CF2007FC4F00AF7CF8 /* Plist+Convertible.swift in Sources */,
 				551D47C32006F9E100AF7CF8 /* Entitlements.m in Sources */,

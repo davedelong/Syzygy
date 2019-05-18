@@ -65,6 +65,7 @@ public final class CompositeDisposable: Disposable {
     }
 }
 
-public func +=(lhs: CompositeDisposable, rhs: Disposable) -> Void {
+public func +=(lhs: CompositeDisposable, rhs: Disposable?) -> Void {
+    guard let rhs = rhs else { return }
     return lhs.add(rhs)
 }
