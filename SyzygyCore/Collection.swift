@@ -37,6 +37,10 @@ public extension Collection {
         return true
     }
     
+    func eachPair() -> Zip2Sequence<Self, Self.SubSequence> {
+        return zip(self, self.dropFirst())
+    }
+    
     func keyedBy<T: Hashable>(_ keyer: (Element) -> T?) -> Dictionary<T, Element> {
         var d = Dictionary<T, Element>()
         for item in self {
@@ -166,6 +170,20 @@ public extension Collection {
         }
         
         return (a1, a2)
+    }
+    
+}
+
+public extension Collection where Element: NSObjectProtocol {
+    
+    func sorted(by descriptors: Array<NSSortDescriptor>) -> Array<Element> {
+        guard descriptors.isNotEmpty else { return Array(self) }
+        return self.sorted(by: { (left, right) -> Bool in
+            for d in descriptors {
+                if d.orders(left, before: right) { return true }
+            }
+            return false
+        })
     }
     
 }

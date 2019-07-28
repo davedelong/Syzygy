@@ -14,7 +14,7 @@ public extension Bundle {
         self.init(url: path.fileURL)
     }
     
-    var identifier: Identifier<Bundle>? {
+    var identifier: Identifier<Bundle, String>? {
         guard let id = bundleIdentifier else { return nil }
         return Identifier(rawValue: id)
     }
@@ -41,8 +41,8 @@ public extension Bundle {
     }
     
     var bundleVersion: String {
-        return object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ??
-            object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ??
+        return shortBundleVersion ??
+            object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ??
             "unknown"
     }
     
@@ -53,7 +53,7 @@ public extension Bundle {
         "SyzygyCore"
     }
     
-    func nestedBundle(with identifier: Identifier<Bundle>) -> Bundle? {
+    func nestedBundle(with identifier: Identifier<Bundle, String>) -> Bundle? {
         #if BUILDING_FOR_DESKTOP
             let bundlePath = AbsolutePath(bundleURL)
             let matches = LSDatabase.shared.paths(for: identifier.rawValue, containedWithin: bundlePath)

@@ -10,9 +10,10 @@ import Foundation
 
 public protocol ResultType {
     associatedtype SuccessType
+    associatedtype FailureType
     
     var success: SuccessType? { get }
-    var error: Error? { get }
+    var error: FailureType? { get }
     
 }
 
@@ -21,42 +22,16 @@ public extension ResultType {
     var isError: Bool { return self.error != nil }
 }
 
-public enum Result<T>: ResultType {
-    public typealias SuccessType = T
+extension Result: ResultType {
     
-    case success(T)
-    case error(Error)
-    
-    public var success: T? {
-        if case .success(let s) = self { return s }
-        return nil
+    public var success: Success? {
+        guard case .success(let s) = self else { return nil }
+        return s
     }
     
-    public var error: Error? {
-        if case .error(let e) = self { return e }
-        return nil
+    public var error: Failure? {
+        guard case .failure(let f) = self else { return nil }
+        return f
     }
     
-    public func map<U>(_ value: (T) throws -> U, ifError: (Error) -> Error = { $0 }) -> Result<U> {
-        switch self {
-        case .success(let t):
-            do {
-                let value = try value(t)
-                return .success(value)
-            } catch let e {
-                return .error(ifError(e))
-            }
-            
-        case .error(let e): return .error(ifError(e))
-        }
-    }
-    
-    public init(_ block: () throws -> T) {
-        do {
-            let value = try block()
-            self = .success(value)
-        } catch let e {
-            self = .error(e)
-        }
-    }
 }

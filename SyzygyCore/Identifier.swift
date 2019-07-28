@@ -8,35 +8,21 @@
 
 import Foundation
 
-public typealias Map<T> = Dictionary<Identifier<T>, T>
-public typealias IdentifierSet<T> = Set<Identifier<T>>
+public typealias Map<T, V: Hashable> = Dictionary<Identifier<T, V>, T>
+public typealias IdentifierSet<T, V: Hashable> = Set<Identifier<T, V>>
 
-public struct Identifier<T>: Newtype, Equatable, Hashable, Codable {
-    public let rawValue: String
-    public var hashValue: Int { return rawValue.hashValue }
+public struct Identifier<T, Value>: Newtype {
+    public let rawValue: Value
     
-    public init(rawValue: String) {
+    public init(rawValue: Value) {
         self.rawValue = rawValue
     }
     
-    public init(_ rawValue: String) {
+    public init(_ rawValue: Value) {
         self.rawValue = rawValue
     }
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        self = .init(rawValue: try container.decode(String.self))
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(rawValue)
-    }
-    
 }
 
-extension Identifier: ExpressibleByStringLiteral {
-    public init(stringLiteral value: String) { self.init(rawValue: value) }
-    public init(extendedGraphemeClusterLiteral value: String) { self.init(rawValue: value) }
-    public init(unicodeScalarLiteral value: String) { self.init(rawValue: value) }
-}
+extension Identifier: Equatable where Value: Equatable { }
+extension Identifier: Hashable where Value: Hashable { }
+extension Identifier: Codable where Value: Codable { }
