@@ -8,8 +8,8 @@
 
 import Foundation
 
-public typealias Map<T, V: Hashable> = Dictionary<Identifier<T, V>, T>
-public typealias IdentifierSet<T, V: Hashable> = Set<Identifier<T, V>>
+public typealias Map<T: Identifiable> = Dictionary<T.ID, T>
+public typealias IdentifierSet<T: Identifiable> = Set<T.ID>
 
 public struct Identifier<T, Value>: Newtype {
     public let rawValue: Value
@@ -26,3 +26,11 @@ public struct Identifier<T, Value>: Newtype {
 extension Identifier: Equatable where Value: Equatable { }
 extension Identifier: Hashable where Value: Hashable { }
 extension Identifier: Codable where Value: Codable { }
+
+public protocol Identifiable {
+    associatedtype IdentifiedType = Self
+    associatedtype IdentifierType: Hashable
+    
+    typealias ID = Identifier<IdentifiedType, IdentifierType>
+    var identifier: ID { get }
+}

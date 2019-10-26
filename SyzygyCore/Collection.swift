@@ -172,6 +172,13 @@ public extension Collection {
         return (a1, a2)
     }
     
+    func firstMap<T>(where mapper: (Element) -> T?) -> T? {
+        for item in self {
+            if let mapped = mapper(item) { return mapped }
+        }
+        return nil
+    }
+    
 }
 
 public extension Collection where Element: NSObjectProtocol {

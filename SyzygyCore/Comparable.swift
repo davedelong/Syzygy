@@ -38,25 +38,6 @@ public extension Comparable {
     
 }
 
-public extension Collection where Element: Comparable {
-    
-    func range() -> ClosedRange<Element>? {
-        guard isEmpty == false else { return nil }
-        var slice = Slice(base: self, bounds: startIndex ..< endIndex)
-        let first = slice.removeFirst()
-        
-        var min = first
-        var max = first
-        
-        for other in slice {
-            if other < min { min = other }
-            if other > max { max = other }
-        }
-        return min ... max
-    }
-    
-}
-
 public extension Collection {
     
     func range<C: Comparable>(of value: (Element) -> C) -> ClosedRange<C>? {
@@ -73,6 +54,14 @@ public extension Collection {
             if otherValue > max { max = otherValue }
         }
         return min ... max
+    }
+    
+}
+
+public extension Collection where Element: Comparable {
+    
+    func range() -> ClosedRange<Element>? {
+        return range(of: { $0 })
     }
     
 }
