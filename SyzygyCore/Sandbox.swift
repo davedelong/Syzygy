@@ -61,6 +61,8 @@ public class Sandbox {
                   caches: AbsolutePath(cache),
                   support: AbsolutePath(supp),
                   defaults: defaults)
+        
+        cache.isIncludedInBackup = false
     }
     
     public init(documents: AbsolutePath, caches: AbsolutePath, support: AbsolutePath, logs: AbsolutePath? = nil, defaults: UserDefaults) {

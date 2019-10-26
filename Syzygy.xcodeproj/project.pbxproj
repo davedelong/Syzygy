@@ -2182,6 +2182,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55FB06691FF9B7C30001D42E /* Syzygy-Release.xcconfig */;
 			buildSettings = {
+				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};

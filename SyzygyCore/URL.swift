@@ -72,4 +72,17 @@ public extension URL {
     }
     
     var isVisible: Bool { return !isHidden }
+    
+    var isIncludedInBackup: Bool {
+        get {
+            let values = try? resourceValues(forKeys: [.isExcludedFromBackupKey])
+            return (values?.isExcludedFromBackup == false)
+        }
+        nonmutating set {
+            var copy = self
+            var newValues = URLResourceValues()
+            newValues.isExcludedFromBackup = (newValue == false)
+            try? copy.setResourceValues(newValues)
+        }
+    }
 }
