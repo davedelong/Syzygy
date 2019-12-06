@@ -28,6 +28,12 @@ public extension String {
         self.removeSubrange(penultimate ..< last)
     }
     
+    func removeOccurrences<C: Collection>(of characters: C) -> String where C.Element == Element {
+        let filterOut = Set(characters)
+        let filtered = self.filter { filterOut.contains($0) == false }
+        return String(filtered)
+    }
+    
     func removePrefix(_ prefix: String) -> String {
         guard let prefixRange = range(of: prefix) else { return self }
         guard prefixRange.upperBound < endIndex else { return self }

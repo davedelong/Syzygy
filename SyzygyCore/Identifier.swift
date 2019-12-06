@@ -29,8 +29,12 @@ extension Identifier: Codable where Value: Codable { }
 
 public protocol Identifiable {
     associatedtype IdentifiedType = Self
-    associatedtype IdentifierType: Hashable
+    associatedtype IdentifierType: Hashable = String
     
     typealias ID = Identifier<IdentifiedType, IdentifierType>
     var identifier: ID { get }
+}
+
+public extension Identifiable {
+    var id: ID { return identifier }
 }

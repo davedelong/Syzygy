@@ -10,7 +10,7 @@ import SyzygyCore
 
 open class SyzygyWindowCoordinator: Coordinator {
     
-    private lazy var window: UIWindow = {
+    public private(set) lazy var window: UIWindow = {
         let w = UIWindow(frame: UIScreen.main.bounds)
         w.rootViewController = container
         return w
@@ -23,9 +23,14 @@ open class SyzygyWindowCoordinator: Coordinator {
         set { container.preferredStatusBarStyle = newValue }
     }
     
-    public init(content: Property<UIViewController>) {
+    public init(window: UIWindow? = nil, content: Property<UIViewController>) {
         container = SyzygyContainerViewController(content: content)
         super.init()
+        
+        if let w = window {
+            self.window = w
+            w.rootViewController = container
+        }
     }
     
     public convenience init(content: UIViewController) {
