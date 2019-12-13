@@ -179,6 +179,27 @@ public extension Collection {
         return nil
     }
     
+    func splitBetween(_ separator: (Element, Element) -> Bool) -> Array<Array<Element>> {
+        var splits = Array<Array<Element>>()
+        var current = Array<Element>()
+        if let f = first {
+            var previous = f
+            current.append(f)
+            for item in dropFirst() {
+                if separator(previous, item) == true {
+                    // split
+                    splits.append(current)
+                    current = [item]
+                } else {
+                    current.append(item)
+                }
+                previous = item
+            }
+        }
+        splits.append(current)
+        return splits
+    }
+    
 }
 
 public extension Collection where Element: NSObjectProtocol {
