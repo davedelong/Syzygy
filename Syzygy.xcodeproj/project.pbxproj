@@ -144,6 +144,7 @@
 		5555B3A6214EFDF100CC621E /* SeparatorItem~ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5555B3A5214EFDF100CC621E /* SeparatorItem~ios.swift */; };
 		5558AC6620263CC10032DC88 /* SyzygySmallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */; };
 		555C1906200536F80017F253 /* CountedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1905200536F80017F253 /* CountedSet.swift */; };
+		555DAC0D23C0FD2E002306FA /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555DAC0C23C0FD2E002306FA /* Codable.swift */; };
 		556015B62128C0D50015E994 /* Glyphish.h in Headers */ = {isa = PBXBuildFile; fileRef = 556015B42128C0D50015E994 /* Glyphish.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		556015BB2128C1A40015E994 /* Glyphish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556015BA2128C1A40015E994 /* Glyphish.swift */; };
 		556015C02128C3890015E994 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 556015BF2128C3890015E994 /* README.md */; };
@@ -525,6 +526,7 @@
 		5555B3A5214EFDF100CC621E /* SeparatorItem~ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeparatorItem~ios.swift"; sourceTree = "<group>"; };
 		5558AC6520263CC10032DC88 /* SyzygySmallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyzygySmallListViewController.swift; sourceTree = "<group>"; };
 		555C1905200536F80017F253 /* CountedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedSet.swift; sourceTree = "<group>"; };
+		555DAC0C23C0FD2E002306FA /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		556015B22128C0D50015E994 /* Glyphish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glyphish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		556015B42128C0D50015E994 /* Glyphish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Glyphish.h; sourceTree = "<group>"; };
 		556015B52128C0D50015E994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1211,6 +1213,7 @@
 				55D82F9F210AAA9D00EF7965 /* Character.swift */,
 				55DD8FCB20FA584D0028B6A1 /* Cloning.swift */,
 				554F9560201D38E3007864A7 /* CLLocation.swift */,
+				555DAC0C23C0FD2E002306FA /* Codable.swift */,
 				55FB067E1FF9BBFD0001D42E /* Collection.swift */,
 				55FB06C91FF9BC060001D42E /* Comparable.swift */,
 				55FB06BE1FF9BC040001D42E /* Concatenation.swift */,
@@ -1890,6 +1893,7 @@
 				55FB06F31FF9BC070001D42E /* Property.swift in Sources */,
 				55FB072F1FF9BC070001D42E /* JSON+Initializers.swift in Sources */,
 				551B614F21A305B2007A6B0F /* JSON+Expressible.swift in Sources */,
+				555DAC0D23C0FD2E002306FA /* Codable.swift in Sources */,
 				55FB07181FF9BC070001D42E /* JSON+Equatable.swift in Sources */,
 				55FB06F01FF9BC070001D42E /* Property+Boolean.swift in Sources */,
 				55FB07341FF9BC070001D42E /* Timer.swift in Sources */,
