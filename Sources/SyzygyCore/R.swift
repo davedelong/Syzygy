@@ -5,6 +5,7 @@
 //  Created by Dave DeLong on 8/1/18.
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
+import Core
 
 public protocol BundleResourceLoadable {
     associatedtype LoadedResourceType

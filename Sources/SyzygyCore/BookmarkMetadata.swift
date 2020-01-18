@@ -10,7 +10,7 @@ import Foundation
 
 internal class BookmarkMetadataStore {
     
-    static let defaultStore = BookmarkMetadataStore(storageFolder: AbsolutePath.applicationSupportDirectory)
+    static let defaultStore = BookmarkMetadataStore(storageFolder: FileManager.applicationSupportDirectory)
     
     private let storageFolder: AbsolutePath
     private var metadatas = Array<BookmarkMetadata>()

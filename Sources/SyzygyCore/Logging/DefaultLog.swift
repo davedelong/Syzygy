@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 public final class DefaultLog: LoggingService {
     public static let shared = DefaultLog()

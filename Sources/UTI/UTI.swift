@@ -6,6 +6,16 @@
 //  Copyright © 2017 Dave DeLong. All rights reserved.
 //
 
+import Core
+
+@_exported import Foundation
+
+#if BUILDING_FOR_MAC
+@_exported import CoreServices
+#elseif BUILDING_FOR_MOBILE
+@_exported import MobileCoreServices
+#endif
+
 public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
     
     public static func ==(lhs: UTI, rhs: UTI) -> Bool {
@@ -72,31 +82,6 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
     
     public lazy var fileExtensions: Array<String> = { [unowned self] in
         return self.tags(for: kUTTagClassFilenameExtension)
-    }()
-    
-    public lazy var iconPath: AbsolutePath? = {
-        var utisToCheck = [self]
-        var checked = Set<UTI>()
-        
-        while utisToCheck.isEmpty == false {
-            let first = utisToCheck.removeFirst()
-            guard checked.contains(first) == false else { continue }
-            checked.insert(first)
-            
-            guard let thisBundle = first.declaringBundle else { continue }
-            
-            if let iconName = first.declaration.iconFile {
-                let url = thisBundle.url(forResource: iconName, withExtension: nil) ??
-                    thisBundle.url(forResource: iconName, withExtension: "icns")
-                return url.map { AbsolutePath($0) }
-            } else if let iconPath = first.declaration.iconPath {
-                return thisBundle.path.appending(path: RelativePath(path: iconPath))
-            }
-            
-            utisToCheck.append(contentsOf: first.declaration.conformsTo)
-        }
-        
-        return nil
     }()
     
     public init(rawValue: String) {

@@ -15,6 +15,9 @@
 @_exported import MobileCoreServices
 #endif
 
+@_exported import UTI
+@_exported import Paths
+
 public extension Bundle {
     
     static let SyzygyCore = Bundle(for: SyzygyCoreMarker.self)

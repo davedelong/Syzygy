@@ -13,7 +13,7 @@ public final class TemporaryFile {
     public let location: AbsolutePath
     
     public lazy var fileHandle: FileHandle? = {
-        return FileHandle(forUpdatingAtPath: self.location)
+        return FileHandle(forUpdatingAtPath: self.location.fileSystemPath)
     }()
     
     public init(extension ext: String? = nil, in directory: AbsolutePath = .temporaryDirectory, contents: Data? = nil) {
@@ -23,13 +23,13 @@ public final class TemporaryFile {
         }
         location = AbsolutePath.temporaryDirectory.appending(component: name)
         
-        FileManager.default.createFile(atPath: location, contents: contents)
+        FileManager.default.createFile(atPath: location.fileSystemPath, contents: contents)
     }
     
     deinit {
         let path = self.location
         DispatchQueue.global(qos: .utility).async {
-            try? FileManager.default.removeItem(atPath: path)
+            try? FileManager.default.removeItem(atPath: path.fileSystemPath)
         }
     }
 }

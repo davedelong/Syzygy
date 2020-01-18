@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 public typealias Map<T: Identifiable> = Dictionary<T.ID, T>
 public typealias IdentifierSet<T: Identifiable> = Set<T.ID>

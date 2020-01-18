@@ -7,8 +7,26 @@
 //
 
 import Foundation
+import Core
+
+private func appSpecificDirectory(directory: FileManager.SearchPathDirectory) -> AbsolutePath {
+    let fm = FileManager.default
+    let folder = try! fm.path(for: directory)
+    let id = Bundle.main.name
+    let appFolder = folder.appending(component: id)
+    if fm.folderExists(atPath: appFolder) == false {
+        try? fm.createDirectory(at: appFolder)
+    }
+    return appFolder
+}
+
+private let appCacheDirectory: AbsolutePath = { return appSpecificDirectory(directory: .cachesDirectory) }()
+private let appSupportDirectory: AbsolutePath = { return appSpecificDirectory(directory: .applicationSupportDirectory) }()
 
 public extension FileManager {
+
+    static var applicationCacheDirectory: AbsolutePath { return appCacheDirectory }
+    static var applicationSupportDirectory: AbsolutePath { return appSupportDirectory }
     
     struct OpenWith {
         public let applicationPath: AbsolutePath

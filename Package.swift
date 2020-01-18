@@ -114,15 +114,15 @@ let package = Package(
 //        .library(name: "SyzygyKit", targets: ["SyzygyKit"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/ra1028/DifferenceKit", from: "1.1.0"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(name: "SyzygyCore-ObjC", dependencies: [], exclude: [], cSettings: cSettings, swiftSettings: swiftSettings),
-        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
+        .target(name: "Core", dependencies: []),
+        .target(name: "Paths", dependencies: []),
+        .target(name: "UTI", dependencies: ["Core", "Paths"]),
+        
+        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
 //        .target(name: "SyzygyKit", dependencies: ["SyzygyCore"]),
     ]
 )

@@ -8,26 +8,10 @@
 
 import Foundation
 
-private func appSpecificDirectory(directory: FileManager.SearchPathDirectory) -> AbsolutePath {
-    let fm = FileManager.default
-    let folder = try! fm.path(for: directory)
-    let id = Bundle.main.name
-    let appFolder = folder.appending(component: id)
-    if fm.folderExists(atPath: appFolder) == false {
-        try? fm.createDirectory(at: appFolder)
-    }
-    return appFolder
-}
-
-private let appCacheDirectory: AbsolutePath = { return appSpecificDirectory(directory: .cachesDirectory) }()
-private let appSupportDirectory: AbsolutePath = { return appSpecificDirectory(directory: .applicationSupportDirectory) }()
-
 public struct AbsolutePath: Path {
     
     public static let root = AbsolutePath([])
     public static let temporaryDirectory = AbsolutePath(fileSystemPath: NSTemporaryDirectory())
-    public static var applicationCacheDirectory: AbsolutePath { return appCacheDirectory }
-    public static var applicationSupportDirectory: AbsolutePath { return appSupportDirectory }
     
     public let components: Array<PathComponent>
     
@@ -37,10 +21,6 @@ public struct AbsolutePath: Path {
     
     public var fileURL: URL {
         return URL(fileURLWithPath: fileSystemPath)
-    }
-    
-    public var bookmarkData: Data? {
-        return fileURL.bookmarkData
     }
     
     public init(_ components: Array<PathComponent>) {
@@ -63,18 +43,9 @@ public struct AbsolutePath: Path {
         self.init(pieces.map { PathComponent($0) })
     }
     
-    public init?(bookmarkData: Data) {
-        guard let url = URL(bookmarkData: bookmarkData) else { return nil }
-        self.init(url)
-    }
-    
     public func resolvingSymlinks() -> AbsolutePath {
         let resolvedURL = fileURL.resolvingSymlinksInPath()
         return AbsolutePath(resolvedURL)
-    }
-    
-    public func contains(_ other: AbsolutePath) -> Bool {
-        return fileURL.contains(other.fileURL)
     }
     
     public func extendedAttribute(named: String) -> Data? {
