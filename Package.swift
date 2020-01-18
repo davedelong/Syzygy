@@ -109,20 +109,30 @@ let package = Package(
     name: "Syzygy",
     platforms: [.macOS(.v10_12), .iOS(.v11), .watchOS(.v4), .tvOS(.v11)],
     products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(name: "SyzygyCore", targets: ["SyzygyCore"]),
 //        .library(name: "SyzygyKit", targets: ["SyzygyKit"]),
     ],
     dependencies: [
         .package(url: "https://github.com/ra1028/DifferenceKit", from: "1.1.0"),
     ],
+    
     targets: [
+        // this target is pure Objective-C code. It's for stuff that's either impossible or very difficult to implement in Swift
         .target(name: "SyzygyCore-ObjC", dependencies: [], exclude: [], cSettings: cSettings, swiftSettings: swiftSettings),
+        
+        // Raw, fundamental types used EVERYWHERE
         .target(name: "Core", dependencies: []),
+        
+        // Interacting with the filesystem
         .target(name: "Paths", dependencies: []),
+        
+        // Uniform Type Identifiers
         .target(name: "UTI", dependencies: ["Core", "Paths"]),
         
-        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
+        // Extensions to Swift Standard Library
+        .target(name: "StandardLibrary", dependencies: ["Core"]),
+        
+        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "Paths", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
 //        .target(name: "SyzygyKit", dependencies: ["SyzygyCore"]),
     ]
 )

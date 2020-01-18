@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StandardLibrary
 
 public extension Sequence {
     
@@ -17,6 +18,20 @@ public extension Sequence {
     func sorted<C: Collection>(by sorters: C) -> Array<Element> where C.Element: Sorting, C.Element.Base == Element {
         let combined = CombinedSorter(sorters)
         return sorted(by: combined)
+    }
+    
+}
+
+public extension Collection where Element: NSObjectProtocol {
+    
+    func sorted(by descriptors: Array<NSSortDescriptor>) -> Array<Element> {
+        guard descriptors.isNotEmpty else { return Array(self) }
+        return self.sorted(by: { (left, right) -> Bool in
+            for d in descriptors {
+                if d.orders(left, before: right) { return true }
+            }
+            return false
+        })
     }
     
 }

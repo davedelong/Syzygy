@@ -203,20 +203,6 @@ public extension Collection {
     
 }
 
-public extension Collection where Element: NSObjectProtocol {
-    
-    func sorted(by descriptors: Array<NSSortDescriptor>) -> Array<Element> {
-        guard descriptors.isNotEmpty else { return Array(self) }
-        return self.sorted(by: { (left, right) -> Bool in
-            for d in descriptors {
-                if d.orders(left, before: right) { return true }
-            }
-            return false
-        })
-    }
-    
-}
-
 public extension Collection where Element: Numeric {
     
     func sum() -> Element {

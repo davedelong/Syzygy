@@ -6,7 +6,7 @@
 //  Copyright © 2017 Dave DeLong. All rights reserved.
 //
 
-import Foundation
+import Core
 
 public protocol BooleanType {
     
