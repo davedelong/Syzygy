@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SyzygyCore_ObjC
 import Core
 import Structures
 
@@ -20,12 +19,6 @@ public extension Bundle {
         let infoPlistPath = path/"Info.plist"
         #endif
         return (try? Plist(contentsOf: infoPlistPath)) ?? .unknown
-    }
-    
-    var entitlementsPlist: Plist {
-        guard self === Bundle.main else { return .unknown }
-        guard let data = EntitlementsData() else { return .unknown }
-        return (try? Plist(data: data)) ?? .unknown
     }
     
     func nestedBundle(with identifier: Identifier<Bundle, String>) -> Bundle? {

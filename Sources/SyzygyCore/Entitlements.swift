@@ -8,6 +8,7 @@
 
 import Foundation
 import Structures
+import SyzygyCore_ObjC
 
 public struct Entitlements {
     #if BUILDING_FOR_MAC
@@ -42,7 +43,7 @@ public struct Entitlements {
     public let suppressesPassPresentation: Bool
     public let allowsPaymentPassConfiguration: Bool
     
-    private init?(plist: Plist = Bundle.main.entitlementsPlist) {
+    fileprivate init?(plist: Plist = Bundle.main.entitlementsPlist) {
         guard plist.isDictionary else { return nil }
         raw = plist
         
@@ -68,4 +69,18 @@ public struct Entitlements {
         suppressesPassPresentation = raw.value(for: "com.apple.developer.passkit.pass-presentation-suppression") ?? false
         allowsPaymentPassConfiguration = raw.value(for: "com.apple.developer.payment-pass-provisioning") ?? false
     }
+}
+
+extension Bundle {
+    
+    public var entitlementsPlist: Plist {
+        guard self === Bundle.main else { return .unknown }
+        guard let data = EntitlementsData() else { return .unknown }
+        return (try? Plist(data: data)) ?? .unknown
+    }
+    
+    public var entitlements: Entitlements? {
+        return Entitlements(plist: entitlementsPlist)
+    }
+    
 }
