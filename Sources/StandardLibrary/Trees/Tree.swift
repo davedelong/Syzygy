@@ -9,8 +9,8 @@
 import Foundation
 
 public protocol TreeNode {
-    var isLeaf: Bool { get }
     var children: Array<Self> { get }
+    var isLeaf: Bool { get }
 }
 
 public protocol TreeTraversingDisposition {

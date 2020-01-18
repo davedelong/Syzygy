@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Structures
 
 public final class Bookmark: Hashable {
     private static let knownBookmarksLock = NSLock()

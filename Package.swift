@@ -129,6 +129,9 @@ let package = Package(
         // Interacting with the filesystem
         .target(name: "Paths", dependencies: ["StandardLibrary"], cSettings: cSettings, swiftSettings: swiftSettings),
         
+        // Structured persistence types (Plist, JSON)
+        .target(name: "Structures", dependencies: ["Paths"], cSettings: cSettings, swiftSettings: swiftSettings),
+        
         // Uniform Type Identifiers
         .target(name: "UTI", dependencies: ["Core", "Paths"], cSettings: cSettings, swiftSettings: swiftSettings),
         

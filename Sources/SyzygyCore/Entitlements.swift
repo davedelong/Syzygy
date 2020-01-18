@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Structures
 
 public struct Entitlements {
     #if BUILDING_FOR_MAC

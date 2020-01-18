@@ -8,6 +8,7 @@
 
 import Foundation
 import Core
+import Paths
 
 extension JSON {
     

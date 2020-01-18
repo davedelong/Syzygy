@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Structures
 
 internal class BookmarkMetadataStore {
     

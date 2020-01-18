@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StandardLibrary
 
 public extension Property where T: Concatenatable {
     

@@ -9,13 +9,9 @@
 import Foundation
 import SyzygyCore_ObjC
 import Core
+import Structures
 
 public extension Bundle {
-    
-    var identifier: Identifier<Bundle, String>? {
-        guard let id = bundleIdentifier else { return nil }
-        return Identifier(rawValue: id)
-    }
     
     var infoPlist: Plist {
         #if BUILDING_FOR_MAC
@@ -30,23 +26,6 @@ public extension Bundle {
         guard self === Bundle.main else { return .unknown }
         guard let data = EntitlementsData() else { return .unknown }
         return (try? Plist(data: data)) ?? .unknown
-    }
-    
-    var shortBundleVersion: String? {
-        return object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-    }
-    
-    var bundleVersion: String {
-        return shortBundleVersion ??
-            object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ??
-            "unknown"
-    }
-    
-    var name: String {
-        return (object(forInfoDictionaryKey: "CFBundleName") as? String) ??
-        (object(forInfoDictionaryKey: "CFBundleDisplayName") as? String) ??
-        bundleIdentifier ??
-        "SyzygyCore"
     }
     
     func nestedBundle(with identifier: Identifier<Bundle, String>) -> Bundle? {

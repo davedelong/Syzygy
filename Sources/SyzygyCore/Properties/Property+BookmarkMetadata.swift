@@ -8,6 +8,7 @@
 
 import Foundation
 import Core
+import Structures
 
 public extension MutableProperty where T: PlistConvertible {
     
