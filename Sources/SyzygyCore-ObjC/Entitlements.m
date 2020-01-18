@@ -6,7 +6,7 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-#import "Entitlements.h"
+#import "include/Entitlements.h"
 #import <mach-o/dyld.h>
 #import <mach-o/getsect.h>
 

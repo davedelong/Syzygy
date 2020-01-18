@@ -6,7 +6,7 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-#import "_LSSharedFileList.h"
+#import "include/_LSSharedFileList.h"
 
 #import <CoreServices/CoreServices.h>
 

@@ -9,6 +9,11 @@
 import Foundation
 
 public struct Entitlements {
+    #if BUILDING_FOR_MAC
+    internal static let APSKey = "com.apple.developer.aps-environment"
+    #elseif BUILDING_FOR_MOBILE
+    internal static let APSKey = "aps-environment"
+    #endif
     
     public enum APSEnvironment: String {
         case development

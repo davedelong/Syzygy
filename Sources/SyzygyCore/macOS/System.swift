@@ -10,6 +10,7 @@ import Foundation
     
 import IOKit
 import Collaboration
+import SyzygyCore_ObjC
 
 public let System = SystemType()
 

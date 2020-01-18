@@ -42,3 +42,20 @@ public extension IndexPath {
     }
     
 }
+
+#if BUILDING_FOR_MAC
+
+public extension IndexPath {
+    
+    var row: Int {
+        get { return self.item }
+        set { self.item = newValue }
+    }
+    
+    init(row: Int, section: Int) {
+        self.init(item: row, section: section)
+    }
+    
+}
+
+#endif

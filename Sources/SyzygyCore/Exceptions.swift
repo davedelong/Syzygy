@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import SyzygyCore_ObjC
 
 public func catchException(_ block: () -> Void) throws {
-    try ObjectiveC.catchException {
+    try SyzygyCore_ObjC.ObjectiveC.catchException {
         block()
     }
 }

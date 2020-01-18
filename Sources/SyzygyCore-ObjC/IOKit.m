@@ -6,7 +6,7 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-#import "IOKit.h"
+#import "include/IOKit.h"
 #import <IOKit/IOKitLib.h>
 
 // see https://github.com/practicalswift/osx/blob/master/src/iokituser/platform.subproj/IOPlatformSupport.c#L314

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Dave DeLong. All rights reserved.
 //
 
-#import "Objective-C.h"
+#import "include/Objective-C.h"
 
 const NSErrorDomain SyzygyExceptionErrorDomain = @"SyzygyExceptionErrorDomain";
 
