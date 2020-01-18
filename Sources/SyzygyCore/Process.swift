@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if BUILDING_FOR_MAC
+
 public extension Process {
     
     struct ProcessError: Error {
@@ -101,3 +103,5 @@ public extension Process {
         }
     }
 }
+
+#endif

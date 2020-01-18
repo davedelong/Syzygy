@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if TARGET_OS_MAC && !TARGET_OS_IPHONE
+
 #import "include/_LSSharedFileList.h"
 
 #import <CoreServices/CoreServices.h>
@@ -114,3 +116,5 @@ void sharedFileListDidChange(LSSharedFileListRef inList, void *context) {
 }
 
 #pragma clang diagnostic pop
+
+#endif

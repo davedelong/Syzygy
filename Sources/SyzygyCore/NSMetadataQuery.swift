@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if BUILDING_FOR_MAC
+
 public extension NSMetadataQuery {
     
     convenience init(localSearch: NSPredicate?) {
@@ -18,3 +20,5 @@ public extension NSMetadataQuery {
     }
     
 }
+
+#endif

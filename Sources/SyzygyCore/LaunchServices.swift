@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if BUILDING_FOR_MAC
+
 public class LSDatabase {
     private let q = DispatchQueue(specificLabel: "LaunchServices")
     private var _pathCache = Dictionary<String, Array<AbsolutePath>>()
@@ -46,3 +48,5 @@ public class LSDatabase {
     }
     
 }
+
+#endif

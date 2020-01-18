@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+#if BUILDING_FOR_MAC
     
 import IOKit
 import Collaboration
@@ -90,3 +92,5 @@ public final class SystemType {
         return match[1] ?? defaultName
     }()
 }
+
+#endif

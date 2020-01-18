@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 import Foundation
 import SyzygyCore_ObjC
 
@@ -42,3 +44,5 @@ public class SharedFileList {
     }
     
 }
+
+#endif
