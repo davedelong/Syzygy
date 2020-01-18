@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DifferenceKit
 
 public extension RangeReplaceableCollection where Element: Differentiable {
     

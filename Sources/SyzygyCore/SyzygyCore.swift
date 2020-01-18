@@ -7,7 +7,6 @@
 //
 
 @_exported import Foundation
-@_exported import DifferenceKit
 
 #if BUILDING_FOR_MAC
 @_exported import CoreServices
@@ -15,8 +14,11 @@
 @_exported import MobileCoreServices
 #endif
 
+@_exported import Core
+@_exported import StandardLibrary
 @_exported import UTI
 @_exported import Paths
+@_exported import Structures
 
 public extension Bundle {
     

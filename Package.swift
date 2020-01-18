@@ -3,50 +3,6 @@
 
 import PackageDescription
 
-
-/**
-
- Things to figure out:
- 
-
-
- MACOS_FILES = *~macos.*
- IOS_FILES =*~ios.*
- TVOS_FILES = *~tvos.*
- WATCHOS_FILES = *~watchos.*
-
- // First things get excluded. For good measure, exclude ALL platform files
- EXCLUDED_SOURCE_FILE_NAMES = $(MACOS_FILES) $(IOS_FILES) $(TVOS_FILES) $(WATCHOS_FILES)
-
- // Then re-include the platform-specific files
- INCLUDED_SOURCE_FILE_NAMES =
- INCLUDED_SOURCE_FILE_NAMES[sdk=mac*] = $(MACOS_FILES)
- INCLUDED_SOURCE_FILE_NAMES[sdk=iphone*] = $(IOS_FILES)
- INCLUDED_SOURCE_FILE_NAMES[sdk=appletv*] = $(TVOS_FILES)
- INCLUDED_SOURCE_FILE_NAMES[sdk=watch*] = $(WATCHOS_FILES)
- 
-
-
- 
-**/
-
-/* Example:
- 
-
- ///         cSettings: [
- ///             .headerSearchPath("path/relative/to/my/target"),
- ///             .define("DISABLE_SOMETHING", .when(platforms: [.iOS], configuration: .release)),
- ///         ],
- ///         swiftSettings: [
- ///             .define("ENABLE_SOMETHING", .when(configuration: .release)),
- ///         ],
- ///         linkerSettings: [
- ///             .linkLibrary("openssl", .when(platforms: [.linux])),
- ///         ]
- 
- */
-
-
 /*
 TODO:
 SYZ_DEVICE_GCC = BUILDING_FOR_DEVICE=1 BUILDING_FOR_SIMULATOR=0
@@ -79,7 +35,7 @@ let cSettings: Array<CSetting>? = [
     .define("BUILDING_FOR_WATCH", to: "0", .when(platforms: [.macOS, .iOS, .tvOS, .linux])),
     
     .define("BUILDING_FOR_LINUX", to: "1", .when(platforms: [.linux])),
-    .define("BUILDING_FOR_LINUX", to: "0", .when(platforms: [.macOS, .iOS, .tvOS, .watchOS])),
+    .define("BUILDING_FOR_LINUX", to: "0", .when(platforms: [.macOS, .iOS, .tvOS, .watchOS]))
 ]
 
 /* TODO:
@@ -89,11 +45,11 @@ let cSettings: Array<CSetting>? = [
  SYZ_DEVICE[sdk=*simulator] = BUILDING_FOR_SIMULATOR
 
  // App vs Extension
-
  _SYZ_EXTENSION_YES = BUILDING_FOR_EXTENSION
  _SYZ_EXTENSION_NO = BUILDING_FOR_APP
  SYZ_EXTENSION = $(_SYZ_EXTENSION_$(APPLICATION_EXTENSION_API_ONLY))
  */
+
 let swiftSettings: Array<SwiftSetting>? = [
     .define("BUILDING_FOR_MOBILE", .when(platforms: [.iOS, .tvOS, .watchOS])),
     .define("BUILDING_FOR_DESKTOP", .when(platforms: [.macOS, .linux])),
@@ -110,6 +66,7 @@ let package = Package(
     platforms: [.macOS(.v10_12), .iOS(.v11), .watchOS(.v4), .tvOS(.v11)],
     products: [
         .library(name: "SyzygyCore", targets: ["SyzygyCore"]),
+        .library(name: "HTTP", targets: ["HTTP"]),
 //        .library(name: "SyzygyKit", targets: ["SyzygyKit"]),
     ],
     dependencies: [
@@ -135,7 +92,13 @@ let package = Package(
         // Uniform Type Identifiers
         .target(name: "UTI", dependencies: ["Core", "Paths"], cSettings: cSettings, swiftSettings: swiftSettings),
         
-        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "Paths", "StandardLibrary", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
+        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "Paths", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
+        
+        .target(name: "HTTP", dependencies: []),
+        
+        
 //        .target(name: "SyzygyKit", dependencies: ["SyzygyCore"]),
+        
+        .testTarget(name: "HTTPTests", dependencies: ["HTTP"])
     ]
 )
