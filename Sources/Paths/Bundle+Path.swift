@@ -10,6 +10,12 @@ import Foundation
 
 public extension Bundle {
     
+    var path: AbsolutePath { return AbsolutePath(bundleURL) }
+    
+    convenience init?(path: AbsolutePath) {
+        self.init(url: path.fileURL)
+    }
+    
     func absolutePath(forResource name: String?, withExtension ext: String?) -> AbsolutePath? {
         guard let url = self.url(forResource: name, withExtension: ext) else { return nil }
         return AbsolutePath(url)

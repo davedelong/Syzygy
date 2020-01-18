@@ -10,6 +10,13 @@ import Darwin
 
 public extension URL {
     
+    init?(phoneNumber: String) {
+        let notNumbers = CharacterSet.decimalDigits.inverted
+        let cleaned = (phoneNumber as NSString).components(separatedBy: notNumbers).joined()
+        guard cleaned.isEmpty == false else { return nil }
+        self.init(string: "tel://\(cleaned)")
+    }
+    
     var parent: URL? { return self.deletingLastPathComponent() }
     
     func relationship(to other: URL) -> FileManager.URLRelationship {

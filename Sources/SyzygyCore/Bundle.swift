@@ -12,16 +12,10 @@ import Core
 
 public extension Bundle {
     
-    convenience init?(path: AbsolutePath) {
-        self.init(url: path.fileURL)
-    }
-    
     var identifier: Identifier<Bundle, String>? {
         guard let id = bundleIdentifier else { return nil }
         return Identifier(rawValue: id)
     }
-    
-    var path: AbsolutePath { return AbsolutePath(bundleURL) }
     
     var infoPlist: Plist {
         #if BUILDING_FOR_MAC

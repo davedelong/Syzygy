@@ -8,6 +8,12 @@
 
 import Foundation
 
+public protocol URLRouting: class {
+    
+    func performRouting(for urlComponents: URLComponents) -> Bool
+    
+}
+
 public final class URLRouter {
     
     public static let shared = URLRouter()
