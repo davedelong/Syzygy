@@ -20,8 +20,4 @@ extension AbsolutePath {
         self.init(url)
     }
     
-    public func contains(_ other: AbsolutePath) -> Bool {
-        return fileURL.contains(other.fileURL)
-    }    
-    
 }

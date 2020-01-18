@@ -7,19 +7,23 @@
 //
 
 import Foundation
+import Paths
 
 public extension UTI {
+    
     private static let registeredDeviceTypes: Bool = {
         #if BUILDING_FOR_DESKTOP
         let fm = FileManager.default
         let coreTypes = AbsolutePath(fileSystemPath: "/System/Library/CoreServices/CoreTypes.bundle")
-        let embeddedBundles = fm.contentsOfDirectory(at: coreTypes/"Contents"/"Library").filter { $0.extension == "bundle" }
+        let coreTypesLibrary = coreTypes/"Contents"/"Library"
+        let embeddedBundles = try? fm.contentsOfDirectory(atPath: coreTypesLibrary.fileSystemPath).filter { ($0 as NSString).pathExtension == "bundle" }
         
-        let paths = [coreTypes] + embeddedBundles
+        let paths = [coreTypes] + (embeddedBundles ?? [])
         
         let ok = paths.reduce(true) { (soFar, path) -> Bool in
-            guard FileManager.default.folderExists(atPath: path) else { return soFar }
-            return soFar && LSDatabase.shared.register(path, update: false)
+//            guard FileManager.default.folderExists(atPath: path) else { return soFar }
+//            return soFar && LSDatabase.shared.register(AbsolutePath(path), update: false)
+            return soFar
         }
         
         return ok

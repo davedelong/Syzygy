@@ -8,6 +8,24 @@
 
 import Foundation
 
+#if BUILDING_FOR_MAC
+
+import AppKit
+
+public typealias PlatformEdgeInsets = NSEdgeInsets
+
+public extension PlatformEdgeInsets {
+    static let zero = NSEdgeInsetsZero
+}
+
+#elseif BUILDING_FOR_MOBILE
+
+import UIKit
+
+public typealias PlatformEdgeInsets = UIEdgeInsets
+
+#endif
+
 public extension PlatformEdgeInsets {
     
     init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
@@ -68,22 +86,3 @@ public func dtor(_ degrees: CGFloat) -> CGFloat {
 public func rtod(_ radians: CGFloat) -> CGFloat {
     return (radians / CGFloat.tau * 360.0)
 }
-
-
-#if BUILDING_FOR_MAC
-
-import AppKit
-
-public typealias PlatformEdgeInsets = NSEdgeInsets
-
-public extension PlatformEdgeInsets {
-    static let zero = NSEdgeInsetsZero
-}
-
-#elseif BUILDING_FOR_MOBILE
-
-import UIKit
-
-public typealias PlatformEdgeInsets = UIEdgeInsets
-
-#endif

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 public typealias PropertyObserver<T> = (T) -> Void
 

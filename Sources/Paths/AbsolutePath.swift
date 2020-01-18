@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StandardLibrary
 
 public struct AbsolutePath: Path {
     
@@ -85,5 +86,9 @@ public struct AbsolutePath: Path {
         if final.isEmpty { final = [.this] }
         
         return RelativePath(final, shouldReduce: false)
+    }
+    
+    public func contains(_ other: AbsolutePath) -> Bool {
+        return fileURL.contains(other.fileURL)
     }
 }

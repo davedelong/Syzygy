@@ -121,18 +121,18 @@ let package = Package(
         .target(name: "SyzygyCore-ObjC", dependencies: [], exclude: [], cSettings: cSettings, swiftSettings: swiftSettings),
         
         // Raw, fundamental types used EVERYWHERE
-        .target(name: "Core", dependencies: []),
-        
-        // Interacting with the filesystem
-        .target(name: "Paths", dependencies: []),
-        
-        // Uniform Type Identifiers
-        .target(name: "UTI", dependencies: ["Core", "Paths"]),
+        .target(name: "Core", dependencies: [], cSettings: cSettings, swiftSettings: swiftSettings),
         
         // Extensions to Swift Standard Library
-        .target(name: "StandardLibrary", dependencies: ["Core"]),
+        .target(name: "StandardLibrary", dependencies: ["Core"], cSettings: cSettings, swiftSettings: swiftSettings),
         
-        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "Paths", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
+        // Interacting with the filesystem
+        .target(name: "Paths", dependencies: ["StandardLibrary"], cSettings: cSettings, swiftSettings: swiftSettings),
+        
+        // Uniform Type Identifiers
+        .target(name: "UTI", dependencies: ["Core", "Paths"], cSettings: cSettings, swiftSettings: swiftSettings),
+        
+        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "Paths", "StandardLibrary", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
 //        .target(name: "SyzygyKit", dependencies: ["SyzygyCore"]),
     ]
 )

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 open class QueryController<T: Equatable> {
     

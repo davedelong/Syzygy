@@ -16,40 +16,20 @@ import Core
 @_exported import MobileCoreServices
 #endif
 
-public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
-    
-    public static func ==(lhs: UTI, rhs: UTI) -> Bool {
-        if lhs === rhs { return true }
-        return UTTypeEqual(lhs.rawCFValue, rhs.rawCFValue)
-    }
-    
-    public static func ~=(pattern: UTI, value: UTI) -> Bool {
-        return value.conformsTo(pattern)
-    }
-    
-    public static func UTIs(for tagClass: String, tag: String, conformingTo: UTI?) -> Array<UTI> {
-        guard let raw = UTTypeCreateAllIdentifiersForTag(tagClass as CFString, tag as CFString, conformingTo?.rawCFValue) else { return [] }
-        let rawUTIs = raw.takeRetainedValue() as? Array<String> ?? []
-        return rawUTIs.map { UTI(rawValue: $0) }
-    }
-    
-    public static func UTIs(fromFileExtension filenameExtension: String, conformingTo: UTI? = nil) -> Array<UTI> {
-        return UTIs(for: kUTTagClassFilenameExtension as String, tag: filenameExtension, conformingTo: conformingTo)
-    }
-    
-    public static func UTIs(fromMimeType mimeType: String, conformingTo: UTI? = nil) -> Array<UTI> {
-        return UTIs(for: kUTTagClassMIMEType as String, tag: mimeType, conformingTo: conformingTo)
-    }
+public final class UTI: Newtype {
     
     private let rawCFValue: CFString
-    
     public var rawValue: String { return rawCFValue as String }
-    public var hashValue: Int { return rawValue.hashValue }
-    public var description: String {
-        let rawDescription = UTTypeCopyDescription(rawCFValue)?.takeRetainedValue()
-        return rawDescription.map({ $0 as String }) ?? rawValue
+    
+    public init(rawValue: String) {
+        self.rawCFValue = rawValue as CFString
     }
-    public var debugDescription: String { return rawValue }
+    
+    public init(_ cfValue: CFString) {
+        self.rawCFValue = cfValue
+    }
+    
+    /// Lazy properties
     
     public lazy var declaringBundle: Bundle? = { [unowned self] in
         let cfURL = UTTypeCopyDeclaringBundleURL(self.rawCFValue)?.takeRetainedValue()
@@ -84,12 +64,69 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
         return self.tags(for: kUTTagClassFilenameExtension)
     }()
     
-    public init(rawValue: String) {
-        self.rawCFValue = rawValue as CFString
+    #if BUILDING_FOR_MAC
+    public lazy var preferredPasteBoardType: String? = { [unowned self] in
+        return self.preferredTag(for: kUTTagClassNSPboardType)
+    }()
+    
+    public lazy var preferredOSType: String? = { [unowned self] in
+        return self.preferredTag(for: kUTTagClassOSType)
+    }()
+    
+    public lazy var pasteBoardTypes: Array<String> = { [unowned self] in
+        return self.tags(for: kUTTagClassNSPboardType)
+    }()
+    
+    public lazy var OSTypes: Array<String> = { [unowned self] in
+        return self.tags(for: kUTTagClassOSType)
+    }()
+    #endif
+}
+
+extension UTI: ExpressibleByStringLiteral {
+    
+    public convenience init(stringLiteral value: String) {
+        self.init(rawValue: value)
     }
     
-    public init(_ cfValue: CFString) {
-        self.rawCFValue = cfValue
+}
+
+extension UTI: Equatable {
+    
+    public static func ==(lhs: UTI, rhs: UTI) -> Bool {
+        if lhs === rhs { return true }
+        return UTTypeEqual(lhs.rawCFValue, rhs.rawCFValue)
+    }
+    
+}
+
+extension UTI: Hashable {
+    
+    public func hash(into hasher: inout Hasher) {
+        rawCFValue.hash(into: &hasher)
+    }
+    
+}
+
+extension UTI: CustomStringConvertible {
+    
+    public var description: String {
+        let rawDescription = UTTypeCopyDescription(rawCFValue)?.takeRetainedValue()
+        return rawDescription.map({ $0 as String }) ?? rawValue
+    }
+    
+}
+
+extension UTI: CustomDebugStringConvertible {
+    
+    public var debugDescription: String { return rawValue }
+    
+}
+
+extension UTI {
+    
+    public static func ~=(pattern: UTI, value: UTI) -> Bool {
+        return value.conformsTo(pattern)
     }
     
     private convenience init?(tagClass: CFString, tag: String, conformingTo: UTI?) {
@@ -108,6 +145,24 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
     
     public func conformsTo(_ other: UTI) -> Bool {
         return UTTypeConformsTo(rawCFValue, other.rawCFValue)
+    }
+    
+}
+
+extension UTI {
+    
+    public static func UTIs(for tagClass: String, tag: String, conformingTo: UTI?) -> Array<UTI> {
+        guard let raw = UTTypeCreateAllIdentifiersForTag(tagClass as CFString, tag as CFString, conformingTo?.rawCFValue) else { return [] }
+        let rawUTIs = raw.takeRetainedValue() as? Array<String> ?? []
+        return rawUTIs.map { UTI(rawValue: $0) }
+    }
+    
+    public static func UTIs(fromFileExtension filenameExtension: String, conformingTo: UTI? = nil) -> Array<UTI> {
+        return UTIs(for: kUTTagClassFilenameExtension as String, tag: filenameExtension, conformingTo: conformingTo)
+    }
+    
+    public static func UTIs(fromMimeType mimeType: String, conformingTo: UTI? = nil) -> Array<UTI> {
+        return UTIs(for: kUTTagClassMIMEType as String, tag: mimeType, conformingTo: conformingTo)
     }
     
     private func preferredTag(for tagClass: CFString) -> String? {
@@ -137,25 +192,7 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
     public convenience init?(OSType: String, conformingTo: UTI? = nil) {
         self.init(tagClass: kUTTagClassOSType, tag: OSType, conformingTo: conformingTo)
     }
-    
-    public lazy var preferredPasteBoardType: String? = { [unowned self] in
-        return self.preferredTag(for: kUTTagClassNSPboardType)
-    }()
-    
-    public lazy var preferredOSType: String? = { [unowned self] in
-        return self.preferredTag(for: kUTTagClassOSType)
-    }()
-    
-    public lazy var pasteBoardTypes: Array<String> = { [unowned self] in
-        return self.tags(for: kUTTagClassNSPboardType)
-    }()
-    
-    public lazy var OSTypes: Array<String> = { [unowned self] in
-        return self.tags(for: kUTTagClassOSType)
-    }()
     #endif
-    
-    
     
     public struct Declaration {
         private let raw: Dictionary<String, Any>
@@ -202,14 +239,13 @@ public final class UTI: Newtype, Hashable, CustomStringConvertible, CustomDebugS
             let reference: String? = self[kUTTypeReferenceURLKey]
             return reference.flatMap { URL(string: $0) }
         }
-        
-        
-        public init(uti: CFString) {
+                
+        internal init(uti: CFString) {
             let rawDeclaration = UTTypeCopyDeclaration(uti)?.takeRetainedValue()
             self.raw = rawDeclaration.flatMap { $0 as? Dictionary<String, Any> } ?? [:]
         }
         
-        public init(_ declaration: Dictionary<String, Any>) {
+        internal init(_ declaration: Dictionary<String, Any>) {
             self.raw = declaration
         }
         

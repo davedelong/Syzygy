@@ -8,6 +8,7 @@
 
 import Foundation
 import SyzygyCore_ObjC
+import Core
 
 public extension Bundle {
     

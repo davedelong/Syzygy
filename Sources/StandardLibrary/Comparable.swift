@@ -6,7 +6,7 @@
 //  Copyright © 2017 Dave DeLong. All rights reserved.
 //
 
-import Swift
+import Foundation
 
 private func aggregate<C: Collection>(_ values: C, agg: (C.Element, C.Element) -> C.Element) -> C.Element? {
     var final: C.Element?

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 
 /// A MirroredProperty<T> is an observable property that:

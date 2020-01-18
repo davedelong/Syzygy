@@ -6,7 +6,8 @@
 //  Copyright © 2017 Dave DeLong. All rights reserved.
 //
 
-import Foundation
+import StandardLibrary
+import Paths
 
 #if BUILDING_FOR_MAC
 
