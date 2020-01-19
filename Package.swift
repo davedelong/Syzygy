@@ -67,6 +67,7 @@ let package = Package(
     products: [
         .library(name: "SyzygyCore", targets: ["SyzygyCore"]),
         .library(name: "HTTP", targets: ["HTTP"]),
+        .library(name: "XCTestExtensions", targets: ["XCTestExtensions"]),
 //        .library(name: "SyzygyKit", targets: ["SyzygyKit"]),
     ],
     dependencies: [
@@ -95,10 +96,11 @@ let package = Package(
         .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "Paths", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
         
         .target(name: "HTTP", dependencies: []),
+        .target(name: "XCTestExtensions", dependencies: []),
         
         
 //        .target(name: "SyzygyKit", dependencies: ["SyzygyCore"]),
         
-        .testTarget(name: "HTTPTests", dependencies: ["HTTP"])
+        .testTarget(name: "HTTPTests", dependencies: ["HTTP", "XCTestExtensions"])
     ]
 )

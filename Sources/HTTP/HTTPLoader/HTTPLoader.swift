@@ -33,4 +33,30 @@ open class HTTPLoader {
         nextLoader?.reset(with: group)
     }
     
+    @discardableResult
+    public final func load(request: HTTPRequest, completion: @escaping (HTTPResult) -> Void) -> HTTPTask {
+        let task = HTTPTask(request: request, completion: completion)
+        load(task: task)
+        return task
+    }
+    
+}
+
+/*
+ This precendencegroup and operator exist solely to simplify and clarify the declaration of
+ HTTPLoader chains.
+ */
+precedencegroup LoadChainingPrecedence {
+    higherThan: NilCoalescingPrecedence
+    associativity: left
+}
+
+infix operator --> : LoadChainingPrecedence
+
+@discardableResult
+public func --> (lhs: HTTPLoader?, rhs: HTTPLoader?) -> HTTPLoader? {
+    if let r = rhs {
+        lhs?.setNextLoader(r)
+    }
+    return rhs ?? lhs
 }

@@ -1,4 +1,5 @@
 import XCTest
+@_exported import XCTestExtensions
 
 #if !canImport(ObjectiveC)
 public func allTests() -> [XCTestCaseEntry] {

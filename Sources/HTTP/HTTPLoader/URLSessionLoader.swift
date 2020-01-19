@@ -48,8 +48,8 @@ public class URLSessionLoader: HTTPLoader {
             let result = HTTPResult(request: task.request, responseData: data, response: response, error: error)
             task.complete(with: result)
         }
-        // TODO: register urlTask with httpTask
-        // so if the httpTask is cancelled, the urlTask will be too
+        
+        task.addCancelHandler { urlTask.cancel() }
         urlTask.resume()
     }
     
