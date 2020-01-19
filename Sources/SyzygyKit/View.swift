@@ -8,6 +8,62 @@
 
 import Foundation
 
+#if BUILDING_FOR_MAC
+
+public typealias PlatformView = NSView
+public typealias PlatformNib = NSNib
+public typealias PlatformWindow = NSWindow
+public typealias PlatformViewController = NSViewController
+public typealias PlatformLayoutConstraintPriority = NSLayoutConstraint.Priority
+public typealias PlatformLayoutGuide = NSLayoutGuide
+public typealias PlatformTableViewCell = NSTableCellView
+
+public extension PlatformNib {
+    
+    func instantiate(withOwner ownerOrNil: Any?, options optionsOrNil: [AnyHashable : Any]? = nil) -> [Any] {
+        var topLevelObjects: NSArray?
+        let ok = self.instantiate(withOwner: ownerOrNil, topLevelObjects: &topLevelObjects)
+        
+        guard ok == true else { return [] }
+        let typedObjects = topLevelObjects as? Array<Any>
+        return typedObjects ?? []
+    }
+    
+}
+
+extension PlatformNib: BundleResourceLoadable {
+    public static func loadResource(name: String, in bundle: Bundle?) -> PlatformNib? {
+        return PlatformNib(nibNamed: name, bundle: bundle)
+    }
+}
+
+#elseif BUILDING_FOR_MOBILE
+
+public typealias PlatformView = UIView
+public typealias PlatformNib = UINib
+public typealias PlatformWindow = UIWindow
+public typealias PlatformViewController = UIViewController
+public typealias PlatformLayoutConstraintPriority = UILayoutPriority
+public typealias PlatformLayoutGuide = UILayoutGuide
+public typealias PlatformTableViewCell = UITableViewCell
+
+public extension UINib {
+    typealias Name = String
+}
+
+public extension UIView.AutoresizingMask {
+    static let width = UIView.AutoresizingMask.flexibleWidth
+    static let height = UIView.AutoresizingMask.flexibleHeight
+}
+
+extension PlatformNib: BundleResourceLoadable {
+    public static func loadResource(name: String, in bundle: Bundle?) -> PlatformNib? {
+        return PlatformNib(nibName: name, bundle: bundle)
+    }
+}
+
+#endif
+
 public extension R where T == PlatformNib {
     static let nib = R<PlatformNib>()
 }

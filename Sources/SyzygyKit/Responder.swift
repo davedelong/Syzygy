@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if BUILDING_FOR_MAC
+
 public typealias PlatformResponder = NSResponder
 
 public extension PlatformResponder {
@@ -17,3 +19,9 @@ public extension PlatformResponder {
     }
     
 }
+
+#elseif BUILDING_FOR_MOBILE
+
+public typealias PlatformResponder = UIResponder
+
+#endif

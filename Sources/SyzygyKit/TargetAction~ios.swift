@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MOBILE
+
 import UIKit
 
 extension UIBarButtonItem: TargetActionProtocol { }
@@ -80,3 +82,5 @@ internal class ButtonActionHelper: NSObject {
         action.handler(sender)
     }
 }
+
+#endif

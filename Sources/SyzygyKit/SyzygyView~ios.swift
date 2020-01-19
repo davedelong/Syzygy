@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if BUILDING_FOR_MOBILE
+
 public class SyzygyView: PlatformView {
     
     public internal(set) weak var controller: _SyzygyViewControllerBase?
@@ -33,3 +35,5 @@ public class SyzygyView: PlatformView {
     }
     
 }
+
+#endif

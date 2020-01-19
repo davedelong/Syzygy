@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 open class SyzygyView: PlatformView {
     
     public internal(set) weak var controller: _SyzygyViewControllerBase?
@@ -49,3 +51,5 @@ open class SyzygyView: PlatformView {
     }
     
 }
+
+#endif

@@ -6,7 +6,11 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 import Cocoa
 
 extension NSControl: TargetActionProtocol { }
 extension NSMenuItem: TargetActionProtocol { }
+
+#endif

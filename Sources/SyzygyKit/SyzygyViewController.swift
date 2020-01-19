@@ -1,5 +1,5 @@
 //
-//  SyzygyViewController~macos.swift
+//  SyzygyViewController~ios.swift
 //  SyzygyKit
 //
 //  Created by Dave DeLong on 7/6/18.
@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+#if BUILDING_FOR_MAC
 
 open class SyzygyViewController: _SyzygyViewControllerBase {
     
@@ -69,3 +71,25 @@ open class SyzygyViewController: _SyzygyViewControllerBase {
     @objc open func doubleClickAction(_ sender: Any) { }
     
 }
+
+#elseif BUILDING_FOR_MOBILE
+
+open class SyzygyViewController: _SyzygyViewControllerBase {
+    
+    open override func addChild(_ childController: PlatformViewController) {
+        super.addChild(childController)
+        if let child = childController as? SyzygyViewController {
+            if childController.parent == self {
+                child.parentWantsSelection.takeValue(from: wantsSelection)
+            }
+        }
+    }
+    
+    open override func removeFromParent() {
+        super.removeFromParent()
+        parentWantsSelection.takeValue(from: .false)
+    }
+    
+}
+
+#endif
