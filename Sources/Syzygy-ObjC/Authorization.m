@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if TARGET_OS_MAC && !TARGET_OS_IPHONE
+
 #import "Authorization.h"
 #import <dlfcn.h>
 
@@ -75,3 +77,5 @@ typedef OSStatus (*Execute)(AuthorizationRef authorization, const char *pathToTo
 }
 
 @end
+
+#endif

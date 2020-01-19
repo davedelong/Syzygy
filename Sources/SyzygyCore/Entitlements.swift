@@ -8,7 +8,7 @@
 
 import Foundation
 import Structures
-import SyzygyCore_ObjC
+import Syzygy_ObjC
 
 public struct Entitlements {
     #if BUILDING_FOR_MAC

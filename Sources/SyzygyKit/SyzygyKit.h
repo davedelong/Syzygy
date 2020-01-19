@@ -16,7 +16,3 @@
 
 #import <SyzygyCore/SyzygyCore.h>
 #import <SyzygyKit/ViewSwizzling.h>
-
-#if BUILDING_FOR_MAC
-#import <SyzygyKit/Authorization.h>
-#endif

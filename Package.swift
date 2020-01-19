@@ -76,7 +76,7 @@ let package = Package(
     
     targets: [
         // this target is pure Objective-C code. It's for stuff that's either impossible or very difficult to implement in Swift
-        .target(name: "SyzygyCore-ObjC", dependencies: [], exclude: [], cSettings: cSettings, swiftSettings: swiftSettings),
+        .target(name: "Syzygy-ObjC", dependencies: [], exclude: [], cSettings: cSettings, swiftSettings: swiftSettings),
         
         // Raw, fundamental types used EVERYWHERE
         .target(name: "Core", dependencies: [], cSettings: cSettings, swiftSettings: swiftSettings),
@@ -93,7 +93,7 @@ let package = Package(
         // Uniform Type Identifiers
         .target(name: "UTI", dependencies: ["Core", "Paths"], cSettings: cSettings, swiftSettings: swiftSettings),
         
-        .target(name: "SyzygyCore", dependencies: ["SyzygyCore-ObjC", "Core", "Paths", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
+        .target(name: "SyzygyCore", dependencies: ["Syzygy-ObjC", "Core", "Paths", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
         
         .target(name: "HTTP", dependencies: []),
         .target(name: "XCTestExtensions", dependencies: []),
