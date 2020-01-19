@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import Foundation
 
 open class SyzygyScrollingContentViewController: SyzygyViewController {
@@ -36,3 +38,5 @@ open class SyzygyScrollingContentViewController: SyzygyViewController {
     }
     
 }
+
+#endif

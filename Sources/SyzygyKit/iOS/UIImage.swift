@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MOBILE
+
 public typealias PlatformImage = UIImage
 
 extension UIImage: BundleResourceLoadable {
@@ -14,3 +16,5 @@ extension UIImage: BundleResourceLoadable {
         return i?.withRenderingMode(.alwaysTemplate)
     }
 }
+
+#endif

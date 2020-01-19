@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 import Foundation
 
 public protocol ExpressibleAsTabViewItem {
@@ -13,3 +15,5 @@ public protocol ExpressibleAsTabViewItem {
     var tabViewItem: NSTabViewItem { get }
     
 }
+
+#endif

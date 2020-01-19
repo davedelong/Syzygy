@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
 
 open class SyzygySearchController: SyzygyViewController {
@@ -50,3 +52,5 @@ open class SyzygySearchController: SyzygyViewController {
     }
     
 }
+
+#endif

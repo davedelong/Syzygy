@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import Foundation
 
 public class TitleTextItem: DataSourceItemCell {
@@ -38,3 +40,5 @@ public class TitleTextItem: DataSourceItemCell {
     public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
     
 }
+
+#endif

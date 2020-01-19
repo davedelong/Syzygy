@@ -6,8 +6,11 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 import Foundation
 import Security
+import Syzygy_ObjC
 
 private struct MoveStrings {
     static let couldNotMove = "Could not move to Applications folder"
@@ -291,3 +294,5 @@ func Relaunch(_ path: URL) {
     
     Process.launchedProcess(launchPath: "/bin/sh", arguments: ["-c", script])
 }
+
+#endif

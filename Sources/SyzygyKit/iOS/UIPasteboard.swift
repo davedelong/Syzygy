@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
 
 public extension UIPasteboard {
@@ -22,3 +24,5 @@ public extension UIPasteboard {
     }
     
 }
+
+#endif

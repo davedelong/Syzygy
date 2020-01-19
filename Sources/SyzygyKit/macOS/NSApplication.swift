@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 import Cocoa
 
 public extension NSApplication {
@@ -40,3 +42,5 @@ public extension NSApplication {
     }
     
 }
+
+#endif

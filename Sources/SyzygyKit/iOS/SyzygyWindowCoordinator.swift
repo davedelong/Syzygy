@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MOBILE
+
 import SyzygyCore
 
 open class SyzygyWindowCoordinator: Coordinator {
@@ -50,3 +52,5 @@ open class SyzygyWindowCoordinator: Coordinator {
         window.isHidden = true
     }
 }
+
+#endif

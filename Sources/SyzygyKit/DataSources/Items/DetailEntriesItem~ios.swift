@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
 
 open class DetailEntriesItem: DataSourceItemCell {
@@ -101,3 +103,5 @@ private class DetailEntryView: UIView {
     required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
     
 }
+
+#endif

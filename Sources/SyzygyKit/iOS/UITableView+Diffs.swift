@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 public extension UITableView {
     
     /*
@@ -37,3 +39,5 @@ public extension UITableView {
  */
     
 }
+
+#endif

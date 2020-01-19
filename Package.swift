@@ -35,7 +35,10 @@ let cSettings: Array<CSetting>? = [
     .define("BUILDING_FOR_WATCH", to: "0", .when(platforms: [.macOS, .iOS, .tvOS, .linux])),
     
     .define("BUILDING_FOR_LINUX", to: "1", .when(platforms: [.linux])),
-    .define("BUILDING_FOR_LINUX", to: "0", .when(platforms: [.macOS, .iOS, .tvOS, .watchOS]))
+    .define("BUILDING_FOR_LINUX", to: "0", .when(platforms: [.macOS, .iOS, .tvOS, .watchOS])),
+    
+    .define("BUILDING_FOR_UIKIT", to: "1", .when(platforms: [.iOS, .tvOS])),
+    .define("BUILDING_FOR_UIKIT", to: "0", .when(platforms: [.macOS, .watchOS, .linux])),
 ]
 
 /* TODO:
@@ -58,17 +61,18 @@ let swiftSettings: Array<SwiftSetting>? = [
     .define("BUILDING_FOR_TV", .when(platforms: [.tvOS])),
     .define("BUILDING_FOR_WATCH", .when(platforms: [.watchOS])),
     .define("BUILDING_FOR_LINUX", .when(platforms: [.linux])),
+    .define("BUILDING_FOR_UIKIT", .when(platforms: [.iOS, .tvOS])),
 ]
 
 
 let package = Package(
     name: "Syzygy",
-    platforms: [.macOS(.v10_12), .iOS(.v11), .watchOS(.v4), .tvOS(.v11)],
+    platforms: [.macOS(.v10_13), .iOS(.v11), .watchOS(.v4), .tvOS(.v11)],
     products: [
         .library(name: "SyzygyCore", targets: ["SyzygyCore"]),
         .library(name: "HTTP", targets: ["HTTP"]),
         .library(name: "XCTestExtensions", targets: ["XCTestExtensions"]),
-//        .library(name: "SyzygyKit", targets: ["SyzygyKit"]),
+        .library(name: "SyzygyKit", targets: ["SyzygyKit"]),
     ],
     dependencies: [
         .package(url: "https://github.com/ra1028/DifferenceKit", from: "1.1.0"),
@@ -95,11 +99,11 @@ let package = Package(
         
         .target(name: "SyzygyCore", dependencies: ["Syzygy-ObjC", "Core", "Paths", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
         
+        
+        .target(name: "SyzygyKit", dependencies: ["SyzygyCore", "Core"], cSettings: cSettings, swiftSettings: swiftSettings),
+        
         .target(name: "HTTP", dependencies: []),
         .target(name: "XCTestExtensions", dependencies: []),
-        
-        
-//        .target(name: "SyzygyKit", dependencies: ["SyzygyCore"]),
         
         .testTarget(name: "HTTPTests", dependencies: ["HTTP", "XCTestExtensions"])
     ]

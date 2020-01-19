@@ -3,6 +3,8 @@
 //  Copyright © 2016 mergesort. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 public enum TableViewAnimation {
     
     /// Animations which animate the entire `UITableView` together.
@@ -270,3 +272,5 @@ fileprivate extension UITableView {
         }
     }
 }
+
+#endif

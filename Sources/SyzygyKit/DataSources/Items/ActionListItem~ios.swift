@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import Foundation
 
 open class ActionListItem: DataSourceItemCell {
@@ -50,3 +52,5 @@ open class ActionListItem: DataSourceItemCell {
     public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
     
 }
+
+#endif

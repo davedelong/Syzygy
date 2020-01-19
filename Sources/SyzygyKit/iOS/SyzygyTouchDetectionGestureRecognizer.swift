@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit.UIGestureRecognizerSubclass
 
 open class SyzygyTouchDetectionGestureRecognizer: UIGestureRecognizer, UIGestureRecognizerDelegate {
@@ -46,3 +48,5 @@ open class SyzygyTouchDetectionGestureRecognizer: UIGestureRecognizer, UIGesture
     }
     
 }
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
 
 internal class ContextualActionHandler: NSObject {
@@ -42,3 +44,5 @@ internal class ContextualActionHandler: NSObject {
     }
     
 }
+
+#endif

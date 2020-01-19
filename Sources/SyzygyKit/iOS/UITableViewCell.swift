@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import Foundation
 
 public extension UITableViewCell {
@@ -88,3 +90,5 @@ open class ViewControllerTableViewCell: UITableViewCell {
     }
     
 }
+
+#endif

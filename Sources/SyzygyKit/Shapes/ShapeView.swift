@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 public class ShapeView: PlatformView {
     
@@ -93,5 +94,26 @@ public class ShapeView: PlatformView {
 
         platformLayer?.insertSublayer(shapeLayer, at: 0)
     }
+    
+    #if BUILDING_FOR_MAC
+    
+    internal func _configureLayer() {
+        layerContentsRedrawPolicy = .onSetNeedsDisplay
+        canDrawSubviewsIntoLayer = false
+    }
+    
+    internal func _shapeNeedsUpdate() {
+        needsDisplay = true
+    }    
+    
+    #elseif BUILDING_FOR_MOBILE
+    
+    internal func _configureLayer() { }
+    
+    internal func _shapeNeedsUpdate() {
+        setNeedsUpdateConstraints()
+    }
+    
+    #endif
     
 }

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 public typealias PlatformImage = NSImage
 
 extension NSImage: BundleResourceLoadable {
@@ -24,3 +26,5 @@ public extension NSImage {
     }
         
 }
+
+#endif

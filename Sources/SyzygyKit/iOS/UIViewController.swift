@@ -6,7 +6,9 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
+#if BUILDING_FOR_MOBILE
+
+import UIKit
 
 extension UIViewController: _PlatformViewController {
     
@@ -96,3 +98,5 @@ extension UIViewController: _PlatformViewController {
 public extension UIView.AnimationOptions {
     static let crossfade = UIView.AnimationOptions.transitionCrossDissolve
 }
+
+#endif

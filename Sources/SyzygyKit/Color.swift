@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 #if BUILDING_FOR_MAC
 

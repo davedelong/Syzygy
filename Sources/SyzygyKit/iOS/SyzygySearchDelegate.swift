@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import Foundation
 
 open class SyzygySearchDelegate: NSObject, UISearchBarDelegate {
@@ -43,3 +45,5 @@ open class SyzygySearchDelegate: NSObject, UISearchBarDelegate {
     open func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) { }
     
 }
+
+#endif

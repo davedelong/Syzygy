@@ -6,6 +6,8 @@
 //  Copyright © 2019 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
 
 public extension UIView {
@@ -116,3 +118,5 @@ private class KeyboardObserver: NSObject {
     }
     
 }
+
+#endif

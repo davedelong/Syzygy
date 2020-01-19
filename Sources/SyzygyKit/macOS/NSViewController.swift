@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 extension NSViewController: _PlatformViewController {
     
     var loadedView: PlatformView { return view }
@@ -92,3 +94,5 @@ extension NSViewController: _PlatformViewController {
     }
     
 }
+
+#endif

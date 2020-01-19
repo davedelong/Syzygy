@@ -6,7 +6,9 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Foundation
+#if BUILDING_FOR_MOBILE
+
+import UIKit
 
 public extension UIView {
     
@@ -23,3 +25,5 @@ public extension UIView {
     @objc func updateLayer() { }
     
 }
+
+#endif

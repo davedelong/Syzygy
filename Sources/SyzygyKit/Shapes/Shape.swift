@@ -30,6 +30,22 @@ public struct Shape {
 
 public extension Shape {
     
+    #if BUILDING_FOR_MAC
+    
+    static func roundedRect(_ radius: CGFloat) -> Shape { return Shape { rect in
+            return BezierPath(roundedRect: rect, xRadius: radius, yRadius: radius)
+        }
+    }
+    
+    #elseif BUILDING_FOR_MOBILE
+    
+    static func roundedRect(_ radius: CGFloat) -> Shape { return Shape { rect in
+            return BezierPath(roundedRect: rect, cornerRadius: radius)
+        }
+    }
+    
+    #endif
+    
     static let circle = Shape { rect in
         let shortestSide = min(rect.width, rect.height)
         let xOffset = rect.width - shortestSide

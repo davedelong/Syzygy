@@ -6,20 +6,24 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import MapKit
 
 open class MapItem: DataSourceItemCell, MKMapViewDelegate {
     
     private let map: MKMapView
-    private let pinTintColor: UIColor?
+    private let pinTintColor: PlatformColor?
     
-    public init(annotation: MKAnnotation, pinTintColor: UIColor? = nil) {
+    public init(annotation: MKAnnotation, pinTintColor: PlatformColor? = nil) {
         map = MKMapView(frame: CGRect(x: 0, y: 0, width: 320, height: 320))
         self.pinTintColor = pinTintColor
         super.init()
         embedSubview(map)
         
+        #if BUILDING_FOR_UIKIT
         map.isUserInteractionEnabled = false
+        #endif
         map.isZoomEnabled = false
         map.isPitchEnabled = false
         map.isRotateEnabled = false
@@ -47,3 +51,5 @@ open class MapItem: DataSourceItemCell, MKMapViewDelegate {
     }
     
 }
+
+#endif

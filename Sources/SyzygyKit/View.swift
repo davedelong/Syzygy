@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 #if BUILDING_FOR_MAC
 
@@ -125,6 +126,21 @@ public extension PlatformView {
         while let n = subviews.first {
             n.removeFromSuperview()
         }
+    }
+    
+    func firstSubview<T: PlatformView>() -> T? {
+        guard let match = subview(where: { $0 is T }, recurses: true) else { return nil }
+        return match as? T
+    }
+    
+    func subview(where matches: (PlatformView) -> Bool, recurses: Bool = true) -> PlatformView? {
+        for subview in subviews {
+            if matches(subview) { return subview }
+            if recurses {
+                if let match = subview.subview(where: matches, recurses: recurses) { return match }
+            }
+        }
+        return nil
     }
     
 }

@@ -69,6 +69,7 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     
     public let disposable = CompositeDisposable()
     
+    private let shouldLoadEmptyView: Bool
     private var _syzygyView: SyzygyView?
     public var syzygyView: SyzygyView? { return _syzygyView }
     
@@ -106,8 +107,8 @@ open class _SyzygyViewControllerBase: PlatformViewController {
         
         switch ui {
             case .empty:
-                nib = PlatformNib.Name("Empty")
-                bundle = Bundle(for: SyzygyViewController.self)
+                nib = nil
+                bundle = nil
             case .default:
                 let c = type(of: self)
                 let nibAndBundle = _SyzygyViewControllerBase.nibAndBundle(for: c)
@@ -117,6 +118,7 @@ open class _SyzygyViewControllerBase: PlatformViewController {
                 nib = n
                 bundle = b
         }
+        self.shouldLoadEmptyView = (nib != nil)
         super.init(nibName: nib, bundle: bundle)
     }
     
@@ -124,7 +126,12 @@ open class _SyzygyViewControllerBase: PlatformViewController {
     
     open override func loadView() {
         ViewSwizzling.swizzleInHierarchyHooks()
-        super.loadView()
+        
+        if shouldLoadEmptyView == true {
+            self.view = SyzygyView()
+        } else {
+            super.loadView()
+        }
         
         var ddv: SyzygyView?
         

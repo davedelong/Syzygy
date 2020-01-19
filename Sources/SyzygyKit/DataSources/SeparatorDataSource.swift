@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 
 extension Set where Element == SeparatorDataSource.Placement {

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 private let workspaceRunningApps: Property<Array<NSRunningApplication>> = NSWorkspace.shared.observe(keyPath: "runningApplications", initialValue: [])
 
 private let workspaceMountedVolumes: Property<Array<AbsolutePath>> = {
@@ -35,3 +37,5 @@ public extension NSWorkspace {
     var mountedVolumes: Property<Array<AbsolutePath>> { return workspaceMountedVolumes }
     
 }
+
+#endif

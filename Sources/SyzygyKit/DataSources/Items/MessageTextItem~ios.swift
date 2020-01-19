@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import Foundation
 
 public class MessageTextItem: DataSourceItemCell {
@@ -64,3 +66,5 @@ public class MessageTextItem: DataSourceItemCell {
     
     public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
 }
+
+#endif

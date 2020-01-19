@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
 
 open class SeparatorItem: DataSourceItemCell {
@@ -41,3 +43,5 @@ open class SeparatorItem: DataSourceItemCell {
     }
     
 }
+
+#endif

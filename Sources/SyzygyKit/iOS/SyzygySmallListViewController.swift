@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 open class SyzygySmallListViewController<T>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private lazy var table: UITableViewController = {
@@ -95,3 +97,5 @@ extension SyzygySmallListViewController where T == UIViewController {
         self.init(contents: contents, viewControllerExtractor: { $0 })
     }
 }
+
+#endif

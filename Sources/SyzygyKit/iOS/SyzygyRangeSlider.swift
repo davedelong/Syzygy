@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
 import QuartzCore
 
@@ -212,3 +214,5 @@ public class SyzygyRangeSlider: UIControl {
         trackingThumb = nil
     }
 }
+
+#endif

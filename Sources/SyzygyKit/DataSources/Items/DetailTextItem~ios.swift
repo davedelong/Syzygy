@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
 
 open class DetailTextItem: DataSourceItemCell {
@@ -66,3 +68,5 @@ open class DetailTextItem: DataSourceItemCell {
     public required init?(coder aDecoder: NSCoder) { Abort.because(.shutUpXcode) }
     
 }
+
+#endif

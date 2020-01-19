@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 import Cocoa
 
 public extension NSWindowController {
@@ -17,3 +19,5 @@ public extension NSWindowController {
     }
     
 }
+
+#endif 

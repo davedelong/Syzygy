@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 public extension NSTextField {
     
     convenience init(label: String, size: NSControl.ControlSize = .regular) {
@@ -32,3 +34,5 @@ public extension NSTextField {
     }
     
 }
+
+#endif

@@ -6,7 +6,10 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 import UIKit
+import Core
 
 public class ItemViewController: UITableViewController {
     
@@ -151,3 +154,5 @@ extension DataSourceChangeSemantic {
         }
     }
 }
+
+#endif

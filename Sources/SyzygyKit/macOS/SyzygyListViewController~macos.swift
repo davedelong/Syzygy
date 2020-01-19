@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_MAC
+
 import Foundation
 
 open class SyzygyListViewController<T: SyzygyViewController>: SyzygyViewController, NSTableViewDelegate, NSTableViewDataSource {
@@ -94,3 +96,5 @@ open class SyzygyListViewController<T: SyzygyViewController>: SyzygyViewControll
     }
     
 }
+
+#endif

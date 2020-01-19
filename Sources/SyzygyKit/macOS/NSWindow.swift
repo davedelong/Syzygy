@@ -5,6 +5,8 @@
 //  Created by Dave DeLong on 1/18/18.
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
+
+#if BUILDING_FOR_MAC
     
 public extension NSWindow {
     
@@ -81,3 +83,5 @@ private class VisualizedGRView: NSView {
         layer?.backgroundColor = NSColor.green.cgColor
     }
 }
+
+#endif

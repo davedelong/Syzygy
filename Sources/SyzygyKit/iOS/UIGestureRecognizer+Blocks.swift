@@ -6,6 +6,8 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
+#if BUILDING_FOR_UIKIT
+
 public extension UIGestureRecognizer {
     
     func addAction(_ block: @escaping () -> Void) {
@@ -15,3 +17,5 @@ public extension UIGestureRecognizer {
     }
     
 }
+
+#endif
