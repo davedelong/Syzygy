@@ -18,6 +18,7 @@
 @_exported import StandardLibrary
 @_exported import UTI
 @_exported import Paths
+@_exported import Properties
 @_exported import Structures
 
 public extension Bundle {

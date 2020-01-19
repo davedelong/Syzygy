@@ -10,6 +10,7 @@
 
 import Foundation
 import Syzygy_ObjC
+import Properties
 
 public class SharedFileList {
     

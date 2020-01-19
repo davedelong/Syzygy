@@ -8,6 +8,7 @@
 
 import Foundation
 import Structures
+import Properties
 
 public final class Bookmark: Hashable {
     private static let knownBookmarksLock = NSLock()

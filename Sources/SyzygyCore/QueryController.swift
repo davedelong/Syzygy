@@ -8,6 +8,7 @@
 
 import Foundation
 import Core
+import Properties
 
 open class QueryController<T: Equatable> {
     

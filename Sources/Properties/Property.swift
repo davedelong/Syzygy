@@ -17,10 +17,10 @@ public enum PropertyError: Error {
 }
 
 public class Property<T> {
-    private let _lock = NSRecursiveLock()
-    private var _value: T
+    internal let _lock = NSRecursiveLock()
+    internal var _value: T
     
-    private let _observers = Bag<PropertyObserver<T>>()
+    internal let _observers = Bag<PropertyObserver<T>>()
     private let _cleanup = CompositeDisposable()
     
     public var value: T {
@@ -71,20 +71,5 @@ public class Property<T> {
     
     public func addCleanupDisposable(_ disposable: Disposable) {
         _cleanup.add(disposable)
-    }
-    
-    internal func potentiallyModifyValue(_ valueModifier: (T) -> T?) {
-        _lock.lock()
-        if let newValue = valueModifier(_value) {
-            _value = newValue
-            for o in _observers.list() {
-                o(newValue)
-            }
-        }
-        _lock.unlock()
-    }
-    
-    internal func setValue(_ value: T) {
-        potentiallyModifyValue { _ in return value }
     }
 }

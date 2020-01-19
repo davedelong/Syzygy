@@ -9,6 +9,7 @@
 import Foundation
 import Core
 import Structures
+import Properties
 
 public extension MutableProperty where T: PlistConvertible {
     

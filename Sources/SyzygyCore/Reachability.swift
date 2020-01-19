@@ -8,6 +8,7 @@
 
 import Foundation
 import SystemConfiguration
+import Properties
 
 public final class Reachability {
     private let mutableReachable: MutableProperty<Bool>
