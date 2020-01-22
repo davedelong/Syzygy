@@ -35,7 +35,7 @@ open class SegmentedDataSource: AnyDataSource {
         self.changeSemantic = changeSemantic
         
         let titles = children.map { $0.name }
-        self.selectionCell = SegmentedCell.make(with: titles)
+        self.selectionCell = SegmentedCell(titles: titles)
         
         super.init(name: name)
         
@@ -202,40 +202,53 @@ extension SegmentedDataSource: DataSourceParent {
 
 internal class SegmentedCell: DataSourceRowView {
     
-    class func make(with titles: Array<String>) -> SegmentedCell {
-        let cell = SegmentedCell.make()
-        cell.setup(titles: titles)
-        return cell
-    }
-    
     var selectionChanged: ((Int) -> Void)?
     
     #if BUILDING_FOR_DESKTOP
     
-    @IBOutlet private var control: NSSegmentedControl?
+    private let control: NSSegmentedControl
     
-    private func setup(titles: Array<String>) {
-        control?.segmentCount = titles.count
+    init(titles: Array<String>) {
+        control = NSSegmentedControl()
+        super.init(frame: .zero)
+        control.segmentStyle = .capsule
+        control.trackingMode = .selectOne
+        control.segmentDistribution = .fit
+        addSubview(control)
+        control.segmentCount = titles.count
         for (index, title) in titles.enumerated() {
-            control?.setLabel(title, forSegment: index)
+            control.setLabel(title, forSegment: index)
         }
-        control?.selectedSegment = 0
+        control.selectedSegment = 0
+        control.target = self
+        control.action = #selector(segmentAction(_:))
+        
+        NSLayoutConstraint.activate([
+            control.centerXAnchor.constraint(equalTo: centerXAnchor),
+            control.centerYAnchor.constraint(equalTo: centerYAnchor),
+            trailingAnchor.constraint(greaterThanOrEqualTo: control.trailingAnchor, constant: 20),
+            control.topAnchor.constraint(equalTo: topAnchor, constant: 8)
+        ])
     }
     
     @IBAction private func segmentAction(_ segment: NSSegmentedControl) {
         selectionChanged?(segment.selectedSegment)
     }
     
-    #else
+    #elseif BUILDING_FOR_UIKIT
     
-    @IBOutlet private var control: UISegmentedControl?
+    private let control: UISegmentedControl
     
-    private func setup(titles: Array<String>) {
-        control?.removeAllSegments()
+    init(titles: Array<String>) {
+        self.control = UISegmentedControl()
+        super.init(style: .default, reuseIdentifier: nil)
+        addSubview(control)
+        control.removeAllSegments()
         for (index, title) in titles.enumerated() {
-            control?.insertSegment(withTitle: title, at: index, animated: false)
+            control.insertSegment(withTitle: title, at: index, animated: false)
         }
-        control?.selectedSegmentIndex = 0
+        control.selectedSegmentIndex = 0
+        control.addTarget(self, action: #selector(segmentAction(_:)), for: .valueChanged)
     }
     
     @IBAction private func segmentAction(_ segment: UISegmentedControl) {
@@ -244,4 +257,5 @@ internal class SegmentedCell: DataSourceRowView {
     
     #endif
     
+    required init?(coder: NSCoder) { Abort.because(.shutUpXcode) }
 }

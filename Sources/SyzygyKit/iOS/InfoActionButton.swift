@@ -32,6 +32,18 @@ class InfoActionButton: UIView {
         titleLabel = l
         imageView = iv
         
+        addConstraints([
+            iv.widthAnchor.constraint(equalTo: iv.heightAnchor, multiplier: 1.0),
+            iv.heightAnchor.constraint(equalToConstant: 32),
+            
+            iv.topAnchor.constraint(equalTo: topAnchor, constant: 2),
+            l.topAnchor.constraint(equalTo: iv.bottomAnchor, constant: 2),
+            bottomAnchor.constraint(equalTo: l.bottomAnchor, constant: 2),
+            
+            iv.centerXAnchor.constraint(equalTo: centerXAnchor),
+            l.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+        
         addSubview(iv)
         addSubview(l)
     }

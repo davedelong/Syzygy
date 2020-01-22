@@ -19,7 +19,7 @@ open class ActionListItem: DataSourceItemCell {
             let v: UIView
             
             if let i = a.image {
-                let button = InfoActionButton.make()
+                let button = InfoActionButton()
                 button.titleLabel?.text = a.name
                 button.titleLabel?.textColor = actionColor
                 button.imageView?.image = i
