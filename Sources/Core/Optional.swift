@@ -9,14 +9,13 @@
 import Foundation
 
 public protocol OptionalType {
-    associatedtype ValueType
-    var optionalValue: ValueType? { get }
-    init(_ value: ValueType?)
+    associatedtype Wrapped
+    var optionalValue: Wrapped? { get }
+    init(_ value: Wrapped?)
 }
 
 extension Optional: OptionalType {
-    public typealias ValueType = Wrapped
-    public var optionalValue: ValueType? { return self }
+    public var optionalValue: Wrapped? { return self }
     public init(_ value: Wrapped?) {
         self = value
     }
@@ -39,7 +38,7 @@ public func !!<T>(value: T?, error: @autoclosure () -> Abort.Reason) -> T {
 infix operator ?!: NilCoalescingPrecedence
 
 @_transparent
-public func ?!<T: OptionalType>(value: T, error: @autoclosure () -> Error) throws -> T.ValueType {
+public func ?!<T: OptionalType>(value: T, error: @autoclosure () -> Error) throws -> T.Wrapped {
     if let value = value.optionalValue { return value }
     throw error()
 }

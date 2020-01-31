@@ -89,8 +89,22 @@ public extension NSCoding where Self: PlatformView {
 }
 
 public extension PlatformView {
+    
+    static func firstCommonSuperview(_ views: Array<PlatformView>) -> PlatformView? {
+        guard views.count >= 2 else { return views.first }
+        let first = views[0]
+        let remaining = views.dropFirst()
+        // we know remaining has at least one element
+        var common = Set(remaining[0].superviews)
+        common = remaining.dropFirst().reduce(into: common) { $0.formIntersection($1.superviews) }
+        return first.superviews.first(where: common.contains)
+    }
         
     var platformLayer: CALayer? { return layer }
+    
+    var superviews: AnySequence<UIView> {
+        return AnySequence(sequence(first: self, next: { $0.superview }))
+    }
     
     func isEmbeddedIn(_ other: PlatformView) -> Bool {
         var possible: PlatformView? = self
@@ -102,9 +116,8 @@ public extension PlatformView {
     }
     
     func firstCommonSuperview(with otherView: PlatformView) -> PlatformView? {
-        let mySuperviews = sequence(first: self, next: { $0.superview })
-        let theirSuperviews = Set(sequence(first: otherView, next: { $0.superview }))
-        return mySuperviews.first(where: theirSuperviews.contains)
+        let theirSuperviews = Set(otherView.superviews)
+        return superviews.first(where: theirSuperviews.contains)
     }
     
     func embedSubview(_ subview: PlatformView, margins: PlatformEdgeInsets = .zero) {

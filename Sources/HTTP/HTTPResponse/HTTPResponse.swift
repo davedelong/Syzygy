@@ -39,3 +39,27 @@ public struct HTTPResponse {
         return response.allHeaderFields
     }
 }
+
+extension HTTPResponse: CustomStringConvertible {
+    
+    public var description: String {
+        var lines = Array<String>()
+        lines.append("HTTP/1.1 \(statusCode.rawValue) \(localizedStatusDescription)")
+        for (header, value) in allHeaderFields {
+            lines.append("\(header): \(value)")
+        }
+        lines.append("")
+        
+        let bodyData = body.readAll()
+        if bodyData.isEmpty == false {
+            if let string = String(data: bodyData, encoding: .utf8) {
+                lines.append(string)
+            } else {
+                lines.append(bodyData.base64EncodedString())
+            }
+        }
+        
+        return lines.joined(separator: "\n")
+    }
+    
+}

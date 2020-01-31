@@ -8,8 +8,7 @@
 
 import Core
 import Paths
-
-@_exported import Foundation
+import Foundation
 
 #if BUILDING_FOR_MAC
 @_exported import CoreServices

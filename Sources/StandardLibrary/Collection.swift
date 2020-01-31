@@ -134,10 +134,6 @@ public extension Collection {
         return s
     }
     
-    func compacted<T>() -> Array<T> where Element == Optional<T> {
-        return compactMap { $0 }
-    }
-    
     func sorted<C: Comparable>(ascending: Bool = true, by: (Element) -> C) -> Array<Element> {
         if ascending {
             return sorted(by: { by($0) < by($1) })
@@ -199,6 +195,14 @@ public extension Collection {
         }
         splits.append(current)
         return splits
+    }
+    
+}
+
+public extension Collection where Element: OptionalType {
+    
+    var compacted: Array<Element.Wrapped> {
+        return compactMap { $0.optionalValue }
     }
     
 }

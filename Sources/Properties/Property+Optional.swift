@@ -13,7 +13,7 @@ public extension Property where T: OptionalType {
     
     static var empty: Property<T> { return Property<T>(T.init(nil)) }
     
-    func ignoreNil() throws -> Property<T.ValueType> {
+    func ignoreNil() throws -> Property<T.Wrapped> {
         let initial = try value.optionalValue ?! PropertyError.missingInitialValue
         let m = MutableProperty(initial)
         observeNext {
@@ -24,7 +24,7 @@ public extension Property where T: OptionalType {
     
 }
 
-public extension Property where T: OptionalType, T.ValueType: Equatable {
+public extension Property where T: OptionalType, T.Wrapped: Equatable {
     
     func skipRepeats() -> Property<T> {
         return skipRepeats { $0.optionalValue == $1.optionalValue }

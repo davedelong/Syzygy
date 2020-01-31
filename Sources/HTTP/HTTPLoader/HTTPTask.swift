@@ -12,7 +12,8 @@ public class HTTPTask {
     public typealias HTTPHandler = (HTTPResult) -> Void
     
     public var identifier: UUID { request.identifier }
-    public let request: HTTPRequest
+    
+    public private(set) var request: HTTPRequest
     internal private(set) var result: HTTPResult?
     
     public private(set) var isCancelled: Bool = false
@@ -28,6 +29,17 @@ public class HTTPTask {
         self.request = request
         self.completionHandlers = [completion]
         
+    }
+    
+    
+    // Mutate the request of the task
+    // one kind of loader (RequestModifyingLoader)
+    // can directly mutate this as part of loading
+    internal func setRequest(_ newRequest: HTTPRequest) {
+        guard newRequest.identifier == request.identifier else {
+            fatalError("Attempting to mutate task \(identifier) with a completely different request.")
+        }
+        request = newRequest
     }
     
 }

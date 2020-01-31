@@ -25,10 +25,10 @@ public extension MutableProperty where T: PlistConvertible {
     
 }
 
-public extension MutableProperty where T: OptionalType, T.ValueType: PlistConvertible {
+public extension MutableProperty where T: OptionalType, T.Wrapped: PlistConvertible {
     
     convenience init(bookmark: Bookmark, key: String, defaultValue: T) {
-        let persisted: T.ValueType? = bookmark[key] ?? defaultValue.optionalValue
+        let persisted: T.Wrapped? = bookmark[key] ?? defaultValue.optionalValue
         let initial: T = T.init(persisted)
         self.init(initial)
         

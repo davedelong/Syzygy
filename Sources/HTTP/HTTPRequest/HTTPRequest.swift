@@ -69,3 +69,39 @@ extension HTTPRequest {
     }
     
 }
+
+extension HTTPRequest: CustomStringConvertible {
+    
+    public var description: String {
+        var lines = Array<String>()
+        
+        var query = ""
+        if let qi = queryItems {
+            query = "?" + qi.map({ $0.formURLEncoded }).joined(separator: "&")
+        }
+        
+        lines.append("\(method.rawValue) \(path)\(query) HTTP/1.1")
+        if let host = host {
+            lines.append("Host: \(host)")
+        }
+        
+        for (name, value) in headers {
+            lines.append("\(name): \(value)")
+        }
+        
+        if let bodyStream = try? body?.encodeToStream(), body?.isEmpty == false {
+            let body = bodyStream.readAll()
+            lines.append("")
+            if let string = String(data: body, encoding: .utf8) {
+                lines.append(string)
+            } else {
+                lines.append(body.base64EncodedString())
+            }
+            
+        }
+        
+        lines.append("")
+        return lines.joined(separator: "\n")
+    }
+    
+}
