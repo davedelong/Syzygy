@@ -6,7 +6,7 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-#if TARGET_OS_MAC && !TARGET_OS_IPHONE
+#if BUILDING_FOR_MAC
 
 #import "include/IOKit.h"
 #import <IOKit/IOKitLib.h>
