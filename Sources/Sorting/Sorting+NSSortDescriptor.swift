@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Sorter {
+extension Sorter where Element: NSObjectProtocol {
     
     public init(sortDescriptor: NSSortDescriptor) {
         self.compare = { lhs, rhs in
@@ -18,6 +18,11 @@ extension Sorter {
                 case .orderedDescending: return .descending
             }
         }
+    }
+    
+    public init(sortDescriptors: Array<NSSortDescriptor>) {
+        let mapped = sortDescriptors.map { Sorter(sortDescriptor: $0) }
+        self.init(mapped)
     }
     
 }
