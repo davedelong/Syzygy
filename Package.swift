@@ -94,13 +94,16 @@ let package = Package(
         // Observables
         .target(name: "Properties", dependencies: ["StandardLibrary", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
         
+        // Sorting 
+        .target(name: "Sorting", dependencies: ["StandardLibrary"], cSettings: cSettings, swiftSettings: swiftSettings),
+        
         // Structured persistence types (Plist, JSON)
         .target(name: "Structures", dependencies: ["Paths"], cSettings: cSettings, swiftSettings: swiftSettings),
         
         // Uniform Type Identifiers
         .target(name: "UTI", dependencies: ["Core", "Paths"], cSettings: cSettings, swiftSettings: swiftSettings),
         
-        .target(name: "SyzygyCore", dependencies: ["Syzygy-ObjC", "Core", "Paths", "Properties",  "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
+        .target(name: "SyzygyCore", dependencies: ["Syzygy-ObjC", "Core", "Paths", "Properties", "Sorting", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
         
         
         .target(name: "SyzygyKit", dependencies: ["SyzygyCore", "Core"], cSettings: cSettings, swiftSettings: swiftSettings),
