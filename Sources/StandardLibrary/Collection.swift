@@ -13,6 +13,11 @@ public extension Collection {
     
     var isNotEmpty: Bool { return isEmpty == false }
     
+    var firstIndex: Index? {
+        guard isNotEmpty else { return nil }
+        return startIndex
+    }
+    
     func every(_ predicate: (Element) -> Bool) -> Bool {
         return all(predicate)
     }
@@ -273,6 +278,14 @@ public extension Collection where Index: Strideable {
     
 }
 
+public extension BidirectionalCollection {
+    
+    var lastIndex: Index? {
+        guard isNotEmpty else { return nil }
+        return index(before: endIndex)
+    }
+    
+}
 
 public struct ChunkedCollection<Base: Collection>: Collection {
     private let base: Base
