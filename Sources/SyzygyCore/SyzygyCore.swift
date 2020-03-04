@@ -16,10 +16,13 @@
 
 @_exported import Core
 @_exported import StandardLibrary
-@_exported import UTI
+
 @_exported import Paths
+@_exported import Predicate
 @_exported import Properties
+@_exported import Sorting
 @_exported import Structures
+@_exported import UTI
 
 public extension Bundle {
     

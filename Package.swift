@@ -91,6 +91,9 @@ let package = Package(
         // Interacting with the filesystem
         .target(name: "Paths", dependencies: ["StandardLibrary"], cSettings: cSettings, swiftSettings: swiftSettings),
         
+        // Predicates
+        .target(name: "Predicate", dependencies: ["Syzygy-ObjC", "StandardLibrary"], cSettings: cSettings, swiftSettings: swiftSettings),
+        
         // Observables
         .target(name: "Properties", dependencies: ["StandardLibrary", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
         
@@ -103,7 +106,7 @@ let package = Package(
         // Uniform Type Identifiers
         .target(name: "UTI", dependencies: ["Core", "Paths"], cSettings: cSettings, swiftSettings: swiftSettings),
         
-        .target(name: "SyzygyCore", dependencies: ["Syzygy-ObjC", "Core", "Paths", "Properties", "Sorting", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
+        .target(name: "SyzygyCore", dependencies: ["Syzygy-ObjC", "Core", "Paths", "Predicate", "Properties", "Sorting", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
         
         
         .target(name: "SyzygyKit", dependencies: ["SyzygyCore", "Core"], cSettings: cSettings, swiftSettings: swiftSettings),
