@@ -12,7 +12,7 @@ import Foundation
     
 import IOKit
 import Collaboration
-import Syzygy_ObjC
+import ObjCBridge
 
 public let System = SystemType()
 

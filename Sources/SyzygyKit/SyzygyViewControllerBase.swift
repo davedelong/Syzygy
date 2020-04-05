@@ -6,7 +6,7 @@
 //  Copyright © 2018 Syzygy. All rights reserved.
 //
 
-import Syzygy_ObjC
+import ObjCBridge
 
 public extension Abort.Reason {
     static func viewController(_ vc: PlatformViewController, mustBeChildOf parent: PlatformViewController) -> Abort.Reason {

@@ -9,7 +9,7 @@
 #if BUILDING_FOR_MAC
 
 import Foundation
-import Syzygy_ObjC
+import ObjCBridge
 import Properties
 
 public class SharedFileList {

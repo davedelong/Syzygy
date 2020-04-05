@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Syzygy_ObjC
+import ObjCBridge
 
 extension Predicate where Element: NSObjectProtocol {
     

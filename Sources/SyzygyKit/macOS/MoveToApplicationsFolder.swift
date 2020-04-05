@@ -10,7 +10,7 @@
 
 import Foundation
 import Security
-import Syzygy_ObjC
+import ObjCBridge
 
 private struct MoveStrings {
     static let couldNotMove = "Could not move to Applications folder"
