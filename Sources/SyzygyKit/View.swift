@@ -102,7 +102,7 @@ public extension PlatformView {
         
     var platformLayer: CALayer? { return layer }
     
-    var superviews: AnySequence<UIView> {
+    var superviews: AnySequence<PlatformView> {
         return AnySequence(sequence(first: self, next: { $0.superview }))
     }
     

@@ -10,7 +10,7 @@
 
 #import "include/_LSSharedFileList.h"
 
-#import <CoreServices/CoreServices.h>
+@import CoreServices.SharedFileList;
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
