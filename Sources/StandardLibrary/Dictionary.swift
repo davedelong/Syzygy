@@ -19,6 +19,16 @@ public extension Dictionary {
         return mapped
     }
     
+    func mapKeys<NewKey: Hashable>(_ block: (Key) throws -> NewKey?) rethrows -> Dictionary<NewKey, Value> {
+        var final = Dictionary<NewKey, Value>()
+        for (k, v) in self {
+            if let nk = try block(k) {
+                final[nk] = v
+            }
+        }
+        return final
+    }
+    
     mutating func append(contentsOf other: Dictionary<Key, Value>) {
         for (key, value) in other {
             self[key] = value
