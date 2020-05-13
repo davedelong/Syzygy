@@ -65,3 +65,23 @@ public extension Collection where Element: Comparable {
     }
     
 }
+
+public extension Collection {
+    
+    func max<C: Comparable>(by property: (Element) -> C) -> Element? {
+        return self.max(by: { (l, r) -> Bool in
+            let lValue = property(l)
+            let rValue = property(r)
+            return lValue < rValue
+        })
+    }
+    
+    func min<C: Comparable>(by property: (Element) -> C) -> Element? {
+        return self.min(by: { (l, r) -> Bool in
+            let lValue = property(l)
+            let rValue = property(r)
+            return lValue < rValue
+        })
+    }
+    
+}
