@@ -8,74 +8,26 @@
 
 import Foundation
 
-public protocol Interpolating {
-    func interpolate(_ value: Double) -> Double
-}
-
-public protocol ReverseInterpolating: Interpolating {
-    func reverseInterpolate(_ value: Double) -> Double
-}
-
-public typealias Interpolatable = Scalable & SignedNumeric & Comparable
-
-public extension Interpolating {
+public struct Interpolator {
     
-    func interpolate<T: Interpolatable>(range: ClosedRange<T>, percentile: ClosedRange<Double>) -> ClosedRange<T> {
-        let l = range.value(at: percentile.lowerBound, interpolator: self)
-        let u = range.value(at: percentile.upperBound, interpolator: self)
-        return ClosedRange(uncheckedBounds: (lower: l, upper: u))
+    public static func linear(_ range: ClosedRange<Double>) -> Interpolator {
+        let span = range.span
+        let lower = range.lowerBound
+        return Interpolator(interpolate: { ($0 - lower) / span },
+                            reverseInterpolate: { ($0 * span) + lower })
     }
     
-}
-
-public extension ReverseInterpolating {
-    
-    func reverseInterpolate<T: Interpolatable>(range: ClosedRange<T>, value: ClosedRange<T>) -> ClosedRange<Double> {
-        var l = 0.0
-        if value.lowerBound > range.lowerBound {
-            l = range.percentile(at: value.lowerBound, interpolator: self)
-        }
-        
-        var u = 1.0
-        if value.upperBound < range.upperBound {
-            u = range.percentile(at: value.upperBound, interpolator: self)
-        }
-        return l ... u
+    public static func logarithmic(_ range: ClosedRange<Double>, scale: Double) -> Interpolator {
+        let s = max(scale, 0.1)
+        return Interpolator(interpolate: { exp(s * $0 + 1) / exp(s + 1) },
+                            reverseInterpolate: { (log($0 * exp(s + 1)) - 1) / s })
     }
     
-}
-
-public struct LinearInterpolator: ReverseInterpolating {
+    public let interpolate: (Double) -> Double
+    public let reverseInterpolate: (Double) -> Double
     
-    public init() { }
-    
-    public func interpolate(_ value: Double) -> Double {
-        return value
+    public init(interpolate: @escaping (Double) -> Double, reverseInterpolate: @escaping (Double) -> Double) {
+        self.interpolate = interpolate
+        self.reverseInterpolate = reverseInterpolate
     }
-    
-    public func reverseInterpolate(_ value: Double) -> Double {
-        return value
-    }
-}
-
-public struct LogarithmicInterpolator: ReverseInterpolating {
-    
-    private let scale: Double
-    
-    // the larger the number, the "steeper" the curve
-    // the number may not be smaller than 0.1
-    public init(magicNumber: Double = 7.0) {
-        scale = max(magicNumber, 0.1)
-    }
-    
-    public func interpolate(_ value: Double) -> Double {
-        let r = scale * value
-        return exp(r + 1) / exp(scale + 1)
-    }
-    
-    public func reverseInterpolate(_ value: Double) -> Double {
-        let b = value * exp(scale + 1)
-        return (log(b) - 1) / scale
-    }
-    
 }

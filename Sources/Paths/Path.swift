@@ -39,7 +39,7 @@ public enum PathComponent: Hashable {
     }
     
     public var itemString: String? {
-        guard case .item(_) = self else { return nil }
+        guard case .item = self else { return nil }
         return asString
     }
 }

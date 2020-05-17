@@ -31,22 +31,3 @@ public extension Ranging where Bound: Comparable {
     }
     
 }
-
-public extension Ranging where Bound: Interpolatable {
-    
-    func value(at percentile: Double, interpolator: Interpolating = LinearInterpolator()) -> Bound {
-        if percentile <= 0 { return lowerBound }
-        if percentile >= 1 { return upperBound }
-        
-        let offset = span.scale(by: percentile, interpolator: interpolator)
-        return lowerBound + offset
-    }
-    
-    func percentile(at value: Bound, interpolator: ReverseInterpolating = LinearInterpolator()) -> Double {
-        if value <= lowerBound { return 0 }
-        if value >= upperBound { return 1 }
-        
-        return span.percentage(of: value, interpolator: interpolator)
-    }
-    
-}
