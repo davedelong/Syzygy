@@ -18,9 +18,10 @@ public struct Interpolator {
     }
     
     public static func logarithmic(_ range: ClosedRange<Double>) -> Interpolator {
-        let logRange = log(range.upperBound) - log(range.lowerBound)
-        return Interpolator(interpolate: { ($0 - log(range.lowerBound)) / logRange },
-                            reverseInterpolate: { ($0 * logRange) + log(range.lowerBound) })
+        let logMin = log1p(range.lowerBound)
+        let logRange = log1p(range.upperBound) - log1p(range.lowerBound)
+        return Interpolator(interpolate: { (log1p($0) - logMin) / logRange },
+                            reverseInterpolate: { expm1(($0 * logRange) + logMin) })
     }
     
     public let interpolate: (Double) -> Double
