@@ -17,10 +17,10 @@ public struct Interpolator {
                             reverseInterpolate: { ($0 * span) + lower })
     }
     
-    public static func logarithmic(_ range: ClosedRange<Double>, scale: Double) -> Interpolator {
-        let s = max(scale, 0.1)
-        return Interpolator(interpolate: { exp(s * $0 + 1) / exp(s + 1) },
-                            reverseInterpolate: { (log($0 * exp(s + 1)) - 1) / s })
+    public static func logarithmic(_ range: ClosedRange<Double>) -> Interpolator {
+        let logRange = log(range.upperBound) - log(range.lowerBound)
+        return Interpolator(interpolate: { ($0 - log(range.lowerBound)) / logRange },
+                            reverseInterpolate: { ($0 * logRange) + log(range.lowerBound) })
     }
     
     public let interpolate: (Double) -> Double
