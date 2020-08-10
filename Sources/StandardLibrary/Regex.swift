@@ -10,22 +10,22 @@ import Foundation
 
 public struct Regex {
     
-    private let pattern: NSRegularExpression?
+    private let pattern: NSRegularExpression
     
-    public init(pattern: String, options: NSRegularExpression.Options = []) {
-        self.pattern = try? NSRegularExpression(pattern: pattern, options: options)
+    public init(_ pattern: StaticString, options: NSRegularExpression.Options = []) {
+        self.pattern = try! NSRegularExpression(pattern: "\(pattern)", options: options)
+    }
+    
+    public init(pattern: String, options: NSRegularExpression.Options = []) throws {
+        self.pattern = try NSRegularExpression(pattern: pattern, options: options)
     }
     
     public func matches(_ string: String) -> Bool  {
-        guard let pattern = pattern else { return false }
-        
         let range = NSRange(location: 0, length: string.utf16.count)
         return pattern.numberOfMatches(in: string, options: [.withTransparentBounds], range: range) > 0
     }
     
     public func match(_ string: String) -> RegexMatch? {
-        guard let pattern = pattern else { return nil }
-        
         let range = NSRange(location: 0, length: string.utf16.count)
         guard let match = pattern.firstMatch(in: string, options: [.withTransparentBounds], range: range) else { return nil }
         return RegexMatch(result: match, source: string)
@@ -35,7 +35,7 @@ public struct Regex {
         var matches = Array<RegexMatch>()
         
         let range = NSRange(location: 0, length: string.utf16.count)
-        pattern?.enumerateMatches(in: string, options: [], range: range) { (result, flags, stop) in
+        pattern.enumerateMatches(in: string, options: [], range: range) { (result, flags, stop) in
             if let result = result {
                 let match = RegexMatch(result: result, source: string)
                 matches.append(match)
@@ -47,9 +47,9 @@ public struct Regex {
 }
 
 extension Regex: ExpressibleByStringLiteral {
-    public init(stringLiteral value: String) { self.init(pattern: value) }
-    public init(extendedGraphemeClusterLiteral value: String) { self.init(pattern: value) }
-    public init(unicodeScalarLiteral value: String) { self.init(pattern: value) }
+    public init(stringLiteral value: StaticString) { self.init(value) }
+    public init(extendedGraphemeClusterLiteral value: StaticString) { self.init(value) }
+    public init(unicodeScalarLiteral value: StaticString) { self.init(value) }
 }
 
 public struct RegexMatch {
@@ -89,7 +89,7 @@ public func ~= (left: Regex, right: String) -> RegexMatch? {
 public extension String {
     
     func matches(regex: String) -> Bool {
-        let r = Regex(pattern: regex)
+        guard let r = try? Regex(pattern: regex) else { return false }
         return r.matches(self)
     }
     
@@ -98,7 +98,7 @@ public extension String {
     }
     
     func match(regex: String) -> RegexMatch? {
-        let r = Regex(pattern: regex)
+        guard let r = try? Regex(pattern: regex) else { return nil }
         return r.match(self)
     }
     

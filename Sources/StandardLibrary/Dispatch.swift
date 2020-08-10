@@ -17,6 +17,14 @@ public extension DispatchQueue {
         return getSpecific(key: LabelKey) ?? "UNK"
     }
     
+    class func onMain(execute: @escaping () -> Void) {
+        if Thread.isMainThread {
+            execute()
+        } else {
+            DispatchQueue.main.async(execute: execute)
+        }
+    }
+    
     convenience init(specificLabel: String, target: DispatchQueue? = nil) {
         self.init(label: specificLabel, target: target)
         setSpecific(key: LabelKey, value: specificLabel)
