@@ -67,7 +67,7 @@ let swiftSettings: Array<SwiftSetting>? = [
 
 let package = Package(
     name: "Syzygy",
-    platforms: [.macOS(.v10_13), .iOS(.v11), .watchOS(.v4), .tvOS(.v11)],
+    platforms: [.macOS(.v10_15), .iOS(.v11), .watchOS(.v4), .tvOS(.v11)],
     products: [
         .library(name: "SyzygyCore", targets: ["SyzygyCore"]),
         .library(name: "SyzygyUI", targets: ["SyzygyUI"]),
