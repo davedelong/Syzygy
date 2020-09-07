@@ -70,7 +70,7 @@ let package = Package(
     platforms: [.macOS(.v10_13), .iOS(.v11), .watchOS(.v4), .tvOS(.v11)],
     products: [
         .library(name: "SyzygyCore", targets: ["SyzygyCore"]),
-        .library(name: "HTTP", targets: ["HTTP"]),
+        .library(name: "SyzygyUI", targets: ["SyzygyUI"]),
         .library(name: "XCTestExtensions", targets: ["XCTestExtensions"]),
         .library(name: "SyzygyKit", targets: ["SyzygyKit"]),
     ],
@@ -109,11 +109,11 @@ let package = Package(
         .target(name: "SyzygyCore", dependencies: ["ObjCBridge", "Core", "Paths", "Predicate", "Properties", "Sorting", "StandardLibrary", "Structures", "UTI", "DifferenceKit"], cSettings: cSettings, swiftSettings: swiftSettings),
         
         
+        .target(name: "SyzygyUI", dependencies: ["SyzygyCore", "Core"], cSettings: cSettings, swiftSettings: swiftSettings),
+        
+        
         .target(name: "SyzygyKit", dependencies: ["SyzygyCore", "Core"], cSettings: cSettings, swiftSettings: swiftSettings),
         
-        .target(name: "HTTP", dependencies: []),
-        .target(name: "XCTestExtensions", dependencies: []),
-        
-        .testTarget(name: "HTTPTests", dependencies: ["HTTP", "XCTestExtensions"])
+        .target(name: "XCTestExtensions", dependencies: [])
     ]
 )
