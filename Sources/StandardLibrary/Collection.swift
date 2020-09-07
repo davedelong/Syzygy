@@ -18,6 +18,14 @@ public extension Collection {
         return startIndex
     }
     
+    func filter<T>(is type: T.Type) -> Array<T> {
+        return compactMap { $0 as? T }
+    }
+    
+    func filter<T>(isNot type: T.Type) -> Array<Element> {
+        return compactMap { $0 is T ? nil : $0 }
+    }
+    
     func every(_ predicate: (Element) -> Bool) -> Bool {
         return all(predicate)
     }
