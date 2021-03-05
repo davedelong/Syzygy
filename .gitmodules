@@ -3,4 +3,4 @@
 	url = git@github.com:davedelong/SyzygyGlyphish.git
 [submodule "DifferenceKit"]
 	path = DifferenceKit
-	url = git@github.com:ra1028/DifferenceKit.git
+	url = https://github.com/ra1028/DifferenceKit.git
